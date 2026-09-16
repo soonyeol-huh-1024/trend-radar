@@ -1,0 +1,20 @@
+{
+  "_comment": "검증된 시드 키워드 = tt→gg→az 체인 완성 대박이 데이터로 확인된 상품 키워드. hit_score v2(피크 기반)+gg_surge≥10 으로 교정. 엔티티(katseye/fifa/imax/fire horse)는 상품이 아니라 제외. 유사성 분석 결과로 반복 갱신한다.",
+  "version": 2,
+  "updated": "2026-09-07",
+  "history": {
+    "v1_removed": ["alani nu", "celsius", "hello kitty", "kuromi", "casio", "gshock", "laneige", "comfort colors", "buldak"],
+    "v1_removed_reason": "2024-08~ 창에서 대박 아님(정점이 데이터 이전) 또는 틱톡 스파이크 없음 또는 구글 동반 급등 없음(gg_surge<10)"
+  },
+  "seeds": [
+    {"keyword": "labubu",     "hit_pct": 100, "countries": ["UK","US","DE","FR"], "note": "CN 아트토이, az_pre 0 → 피크 81"},
+    {"keyword": "medicube",   "hit_pct": 99,  "countries": ["ES","FR","US","JP","CA"], "note": "K-뷰티, 5개국 동시"},
+    {"keyword": "pdrn",       "hit_pct": 95,  "countries": ["CA","US","JP"], "note": "K-뷰티 성분, az_pre 0"},
+    {"keyword": "pop mart",   "hit_pct": 95,  "countries": ["DE","US","UK","FR"], "note": "labubu 모브랜드, CN 컬렉터블"},
+    {"keyword": "squishy",    "hit_pct": 96,  "countries": ["US"], "note": "저가 장난감"},
+    {"keyword": "rejuran",    "hit_pct": 94,  "countries": ["UK","US","FR"], "note": "K-뷰티 PDRN 브랜드, az_pre 0"},
+    {"keyword": "vita coco",  "hit_pct": 93,  "countries": ["DE","FR"], "note": "코코넛워터, 저가 소모품"},
+    {"keyword": "sharkninja", "hit_pct": 91,  "countries": ["DE","US"], "note": "가전 브랜드 재부상"},
+    {"keyword": "biodance",   "hit_pct": 89,  "countries": ["UK","FR","US"], "note": "K-뷰티 콜라겐 마스크"}
+  ]
+}

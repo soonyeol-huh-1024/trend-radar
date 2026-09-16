@@ -1,0 +1,370 @@
+<title>셀러킴 9월 3주</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root{--paper:#F4F6F5;--paper2:#E9EEEC;--ink:#15242B;--muted:#5B6B72;--rule:#CFD8D5;
+ --brand:#0E8AA6;--hi:#C2452D;--good:#3A8F3F;--pen:rgba(255,212,77,.62);--pen-r:rgba(224,120,90,.38);
+ --serif:'Hahmlet','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR','Apple SD Gothic Neo',sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32)}}
+:root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:30px 22px 70px}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0;text-wrap:balance;line-height:1.3}
+p{margin:0 0 1.3em}
+img{max-width:100%;display:block}
+strong,b{font-weight:600}
+.mono{font-family:var(--mono)}
+/* 제호 */
+.mast{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.mast h1{font-size:34px;letter-spacing:-.02em}
+.mast .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+/* 표지 */
+.cover{position:relative;margin:18px 0 0}
+.cover img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.cover .line{position:absolute;left:0;right:0;bottom:0;padding:70px 24px 22px;color:#fff;
+  background:linear-gradient(transparent,rgba(10,20,25,.78));border-radius:0 0 3px 3px}
+.cover .line .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;opacity:.85;margin-bottom:6px}
+.cover .line h2{color:#fff;font-size:30px;line-height:1.25}
+.cover .line p{margin:8px 0 0;font-size:14.5px;line-height:1.6;opacity:.92;max-width:520px}
+/* 목차 */
+.toc{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.toc .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:5px}
+.toc .t{font-weight:500}
+.toc .t small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.5}
+/* 편집자의 말 */
+.note{padding:26px 0;border-bottom:1px solid var(--rule);font-size:16.5px}
+.note .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+/* 기사 */
+article{padding:44px 0;border-bottom:1px solid var(--rule)}
+article:last-of-type{border-bottom:0}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+article h2{font-size:30px;margin-bottom:12px}
+article.short h2{font-size:24px}
+.deck{font-size:17.5px;line-height:1.7;color:var(--muted);margin:0 0 22px;text-wrap:pretty}
+h3.sub{font-family:var(--serif);font-size:20px;font-weight:700;margin:34px 0 10px;line-height:1.45}
+.lead:first-letter{font-family:var(--serif);font-size:3.1em;font-weight:700;float:left;line-height:.85;margin:6px 8px 0 0}
+/* 사진 */
+figure{margin:24px 0}
+figure img{width:100%;object-fit:cover;border-radius:3px}
+figure.ph img{filter:saturate(.88) contrast(1.03)}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
+.w32 img{aspect-ratio:3/2}
+.w43 img{aspect-ratio:4/3}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.pair figure{margin:0}
+.pair img{aspect-ratio:1/1}
+.pair figcaption{font-size:12.5px}
+@media (max-width:520px){.pair{grid-template-columns:1fr}}
+/* 인용 */
+.pull{font-family:var(--serif);font-size:23px;line-height:1.5;font-weight:500;margin:30px 0;padding:6px 0 6px 20px;border-left:3px solid var(--brand);text-wrap:balance}
+/* 차트 */
+.fig{background:var(--paper2);border-radius:3px;padding:18px 18px 14px;margin:26px 0}
+.fig h4{margin:0 0 3px;font-size:14px;font-weight:600}
+.fig .cap{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-bottom:12px}
+.cv{position:relative;height:160px}
+.cv canvas{width:100%!important;height:100%!important}
+/* 상품 카드 */
+.card{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:start;padding:22px 0;border-top:1px solid var(--rule)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;background:#fff}
+.card h4{font-family:var(--sans);font-size:17.5px;font-weight:600;margin:0 0 4px;line-height:1.5}
+.card .n{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:8px}
+.card p{margin:0;font-size:15.5px}
+@media (max-width:560px){.card{grid-template-columns:1fr;gap:14px}}
+/* 목록 항목 (사진 없음) */
+.row{padding:16px 0;border-top:1px solid var(--rule)}
+.row h4{font-family:var(--sans);font-size:16.5px;font-weight:600;margin:0 0 2px}
+.row .n{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:6px}
+.row p{margin:0;font-size:15.5px}
+/* 박스 */
+.box{background:var(--paper2);border-radius:3px;padding:22px 24px 8px;margin:30px 0}
+.box .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:4px}
+.box h3{font-family:var(--serif);font-size:20px;margin:0 0 6px}
+.box .lede{font-size:14.5px;color:var(--muted);margin:0 0 6px}
+.box .row:first-of-type{border-top:0}
+/* 통신 */
+.dateline{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--brand);margin:30px 0 6px}
+/* 형광펜 */
+.hl{background-image:linear-gradient(transparent 52%,var(--pen) 52%,var(--pen) 93%,transparent 93%);
+    padding:0 2px;margin:0 -1px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl.r{--pen:var(--pen-r)}
+/* 메모 */
+.memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
+.memo b{color:var(--ink)}
+footer{padding-top:24px;font-size:13px;color:var(--muted);line-height:1.75}
+footer b{color:var(--ink)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <h1>셀러킴</h1>
+  <div class="meta">제2호 · 2026년 9월 3주</div>
+</header>
+
+<div class="cover">
+  <img src="{{IMG_COVER}}" alt="창가에 놓인 호박과 캔들">
+  <div class="line">
+    <div class="k">커버스토리</div>
+    <h2>바다 건너 9월</h2>
+    <p>미국에서는 한 달에 100만 번 검색되는 상품이 한국에서는 2천 번에 그칩니다. 왜 이런 차이가 나는지 살펴봤습니다.</p>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="k">커버스토리</div><div class="t">바다 건너 9월 <small>한국엔 아직 없는 트렌드 — 가을 장식, 클러스터 속눈썹, 워킹패드, 그리고 거꾸로 건너간 여드름 패치</small></div>
+  <div class="k">기사</div><div class="t">브랜드 이름으로 검색하는 사람 <small>이번 주 많이 찾은 것 — 같은 가을 재킷인데 한쪽은 상품 103만 개, 다른 쪽은 734개</small></div>
+  <div class="k">기사</div><div class="t">덜 익은 망고는 과일이 아니었다 <small>이게 뭐죠? — 급등 목록에서 낚시 미끼를 찾아내기까지</small></div>
+  <div class="k">팔로업</div><div class="t">그 후 <small>지난 호 키워드 네 개의 그 후</small></div>
+  <div class="k">통신</div><div class="t">뉴욕, 도쿄 <small>할로윈은 벌써, 신작 애니는 이제</small></div>
+  <div class="k">달력</div><div class="t">앞으로 여덟 주</div>
+</div>
+
+<div class="note">
+  <div class="k">편집자의 말</div>
+  <p>이번 호를 준비하면서 계속 떠오른 단어가 있습니다. <b>시차</b>. 미국에서 한창인데 우리는 아직인 것, 우리는 진작 지나갔는데 미국은 이제 시작인 것, 그리고 해마다 같은 주에 어김없이 돌아오는 것. 검색 데이터는 그 시차를 숫자로 보여줍니다. 한 주 동안 그 숫자들을 들여다본 기록입니다.</p>
+</div>
+
+<!-- ───────────── 커버스토리 ───────────── -->
+<article>
+  <p class="kicker">커버스토리 · 한국엔 아직 없는 트렌드</p>
+  <h2>바다 건너 9월</h2>
+  <p class="deck">미국에서는 9월 첫째 주가 되면 현관에 호박이 놓입니다. 특별한 기념일이 있어서가 아닙니다. 이 풍경이 검색 데이터에는 어떻게 나타나는지, 같은 시기 한국은 어떤지 비교해 봤습니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_DECOR1}}" alt="바구니에 담긴 호박과 낙엽, 그리고 책 위의 단풍잎"><figcaption>미국 가정의 9월. 바구니에 작은 호박을 담아두는 것만으로 집 안의 계절이 바뀝니다.</figcaption></figure>
+
+  <p class="lead">미국 아마존에서 지난주 순위가 가장 크게 오른 검색어 가운데 하나가 <span class="mono hl">fall decor</span>였습니다. 우리말로 옮기면 '가을 장식'. 한 달에 <b>100만 번</b> 검색되고, 이번 주에만 47계단을 올랐습니다. 미국에서는 9월이 되면 현관 계단에 호박을 줄지어 놓고, 식탁에 마른 잎을 깔고, 창가에 캔들을 켜는 집이 많습니다. 크리스마스처럼 날짜가 정해진 행사가 아닙니다. 계절이 바뀌었다는 이유만으로 집 안팎을 새로 꾸밉니다.</p>
+
+  <p>그렇다면 한국은 어떨까 싶어 같은 주 네이버 검색량을 확인해 봤습니다. '가을소품'이 한 달에 1,920번, '가을인테리어'가 380번이었습니다. <span class="hl">미국의 500분의 1</span>입니다. 연말에 트리를 세우는 집은 많아도, 가을이라고 집을 꾸미는 문화는 아직 한국에 없다는 뜻입니다.</p>
+
+  <p>여기까지는 예상대로였습니다. 그런데 이상한 숫자가 하나 있었습니다. 한 달에 1,920번 검색되는 '가을소품'으로 네이버쇼핑에 등록된 상품이 <b class="hl r">96만 개</b>였습니다. 검색 수보다 상품 수가 500배 많은 겁니다.</p>
+
+  <p class="pull">검색은 1,920번, 등록 상품은 96만 개. 수요보다 상품이 먼저 건너왔습니다.</p>
+
+  <p>96만 개가 전부 가을 장식일 리는 없습니다. 다른 상품의 상품명에 '가을소품'을 끼워 넣은 경우가 대부분일 겁니다. 그러니까 이 숫자는 수요의 크기가 아니라 <b>기대</b>의 크기입니다. 미국에서 잘 팔린다는 소식은 진작 들어왔고, 셀러들은 그에 맞춰 상품명을 달아두었지만, 정작 사는 사람은 아직 오지 않았습니다. 이것이 시차의 첫 번째 모습입니다.</p>
+
+  <h3 class="sub">시술실에서 화장대로 — 속눈썹</h3>
+
+  <div class="pair">
+    <figure class="ph"><img src="{{IMG_LASH1}}" alt="속눈썹 연장 시술 중인 손과 핀셋"><figcaption>한 올씩 붙이는 연장 시술. 한국에서는 아직 이쪽이 익숙합니다.</figcaption></figure>
+    <figure class="ph"><img src="{{IMG_LASH2}}" alt="트레이에 담긴 클러스터 속눈썹과 핀셋"><figcaption>대여섯 올이 뭉쳐 있는 클러스터형. 집에서 직접 붙입니다.</figcaption></figure>
+  </div>
+
+  <p>두 번째는 <span class="mono hl">lash clusters</span>입니다. 한 달에 110만 번, 가을 장식보다 많습니다. 속눈썹을 한 올씩 붙이는 연장 시술 대신 대여섯 올이 뭉쳐 있는 것을 집에서 직접 붙이는 제품입니다. 시술 비용과 시간을 아끼려는 선택입니다. 미국은 시술비가 만만치 않으니 그럴 만합니다.</p>
+
+  <p>한국에서는 '속눈썹클러스터'로 검색해도 거의 나오지 않았습니다. 비슷한 검색어 몇 개를 더 확인해도 모두 수십 번 수준이었습니다. 아직 상품조차 들어오지 않은 단계입니다. 가을 장식과 달리 파는 사람도 없습니다.</p>
+
+  <h3 class="sub">이미 건너와 자리 잡는 중 — 워킹패드</h3>
+
+  <figure class="ph w32"><img src="{{IMG_WALKPAD}}" alt="높이 조절 책상 아래 워킹패드 위를 양말 신은 발로 걷는 모습"><figcaption>러닝머신에서 손잡이와 계기판을 떼고 납작하게 만든 것. 책상 밑에 들어갑니다.</figcaption></figure>
+
+  <p>세 번째는 <span class="mono hl">walking pad</span>, 한 달에 78만 번입니다. 책상 밑에 두고 일하면서 천천히 걷는 기계입니다. 한국은 15,030번이었습니다. 미국의 50분의 1이지만, 앞의 두 사례와는 상황이 다릅니다. 가을 장식은 500분의 1이었고 속눈썹은 사실상 0이었으니까요.</p>
+
+  <p>워킹패드는 이미 들어와 자리를 잡아가는 중입니다. 등록 상품도 19,236개로, 검색 수와 큰 차이가 없습니다. 재택근무가 늘면 함께 늘어날 상품입니다. 세 사례를 나란히 놓으면 시차의 세 단계가 보입니다. 아직 아무것도 들어오지 않은 단계(속눈썹), 상품만 먼저 들어온 단계(가을 장식), 수요까지 들어온 단계(워킹패드).</p>
+
+  <h3 class="sub">거꾸로 건너간 것 — 여드름 패치</h3>
+
+  <figure class="ph w32"><img src="{{IMG_PATCH}}" alt="거울 앞에서 볼에 투명 여드름 패치를 붙인 여성의 옆모습"><figcaption>한국에서는 편의점에서도 파는 상품. 미국에서는 이번 주 순위가 11계단 올랐습니다.</figcaption></figure>
+
+  <p>마지막은 방향이 반대입니다. 미국에서 <span class="mono hl">pimple patches</span>, 여드름 패치 검색이 이번 주 11계단 올라 89만 번이 됐습니다. 한국에서는 새로울 게 없는 상품입니다. 편의점에서도 팔고, 붙이고 다니는 것도 어색하지 않습니다. 한국 검색은 17,790번으로 오히려 미국보다 훨씬 적습니다. 익숙해져서 굳이 검색하지 않는 겁니다.</p>
+
+  <p>한국에서 먼저 대중화된 상품이 지금 미국으로 건너가는 중입니다. 시차에는 방향이 있습니다. 어느 쪽이 앞서 있는지 알면, 다음에 무엇이 넘어올지도 어느 정도 보입니다.</p>
+
+  <div class="fig">
+    <h4>한 달 검색 횟수 — 미국과 한국</h4>
+    <div class="cap">아마존 미국 9/11 · 네이버 9/14</div>
+    <div class="cv"><canvas id="ch-gap"></canvas></div>
+  </div>
+
+  <div class="memo">
+    <b>한 가지 덧붙이면</b> 위 비교는 제가 떠올린 한글 검색어로 확인한 결과입니다. 한국에서 다른 이름으로 불리고 있다면 실제로는 이미 들어와 있을 수도 있습니다. '속눈썹클러스터'로는 아무것도 안 나왔는데 '속눈썹연장세트'로는 조금 나왔던 것처럼요.
+  </div>
+</article>
+
+<!-- ───────────── 기사 1 ───────────── -->
+<article>
+  <p class="kicker">기사 · 이번 주 많이 찾은 것</p>
+  <h2>브랜드 이름으로 검색하는 사람</h2>
+  <p class="deck">이번 주 급등 목록 상위는 온통 겉옷이었습니다. 그중 같은 가을 재킷인데 정반대인 두 숫자가 있었습니다. 검색어에는 상품 이름만이 아니라 검색하는 사람의 상태가 담겨 있다는 걸, 이 두 숫자가 보여줍니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_COAT}}" alt="옷장 행거에 걸린 니트, 패딩, 트위드 재킷, 퍼 코트"><figcaption>9월 둘째 주, 사람들이 가장 많이 검색한 건 겉옷이었습니다.</figcaption></figure>
+
+  <p class="lead">아침저녁으로 쌀쌀해진 주였습니다. 검색어도 함께 바뀌었습니다. 유니클로 후리스 블루종이 한 달 사이 145배, 노스페이스 벤투스 재킷이 49배가 됐습니다. '여성 원피스', '남성 자켓' 같은 일반 검색어도 함께 올랐습니다.</p>
+
+  <p>그런데 같은 가을 옷인데도 두 검색어의 상황은 정반대였습니다. '여성가을자켓'으로 올라온 상품은 <span class="hl r">103만 개인데 한 달 검색은 5,800번</span>이었고, '노스페이스 벤투스'는 <span class="hl">상품이 734개인데 검색은 109,700번</span>이었습니다. 한쪽은 상품 수가 검색 수의 180배, 다른 쪽은 검색 수가 상품 수의 150배입니다.</p>
+
+  <p class="pull">'가을자켓'으로 검색하는 사람은 아직 고르는 중이고, 모델 이름으로 검색하는 사람은 이미 정한 사람입니다.</p>
+
+  <p>왜 이렇게 갈릴까요. 검색하는 사람의 단계가 다르기 때문입니다. '가을자켓'이라고 검색하는 사람은 아직 무엇을 살지 정하지 않았습니다. 고르는 중입니다. 모델명으로 검색하는 사람은 살 물건을 이미 정했고, 어디서 살지만 찾는 중입니다.</p>
+
+  <p>파는 쪽도 마찬가지입니다. '가을자켓'은 누구나 상품명에 넣을 수 있는 말이라 백만 개가 쌓였고, '벤투스'는 그 제품을 실제로 취급하는 판매자만 쓸 수 있는 말이라 734개에 그쳤습니다. 검색어 하나에 구매자의 결심과 판매자의 자격이 함께 담겨 있는 셈입니다.</p>
+
+  <div class="card">
+    <img src="{{IMG_NV_JACKET}}" alt="여성 가을 자켓 상품 사진">
+    <div>
+      <h4>'여성가을자켓' 검색 결과의 상품 하나</h4>
+      <div class="n">등록 상품 1,030,000개 · 한 달 검색 5,800번</div>
+      <p>이런 상품이 백만 개 넘게 등록돼 있습니다. 이 가운데 실제로 가을 재킷인 것이 얼마나 되는지는 아무도 모릅니다.</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="k">그 밖에 이번 주 검색이 부쩍 늘어난 것들</div>
+    <h3>급등 목록</h3>
+    <p class="lede">요즘 사람들이 무엇을 찾는지 보여드리는 목록입니다. 대부분 브랜드 상품이라 소싱이 어렵고, 판매를 권하는 뜻은 아닙니다.</p>
+
+    <div class="row">
+      <h4>박미희김치</h4>
+      <div class="n">한 달 검색 144,910번 · 등록 상품 123개 · 한 달 전보다 190배</div>
+      <p>방송에 나온 김치 브랜드입니다. 출연자가 화제가 되면서 오른 숫자라, 화제가 식으면 함께 내려옵니다. 보통 몇 주 안에 그렇게 됩니다.</p>
+    </div>
+    <div class="card">
+      <img src="{{IMG_NV_IKSU}}" alt="익수황진환 상품 사진">
+      <div>
+        <h4>익수황진환</h4>
+        <div class="n">한 달 검색 25,220번 · 등록 상품 100개</div>
+        <p>한 달 전에는 거의 검색되지 않던 이름입니다. 이렇게 갑자기 늘어나는 경우는 방송이나 영상에 나온 뒤일 때가 많습니다. 종근당이노시톨(43,230번)도 2주째 급등 목록에 있습니다.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="{{IMG_NV_CRAB}}" alt="톱밥에 담긴 꽃게 상품 사진">
+      <div>
+        <h4>톱밥꽃게</h4>
+        <div class="n">한 달 검색 32,940번 · 등록 상품 39개</div>
+        <p>톱밥에 담아 산 채로 보내는 꽃게입니다. 가을 꽃게철이 열렸다는 신호이고, 해마다 이맘때 올라옵니다.</p>
+      </div>
+    </div>
+    <div class="row">
+      <h4>귀멸의칼날</h4>
+      <div class="n">한 달 검색 206,900번 · 등록 상품 265,557개</div>
+      <p>이번 주 신규 진입 검색어 가운데 1위였습니다. 다만 등록 상품이 이미 <b class="hl r">26만 개</b>이고, 캐릭터 상품은 정식 라이선스 없이 팔면 문제가 됩니다.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ───────────── 기사 2 ───────────── -->
+<article>
+  <p class="kicker">기사 · 이게 뭐죠?</p>
+  <h2>덜 익은 망고는 과일이 아니었다</h2>
+  <p class="deck">급등 목록에 '백경덜익은망고'가 9,617% 올라 있었습니다. 과일 유통에 무슨 일이 생겼나 싶었는데, 연관 검색어를 따라가 보니 전혀 다른 곳에 도착했습니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_SQUID}}" alt="보라색 에기 미끼를 껴안은 무늬오징어의 수중 사진"><figcaption>오징어가 껴안고 있는 새우 모양 미끼가 '에기'입니다. 새우인 줄 알고 안는 순간 바늘에 걸립니다.</figcaption></figure>
+
+  <p class="lead">먼저 눈에 띈 건 '세네팁런에기'였습니다. 14,023% 상승. 그 아래 '백경덜익은망고'가 9,617%. 무슨 뜻인지 전혀 알 수 없었습니다. 특히 뒤의 것은 과일인 줄 알았습니다. 덜 익은 망고를 파는 브랜드가 생겼나, '백경'이 회사 이름인가 싶었습니다.</p>
+
+  <p>연관 검색어를 봤습니다. 무늬오징어, 팁런, 3호, 침강 속도. 낚시였습니다. <span class="hl">에기는 새우처럼 생긴 가짜 미끼</span>이고, 오징어를 낚을 때 씁니다. '세네'와 '백경'은 미끼 제조사 이름이고, '팁런'은 배에서 하는 낚시 방식이었습니다.</p>
+
+  <p>그리고 '덜익은망고'는 과일이 아니라 <b class="hl">미끼의 색깔 이름</b>이었습니다. 낚시 용품은 색상에 이런 이름을 붙입니다. 덜 익은 망고색, 잘 익은 망고색. 낚시하는 분들에게는 상식이겠지만, 저는 이번 주에 처음 알았습니다.</p>
+
+  <p class="pull">세 종류의 미끼가 같은 주에 한꺼번에 올랐습니다. 시즌이 열렸다는 뜻입니다.</p>
+
+  <p>왜 하필 이번 주인지도 분명합니다. 가을이 무늬오징어 철이기 때문입니다. 서로 다른 회사의 미끼 세 종류가 같은 주에 함께 오른 걸 보면, 특정 제품이 유행한 게 아니라 시즌 자체가 시작된 겁니다. 이번 호의 다른 이야기와는 시차의 종류가 다릅니다. 바다를 건너는 시차가 아니라, <b>해마다 같은 주에 돌아오는</b> 시차입니다. 내년 9월에도 이 세 이름은 다시 올라올 겁니다.</p>
+
+  <h3 class="sub">이번 주에 처음 본 검색어 둘 더</h3>
+
+  <div class="card">
+    <img src="{{IMG_NV_PIZZA}}" alt="피자 토핑을 올린 설기떡 상품 사진">
+    <div>
+      <h4>피자설기 — 피자 토핑을 올린 떡</h4>
+      <div class="n">한 달 검색 195,000번</div>
+      <p>설기떡 위에 피자 토핑을 얹은 디저트입니다. 떡 카테고리에서 19만 번은 꽤 큰 숫자입니다. 사진을 보면 왜 찾는지 바로 이해가 됩니다.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{IMG_NV_MAG}}" alt="액상 젖산마그네슘 제품 사진">
+    <div>
+      <h4>젖산마그네슘 — 액상으로 먹는 마그네슘</h4>
+      <div class="n">한 달 검색 154,750번</div>
+      <p>알약 대신 액상 제품을 찾는 사람이 늘었습니다. 마그네슘 종류 가운데 흡수가 잘 되는 편이라고 알려진 형태입니다.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ───────────── 팔로업 ───────────── -->
+<article class="short">
+  <p class="kicker">팔로업 · 지난주 그 키워드, 지금은?</p>
+  <h2>그 후</h2>
+  <p class="deck">지난 호에서 다룬 키워드가 한 주 사이 어떻게 됐는지 다시 확인했습니다. 실제로 판매 중인 셀러에게 도움이 되도록 마지막에 제 판단을 한 줄씩 덧붙였습니다.</p>
+
+  <div class="card">
+    <img src="{{IMG_NV_PIZZA}}" alt="피자설기 상품 사진">
+    <div>
+      <h4>피자설기 — 한 주 만에 65% 늘었습니다</h4>
+      <div class="n">9월 7일 74,000번 → 9월 14일 121,700번 · 판매자 562곳</div>
+      <p>지난주 처음 소개했는데 그새 크게 올랐습니다. 판매자는 <span class="hl">562곳</span>으로 아직 적습니다. 떡이나 디저트를 이미 판매 중이라면 아직 늦지 않았습니다.</p>
+    </div>
+  </div>
+  <div class="row">
+    <h4>삼계탕사발면 — 3주째 조금씩 오르는 중</h4>
+    <div class="n">185,300 → 196,000 → 204,100번 · 등록 상품 98개</div>
+    <p>크게 늘지는 않지만 꾸준히 올라갑니다. 농심 제품이라 소싱이 되느냐가 먼저지만, 등록 상품이 98개로 거의 늘지 않은 건 눈여겨볼 만합니다.</p>
+  </div>
+  <div class="card">
+    <img src="{{IMG_NV_WAK}}" alt="연두색 왁뿌볼 상품 사진">
+    <div>
+      <h4>왁뿌볼 — 이쪽은 계속 내려가고 있습니다</h4>
+      <div class="n">8월 24일 145,300번 → 9월 14일 102,600번 · 등록 상품 21,004개</div>
+      <p>7월이 정점이었고 그 뒤로 꾸준히 줄고 있습니다. 그런데 등록 상품은 21,004개까지 늘었습니다. <span class="hl r">검색은 줄고 판매자는 늘어난 상태</span>라, 지금 새로 진입하는 건 말리고 싶습니다.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{IMG_NV_ACU}}" alt="아큐스터 발지압판 상품 사진">
+    <div>
+      <h4>아큐스터 — 거의 그대로</h4>
+      <div class="n">80,210 → 76,580번</div>
+      <p>몇 주째 8만 번 안팎에서 움직이지 않습니다. 급하게 오르내리는 상품이 아니라 오래 가는 쪽으로 보입니다.</p>
+    </div>
+  </div>
+</article>
+
+<!-- ───────────── 통신 ───────────── -->
+<article class="short">
+  <p class="kicker">통신 · 해외 시장 쪽지</p>
+  <h2>뉴욕, 도쿄</h2>
+  <p class="deck">바다 건너 소식 둘. 해외셀러에게는 일정에 관한 이야기이고, 국내 셀러에게는 참고할 만한 구경거리입니다.</p>
+
+  <div class="dateline">뉴욕 — 할로윈은 벌써</div>
+
+  <div class="pair">
+    <figure class="ph"><img src="{{IMG_HW_KIDS}}" alt="할로윈 의상을 입고 호박 바구니를 든 아이들"><figcaption>10월 31일 밤의 풍경. 하지만 준비물은 9월에 삽니다.</figcaption></figure>
+    <figure class="ph"><img src="{{IMG_HW_TABLE}}" alt="할로윈 장식이 놓인 테이블"><figcaption>아마존 할로윈 장식 검색, 한 달 새 4.4배.</figcaption></figure>
+  </div>
+
+  <p>아마존에서 할로윈 장식 검색이 한 달 사이 <span class="hl">4.4배</span>가 됐습니다. 행사는 10월 31일인데 구매는 9월 초부터 시작됩니다. 생각해 보면 당연합니다. 의상이든 장식이든 당일에 사서 쓸 수는 없으니까요. 미국 역직구를 준비 중이라면 지금이 거의 마지막 시점입니다. 10월 중순을 넘기면 행사 전에 도착하기 어렵습니다.</p>
+
+  <div class="dateline">도쿄 — 신작 애니는 이제</div>
+
+  <p>아마존 일본 검색 5위에 <span class="mono hl">ヤニねこ</span>(야니네코)가 새로 진입했습니다. 7월부터 방영 중인 애니메이션으로, 원작은 SNS에서 화제가 된 만화입니다. 누적 40만 부가 팔렸다고 합니다. 방영 초기라 굿즈 공급이 아직 넉넉하지 않을 수 있습니다.</p>
+
+  <p>참고로 일본 아마존 검색 1위는 여전히 <span class="mono">ちいかわ</span>(치이카와)입니다. 몇 년째 1위 자리를 지키고 있습니다. 한국에서도 관련 검색어가 조금씩 늘고 있습니다.</p>
+</article>
+
+<!-- ───────────── 달력 ───────────── -->
+<article class="short">
+  <p class="kicker">달력 · 곧 시즌이 옵니다</p>
+  <h2>앞으로 여덟 주</h2>
+
+  <figure class="ph w32"><img src="{{IMG_KNIT}}" alt="색색으로 접어 쌓은 니트"><figcaption>10월 둘째 주가 되면 겨울옷 검색이 한 차례 크게 뜁니다.</figcaption></figure>
+
+  <p><b>10월 초</b> — 패딩과 코트 검색이 시작됩니다. 작년 흐름을 보면 9월 말부터 조금씩 오르다가 <span class="hl">10월 둘째 주</span>에 크게 뜁니다. 첫 추위가 오는 시점과 거의 맞아떨어집니다.</p>
+  <p><b>10월 31일 할로윈</b> — 국내 기준으로는 10월 첫째 주부터 검색이 오릅니다. 앞에서 본 미국보다 한 달 가까이 늦습니다. 한국은 의상보다 파티 소품 검색이 많습니다.</p>
+  <p><b>11월 이후</b> — 방한용품과 난방 관련 검색이 올라옵니다. 10월 중순쯤부터 지켜보시면 됩니다.</p>
+</article>
+
+<article class="short">
+  <p class="kicker">숫자 보는 법</p>
+  <h2>이 호에 나온 숫자 두 가지</h2>
+  <p><b>등록 상품 수</b>는 그 검색어로 네이버쇼핑에 올라와 있는 상품 개수입니다. 쉽게 말해 경쟁자 수입니다. 검색 수보다 이 숫자가 적으면 경쟁이 덜하다는 뜻이지만, 브랜드 상품이면 소싱이 되는지가 먼저입니다.</p>
+  <p><b>'몇 배 올랐다'</b>는 수치는 참고만 하시는 게 좋습니다. 원래 검색이 거의 없던 검색어는 조금만 올라도 수백 배가 됩니다. 실제로 얼마나 찾는지는 검색 횟수를 같이 보셔야 합니다.</p>
+</article>
+
+<footer>
+  <p><b>자료</b> 네이버 데이터랩·아이템스카우트(9/14), 틱톡 Exolyt(9/9), 아마존 Helium10 미국·일본(9/11). 등록 상품 수는 조회한 때 기준이라 달라질 수 있습니다.</p>
+  <p>특정 상품을 사거나 팔라고 권하는 글이 아닙니다. 소싱처, 라이선스, 인허가는 직접 확인하셔야 합니다.</p>
+  <p><b>사진</b> 상품 사진은 네이버쇼핑 검색 결과에서 가져왔습니다(판매자 저작물). 표지와 장면 사진은 Unsplash. 워킹패드와 여드름 패치 사진 두 장은 실물 사진을 구하지 못해 AI로 생성한 연출 이미지입니다.</p>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>window.SELLERKIM2 = {{DATA_JSON}};</script>
+<script>{{CHART_JS}}</script>
