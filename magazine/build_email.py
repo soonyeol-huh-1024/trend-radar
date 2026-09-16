@@ -1,8 +1,8 @@
 """매거진 템플릿 → 이메일용 HTML 로 변환.
 
 메일 클라이언트 제약 때문에 웹판을 그대로 못 쓴다:
-  · Gmail 은 SVG 를 지운다        → 제호는 PNG(CID)로 교체
-  · 본문 102KB 넘으면 잘라낸다     → 사진은 본문이 아니라 CID 첨부로 붙인다
+  · Gmail 은 SVG 를 지운다        → 제호는 호스팅한 PNG 를 URL 로 건다
+  · 본문 102KB 넘으면 잘라낸다     → 사진은 GitHub Pages 에 올린 것을 URL 로 부른다
   · <style> 블록과 CSS 변수를 지운다 → 색·간격을 전부 인라인 style 로 푼다
   · linear-gradient 지원이 고르지 않다 → 게이지·시점마크는 단색 테이블로 다시 그린다
 
@@ -15,6 +15,9 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 OUT = HERE / "out_email"
+# 사진은 GitHub Pages 에 올린 것을 쓴다 — 첨부가 사라져 메일이 가벼워지고,
+# 여러 호를 보내도 같은 파일을 다시 내려받지 않는다. (build_site.py 가 올린다)
+SITE = "https://soonyeol-huh-1024.github.io/trend-radar"
 INK, MUTED, RULE, PAPER2 = "#15242B", "#5B6B72", "#CFD8D5", "#E9EEEC"
 BRAND, HI, GOOD = "#0E8AA6", "#C2452D", "#3A8F3F"
 SANS = "'Apple SD Gothic Neo','Malgun Gothic',sans-serif"
@@ -110,36 +113,20 @@ def convert() -> tuple[str, list[dict]]:
     body = html.split("</style>", 1)[1]
     atts: list[dict] = []
 
-    # 제호 SVG → PNG(CID)
+    # 제호 SVG → 호스팅한 PNG
     body = re.sub(r'<h1 class="logo">.*?</h1>',
-                  '<img src="cid:logo" width="160" alt="셀러킴" style="display:block;border:0">',
-                  body, flags=re.S)
-    atts.append({"cid": "logo", "path": str(HERE / "brand/logo_email.png"), "mime": "image/png"})
+                  f'<img src="{SITE}/assets/logo.png" width="160" alt="셀러킴" '
+                  'style="display:block;border:0">', body, flags=re.S)
 
     # 게이지·시점마크
     body = re.sub(r'<span class="gap" data-l="(\d)"[^>]*>(?:<i></i>)+</span>',
                   lambda m: gauge(int(m.group(1))), body)
     body = re.sub(r'<span class="m (m-\w+)"[^>]*></span>', lambda m: mark(m.group(1)), body)
 
-    # 사진 → CID 첨부. 메일 용량 때문에 표지만 싣고 나머지는 캡션만 남긴다.
-    # (실제 발행 때는 이미지를 CDN 에 올리고 URL 로 참조해야 한다)
+    # 사진 → 호스팅 URL. 첨부가 없어 메일이 가볍고 전문을 다 실을 수 있다.
     from build_issue03 import IMAGES
-    keep = {"CINEMA"}
     for key in dict.fromkeys(re.findall(r'\{\{IMG_(\w+)\}\}', body)):
-        if key in keep:
-            cid = f"p{key.lower()}"
-            body = body.replace("{{IMG_" + key + "}}", f"cid:{cid}")
-            src = HERE / "img" / IMAGES[key]
-            small = OUT / f"s_{IMAGES[key]}"
-            OUT.mkdir(exist_ok=True)
-            import subprocess
-            subprocess.run(["sips", "-Z", "560", "-s", "format", "jpeg", "-s", "formatOptions", "45",
-                            str(src), "--out", str(small)], capture_output=True)
-            atts.append({"cid": cid, "path": str(small if small.exists() else src), "mime": "image/jpeg"})
-        else:
-            body = body.replace("{{IMG_" + key + "}}", "")
-    # 소스가 빈 img 는 통째로 들어낸다 (캡션은 남는다)
-    body = re.sub(r'<img src=""[^>]*>', "", body)
+        body = body.replace("{{IMG_" + key + "}}", f"{SITE}/assets/img/{IMAGES[key]}")
 
     # 구조물은 표로 다시 짠다 — div 나열은 메일에서 무너진다
     body = re.sub(r'<div class="cover">\s*<img src="(cid:\w+)"[^>]*>\s*<div class="line">\s*'
@@ -178,7 +165,11 @@ def convert() -> tuple[str, list[dict]]:
     body = body.replace("</figure>", "</div>")
     body = re.sub(r'<figcaption>', f'<div style="font-size:12.5px;color:{MUTED};margin-top:6px;line-height:1.6">', body)
     body = body.replace("</figcaption>", "</div>")
-    body = re.sub(r'<img src="(cid:p\w+)"[^>]*>', r'<img src="\1" width="600" style="display:block;width:100%;max-width:600px;border-radius:3px;border:0" alt="">', body)
+    # 원격 이미지를 막는 클라이언트가 있으므로 alt 를 남긴다
+    body = re.sub(r'<img src="(' + re.escape(SITE) + r'/assets/img/[^"]+)"[^>]*alt="([^"]*)"[^>]*>',
+                  r'<img src="\1" width="600" alt="\2" style="display:block;width:100%;max-width:600px;border-radius:3px;border:0">', body)
+    body = re.sub(r'<img src="(' + re.escape(SITE) + r'/assets/img/[^"]+)"(?![^>]*alt=)[^>]*>',
+                  r'<img src="\1" width="600" alt="" style="display:block;width:100%;max-width:600px;border-radius:3px;border:0">', body)
     body = re.sub(r'<span class="mono[^"]*">', '<span style="font-family:monospace">', body)
     body = re.sub(r'<span class="hl r">', f'<span style="background:#FAE3DC;padding:0 3px">', body)
     body = re.sub(r'<span class="hl">', f'<span style="background:#FFF0B8;padding:0 3px">', body)

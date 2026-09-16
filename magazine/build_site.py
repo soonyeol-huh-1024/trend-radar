@@ -138,6 +138,8 @@ def main() -> None:
             shutil.copy2(src, DOCS / "assets/img" / f)
             total += src.stat().st_size
     shutil.copy2(HERE / "brand/logo_sellerkim.svg", DOCS / "assets/favicon.svg")
+    # 메일 클라이언트는 SVG 를 지우므로 PNG 제호도 같이 올린다 (build_email.py 가 참조)
+    shutil.copy2(HERE / "brand/logo_email.png", DOCS / "assets/logo.png")
     print(f"  assets/img  {len(assets)}장 {total/1e6:.1f}MB")
 
 
