@@ -70,9 +70,15 @@ python run_radar.py --skip seasonal
 
 ```bash
 cd magazine
-python build_issue03.py            # 템플릿 + 사진(base64) → 단일 HTML
+python build_site.py               # 템플릿 + 사진 → docs/ (GitHub Pages)
+python build_issue03.py            # 단일 HTML (사진을 base64 로 내장)
 python build_email.py              # 메일 클라이언트용 변환
 ```
+
+발행본은 **https://soonyeol-huh-1024.github.io/trend-radar/** 에 올라간다.
+`build_site.py` 는 사진을 파일로 두고 URL 로 참조하므로 HTML 이 54KB 로 끝난다
+(base64 내장판은 2.4MB). 공개 호스팅이라 **네이버쇼핑 상품 이미지를 쓰는 호는
+올리지 않는다** — 제1·2호가 여기 해당한다.
 
 `data/`, `out/`, 빌드된 HTML 은 커밋하지 않는다. 위 명령으로 다시 만들어진다.
 

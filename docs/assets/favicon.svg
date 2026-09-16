@@ -1,0 +1,26 @@
+<!-- 셀러킴 제호. 자모를 기하 도형으로 그린 레터링.
+     킴의 ㅣ 는 본문 빈자리 게이지 네 칸과 같은 형태. 색은 currentColor 로 상속. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 652 192">
+<g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt" stroke-linejoin="miter">
+  <!-- 셀 : ㅅ 좁게, ㅔ 오른쪽으로 밀고 가로획 짧게 -->
+  <path d="M14,96 L48,20 L82,96"/>
+  <path d="M152,16 V96"/><path d="M126,58 H152"/><path d="M200,16 V96"/>
+  <path d="M14,112 H200 V148 H14 V184 H200"/>
+  <!-- 러 -->
+  <g transform="translate(224,0)">
+    <path d="M16,28 H126 V92 H16 V156 H126"/>
+    <path d="M192,16 V184"/><path d="M148,100 H192"/>
+  </g>
+  <!-- 킴 -->
+  <g transform="translate(452,0)">
+    <path d="M16,30 H116 V96"/><path d="M58,63 H116"/>
+    <path d="M16,112 H142 V184 H16 Z"/>
+  </g>
+</g>
+<g fill="currentColor" transform="translate(452,0)">
+  <rect x="182" y="16" width="13" height="36" rx="1.5"/>
+  <rect x="182" y="60" width="13" height="36" rx="1.5"/>
+  <rect x="182" y="104" width="13" height="36" rx="1.5"/>
+  <rect x="182" y="148" width="13" height="36" rx="1.5"/>
+</g>
+</svg>
