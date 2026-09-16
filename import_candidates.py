@@ -4,7 +4,7 @@ B→A 역방향 브리지: 해외에선 유행인데 한국은 아직 조용한 
 입력: import_map.csv (en_keyword, ko_keyword, source, overseas_signal, role)
 한국 상태:
   - ItemScout 내부 API: 월간검색량(monthly.total)·네이버쇼핑 상품수(prdCnt)·1차 카테고리
-    (쿠키는 worker/src/naver.ts 에서 런타임에 읽음 — 재하드코딩 금지)
+    (쿠키는 환경변수 ITEMSCOUT_COOKIE 또는 .env 에서 읽음 — 하드코딩 금지)
   - 네이버 데이터랩: 3년 주간 상대추이(ratio) → 단계 판정
     (자격증명 Firestore gen-lang-client-0493835715/trend-checker/naver_api_keys)
 단계:
@@ -29,17 +29,15 @@ import requests
 from google.cloud import firestore
 
 HERE = Path(__file__).parent
-NAVER_TS = HERE.parent / "worker" / "src" / "naver.ts"
 ITEMSCOUT_URL = "https://api.itemscout.io/api/keyword/data/list"
 DATALAB_URL = "https://openapi.naver.com/v1/datalab/search"
 LOW, MID = 5_000, 30_000
 
 
 def itemscout_cookie() -> str:
-    m = re.search(r"'cookie':\s*'([^']+)'", NAVER_TS.read_text())
-    if not m:
-        raise SystemExit("naver.ts 에서 ItemScout 쿠키를 찾지 못함")
-    return m.group(1)
+    """radar.common.cookie() 와 같은 규칙 — 환경변수 우선, 없으면 .env."""
+    from radar.common import cookie
+    return cookie()
 
 
 def datalab_creds() -> tuple[str, str]:

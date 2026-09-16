@@ -1,3 +1,6 @@
+# 자격증명 — .env.example 을 복사해 값을 채운다
+.env
+
 # 파이썬
 venv/
 __pycache__/

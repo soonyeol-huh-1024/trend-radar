@@ -102,13 +102,19 @@ python build_email.py              # 메일 클라이언트용 변환
 
 ## 자격증명
 
-이 저장소에는 비밀정보가 없다. 스크립트가 실행 시점에 바깥에서 읽는다.
+이 저장소에는 비밀정보가 없다. 실행 시점에 환경변수나 `.env` 에서 읽는다.
+
+```bash
+cp .env.example .env     # 값을 채운다. .env 는 커밋하지 않는다
+```
 
 | 무엇 | 어디서 |
 |---|---|
-| ItemScout 쿠키 | `../worker/src/naver.ts` |
-| Gemini API 키 | `../worker/.env` |
+| ItemScout 쿠키 | `ITEMSCOUT_COOKIE` 환경변수 → 없으면 `.env` |
+| Gemini API 키 | `GEMINI_API_KEY` (이미지 생성에만 필요) |
 | Firestore · BigQuery | Application Default Credentials (`gcloud auth login`) |
+
+ItemScout 쿠키는 브라우저 개발자도구의 요청 헤더에서 복사한다. 만료되면 다시 받아야 한다.
 
 ---
 

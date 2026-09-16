@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import csv
 import json
-import re
+import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -17,7 +17,6 @@ import requests
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "out"
-NAVER_TS = ROOT.parent / "worker" / "src" / "naver.ts"
 ITEMSCOUT_URL = "https://api.itemscout.io/api/keyword/data/list"
 
 # python-requests 기본 UA 는 418 로 차단됨 → 브라우저 UA 필수
@@ -46,10 +45,20 @@ def is_experience(keyword: str, cat_top: str | None = None, prd_cnt: int | None 
 
 
 def cookie() -> str:
-    m = re.search(r"'cookie':\s*'([^']+)'", NAVER_TS.read_text())
-    if not m:
-        raise SystemExit("naver.ts 에서 ItemScout 쿠키를 찾지 못함")
-    return m.group(1)
+    """ItemScout API 쿠키. 환경변수가 없으면 저장소 루트의 .env 에서 읽는다.
+
+    .env 는 커밋하지 않는다. .env.example 을 복사해 값을 채운다.
+    """
+    ck = os.environ.get("ITEMSCOUT_COOKIE")
+    if ck:
+        return ck
+    env = ROOT / ".env"
+    if env.exists():
+        for line in env.read_text().splitlines():
+            k, _, v = line.partition("=")
+            if k.strip() == "ITEMSCOUT_COOKIE" and v.strip():
+                return v.strip()
+    raise SystemExit("ITEMSCOUT_COOKIE 가 없다 — .env.example 을 .env 로 복사해 채울 것")
 
 
 def itemscout(kw: str, ck: str) -> dict:

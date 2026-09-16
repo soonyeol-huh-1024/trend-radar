@@ -1,9 +1,23 @@
 """셀러킴 코너 헤더 일러스트 생성 (Gemini 2.5 Flash Image)."""
 import base64, json, os, sys, subprocess, tempfile, pathlib, re
 
-ROOT = pathlib.Path("/Volumes/ExtraSSD/itemscout/62. 트랜드 스카우트/16.new_trend_scout")
-OUT = ROOT / "trend_radar/magazine/img"
-KEY = re.search(r"^GEMINI_API_KEY=(.+)$", (ROOT / "worker/.env").read_text(), re.M).group(1).strip().strip('"\'')
+ROOT = pathlib.Path(__file__).resolve().parent.parent   # trend_radar/
+OUT = ROOT / "magazine/img"
+def _key() -> str:
+    """Gemini API 키 — 환경변수 우선, 없으면 저장소 루트의 .env."""
+    k = os.environ.get("GEMINI_API_KEY")
+    if k:
+        return k
+    env = ROOT / ".env"
+    if env.exists():
+        for line in env.read_text().splitlines():
+            n, _, v = line.partition("=")
+            if n.strip() == "GEMINI_API_KEY" and v.strip():
+                return v.strip().strip('"\'')
+    raise SystemExit("GEMINI_API_KEY 가 없다 — .env.example 참고")
+
+
+KEY = _key()
 
 STYLE = ("Flat editorial magazine illustration. Muted palette: deep teal, terracotta red, "
          "sage green, warm off-white background. Clean simple line work, minimal detail, "
