@@ -144,7 +144,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
     display:flex;flex-direction:column}
   body.spread .book{
     flex:1;min-height:0;position:relative;overflow:hidden;
-    perspective:9000px;perspective-origin:50% 50%}
+    perspective:6500px;perspective-origin:50% 50%}
   body.spread .pages{
     height:100%;padding:44px clamp(28px,4vw,72px) 56px;
     column-count:2;column-gap:clamp(64px,7.5vw,120px);column-fill:auto;
@@ -163,42 +163,33 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
     pointer-events:none;z-index:2;
     background:linear-gradient(90deg,transparent,var(--fold-a) 42%,var(--fold-b) 50%,
       var(--fold-a) 58%,transparent)}
-  /* 책넘김 — 종이 한 장이 책등(가운데)을 축으로 돈다.
-     넘어가는 면의 내용까지 그리려면 지면을 통째로 복제해야 해서, 여기서는
-     종이 뒷면만 돌리고 그 뒤로 다음 지면이 드러나게 한다. 0.6초면 그렇게 읽힌다. */
-  /* 책넘김 — 낱장(.leaf)의 앞면에는 떠나는 면을, 뒷면에는 도착하는 면을 실제로 그린다.
-     지면(.pages)을 복제해 각 면 안에 두고, 보여줄 단만 창으로 오려낸다.
-     90도까지는 앞면이, 그 뒤로는 뒷면이 보이므로 넘어가는 동안 글이 함께 돈다. */
-  body.spread .leaf{
-    display:block;position:absolute;z-index:4;visibility:hidden;pointer-events:none;
-    transform-style:preserve-3d}
-  body.spread .leaf.go-next,body.spread .leaf.go-prev{visibility:visible}
+  /* 책넘김 — 낱장(.leaf)은 세로 띠(.strip) 열 개를 경첩으로 이어 붙인 것.
+     각 띠가 앞 띠 끝에서 조금씩 더 꺾여 종이가 휘어 보인다(다각형으로 원호를 근사).
+     앞면엔 떠나는 쪽, 뒷면엔 도착하는 쪽 지면을 실제로 그린다. 프레임마다 JS 가 각도를 준다. */
+  body.spread .leaf{display:block;position:absolute;top:0;z-index:4;opacity:0;pointer-events:none;
+    transform-style:preserve-3d}   /* visibility 대신 opacity: 상속되지 않아 복제본 전체를 다시 계산하지 않는다 */
+  body.spread .leaf.on{opacity:1}
+  body.spread .strip{position:absolute;top:0;transform-style:preserve-3d}
+  body.spread .strip>.face{position:absolute;top:0;bottom:0;left:0;right:-1px;overflow:hidden;
+    background:var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  body.spread .strip>.face.back{transform:rotateY(180deg)}
+  body.spread .face .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .face .shade{position:absolute;inset:0;pointer-events:none}
   /* 도착 면 — 낱장이 들리는 동안 그 밑에 이미 놓여 있어야 하는 쪽.
      떠나는 쪽 지면은 그대로 두고, 이 층이 새 면을 보여준다. 실제 지면 교체는
      낱장이 완전히 내려앉은 뒤에 하므로 눈에 띄지 않는다. */
   body.spread .under{display:block;position:absolute;top:0;z-index:3;overflow:hidden;
-    background:var(--paper);visibility:hidden}
-  body.spread .under.on{visibility:visible}
+    background:var(--paper);opacity:0}
+  body.spread .under.on{opacity:1}
   body.spread .under .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
   body.spread .under::after{content:'';position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,.04) 12%,transparent 34%)}
   body.spread .under.prev::after{transform:scaleX(-1)}
-  body.spread .leaf.next{transform-origin:left center}
-  body.spread .leaf.prev{transform-origin:right center}
-  body.spread .leaf .face{position:absolute;inset:0;overflow:hidden;background:var(--paper);
-    backface-visibility:hidden;-webkit-backface-visibility:hidden;
-    box-shadow:0 16px 40px rgba(0,0,0,.28)}
-  body.spread .leaf .face.back{transform:rotateY(180deg)}
-  /* 복제된 지면: 원본과 같은 폭·높이·다단이어야 같은 자리에 같은 글이 온다 */
-  body.spread .leaf .face .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
-  /* 책등 쪽이 접히며 어두워지는 결 (면 위에 얹는 막) */
-  body.spread .leaf .face::after{content:'';position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(90deg,rgba(0,0,0,.22),rgba(0,0,0,.06) 14%,transparent 40%)}
-  body.spread .leaf.prev .face::after{transform:scaleX(-1)}
-  body.spread .leaf.go-next{animation:leafNext .82s cubic-bezier(.42,.02,.30,1) forwards}
-  body.spread .leaf.go-prev{animation:leafPrev .82s cubic-bezier(.42,.02,.30,1) forwards}
-  @keyframes leafNext{0%{transform:rotateY(0)}100%{transform:rotateY(-180deg)}}
-  @keyframes leafPrev{0%{transform:rotateY(0)}100%{transform:rotateY(180deg)}}
+  /* 종이 아래 드리우는 그림자 */
+  body.spread .cast{display:block;position:absolute;top:0;z-index:2;pointer-events:none;visibility:hidden;
+    background:radial-gradient(ellipse at 0 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  body.spread .cast.on{visibility:visible}
+  body.spread .cast.prev{background:radial-gradient(ellipse at 100% 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
   body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
   /* 조작부 */
   body.spread .nav{display:flex;align-items:center;justify-content:center;gap:22px;
@@ -215,7 +206,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 }
 /* 좁은 화면·인쇄에서는 펼침을 쓰지 않는다 */
 .book,.nav,.gutter,.modeswap{}
-.nav,.gutter,.leaf,.under{display:none}
+.nav,.gutter,.leaf,.under,.cast{display:none}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
@@ -238,7 +229,7 @@ footer b{color:var(--ink)}
 </style>
 
 <div class="wrap">
-<div class="book"><div class="gutter"></div><div class="under" aria-hidden="true"></div><div class="leaf" aria-hidden="true"><div class="face front"></div><div class="face back"></div></div><div class="pages">
+<div class="book"><div class="gutter"></div><div class="cast" aria-hidden="true"></div><div class="under" aria-hidden="true"></div><div class="leaf" aria-hidden="true"></div><div class="pages">
 <header class="mast">
   <h1 class="logo">
     <svg viewBox="4 4 760 192" role="img" aria-label="셀러KIM">
@@ -729,67 +720,124 @@ footer b{color:var(--ink)}
   }
 
   let turning = false;
-  const faces = { front: null, back: null, under: null, w: 0, h: 0 };
+  const N = 10;                                  // 띠 개수 — 많을수록 매끈, 무거움
+  const BEND = 42;                               // 최대 휨(도): 자유변이 책등보다 이만큼 앞선다
+  const DUR = 900;
+  const cast = document.querySelector('.cast');
+  const strips = [];
+  const built = { w: 0, h: 0 };
+  const faces = { under: null };            // 밑층 복제본
+
+  function makeClone(w, h) {
+    const c = pages.cloneNode(true); c.removeAttribute('id');
+    c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
+    return c;
+  }
+  // 띠 체인: strip[i] 는 strip[i-1] 안에서 그 끝에 매달린다. 각 띠는 앞·뒷면 + 명암막을 가진다.
   function ensureFaces() {
     const w = pages.clientWidth, h = pages.clientHeight;
-    if (faces.front && faces.w === w && faces.h === h) return;
-    for (const side of ['front', 'back', 'under']) {
-      const host = side === 'under' ? under : leaf.querySelector('.face.' + side);
-      host.innerHTML = '';
-      const c = pages.cloneNode(true);
-      c.removeAttribute('id');
-      c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
-      host.appendChild(c);
-      faces[side] = c;
+    if (built.w === w && built.h === h) return;
+    leaf.innerHTML = ''; strips.length = 0;
+    under.innerHTML = ''; faces.under = makeClone(w, h); under.appendChild(faces.under);
+    let parent = leaf;
+    for (let i = 0; i < N; i++) {
+      const st = document.createElement('div'); st.className = 'strip';
+      const F = document.createElement('div'); F.className = 'face front';
+      const B = document.createElement('div'); B.className = 'face back';
+      const fc = makeClone(w, h), bc = makeClone(w, h);
+      const fs = document.createElement('div'), bs = document.createElement('div');
+      fs.className = bs.className = 'shade';
+      F.appendChild(fc); F.appendChild(fs); B.appendChild(bc); B.appendChild(bs);
+      st.appendChild(F); st.appendChild(B); parent.appendChild(st); parent = st;
+      strips.push({ el: st, fc, bc, fs, bs });
     }
-    faces.w = w; faces.h = h;
+    built.w = w; built.h = h;
+  }
+
+  const ease = p => (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+  let sign = -1;
+  // 낱장·밑층·그림자 배치와 복제본 위치 — 한 번의 넘김 시작 시
+  function setup(dir, next) {
+    const W = pages.clientWidth, H = pages.clientHeight, half = W / 2, sw = half / N;
+    ensureFaces();
+    leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
+    leaf.style.left = (dir > 0 ? half : 0) + 'px';
+    under.style.width = half + 'px'; under.style.height = H + 'px';
+    under.style.left = (dir > 0 ? half : 0) + 'px';
+    cast.style.width = half + 'px'; cast.style.height = H + 'px';
+    cast.style.left = (dir > 0 ? 0 : half) + 'px';
+    const leave = dir > 0 ? half : 0, arrive = dir > 0 ? 0 : half;   // 떠나는/도착하는 쪽의 x
+    const shift = (c, x, k) => (c.style.transform = `translate(${-(x + k * step)}px,0)`);
+    shift(faces.under, leave, next);   // 낱장이 떠난 자리에 드러나는 새 지면(같은 쪽)
+    strips.forEach((st, i) => {
+      st.el.style.width = sw + 'px'; st.el.style.height = H + 'px';
+      st.el.style.left = st.el.style.right = '';
+      if (dir > 0) { st.el.style.left = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '0 50%'; }
+      else         { st.el.style.right = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '100% 50%'; }
+      // 띠 i 가 덮는 지면 x: 떠나는 쪽은 책등에서 i번째, 도착하는 쪽은 그 거울 위치
+      const fx = dir > 0 ? leave + i * sw : leave + half - (i + 1) * sw;
+      const bx = dir > 0 ? arrive + half - (i + 1) * sw : arrive + i * sw;
+      shift(st.fc, fx, spread); shift(st.bc, bx, next);
+    });
+    sign = dir > 0 ? -1 : 1;
+    under.className = 'under on ' + (dir > 0 ? 'next' : 'prev');
+    cast.className = 'cast on ' + (dir > 0 ? 'next' : 'prev');
+    leaf.className = 'leaf on';
+  }
+  // 진행률 p(0~1)에서의 자세 — 자유변이 앞서고 종이가 휜다
+  function pose(p) {
+    const free = 180 * ease(p);                  // 자유변(바깥 가장자리)의 각도
+    const bend = BEND * Math.sin(Math.PI * p);   // 시작·끝에서 0 → 평평하게 뜨고 평평하게 앉는다
+    const spine = free - bend, d = bend / (N - 1);
+    strips.forEach((st, i) => {
+      st.el.style.transform = `rotateY(${sign * (i ? d : spine)}deg)`;   // 첫 띠는 책등 각도, 나머지는 경첩 증분
+      const a0 = (spine + i * d) * Math.PI / 180, a1 = a0 + d * Math.PI / 180;   // 이 띠 양끝의 절대 각도
+      const dark = a => (0.42 * (1 - Math.cos(a)) / 2).toFixed(3);                 // 세울수록 어둡게
+      const lo = sign < 0 ? 0 : 1, hi = 1 - lo;                                    // 앞으로 넘길 땐 경첩이 왼쪽
+      st.fs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark([a0,a1][lo])}),rgba(0,0,0,${dark([a0,a1][hi])}))`;
+      st.bs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark(Math.PI-[a0,a1][hi])}),rgba(0,0,0,${dark(Math.PI-[a0,a1][lo])}))`;
+    });
+    cast.style.opacity = Math.sin(Math.PI * p).toFixed(3);
   }
   function turn(dir) {
     if (turning) return;
     const next = Math.min(last, Math.max(0, spread + dir));
     if (next === spread) return;
-
     const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
     if (reduce || !leaf) { spread = next; apply(); return; }
-
     turning = true;
-    // 낱장은 '한 단'이 아니라 '한 쪽' — 여백까지 포함한 책의 절반, 책등(정중앙)에서 바깥 가장자리까지.
-    // 단 크기로 만들면 위아래 여백만큼 짧고 폭도 좁아, 왼쪽 면에 내려앉을 때 지면보다 작아 보인다.
-    const W = pages.clientWidth, H = pages.clientHeight, half = W / 2;
-    ensureFaces();
-    leaf.style.top = '0px'; leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
-    under.style.width = half + 'px'; under.style.height = H + 'px';
-    const place = (face, pageX, k) =>                       // 복제본을 옮겨 해당 '쪽'이 창에 오게
-      (face.style.transform = `translate(${-(pageX + k * step)}px, 0)`);
-    if (dir > 0) {                                          // 오른쪽 쪽이 왼쪽으로 넘어간다
-      leaf.style.left = half + 'px';
-      place(faces.front, half, spread);                     // 앞면: 떠나는 오른쪽 쪽
-      place(faces.back, 0, next);                           // 뒷면: 도착하는 왼쪽 쪽
-      under.style.left = half + 'px'; place(faces.under, half, next);  // 밑: 도착하는 오른쪽 쪽
-    } else {                                                // 왼쪽 쪽이 오른쪽으로 넘어간다
-      leaf.style.left = '0px';
-      place(faces.front, 0, spread);                        // 앞면: 떠나는 왼쪽 쪽
-      place(faces.back, half, next);                        // 뒷면: 도착하는 오른쪽 쪽
-      under.style.left = '0px'; place(faces.under, 0, next);          // 밑: 도착하는 왼쪽 쪽
-    }
-    under.className = 'under on ' + (dir > 0 ? 'next' : 'prev');
-    leaf.className = 'leaf ' + (dir > 0 ? 'next' : 'prev');
-    void leaf.offsetWidth;                                   // 애니메이션 재시작
-    leaf.classList.add(dir > 0 ? 'go-next' : 'go-prev');
-    report('넘기는 중');
-    // 종이가 90도(정면에서 두께만 보이는 순간)를 지날 때 지면을 바꾼다.
-    // 그 전에는 종이 앞면이 이쪽 지면을, 그 뒤로는 뒷면이 반대쪽 지면을 덮는다.
-    setTimeout(() => {
-      spread = next; apply();                                // 이 순간 지면 = 낱장 뒷면 + 밑층 → 이음새 없음
-      leaf.className = 'leaf'; under.className = 'under'; turning = false;
-    }, 830);
+    setup(dir, next); pose(0); report('넘기는 중');
+    const t0 = performance.now();
+    (function frame(now) {
+      const p = Math.min(1, (now - t0) / DUR);
+      pose(p);
+      if (p < 1) requestAnimationFrame(frame);
+      else {
+        spread = next; apply();                    // 이 순간 지면 = 낱장 뒷면 + 밑층 → 이음새 없음
+        leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast'; turning = false;
+      }
+    })(t0);
   }
+  // 정지 프레임 검사용 — 실제 코드 경로(setup/pose)를 그대로 쓴다
+  // 첫 넘김이 멈칫하지 않도록 복제본을 만들고 한 프레임 미리 그려 둔다.
+  // 각도 0 의 낱장은 밑에 깔린 지면과 같은 그림이라 눈에 띄지 않는다.
+  let warmT = 0;
+  const warmSoon = () => { clearTimeout(warmT); warmT = setTimeout(warm, 300); };
+  function warm() {
+    if (turning || !wide() || !document.body.classList.contains('spread')) return;
+    setup(1, spread); pose(0);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (turning) return;
+      leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast';
+    }));
+  }
+  window.__turnAt = (dir, p) => { setup(dir, Math.min(last, Math.max(0, spread + dir))); pose(p); };
 
   function setMode(on) {
     document.body.classList.toggle('spread', on);
     swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
     swap.setAttribute('aria-pressed', String(on));
-    if (on) { spread = 0; requestAnimationFrame(measure); }
+    if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
     else { pages.style.transform = ''; }
     try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
     report();
@@ -814,13 +862,14 @@ footer b{color:var(--ink)}
     lock = now; turn(d > 0 ? 1 : -1);
   }, { passive: false });
 
-  addEventListener('resize', () => { if (!wide()) setMode(false); else measure(); report(); });
+  addEventListener('resize', () => { if (!wide()) setMode(false); else { measure(); warmSoon(); } report(); });
   report();
 
   let saved = null;
   try { saved = localStorage.getItem('sk-spread'); } catch (e) {}
   // 화면이 맞으면 기본으로 펼쳐서 연다. '이어서 읽기'를 고른 적이 있으면 그걸 따른다.
   if (wide() && saved !== '0') setMode(true);
-  addEventListener('load', () => { if (document.body.classList.contains('spread')) measure(); });
+  // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
+  addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
 })();
 </script>
