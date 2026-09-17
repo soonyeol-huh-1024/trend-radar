@@ -755,26 +755,21 @@ footer b{color:var(--ink)}
     if (reduce || !leaf) { spread = next; apply(); return; }
 
     turning = true;
-    // 지면 기하 — 낱장은 정확히 한 단 크기이고, 각 면의 복제본은 원본과 같은 크기다
-    const cs = getComputedStyle(pages);
-    const padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop);
-    const gap = parseFloat(cs.columnGap) || 0;
-    const inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
-    const colW = (inner - gap) / 2;
-    const colH = pages.clientHeight - padT - parseFloat(cs.paddingBottom);
-    const rightX = padL + colW + gap;                       // 오른쪽 단의 x
+    // 낱장은 '한 단'이 아니라 '한 쪽' — 여백까지 포함한 책의 절반, 책등(정중앙)에서 바깥 가장자리까지.
+    // 단 크기로 만들면 위아래 여백만큼 짧고 폭도 좁아, 왼쪽 면에 내려앉을 때 지면보다 작아 보인다.
+    const W = pages.clientWidth, H = pages.clientHeight, half = W / 2;
     ensureFaces();
-    leaf.style.top = padT + 'px'; leaf.style.width = colW + 'px'; leaf.style.height = colH + 'px';
-    const place = (face, colX, k) =>                        // 복제본을 옮겨 해당 단이 창에 오게
-      (face.style.transform = `translate(${-(colX + k * step)}px, ${-padT}px)`);
-    if (dir > 0) {                                          // 오른쪽 면이 왼쪽으로 넘어간다
-      leaf.style.left = rightX + 'px';
-      place(faces.front, rightX, spread);                   // 앞면: 떠나는 오른쪽 면
-      place(faces.back, padL, next);                        // 뒷면: 도착하는 왼쪽 면
-    } else {                                                // 왼쪽 면이 오른쪽으로 넘어간다
-      leaf.style.left = padL + 'px';
-      place(faces.front, padL, spread);                     // 앞면: 떠나는 왼쪽 면
-      place(faces.back, rightX, next);                      // 뒷면: 도착하는 오른쪽 면
+    leaf.style.top = '0px'; leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
+    const place = (face, pageX, k) =>                       // 복제본을 옮겨 해당 '쪽'이 창에 오게
+      (face.style.transform = `translate(${-(pageX + k * step)}px, 0)`);
+    if (dir > 0) {                                          // 오른쪽 쪽이 왼쪽으로 넘어간다
+      leaf.style.left = half + 'px';
+      place(faces.front, half, spread);                     // 앞면: 떠나는 오른쪽 쪽
+      place(faces.back, 0, next);                           // 뒷면: 도착하는 왼쪽 쪽
+    } else {                                                // 왼쪽 쪽이 오른쪽으로 넘어간다
+      leaf.style.left = '0px';
+      place(faces.front, 0, spread);                        // 앞면: 떠나는 왼쪽 쪽
+      place(faces.back, half, next);                        // 뒷면: 도착하는 오른쪽 쪽
     }
     leaf.className = 'leaf ' + (dir > 0 ? 'next' : 'prev');
     void leaf.offsetWidth;                                   // 애니메이션 재시작
