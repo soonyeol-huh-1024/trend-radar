@@ -208,7 +208,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
   body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
   /* 조작부 */
-  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:22px;
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;
     padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
   body.spread .nav button{
     font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
@@ -216,7 +216,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
     transition:border-color .15s,color .15s}
   body.spread .nav button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
   body.spread .nav button:disabled{opacity:.3;cursor:default}
-  body.spread .nav .pos{font-family:var(--mono);font-size:12.5px;color:var(--muted);
+  body.spread .nav .pos{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0 8px;
     min-width:94px;text-align:center;font-variant-numeric:tabular-nums}
   body.spread .modeswap{position:fixed;right:18px;top:16px;z-index:5}
 }
@@ -681,9 +681,11 @@ footer b{color:var(--ink)}
 </footer>
 </div></div>
 <div class="nav">
+  <button type="button" data-goto="first" aria-label="처음으로">&#8676; 처음</button>
   <button type="button" data-turn="-1" aria-label="이전 펼침">&larr; 이전</button>
   <span class="pos" role="status" aria-live="polite"></span>
   <button type="button" data-turn="1" aria-label="다음 펼침">다음 &rarr;</button>
+  <button type="button" data-goto="last" aria-label="마지막으로">마지막 &#8677;</button>
 </div>
 </div>
 <button type="button" class="modeswap" aria-pressed="false">펼쳐 보기</button>
@@ -794,7 +796,8 @@ footer b{color:var(--ink)}
     pages.style.transform = `translateX(${-spread * step}px)`;
     if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
     report();
-    btns.forEach(b => (b.disabled = +b.dataset.turn < 0 ? spread === 0 : spread >= last));
+    btns.forEach(b => { const back = b.dataset.turn ? +b.dataset.turn < 0 : b.dataset.goto === 'first';
+      b.disabled = back ? spread === 0 : spread >= last; });
   }
 
   let turning = false;
@@ -923,11 +926,15 @@ footer b{color:var(--ink)}
   }
 
   swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
-  btns.forEach(b => b.addEventListener('click', () => turn(+b.dataset.turn)));
+  // 처음·마지막은 넘김 효과 없이 바로 간다 — 스무 장을 넘기는 연출은 기다리게만 한다
+  function jump(to) { if (turning) return; const n = to === 'last' ? last : 0; if (n !== spread) { spread = n; apply(); } }
+  btns.forEach(b => b.addEventListener('click', () => b.dataset.turn ? turn(+b.dataset.turn) : jump(b.dataset.goto)));
   addEventListener('keydown', e => {
     if (!document.body.classList.contains('spread')) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); turn(1); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); turn(-1); }
+    if (e.key === 'Home') { e.preventDefault(); jump('first'); }
+    if (e.key === 'End') { e.preventDefault(); jump('last'); }
   });
   // 휠·트랙패드로도 넘긴다
   let lock = 0;
