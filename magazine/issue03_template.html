@@ -215,6 +215,11 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
   .nav,.gutter,.modeswap{display:none!important}}
+/* 상태줄 — 펼침이 왜 켜졌는지/안 켜졌는지 페이지가 스스로 말한다 */
+.stat{position:fixed;left:14px;bottom:10px;z-index:6;font-family:var(--mono);font-size:11px;
+  color:var(--muted);background:var(--paper2);border:1px solid var(--rule);border-radius:3px;
+  padding:4px 9px;pointer-events:none;max-width:calc(100vw - 28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.spread .stat{bottom:auto;top:14px;left:14px}
 /* 메모 */
 .memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
 .memo b{color:var(--ink)}
@@ -666,6 +671,7 @@ footer b{color:var(--ink)}
 </div>
 </div>
 <button type="button" class="modeswap" aria-pressed="false">펼쳐 보기</button>
+<div class="stat" aria-live="polite"></div>
 
 <script>
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
@@ -682,6 +688,14 @@ footer b{color:var(--ink)}
   if (!pages || !book || !swap) return;
 
   let spread = 0, step = 0, last = 0;
+  const stat = document.querySelector('.stat');
+  function report(extra) {
+    if (!stat) return;
+    const on = document.body.classList.contains('spread');
+    const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const why = on ? '펼침 켜짐' : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 960px 이상이면 두 쪽으로 펼쳐집니다');
+    stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
+  }
 
   function measure() {
     if (!document.body.classList.contains('spread')) return;
@@ -700,6 +714,7 @@ footer b{color:var(--ink)}
   function apply() {
     pages.style.transform = `translateX(${-spread * step}px)`;
     if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
+    report();
     btns.forEach(b => (b.disabled = +b.dataset.turn < 0 ? spread === 0 : spread >= last));
   }
 
@@ -716,6 +731,7 @@ footer b{color:var(--ink)}
     leaf.className = 'leaf ' + (dir > 0 ? 'next' : 'prev');
     void leaf.offsetWidth;                                   // 애니메이션 재시작
     leaf.classList.add(dir > 0 ? 'go-next' : 'go-prev');
+    report('넘기는 중');
     // 종이가 90도(정면에서 두께만 보이는 순간)를 지날 때 지면을 바꾼다.
     // 그 전에는 종이 앞면이 이쪽 지면을, 그 뒤로는 뒷면이 반대쪽 지면을 덮는다.
     setTimeout(() => { spread = next; apply(); }, 390);
@@ -729,6 +745,7 @@ footer b{color:var(--ink)}
     if (on) { spread = 0; requestAnimationFrame(measure); }
     else { pages.style.transform = ''; }
     try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
+    report();
   }
 
   swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
@@ -750,7 +767,8 @@ footer b{color:var(--ink)}
     lock = now; turn(d > 0 ? 1 : -1);
   }, { passive: false });
 
-  addEventListener('resize', () => { if (!wide()) setMode(false); else measure(); });
+  addEventListener('resize', () => { if (!wide()) setMode(false); else measure(); report(); });
+  report();
 
   let saved = null;
   try { saved = localStorage.getItem('sk-spread'); } catch (e) {}
