@@ -1,4 +1,4 @@
-"""셀러킴 코너 헤더 일러스트 생성 (Gemini 2.5 Flash Image)."""
+"""셀러KIM 코너 헤더 일러스트 생성 (Gemini 2.5 Flash Image)."""
 import base64, json, os, sys, subprocess, tempfile, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent   # trend_radar/

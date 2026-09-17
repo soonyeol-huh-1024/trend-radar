@@ -1,4 +1,4 @@
-"""셀러킴 주간 레이더 — 10개 코너 후보를 한 번에 뽑는다.
+"""셀러KIM 주간 레이더 — 10개 코너 후보를 한 번에 뽑는다.
 
 사용: python run_radar.py [--skip seasonal]
 출력: out/c01~c07_*.csv + out/brief.json (⑧⑨⑩ 큐레이션용 요약)

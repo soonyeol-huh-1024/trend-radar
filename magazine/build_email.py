@@ -115,7 +115,7 @@ def convert() -> tuple[str, list[dict]]:
 
     # 제호 SVG → 호스팅한 PNG
     body = re.sub(r'<h1 class="logo">.*?</h1>',
-                  f'<img src="{SITE}/assets/logo.png" width="160" alt="셀러킴" '
+                  f'<img src="{SITE}/assets/logo.png" width="160" alt="셀러KIM" '
                   'style="display:block;border:0">', body, flags=re.S)
 
     # 게이지·시점마크

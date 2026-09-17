@@ -1,5 +1,5 @@
 """
-셀러킴 창간호 HTML 빌드: 템플릿 + 차트 JS + 이미지(base64) + 데이터 JSON → 단일 HTML.
+셀러KIM 창간호 HTML 빌드: 템플릿 + 차트 JS + 이미지(base64) + 데이터 JSON → 단일 HTML.
 아티팩트는 외부 이미지 로드를 차단하므로 이미지는 data URI 로 내장한다.
 
 사용: python build_issue01.py   → magazine/sellerkim_issue01.html

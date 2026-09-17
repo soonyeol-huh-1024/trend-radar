@@ -1,4 +1,4 @@
-// 셀러킴 — 차트는 하나뿐. 첫 코너의 미국·한국 격차만 눈으로 확인시킨다.
+// 셀러KIM — 차트는 하나뿐. 첫 코너의 미국·한국 격차만 눈으로 확인시킨다.
 (function () {
   const D = window.SELLERKIM2;
   let chart = null;

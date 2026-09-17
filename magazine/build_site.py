@@ -57,7 +57,7 @@ def build_issue(it: dict, assets: set[str]) -> None:
     out = DOCS / it["slug"]
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(DOC.format(
-        title=f'셀러킴 제{it["n"]}호 — {it["title"]}',
+        title=f'셀러KIM 제{it["n"]}호 — {it["title"]}',
         desc=it["lede"], base=BASE,
         og_image=f'<meta property="og:image" content="{BASE}/assets/img/{it["cover"]}">\n',
         body="\n".join(links) + "\n" + html))
@@ -79,7 +79,7 @@ def build_index(assets: set[str]) -> None:
         assets.add(it["cover"])
 
     (DOCS / "index.html").write_text(DOC.format(
-        title="셀러킴 — 주간 트렌드 매거진", base=BASE,
+        title="셀러KIM — 주간 트렌드 매거진", base=BASE,
         desc="검색 데이터에서 아직 자리가 비어 있는 것을 찾아 매주 정리합니다.",
         og_image=f'<meta property="og:image" content="{BASE}/assets/img/{ISSUES[0]["cover"]}">\n',
         body=f'''<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@ def build_index(assets: set[str]) -> None:
 body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.8;-webkit-font-smoothing:antialiased}}
 .wrap{{max-width:680px;margin:0 auto;padding:44px 22px 70px}}
 .mast{{padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:10px}}
-.mast svg{{width:170px;height:auto;color:var(--ink);display:block}}
+.mast svg{{width:196px;height:auto;color:var(--ink);display:block}}
 .stand{{font-size:16.5px;color:var(--muted);margin:16px 0 34px;line-height:1.75;max-width:52ch}}
 .card{{display:grid;grid-template-columns:200px 1fr;gap:20px;text-decoration:none;color:inherit;
   padding:22px 0;border-top:1px solid var(--rule)}}
