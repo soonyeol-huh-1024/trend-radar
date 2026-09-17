@@ -77,7 +77,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 .pull{font-family:var(--serif);font-size:23px;line-height:1.5;font-weight:500;margin:30px 0;padding:6px 0 6px 20px;border-left:3px solid var(--brand);text-wrap:balance}
 /* 순위표 */
 .rank{margin:26px 0;border-top:1px solid var(--rule)}
-.rank .r{display:grid;grid-template-columns:30px 1fr auto;gap:0 14px;align-items:baseline;
+.rank>.r{display:grid;grid-template-columns:30px 1fr auto;gap:0 14px;align-items:baseline;
   padding:13px 0;border-bottom:1px solid var(--rule)}
 .rank .n{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .rank .b{min-width:0}
@@ -85,7 +85,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 .rank .b>span{display:block;font-size:14px;color:var(--muted);line-height:1.6;margin-top:2px}
 .rank .v{font-family:var(--mono);font-size:13.5px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .rank .v b{display:block;color:var(--ink);font-size:15px;font-weight:500}
-@media (max-width:520px){.rank .r{grid-template-columns:26px 1fr;gap:0 10px}
+@media (max-width:520px){.rank>.r{grid-template-columns:26px 1fr;gap:0 10px}
   .rank .v{grid-column:2;text-align:left;margin-top:5px}
   .rank .v b{display:inline;margin-right:8px}}
 /* 예보 카드 */
@@ -136,8 +136,9 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 /* ── 펼침(spread) 모드 ─────────────────────────────────────────
    넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
-   좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
-@media (min-width:960px) and (min-height:600px){
+   가로 1100px 이상이면 두 쪽 펼침 + 책넘김, 그 아래(480px 이상)는 한 쪽씩 넘긴다(body.single, 넘김 효과 없음).
+   더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
+@media (min-width:480px) and (min-height:560px){
   body.spread{overflow:hidden;height:100vh}
   body.spread .wrap{
     max-width:none;width:100%;height:100vh;padding:0;
@@ -160,7 +161,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   body.spread .fc>*,body.spread .pair{break-inside:avoid-column}
   body.spread .row h4,body.spread .row .n{break-after:avoid-column}
   /* 순위표·상자·예보 카드는 쪽을 건너 이어질 수 있다. 상자는 조각마다 테두리를 다시 두른다 */
-  body.spread .rank,body.spread .box,body.spread .fc{break-inside:auto}
+  body.spread .rank,body.spread .box,body.spread .fc{break-inside:avoid-column}   /* 표는 한 쪽에. 쪽보다 길면 어쩔 수 없이 나뉜다 */
   body.spread .box,body.spread .fc>div{box-decoration-break:clone;-webkit-box-decoration-break:clone}
   /* 제목은 뒤따르는 내용과 떨어지지 않게, 문단은 한 줄만 남더라도 빈칸보다는 낫다 */
   body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
@@ -168,6 +169,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
   body.spread figure.ph img{max-height:min(46vh,340px)}
   body.spread .cover{break-after:column}
+  body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
   /* 책등 그림자 */
   body.spread .gutter{
     display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
@@ -202,6 +204,9 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   body.spread .cast.on{visibility:visible}
   body.spread .cast.prev{background:radial-gradient(ellipse at 100% 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
   body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
+  /* 한 쪽씩 — 단 하나, 책등·낱장 없음, 넘김은 짧게 미끄러지기만 */
+  body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
+  body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
   /* 조작부 */
   body.spread .nav{display:flex;align-items:center;justify-content:center;gap:22px;
     padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
@@ -221,7 +226,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-@media (min-width:960px) and (min-height:600px){.modeswap{display:block}}
+@media (min-width:480px) and (min-height:560px){.modeswap{display:block}}
 @media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
@@ -688,7 +693,10 @@ footer b{color:var(--ink)}
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
 (function () {
-  const wide = () => matchMedia('(min-width:960px) and (min-height:600px)').matches;
+  const mode = () => matchMedia('(min-width:1100px) and (min-height:600px)').matches ? 'two'
+    : matchMedia('(min-width:480px) and (min-height:560px)').matches ? 'one' : '';
+  const wide = () => !!mode();
+  const single = () => document.body.classList.contains('single');
   const pages = document.querySelector('.pages');
   const book = document.querySelector('.book');
   const nav = document.querySelector('.nav');
@@ -705,7 +713,7 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? '펼침 켜짐' : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 960px 이상이면 두 쪽으로 펼쳐집니다');
+    const why = on ? (single() ? '한 쪽씩(가로 1100px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 480px 이상이면 쪽 단위로 넘깁니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
@@ -713,13 +721,13 @@ footer b{color:var(--ink)}
   // 사진처럼 쪼갤 수 없는 조각이 남은 자리에 못 들어가 다음 쪽으로 밀리면 그 앞 쪽이 빈다.
   // 그럴 때 그 조각을 다음 문단 뒤로 보내 글이 빈자리를 채우게 한다. 원래 순서는 기억해 두었다가
   // 창 크기가 바뀌거나 '이어서 읽기'로 돌아갈 때 되돌린다.
-  const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box';
+  const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box, article > .rank, article > .fc';
   const FRAG = '.mast, .cover, .toc > *, .note > *, article > *, .rank .r, .box > *, .fc > *, li, figcaption, .pair figure';
   const origin = [...pages.querySelectorAll(MOVABLE)].map(el => ({ el, parent: el.parentNode, next: el.nextElementSibling }));
   let fitted = '';
   function restoreOrder() {
     for (let i = origin.length - 1; i >= 0; i--) origin[i].parent.insertBefore(origin[i].el, origin[i].next);
-    origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; });
+    origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; o.el.style.breakInside = ''; });
     fitted = '';
   }
   function fit() {
@@ -729,9 +737,11 @@ footer b{color:var(--ink)}
     const cs = getComputedStyle(pages);
     const padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop), padB = parseFloat(cs.paddingBottom);
     const gap = parseFloat(cs.columnGap), inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
-    const colW = (inner - gap) / 2, colH = pages.clientHeight - padT - padB;
+    const cols = single() ? 1 : 2;
+    const colW = (inner - gap * (cols - 1)) / cols, colH = pages.clientHeight - padT - padB;
     const frags = [...pages.querySelectorAll(FRAG)];
-    const stuck = new Set();
+    const stuck = new Set(), moves = new Map();
+    const log = (window.__fit = []);   // 편집 기록(진단용): 무엇을 왜 옮겼나
     for (let round = 0; round < 60; round++) {
       const pr = pages.getBoundingClientRect(), colTop = pr.top + padT, colBottom = colTop + colH;
       const col = x => Math.round((x - pr.left - padL) / (colW + gap));
@@ -746,13 +756,19 @@ footer b{color:var(--ink)}
         const pe = el.previousElementSibling;                   // 소제목이 붙어 함께 밀려온 경우도 포함
         const atTop = rc.top - colTop < 40 || (pe && /^H[23]$/.test(pe.tagName) && pe.getBoundingClientRect().top - colTop < 40);
         if (!atTop || !prev || prev.art !== el.closest('article') || colBottom - prev.bottom < 60) continue;
-        const next = el.nextElementSibling;
-        if (next && !next.matches(MOVABLE)) { next.after(el); moved = true; break; }   // 한 문단 뒤로
+        // 쪽보다 긴 표는 어차피 한 쪽에 못 들어간다 — 옮기지 말고 제자리에서 나눈다
+        const tall = [...el.getClientRects()].reduce((a, r) => a + r.height, 0) > colH;
+        if (tall && el.matches('.rank, .fc, .box') && !el.style.breakInside) { el.style.breakInside = 'auto'; stuck.add(el); log.push(['나눔', el.className, k]); moved = true; break; }   // 나눴으면 더 옮기지 않는다
+        const next = el.nextElementSibling, n = moves.get(el) || 0;
+        // 옮길 수 있는 것끼리 자리를 바꾸는 건 한 번만 (서로 밀어내며 왔다갔다 하지 않게)
+        if (next && n < 3 && !(next.matches(MOVABLE) && moves.has(next))) { next.after(el); moves.set(el, n + 1); log.push(['뒤로', el.tagName + '.' + el.className, k, Math.round(colBottom - prev.bottom)]); moved = true; break; }   // 한 조각 뒤로
         stuck.add(el);
         // 뒤로 보낼 문단이 없으면 사진을 남은 자리에 맞게 자른다 (사진 하나짜리 figure 만)
         const im = el.matches('figure') ? el.querySelector('img') : null;
         const room = colBottom - prev.bottom - parseFloat(getComputedStyle(el).marginTop) - (rc.height - (im ? im.getBoundingClientRect().height : 0)) - 4;
-        if (im && room >= 150 && !im.style.height) { im.style.height = room + 'px'; moved = true; break; }
+        if (im && room >= 150 && !im.style.height) { im.style.height = room + 'px'; log.push(['자름', el.className, k, room]); moved = true; break; }
+        // 표는 한 쪽에 두는 게 원칙이지만, 옮겨도 앞 쪽이 크게 비면 그때만 나눈다
+        if (el.matches('.rank, .fc, .box') && colBottom - prev.bottom >= 200 && !el.style.breakInside) { el.style.breakInside = 'auto'; log.push(['나눔(빈칸)', el.className, k]); moved = true; break; }
       }
       if (!moved) break;
     }
@@ -866,7 +882,7 @@ footer b{color:var(--ink)}
     const next = Math.min(last, Math.max(0, spread + dir));
     if (next === spread) return;
     const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if (reduce || !leaf) { spread = next; apply(); return; }
+    if (reduce || !leaf || single()) { spread = next; apply(); return; }   // 한 쪽씩 모드는 넘김 효과 없이
     turning = true;
     setup(dir, next); pose(0); report('넘기는 중');
     const t0 = performance.now();
@@ -886,7 +902,7 @@ footer b{color:var(--ink)}
   let warmT = 0;
   const warmSoon = () => { clearTimeout(warmT); warmT = setTimeout(warm, 300); };
   function warm() {
-    if (turning || !wide() || !document.body.classList.contains('spread')) return;
+    if (turning || !wide() || single() || !document.body.classList.contains('spread')) return;
     setup(1, spread); pose(0);
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if (turning) return;
@@ -897,6 +913,7 @@ footer b{color:var(--ink)}
 
   function setMode(on) {
     document.body.classList.toggle('spread', on);
+    document.body.classList.toggle('single', on && mode() === 'one');
     swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
     swap.setAttribute('aria-pressed', String(on));
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
@@ -924,7 +941,12 @@ footer b{color:var(--ink)}
     lock = now; turn(d > 0 ? 1 : -1);
   }, { passive: false });
 
-  addEventListener('resize', () => { if (!wide()) setMode(false); else { measure(); warmSoon(); } report(); });
+  addEventListener('resize', () => {
+    const m = mode();
+    if (!m) setMode(false);
+    else if (document.body.classList.contains('spread')) { document.body.classList.toggle('single', m === 'one'); measure(); warmSoon(); }
+    report();
+  });
   report();
 
   let saved = null;
