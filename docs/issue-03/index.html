@@ -186,6 +186,16 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
     display:block;position:absolute;z-index:4;visibility:hidden;pointer-events:none;
     transform-style:preserve-3d}
   body.spread .leaf.go-next,body.spread .leaf.go-prev{visibility:visible}
+  /* 도착 면 — 낱장이 들리는 동안 그 밑에 이미 놓여 있어야 하는 쪽.
+     떠나는 쪽 지면은 그대로 두고, 이 층이 새 면을 보여준다. 실제 지면 교체는
+     낱장이 완전히 내려앉은 뒤에 하므로 눈에 띄지 않는다. */
+  body.spread .under{display:block;position:absolute;top:0;z-index:3;overflow:hidden;
+    background:var(--paper);visibility:hidden}
+  body.spread .under.on{visibility:visible}
+  body.spread .under .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .under::after{content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,.04) 12%,transparent 34%)}
+  body.spread .under.prev::after{transform:scaleX(-1)}
   body.spread .leaf.next{transform-origin:left center}
   body.spread .leaf.prev{transform-origin:right center}
   body.spread .leaf .face{position:absolute;inset:0;overflow:hidden;background:var(--paper);
@@ -218,7 +228,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 }
 /* 좁은 화면·인쇄에서는 펼침을 쓰지 않는다 */
 .book,.nav,.gutter,.modeswap{}
-.nav,.gutter,.leaf{display:none}
+.nav,.gutter,.leaf,.under{display:none}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
@@ -241,7 +251,7 @@ footer b{color:var(--ink)}
 </style>
 
 <div class="wrap">
-<div class="book"><div class="gutter"></div><div class="leaf" aria-hidden="true"><div class="face front"></div><div class="face back"></div></div><div class="pages">
+<div class="book"><div class="gutter"></div><div class="under" aria-hidden="true"></div><div class="leaf" aria-hidden="true"><div class="face front"></div><div class="face back"></div></div><div class="pages">
 <header class="mast">
   <h1 class="logo">
     <svg viewBox="4 4 760 192" role="img" aria-label="셀러KIM">
@@ -695,6 +705,7 @@ footer b{color:var(--ink)}
   const nav = document.querySelector('.nav');
   const swap = document.querySelector('.modeswap');
   const leaf = document.querySelector('.leaf');
+  const under = document.querySelector('.under');
   const pos = nav && nav.querySelector('.pos');
   const btns = nav ? [...nav.querySelectorAll('button')] : [];
   if (!pages || !book || !swap) return;
@@ -731,12 +742,12 @@ footer b{color:var(--ink)}
   }
 
   let turning = false;
-  const faces = { front: null, back: null, w: 0, h: 0 };
+  const faces = { front: null, back: null, under: null, w: 0, h: 0 };
   function ensureFaces() {
     const w = pages.clientWidth, h = pages.clientHeight;
     if (faces.front && faces.w === w && faces.h === h) return;
-    for (const side of ['front', 'back']) {
-      const host = leaf.querySelector('.face.' + side);
+    for (const side of ['front', 'back', 'under']) {
+      const host = side === 'under' ? under : leaf.querySelector('.face.' + side);
       host.innerHTML = '';
       const c = pages.cloneNode(true);
       c.removeAttribute('id');
@@ -760,25 +771,31 @@ footer b{color:var(--ink)}
     const W = pages.clientWidth, H = pages.clientHeight, half = W / 2;
     ensureFaces();
     leaf.style.top = '0px'; leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
+    under.style.width = half + 'px'; under.style.height = H + 'px';
     const place = (face, pageX, k) =>                       // 복제본을 옮겨 해당 '쪽'이 창에 오게
       (face.style.transform = `translate(${-(pageX + k * step)}px, 0)`);
     if (dir > 0) {                                          // 오른쪽 쪽이 왼쪽으로 넘어간다
       leaf.style.left = half + 'px';
       place(faces.front, half, spread);                     // 앞면: 떠나는 오른쪽 쪽
       place(faces.back, 0, next);                           // 뒷면: 도착하는 왼쪽 쪽
+      under.style.left = half + 'px'; place(faces.under, half, next);  // 밑: 도착하는 오른쪽 쪽
     } else {                                                // 왼쪽 쪽이 오른쪽으로 넘어간다
       leaf.style.left = '0px';
       place(faces.front, 0, spread);                        // 앞면: 떠나는 왼쪽 쪽
       place(faces.back, half, next);                        // 뒷면: 도착하는 오른쪽 쪽
+      under.style.left = '0px'; place(faces.under, 0, next);          // 밑: 도착하는 왼쪽 쪽
     }
+    under.className = 'under on ' + (dir > 0 ? 'next' : 'prev');
     leaf.className = 'leaf ' + (dir > 0 ? 'next' : 'prev');
     void leaf.offsetWidth;                                   // 애니메이션 재시작
     leaf.classList.add(dir > 0 ? 'go-next' : 'go-prev');
     report('넘기는 중');
     // 종이가 90도(정면에서 두께만 보이는 순간)를 지날 때 지면을 바꾼다.
     // 그 전에는 종이 앞면이 이쪽 지면을, 그 뒤로는 뒷면이 반대쪽 지면을 덮는다.
-    setTimeout(() => { spread = next; apply(); }, 410);
-    setTimeout(() => { leaf.className = 'leaf'; turning = false; }, 840);
+    setTimeout(() => {
+      spread = next; apply();                                // 이 순간 지면 = 낱장 뒷면 + 밑층 → 이음새 없음
+      leaf.className = 'leaf'; under.className = 'under'; turning = false;
+    }, 830);
   }
 
   function setMode(on) {
