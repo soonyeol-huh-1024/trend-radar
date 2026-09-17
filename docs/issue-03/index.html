@@ -95,7 +95,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 .rank .n{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .rank .b{min-width:0}
 .rank .b b{font-weight:600;font-size:16.5px}
-.rank .b span{display:block;font-size:14px;color:var(--muted);line-height:1.6;margin-top:2px}
+.rank .b>span{display:block;font-size:14px;color:var(--muted);line-height:1.6;margin-top:2px}
 .rank .v{font-family:var(--mono);font-size:13.5px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
 .rank .v b{display:block;color:var(--ink);font-size:15px;font-weight:500}
 @media (max-width:520px){.rank .r{grid-template-columns:26px 1fr;gap:0 10px}
@@ -103,7 +103,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   .rank .v b{display:inline;margin-right:8px}}
 /* 예보 카드 */
 .fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
-.fc div{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
+.fc>div{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
 .fc .w{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--brand);margin-bottom:5px}
 .fc b{display:block;font-size:16.5px;margin-bottom:3px}
 .fc span{font-size:14px;color:var(--muted);line-height:1.6}
@@ -163,12 +163,23 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
     column-count:2;column-gap:clamp(64px,7.5vw,120px);column-fill:auto;
     transition:transform .62s cubic-bezier(.33,.9,.28,1);
     will-change:transform}
+  /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
   body.spread .pages>*{break-inside:avoid-column}
-  body.spread article{margin:0;padding:34px 0;border-bottom:1px solid var(--rule)}
+  body.spread article,body.spread .toc,body.spread .note{break-before:column;break-inside:auto}
+  body.spread article{margin:0;padding:0;border-bottom:0}
   body.spread article.t-past,body.spread article.t-next,
   body.spread article.t-note{background:none}          /* 단 배경은 지면 전체로 못 깔린다 */
-  body.spread figure,body.spread .rank,body.spread .box,
-  body.spread .fc,body.spread .pair{break-inside:avoid-column}
+  body.spread figure,body.spread .rank .r,body.spread .box .k,body.spread .box h3,
+  body.spread .fc>*,body.spread .pair{break-inside:avoid-column}
+  body.spread .row h4,body.spread .row .n{break-after:avoid-column}
+  /* 순위표·상자·예보 카드는 쪽을 건너 이어질 수 있다. 상자는 조각마다 테두리를 다시 두른다 */
+  body.spread .rank,body.spread .box,body.spread .fc{break-inside:auto}
+  body.spread .box,body.spread .fc>div{box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  /* 제목은 뒤따르는 내용과 떨어지지 않게, 문단은 한 줄만 남더라도 빈칸보다는 낫다 */
+  body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
+  body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
+  /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
+  body.spread figure.ph img{max-height:min(46vh,340px)}
   body.spread .cover{break-after:column}
   /* 책등 그림자 */
   body.spread .gutter{
@@ -711,8 +722,59 @@ footer b{color:var(--ink)}
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
+  // ── 지면 편집: 코너 안에서 쪽 아래가 비지 않게 사진·상자를 문단 뒤로 옮긴다 ──
+  // 사진처럼 쪼갤 수 없는 조각이 남은 자리에 못 들어가 다음 쪽으로 밀리면 그 앞 쪽이 빈다.
+  // 그럴 때 그 조각을 다음 문단 뒤로 보내 글이 빈자리를 채우게 한다. 원래 순서는 기억해 두었다가
+  // 창 크기가 바뀌거나 '이어서 읽기'로 돌아갈 때 되돌린다.
+  const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box';
+  const FRAG = '.mast, .cover, .toc > *, .note > *, article > *, .rank .r, .box > *, .fc > *, li, figcaption, .pair figure';
+  const origin = [...pages.querySelectorAll(MOVABLE)].map(el => ({ el, parent: el.parentNode, next: el.nextElementSibling }));
+  let fitted = '';
+  function restoreOrder() {
+    for (let i = origin.length - 1; i >= 0; i--) origin[i].parent.insertBefore(origin[i].el, origin[i].next);
+    origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; });
+    fitted = '';
+  }
+  function fit() {
+    const key = pages.clientWidth + 'x' + pages.clientHeight;
+    if (fitted === key) return false;
+    restoreOrder();
+    const cs = getComputedStyle(pages);
+    const padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop), padB = parseFloat(cs.paddingBottom);
+    const gap = parseFloat(cs.columnGap), inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
+    const colW = (inner - gap) / 2, colH = pages.clientHeight - padT - padB;
+    const frags = [...pages.querySelectorAll(FRAG)];
+    const stuck = new Set();
+    for (let round = 0; round < 60; round++) {
+      const pr = pages.getBoundingClientRect(), colTop = pr.top + padT, colBottom = colTop + colH;
+      const col = x => Math.round((x - pr.left - padL) / (colW + gap));
+      const low = {};                                           // 쪽별 마지막 조각의 아랫선과 그 코너
+      frags.forEach(el => { for (const rc of el.getClientRects()) { if (rc.height < 2) continue;
+        const k = col(rc.left); if (!low[k] || rc.bottom > low[k].bottom) low[k] = { bottom: rc.bottom, art: el.closest('article') }; } });
+      let moved = false;
+      for (const { el } of origin) {
+        if (stuck.has(el)) continue;
+        const rc = el.getBoundingClientRect(); if (!rc.height) continue;
+        const k = col(rc.left), prev = low[k - 1];
+        const pe = el.previousElementSibling;                   // 소제목이 붙어 함께 밀려온 경우도 포함
+        const atTop = rc.top - colTop < 40 || (pe && /^H[23]$/.test(pe.tagName) && pe.getBoundingClientRect().top - colTop < 40);
+        if (!atTop || !prev || prev.art !== el.closest('article') || colBottom - prev.bottom < 60) continue;
+        const next = el.nextElementSibling;
+        if (next && !next.matches(MOVABLE)) { next.after(el); moved = true; break; }   // 한 문단 뒤로
+        stuck.add(el);
+        // 뒤로 보낼 문단이 없으면 사진을 남은 자리에 맞게 자른다 (사진 하나짜리 figure 만)
+        const im = el.matches('figure') ? el.querySelector('img') : null;
+        const room = colBottom - prev.bottom - parseFloat(getComputedStyle(el).marginTop) - (rc.height - (im ? im.getBoundingClientRect().height : 0)) - 4;
+        if (im && room >= 150 && !im.style.height) { im.style.height = room + 'px'; moved = true; break; }
+      }
+      if (!moved) break;
+    }
+    fitted = key;
+    return true;
+  }
   function measure() {
     if (!document.body.classList.contains('spread')) return;
+    if (fit()) { built.w = 0; warmSoon(); }                    // 순서가 바뀌었으면 복제본도 다시
     const cs = getComputedStyle(pages);
     const gap = parseFloat(cs.columnGap) || 120;
     // 단이 놓이는 폭은 clientWidth 에서 좌우 패딩을 뺀 값이다.
@@ -851,7 +913,7 @@ footer b{color:var(--ink)}
     swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
     swap.setAttribute('aria-pressed', String(on));
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
-    else { pages.style.transform = ''; }
+    else { pages.style.transform = ''; restoreOrder(); }
     try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
     report();
   }
