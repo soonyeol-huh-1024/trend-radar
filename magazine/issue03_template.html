@@ -82,9 +82,13 @@ figure.vid .play:hover .tri,figure.vid .play:focus-visible .tri{transform:scale(
 figure.vid .play b{display:block;font-size:15px;font-weight:600;line-height:1.5;color:#fff}
 figure.vid .play .by{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
   color:rgba(255,255,255,.6);margin-top:6px}
-figure.vid .out{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+figure.vid .out{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:15px;padding:20px;text-align:center}
+figure.vid .out p{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72)}
 figure.vid .out a{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
   border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:10px 18px}
+figure.vid .out a:hover{background:rgba(255,255,255,.1)}
+figure.vid .play.away .by::after{content:' ↗'}
 figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule);
   white-space:nowrap}
 figcaption a:hover{color:var(--brand);border-color:var(--brand)}
@@ -1006,29 +1010,66 @@ footer b{color:var(--ink)}
 })();
 
 /* 영상 — 누르면 그 자리에 유튜브가 들어온다.
-   바깥 화면을 막아 둔 곳(아티팩트 미리보기 등)에서는 끼울 수 없으므로 새 탭으로 연다.
-   설명줄의 '유튜브에서 보기'는 어느 쪽이든 늘 열려 있는 길이다. */
+   다만 출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
+   '동영상 플레이어 구성 오류(153)'만 낸다. 그런 화면은 미리 알아보고 새 탭으로 보낸다.
+   끼우는 데까지 성공해도 죽어 있을 수 있어, 살아 있는 플레이어만 답하는 인사를 건네 확인한다. */
 (function () {
+  const figs = [...document.querySelectorAll('figure.vid')];
+  if (!figs.length) return;
+
+  let canEmbed = location.protocol !== 'file:' && location.origin && location.origin !== 'null';
+  if (canEmbed) { try { localStorage.getItem('sk-yt'); } catch (e) { canEmbed = false; } }  // 출처가 지워진 틀
+
   let blocked = false;
   addEventListener('securitypolicyviolation', e => {
     if (/frame/.test(e.violatedDirective) || /youtube/.test(e.blockedURI || '')) blocked = true;
   });
-  document.querySelectorAll('figure.vid').forEach(fig => {
-    const id = fig.dataset.yt, screen = fig.querySelector('.screen');
+
+  const alive = new Set();
+  addEventListener('message', e => {
+    try { if (/\.youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) alive.add(e.source); }
+    catch (_) {}
+  });
+
+  figs.forEach(fig => {
+    const id = fig.dataset.yt, screen = fig.querySelector('.screen'), play = fig.querySelector('.play');
     const watch = 'https://www.youtube.com/watch?v=' + id;
-    const out = () => {
-      screen.innerHTML = '<div class="out"><a href="' + watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></div>';
-      screen.querySelector('a').focus();
+    const card = msg => {
+      screen.innerHTML = '';
+      const d = document.createElement('div');
+      d.className = 'out';
+      d.innerHTML = (msg ? '<p>' + msg + '</p>' : '') +
+        '<a href="' + watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>';
+      screen.appendChild(d);
+      d.querySelector('a').focus();
     };
-    fig.querySelector('.play').addEventListener('click', () => {
-      if (blocked) { open(watch, '_blank', 'noopener'); return; }
+
+    if (!canEmbed) {                                   // 여기서는 어차피 안 나온다
+      play.classList.add('away');
+      play.addEventListener('click', () => { if (!open(watch, '_blank', 'noopener')) card(''); });
+      return;
+    }
+
+    play.addEventListener('click', () => {
+      if (blocked) { card('이 화면에서는 재생할 수 없습니다.'); return; }
       const f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-      f.title = fig.querySelector('.play b').textContent;
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&rel=0&enablejsapi=1&origin=' + encodeURIComponent(location.origin);
+      f.title = play.querySelector('b').textContent;
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       f.allowFullscreen = true;
       screen.innerHTML = ''; screen.appendChild(f);
-      setTimeout(() => { if (blocked) out(); }, 400);
+      const hi = () => { try { f.contentWindow.postMessage(
+        JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (_) {} };
+      const t = setInterval(hi, 500);
+      let done = false;
+      const verdict = () => {                 // 내려받는 시간은 빼고, 뜬 뒤로 2.5초만 기다린다
+        if (done) return;
+        done = true; clearInterval(t);
+        if (!alive.has(f.contentWindow)) card('이 화면에서는 재생할 수 없습니다.');
+      };
+      f.addEventListener('load', () => { hi(); setTimeout(verdict, 2500); });
+      setTimeout(verdict, 12000);             // 아예 뜨지 않는 경우까지
     });
   });
 })();
