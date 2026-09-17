@@ -7,9 +7,10 @@
  --brand:#0E8AA6;--hi:#C2452D;--good:#3A8F3F;--pen:rgba(255,212,77,.62);--pen-r:rgba(224,120,90,.38);
  --t-past:#EAEEEE;--t-next:#EBF3F5;--t-note:#EFEFEB;
  --t-past2:#E2E8E8;--t-next2:#E1EEF1;--t-note2:#E8E8E1;
+ --fold-a:rgba(0,0,0,.055);--fold-b:rgba(0,0,0,.115);
  --serif:'Hahmlet','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR','Apple SD Gothic Neo',sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019}}
-:root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}}
+:root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased}
 .wrap{max-width:680px;margin:0 auto;padding:30px 22px 70px}
@@ -131,6 +132,86 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 18px;margin:20px 0}
 .legend div{display:flex;gap:9px;align-items:baseline;font-size:14px;color:var(--muted)}
 .legend b{color:var(--ink);font-weight:500}
+
+/* ── 펼침(spread) 모드 ─────────────────────────────────────────
+   넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
+   좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
+@media (min-width:1180px) and (min-height:680px){
+  body.spread{overflow:hidden;height:100vh}
+  body.spread .wrap{
+    max-width:none;width:100%;height:100vh;padding:0;
+    display:flex;flex-direction:column}
+  body.spread .book{
+    flex:1;min-height:0;position:relative;overflow:hidden;
+    perspective:2400px;perspective-origin:50% 45%}
+  body.spread .pages{
+    height:100%;padding:54px 72px 64px;
+    column-count:2;column-gap:120px;column-fill:auto;
+    transition:transform .62s cubic-bezier(.33,.9,.28,1);
+    will-change:transform}
+  body.spread .pages>*{break-inside:avoid-column}
+  body.spread article{margin:0;padding:34px 0;border-bottom:1px solid var(--rule)}
+  body.spread article.t-past,body.spread article.t-next,
+  body.spread article.t-note{background:none}          /* 단 배경은 지면 전체로 못 깔린다 */
+  body.spread figure,body.spread .rank,body.spread .box,
+  body.spread .fc,body.spread .pair{break-inside:avoid-column}
+  body.spread .cover{break-after:column}
+  /* 책등 그림자 */
+  body.spread .gutter{
+    display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
+    pointer-events:none;z-index:2;
+    background:linear-gradient(90deg,transparent,var(--fold-a) 42%,var(--fold-b) 50%,
+      var(--fold-a) 58%,transparent)}
+  /* 책넘김 — 종이 한 장이 책등(가운데)을 축으로 돈다.
+     넘어가는 면의 내용까지 그리려면 지면을 통째로 복제해야 해서, 여기서는
+     종이 뒷면만 돌리고 그 뒤로 다음 지면이 드러나게 한다. 0.6초면 그렇게 읽힌다. */
+  body.spread .leaf{
+    position:absolute;top:0;height:100%;width:calc(50% - 6px);z-index:4;
+    opacity:0;pointer-events:none;backface-visibility:hidden;
+    background:var(--paper);box-shadow:0 0 34px rgba(0,0,0,.22)}
+  body.spread .leaf.next{right:0;transform-origin:left center}
+  body.spread .leaf.prev{left:0;transform-origin:right center}
+  body.spread .leaf::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,var(--fold-b),transparent 22%,transparent 78%,rgba(0,0,0,.05))}
+  body.spread .leaf.prev::after{transform:scaleX(-1)}
+  body.spread .leaf.go-next{animation:leafNext .62s cubic-bezier(.36,.06,.28,1) forwards}
+  body.spread .leaf.go-prev{animation:leafPrev .62s cubic-bezier(.36,.06,.28,1) forwards}
+  @keyframes leafNext{
+    0%{opacity:0;transform:rotateY(0)}
+    10%{opacity:1;transform:rotateY(-14deg)}
+    92%{opacity:1;transform:rotateY(-166deg)}
+    100%{opacity:0;transform:rotateY(-172deg)}}
+  @keyframes leafPrev{
+    0%{opacity:0;transform:rotateY(0)}
+    10%{opacity:1;transform:rotateY(14deg)}
+    92%{opacity:1;transform:rotateY(166deg)}
+    100%{opacity:0;transform:rotateY(172deg)}}
+  body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
+  /* 조작부 */
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:22px;
+    padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
+  body.spread .nav button{
+    font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
+    border:1px solid var(--rule);border-radius:3px;padding:7px 15px;cursor:pointer;
+    transition:border-color .15s,color .15s}
+  body.spread .nav button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+  body.spread .nav button:disabled{opacity:.3;cursor:default}
+  body.spread .nav .pos{font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    min-width:94px;text-align:center;font-variant-numeric:tabular-nums}
+  body.spread .modeswap{position:fixed;right:18px;top:16px;z-index:5}
+}
+/* 좁은 화면·인쇄에서는 펼침을 쓰지 않는다 */
+.book,.nav,.gutter,.modeswap{}
+.nav,.gutter{display:none}
+.modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--mono);font-size:11.5px;
+  color:var(--muted);background:var(--paper2);border:1px solid var(--rule);border-radius:3px;
+  padding:6px 11px;cursor:pointer;display:none}
+@media (min-width:1180px) and (min-height:680px){.modeswap{display:block}}
+@media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
+@media print{body.spread{overflow:visible;height:auto}
+  body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
+  .nav,.gutter,.modeswap{display:none!important}}
 /* 메모 */
 .memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
 .memo b{color:var(--ink)}
@@ -140,6 +221,7 @@ footer b{color:var(--ink)}
 </style>
 
 <div class="wrap">
+<div class="book"><div class="gutter"></div><div class="leaf" aria-hidden="true"></div><div class="pages">
 <header class="mast">
   <h1 class="logo">
     <svg viewBox="4 4 760 192" role="img" aria-label="셀러KIM">
@@ -573,4 +655,102 @@ footer b{color:var(--ink)}
   <p>특정 상품을 사거나 팔라고 권하는 글이 아닙니다. 소싱처, 라이선스, 인허가는 직접 확인하셔야 합니다. 건강기능식품은 표시·광고 규정이 따로 있습니다.</p>
   <p><b>사진</b> 모두 Unsplash.</p>
 </footer>
+</div></div>
+<div class="nav">
+  <button type="button" data-turn="-1" aria-label="이전 펼침">&larr; 이전</button>
+  <span class="pos" role="status" aria-live="polite"></span>
+  <button type="button" data-turn="1" aria-label="다음 펼침">다음 &rarr;</button>
 </div>
+</div>
+<button type="button" class="modeswap" aria-pressed="false">펼쳐 보기</button>
+
+<script>
+/* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
+(function () {
+  const wide = () => matchMedia('(min-width:1180px) and (min-height:680px)').matches;
+  const pages = document.querySelector('.pages');
+  const book = document.querySelector('.book');
+  const nav = document.querySelector('.nav');
+  const swap = document.querySelector('.modeswap');
+  const leaf = document.querySelector('.leaf');
+  const pos = nav && nav.querySelector('.pos');
+  const btns = nav ? [...nav.querySelectorAll('button')] : [];
+  if (!pages || !book || !swap) return;
+
+  let spread = 0, step = 0, last = 0;
+
+  function measure() {
+    if (!document.body.classList.contains('spread')) return;
+    const cs = getComputedStyle(pages);
+    const gap = parseFloat(cs.columnGap) || 120;
+    // 단이 놓이는 폭은 clientWidth 에서 좌우 패딩을 뺀 값이다.
+    // clientWidth 를 그대로 쓰면 패딩만큼 매번 어긋난다.
+    const inner = pages.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    step = inner + gap;                            // 두 단 + 그 사이 간격 = 한 펼침
+    const total = pages.scrollWidth - pages.clientWidth + inner + gap;
+    last = Math.max(0, Math.ceil(total / step) - 1);
+    spread = Math.min(spread, last);
+    apply();
+  }
+
+  function apply() {
+    pages.style.transform = `translateX(${-spread * step}px)`;
+    if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
+    btns.forEach(b => (b.disabled = +b.dataset.turn < 0 ? spread === 0 : spread >= last));
+  }
+
+  let turning = false;
+  function turn(dir) {
+    if (turning) return;
+    const next = Math.min(last, Math.max(0, spread + dir));
+    if (next === spread) return;
+
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !leaf) { spread = next; apply(); return; }
+
+    turning = true;
+    leaf.className = 'leaf ' + (dir > 0 ? 'next' : 'prev');
+    void leaf.offsetWidth;                                   // 애니메이션 재시작
+    leaf.classList.add(dir > 0 ? 'go-next' : 'go-prev');
+    // 종이가 책등을 지나는 순간 지면을 바꾼다 — 그래야 뒤에서 새 면이 드러난다
+    setTimeout(() => { spread = next; apply(); }, 240);
+    setTimeout(() => { leaf.className = 'leaf'; turning = false; }, 640);
+  }
+
+  function setMode(on) {
+    document.body.classList.toggle('spread', on);
+    swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
+    swap.setAttribute('aria-pressed', String(on));
+    if (on) { spread = 0; requestAnimationFrame(measure); }
+    else { pages.style.transform = ''; }
+    try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
+  }
+
+  swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
+  btns.forEach(b => b.addEventListener('click', () => turn(+b.dataset.turn)));
+  addEventListener('keydown', e => {
+    if (!document.body.classList.contains('spread')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); turn(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); turn(-1); }
+  });
+  // 휠·트랙패드로도 넘긴다
+  let lock = 0;
+  book.addEventListener('wheel', e => {
+    if (!document.body.classList.contains('spread')) return;
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lock < 520) return;
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(d) < 12) return;
+    lock = now; turn(d > 0 ? 1 : -1);
+  }, { passive: false });
+
+  addEventListener('resize', () => { if (!wide()) setMode(false); else measure(); });
+
+  let saved = null;
+  try { saved = localStorage.getItem('sk-spread'); } catch (e) {}
+  if (wide() && saved === '1') setMode(true);
+  addEventListener('load', () => { if (document.body.classList.contains('spread')) measure(); });
+})();
+</script>

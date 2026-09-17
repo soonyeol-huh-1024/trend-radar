@@ -65,6 +65,12 @@ def build_issue(it: dict, assets: set[str]) -> None:
     print(f"  {it['slug']}/index.html  {kb:.0f}KB")
 
 
+def _logo() -> str:
+    """제호 SVG 본문. 파일 맨 앞 주석만 떼낸다(SVG 안에도 주석이 있어 마지막 -->로 자르면 안 된다)."""
+    raw = (HERE / "brand/logo_sellerkim.svg").read_text()
+    return re.sub(r"^\s*<!--.*?-->\s*", "", raw, count=1, flags=re.S).strip()
+
+
 def build_index(assets: set[str]) -> None:
     cards = "\n".join(
         f'''  <a class="card" href="{BASE}/{it["slug"]}/">
@@ -107,7 +113,7 @@ a{{color:var(--brand)}}
 :focus-visible{{outline:2px solid var(--brand);outline-offset:3px}}
 </style>
 <div class="wrap">
-<header class="mast">{(HERE / "brand/logo_sellerkim.svg").read_text().split("-->")[-1].strip()}</header>
+<header class="mast">{_logo()}</header>
 <p class="stand">검색 데이터에서 <b>아직 자리가 비어 있는 것</b>을 찾아 매주 정리합니다.<br>
 셀러와 트렌드를 보는 사람 모두를 위한 읽을거리입니다.</p>
 {cards}
