@@ -66,6 +66,28 @@ figure{margin:24px 0}
 figure img{width:100%;object-fit:cover;border-radius:3px}
 figure.ph img{filter:saturate(.88) contrast(1.03)}
 figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
+/* 영상 — 종이로는 안 되는 것만. 누르기 전에는 검은 판 하나이고, 누르면 그 자리에서 재생된다 */
+figure.vid .screen{position:relative;aspect-ratio:16/9;background:#12161a;border-radius:3px;overflow:hidden}
+figure.vid .screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figure.vid .play{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;padding:20px;text-align:center;
+  background:none;border:0;cursor:pointer;color:#fff;font-family:var(--sans)}
+figure.vid .tri{width:56px;height:56px;border-radius:50%;flex:none;
+  border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;
+  transition:transform .18s,border-color .18s,background .18s}
+figure.vid .tri::after{content:'';margin-left:4px;
+  border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+figure.vid .play:hover .tri,figure.vid .play:focus-visible .tri{transform:scale(1.08);
+  border-color:#fff;background:rgba(255,255,255,.1)}
+figure.vid .play b{display:block;font-size:15px;font-weight:600;line-height:1.5;color:#fff}
+figure.vid .play .by{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  color:rgba(255,255,255,.6);margin-top:6px}
+figure.vid .out{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+figure.vid .out a{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
+  border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:10px 18px}
+figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule);
+  white-space:nowrap}
+figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 .w32 img{aspect-ratio:3/2}
 .w43 img{aspect-ratio:4/3}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
@@ -168,6 +190,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
   body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
   body.spread figure.ph img{max-height:min(46vh,340px)}
+  body.spread figure.vid .screen{max-width:min(100%,604px,81vh)}
   body.spread .cover{break-after:column}
   body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
   /* 책등 그림자 */
@@ -192,7 +215,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
      떠나는 쪽 지면은 그대로 두고, 이 층이 새 면을 보여준다. 실제 지면 교체는
      낱장이 완전히 내려앉은 뒤에 하므로 눈에 띄지 않는다. */
   body.spread .under{display:block;position:absolute;top:0;z-index:3;overflow:hidden;
-    background:var(--paper);opacity:0}
+    background:var(--paper);opacity:0;pointer-events:none}
   body.spread .under.on{opacity:1}
   body.spread .under .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
   body.spread .under::after{content:'';position:absolute;inset:0;pointer-events:none;
@@ -314,7 +337,10 @@ footer b{color:var(--ink)}
 
   <p class="pull">영화를 보러 가는 사람과, 보고 나서 원작을 찾는 사람은 다른 시간에 움직입니다.</p>
 
-  <figure class="ph w32"><img src="{{IMG_CINEMA2}}" alt="극장 좌석 사이로 스크린 빛이 비치는 모습"><figcaption>개봉일에는 표가 팔리고, 한 달 반 뒤에 물건이 팔립니다.</figcaption></figure>
+  <figure class="vid w32" data-yt="Mzw2ttJD2qQ">
+    <div class="screen"><button type="button" class="play"><span class="tri" aria-hidden="true"></span><span><b>The Odyssey — Official Trailer</b><span class="by">Universal Pictures · 1분 54초</span></span></button></div>
+    <figcaption>개봉일에는 표가 팔리고, 한 달 반 뒤에 물건이 팔립니다. <a href="https://www.youtube.com/watch?v=Mzw2ttJD2qQ" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></figcaption>
+  </figure>
 
   <p>극장 관객 수는 개봉 첫 주가 가장 높습니다. 하지만 세 시간짜리 그리스 신화를 보고 나와 "원작은 어떻게 되어 있지"라고 생각하는 데는 시간이 걸립니다. 그 생각이 검색창까지 오는 데는 더 걸립니다. 한 달 반이라는 간격은 그 과정이 얼마나 느린지를 보여줍니다.</p>
 
@@ -333,7 +359,10 @@ footer b{color:var(--ink)}
   <h2>이번 주 사람들이 찾은 것</h2>
   <p class="deck">9월 셋째 주 국내 검색이 가장 크게 오른 것들입니다. 새 휴대폰이 한 자리를 차지했고, 의자가 하나 올라왔고, 지난 호에 소개한 떡이 아직 오르는 중입니다.</p>
 
-  <figure class="ph w32"><img src="{{IMG_PHONE}}" alt="상자에서 꺼낸 새 스마트폰"><figcaption>'아이폰18' 한 달 검색 124만 번. 한 주 만에 173% 올랐습니다.</figcaption></figure>
+  <figure class="vid w32" data-yt="3fAHjTPvF1E">
+    <div class="screen"><button type="button" class="play"><span class="tri" aria-hidden="true"></span><span><b>Apple Event September ’26 — 발표 요약</b><span class="by">Apple · 1분 35초</span></span></button></div>
+    <figcaption>9월 9일 애플 발표. 이 주에 '아이폰18' 검색이 한 주 만에 173% 올랐습니다. <a href="https://www.youtube.com/watch?v=3fAHjTPvF1E" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></figcaption>
+  </figure>
 
   <div class="rank">
     <div class="r"><div class="n">1</div><div class="b"><b>아이폰18</b><span>발표 직후 한 주 만에 173% 상승. 등록 상품 <span class="hl r">88,895개</span>는 대부분 케이스·필름입니다</span></div><div class="v"><b>124만</b>한 달 검색<br><span class="gapx"><span class="gap" data-l="2" role="img" aria-label="빈자리 2/4 빡빡"><i></i><i></i><i></i><i></i></span>빡빡</span></div></div>
@@ -369,6 +398,11 @@ footer b{color:var(--ink)}
   <p>같은 해에 한 아르바이트생이 입사했습니다. 그가 12년 뒤 미국 보스턴에서 열린 <b>월드 바리스타 챔피언십</b>에서 우승합니다. 2019년 전주연 바리스타, 한국인 최초이자 대회 역사상 두 번째 여성 우승자였습니다.</p>
 
   <p class="pull">창업과 같은 해에 들어온 아르바이트생이 12년 뒤 세계 챔피언이 됐습니다.</p>
+
+  <figure class="vid w32" data-yt="p50AIJ4fMLc">
+    <div class="screen"><button type="button" class="play"><span class="tri" aria-hidden="true"></span><span><b>세계 1위 바리스타 전주연 — 커피는 에너지다</b><span class="by">비디오머그 · 6분 14초</span></span></button></div>
+    <figcaption>2019년 우승 직후 인터뷰. 커피숍 아르바이트로 시작한 이야기입니다. <a href="https://www.youtube.com/watch?v=p50AIJ4fMLc" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></figcaption>
+  </figure>
 
   <p>여기서 끝이 아닙니다. 2021년에는 추경하 바리스타가 <b>월드 컵 테이스터스 챔피언십</b>에서 우승했습니다. 한 회사에서 세계 대회 우승자가 둘 나온 겁니다. 그리고 올해, 영국 파이낸셜 타임스가 뽑은 '세계 최고의 카페 100곳'에서 <span class="hl">세계 22위</span>에 올랐습니다. 명단에 든 한국 카페 중 가장 높은 순위입니다.</p>
 
@@ -490,7 +524,10 @@ footer b{color:var(--ink)}
 
   <h3 class="sub">그럼 치이카와는 뭔가</h3>
 
-  <figure class="ph w32"><img src="{{IMG_PLUSHBENCH}}" alt="벤치에 앉아 있는 캐릭터 봉제 인형"><figcaption>앉은 자세는 책상이나 선반에 두기 좋아 같은 캐릭터라도 따로 팔립니다.</figcaption></figure>
+  <figure class="vid w32" data-yt="pbQQAwSQUX4">
+    <div class="screen"><button type="button" class="play"><span class="tri" aria-hidden="true"></span><span><b>『치이카와』 제1화 (공식)</b><span class="by">めざましテレビチャンネル · 1분 30초</span></span></button></div>
+    <figcaption>순한 그림과 내용이 다르다는 말의 뜻은 1분 30초면 알 수 있습니다. <a href="https://www.youtube.com/watch?v=pbQQAwSQUX4" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></figcaption>
+  </figure>
 
   <p>일본 만화가 <b>나가노</b>가 SNS에 연재하는 작품입니다. 제목을 풀면 "작고 귀여운 무언가"라는 뜻이고, 주인공 이름도 그냥 치이카와입니다. 2022년에 애니메이션이 시작됐고, 공식 유튜브 채널 누적 조회수가 1억 회를 넘겼습니다.</p>
 
@@ -809,9 +846,13 @@ footer b{color:var(--ink)}
   const built = { w: 0, h: 0 };
   const faces = { under: null };            // 밑층 복제본
 
+  // 재생 전 영상 칸의 모습. 복제본에는 재생기 대신 이걸 넣는다 — 한 번 넘길 때마다
+  // 유튜브가 스물한 개 뜨는 일을 막고, 넘어가는 중에는 어차피 검은 판으로 보인다.
+  const facades = [...pages.querySelectorAll('figure.vid .screen')].map(el => el.innerHTML);
   function makeClone(w, h) {
     const c = pages.cloneNode(true); c.removeAttribute('id');
     c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
+    c.querySelectorAll('figure.vid .screen').forEach((el, i) => (el.innerHTML = facades[i] || ''));
     return c;
   }
   // 띠 체인: strip[i] 는 strip[i-1] 안에서 그 끝에 매달린다. 각 띠는 앞·뒷면 + 명암막을 가진다.
@@ -962,5 +1003,33 @@ footer b{color:var(--ink)}
   if (wide() && saved !== '0') setMode(true);
   // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
   addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
+})();
+
+/* 영상 — 누르면 그 자리에 유튜브가 들어온다.
+   바깥 화면을 막아 둔 곳(아티팩트 미리보기 등)에서는 끼울 수 없으므로 새 탭으로 연다.
+   설명줄의 '유튜브에서 보기'는 어느 쪽이든 늘 열려 있는 길이다. */
+(function () {
+  let blocked = false;
+  addEventListener('securitypolicyviolation', e => {
+    if (/frame/.test(e.violatedDirective) || /youtube/.test(e.blockedURI || '')) blocked = true;
+  });
+  document.querySelectorAll('figure.vid').forEach(fig => {
+    const id = fig.dataset.yt, screen = fig.querySelector('.screen');
+    const watch = 'https://www.youtube.com/watch?v=' + id;
+    const out = () => {
+      screen.innerHTML = '<div class="out"><a href="' + watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a></div>';
+      screen.querySelector('a').focus();
+    };
+    fig.querySelector('.play').addEventListener('click', () => {
+      if (blocked) { open(watch, '_blank', 'noopener'); return; }
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      f.title = fig.querySelector('.play b').textContent;
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      screen.innerHTML = ''; screen.appendChild(f);
+      setTimeout(() => { if (blocked) out(); }, 400);
+    });
+  });
 })();
 </script>

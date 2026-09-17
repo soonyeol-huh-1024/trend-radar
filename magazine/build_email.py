@@ -161,6 +161,25 @@ def convert() -> tuple[str, list[dict]]:
     body = re.sub(r'<h2>', f'<h2 style="font-size:24px;line-height:1.3;margin:0 0 10px;color:{INK};font-weight:700">', body)
     body = re.sub(r'<h3 style=', '<h3 style=', body)
     body = re.sub(r'<h4>', f'<h4 style="font-size:16px;font-weight:600;margin:0 0 2px;color:{INK}">', body)
+    # 영상은 메일에서 재생할 수 없으므로 유튜브로 보내는 검은 판으로 바꾼다
+    def _vid(m):
+        yt, title, by, cap = m.group(1), m.group(2), m.group(3), m.group(4).strip()
+        url = f"https://www.youtube.com/watch?v={yt}"
+        return (f'<div style="margin:22px 0">'
+                f'<a href="{url}" style="text-decoration:none;color:#fff">'
+                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"'
+                f' style="background:#12161a;border-radius:3px"><tr>'
+                f'<td align="center" style="padding:44px 24px;color:#fff;font-family:inherit">'
+                f'<div style="font-size:30px;line-height:1;color:#fff">&#9654;</div>'
+                f'<div style="font-size:15px;font-weight:600;color:#fff;margin-top:14px">{title}</div>'
+                f'<div style="font-size:11.5px;color:rgba(255,255,255,.6);margin-top:5px;'
+                f'font-family:ui-monospace,Menlo,monospace">{by}</div>'
+                f'</td></tr></table></a>'
+                f'<div style="font-size:12.5px;color:{MUTED};margin-top:6px;line-height:1.6">{cap} '
+                f'<a href="{url}" style="color:{MUTED}">유튜브에서 보기 &#8599;</a></div></div>')
+    body = re.sub(r'<figure class="vid[^"]*" data-yt="([\w-]+)">.*?<b>(.*?)</b>'
+                  r'<span class="by">(.*?)</span>.*?<figcaption>(.*?)\s*<a [^>]*>.*?</a>'
+                  r'\s*</figcaption>\s*</figure>', _vid, body, flags=re.S)
     body = re.sub(r'<figure[^>]*>', '<div style="margin:20px 0">', body)
     body = body.replace("</figure>", "</div>")
     body = re.sub(r'<figcaption>', f'<div style="font-size:12.5px;color:{MUTED};margin-top:6px;line-height:1.6">', body)

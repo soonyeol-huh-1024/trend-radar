@@ -7,18 +7,15 @@ HERE = Path(__file__).parent
 IMAGES = {
     "CINEMA": "un_cinema.jpg",
     "BOOKSHELF": "un_bookshelf.jpg",
-    "PHONE": "un_phone_box.jpg",
     "PLUSH": "un_plush_shelf.jpg",
     "PROTEIN": "un_protein.jpg",
     "STRESS": "un_stress.jpg",
     "TRAIL": "un_autumn_trail.jpg",
-    "CINEMA2": "un_forest_walk.jpg",
     "ROASTERY": "un_roastery.jpg",
     "PAMPAS": "un_pampas.jpg",
     "BIRCH": "un_birch.jpg",
     "ONSEN": "un_onsen.jpg",
     "SITPLUSH": "un_sitting_plush.jpg",
-    "PLUSHBENCH": "un_plush_bench.jpg",
     "COFFEESACK": "un_coffee_sack.jpg",
 }
 
