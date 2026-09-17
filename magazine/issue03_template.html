@@ -833,12 +833,18 @@ footer b{color:var(--ink)}
     apply();
   }
 
+  // 지금 어느 펼침을 보고 있는지 알린다 — 영상 쪽이 이걸 듣고 틀거나 멈춘다
+  function tell() {
+    dispatchEvent(new CustomEvent('sk-page', { detail: {
+      spread, step, on: document.body.classList.contains('spread') } }));
+  }
   function apply() {
     pages.style.transform = `translateX(${-spread * step}px)`;
     if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
     report();
     btns.forEach(b => { const back = b.dataset.turn ? +b.dataset.turn < 0 : b.dataset.goto === 'first';
       b.disabled = back ? spread === 0 : spread >= last; });
+    tell();
   }
 
   let turning = false;
@@ -967,7 +973,7 @@ footer b{color:var(--ink)}
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
     else { pages.style.transform = ''; restoreOrder(); }
     try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
-    report();
+    report(); tell();
   }
 
   swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
@@ -1009,16 +1015,18 @@ footer b{color:var(--ink)}
   addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
 })();
 
-/* 영상 — 누르면 그 자리에 유튜브가 들어온다.
-   다만 출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
-   '동영상 플레이어 구성 오류(153)'만 낸다. 그런 화면은 미리 알아보고 새 탭으로 보낸다.
-   끼우는 데까지 성공해도 죽어 있을 수 있어, 살아 있는 플레이어만 답하는 인사를 건네 확인한다. */
+/* 영상 — 그 지면이 펼쳐지면 소리 없이 저절로 돌고, 넘기면 멈춘다.
+   소리까지 저절로 나게 할 수는 없다(브라우저가 막는다). 소리는 플레이어에서 켜면 된다.
+   출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
+   '동영상 플레이어 구성 오류(153)'만 내므로, 그런 화면은 미리 알아보고 새 탭으로 보낸다. */
 (function () {
+  const pages = document.querySelector('.pages');
   const figs = [...document.querySelectorAll('figure.vid')];
   if (!figs.length) return;
 
   let canEmbed = location.protocol !== 'file:' && location.origin && location.origin !== 'null';
   if (canEmbed) { try { localStorage.getItem('sk-yt'); } catch (e) { canEmbed = false; } }  // 출처가 지워진 틀
+  const still = matchMedia('(prefers-reduced-motion:reduce)').matches;   // 움직임을 줄여 달라는 설정
 
   let blocked = false;
   addEventListener('securitypolicyviolation', e => {
@@ -1030,47 +1038,100 @@ footer b{color:var(--ink)}
     try { if (/\.youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) alive.add(e.source); }
     catch (_) {}
   });
+  const cmd = (f, func) => { try { f.contentWindow.postMessage(
+    JSON.stringify({ event: 'command', func, args: [] }), '*'); } catch (_) {} };
 
-  figs.forEach(fig => {
-    const id = fig.dataset.yt, screen = fig.querySelector('.screen'), play = fig.querySelector('.play');
-    const watch = 'https://www.youtube.com/watch?v=' + id;
-    const card = msg => {
-      screen.innerHTML = '';
-      const d = document.createElement('div');
-      d.className = 'out';
-      d.innerHTML = (msg ? '<p>' + msg + '</p>' : '') +
-        '<a href="' + watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>';
-      screen.appendChild(d);
-      d.querySelector('a').focus();
+  const items = figs.map(fig => ({
+    fig, id: fig.dataset.yt,
+    screen: fig.querySelector('.screen'),
+    play: fig.querySelector('.play'),
+    watch: 'https://www.youtube.com/watch?v=' + fig.dataset.yt,
+    frame: null,
+  }));
+
+  function card(v, msg) {
+    v.frame = null;
+    v.screen.innerHTML = '';
+    const d = document.createElement('div');
+    d.className = 'out';
+    d.innerHTML = (msg ? '<p>' + msg + '</p>' : '') +
+      '<a href="' + v.watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>';
+    v.screen.appendChild(d);
+    return d.querySelector('a');
+  }
+
+  // 지면에 재생기를 끼운다. byUser = 눌러서 튼 것(소리 있음), 아니면 저절로(소리 없음)
+  function mount(v, byUser) {
+    if (blocked) { if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus(); return; }
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&playsinline=1&enablejsapi=1'
+      + '&autoplay=1' + (byUser ? '' : '&mute=1')
+      + '&origin=' + encodeURIComponent(location.origin);
+    f.title = v.play.querySelector('b').textContent;
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    v.screen.innerHTML = ''; v.screen.appendChild(f); v.frame = f;
+
+    // 살아 있는 재생기만 이 인사에 답한다. 답이 없으면 못 트는 화면이다.
+    const hi = () => { try { f.contentWindow.postMessage(
+      JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (_) {} };
+    const t = setInterval(hi, 500);
+    let done = false;
+    const verdict = () => {                     // 내려받는 시간은 빼고, 뜬 뒤로 2.5초만 기다린다
+      if (done) return;
+      done = true; clearInterval(t);
+      if (alive.has(f.contentWindow)) return;
+      if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus();
+      else { v.frame = null; v.screen.innerHTML = facade(v); wire(v); }   // 조용히 검은 판으로
     };
+    f.addEventListener('load', () => { hi(); setTimeout(verdict, 2500); });
+    setTimeout(verdict, 12000);
+  }
 
-    if (!canEmbed) {                                   // 여기서는 어차피 안 나온다
-      play.classList.add('away');
-      play.addEventListener('click', () => { if (!open(watch, '_blank', 'noopener')) card(''); });
-      return;
-    }
+  // 검은 판(재생 전 모습)을 다시 만들기 위해 처음 모습을 적어 둔다
+  const kept = items.map(v => v.screen.innerHTML);
+  const facade = v => kept[items.indexOf(v)];
+  function wire(v) {
+    v.play = v.screen.querySelector('.play');
+    if (!v.play) return;
+    if (!canEmbed) v.play.classList.add('away');
+    v.play.addEventListener('click', () => {
+      if (!canEmbed) { if (!open(v.watch, '_blank', 'noopener')) card(v, ''); return; }
+      mount(v, true);
+    });
+  }
+  items.forEach(wire);
 
-    play.addEventListener('click', () => {
-      if (blocked) { card('이 화면에서는 재생할 수 없습니다.'); return; }
-      const f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + id +
-        '?autoplay=1&rel=0&enablejsapi=1&origin=' + encodeURIComponent(location.origin);
-      f.title = play.querySelector('b').textContent;
-      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-      f.allowFullscreen = true;
-      screen.innerHTML = ''; screen.appendChild(f);
-      const hi = () => { try { f.contentWindow.postMessage(
-        JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (_) {} };
-      const t = setInterval(hi, 500);
-      let done = false;
-      const verdict = () => {                 // 내려받는 시간은 빼고, 뜬 뒤로 2.5초만 기다린다
-        if (done) return;
-        done = true; clearInterval(t);
-        if (!alive.has(f.contentWindow)) card('이 화면에서는 재생할 수 없습니다.');
-      };
-      f.addEventListener('load', () => { hi(); setTimeout(verdict, 2500); });
-      setTimeout(verdict, 12000);             // 아예 뜨지 않는 경우까지
+  function start(v) {
+    if (!canEmbed || still) return;             // 못 틀거나, 저절로 움직이지 말라고 했거나
+    if (v.frame) cmd(v.frame, 'playVideo');
+    else if (v.screen.querySelector('.play')) mount(v, false);
+  }
+  const stop = v => { if (v.frame) cmd(v.frame, 'pauseVideo'); };
+
+  // ── 펼침 모드: 지금 펼친 자리에 있는 영상만 돈다 ──
+  let onSpread = false;
+  addEventListener('sk-page', e => {
+    const { spread, step, on } = e.detail;
+    onSpread = on;
+    if (!on) return;                            // 이어서 읽기 — 아래 관찰자가 맡는다
+    const pr = pages.getBoundingClientRect();
+    const padL = parseFloat(getComputedStyle(pages).paddingLeft);
+    items.forEach(v => {
+      // .pages 가 통째로 움직이므로 둘의 차이는 항상 같다 = 이동과 무관한 자리
+      const rel = v.fig.getBoundingClientRect().left - pr.left - padL;
+      (Math.floor((rel + 2) / step) === spread ? start : stop)(v);
     });
   });
+
+  // ── 이어서 읽기(세로로 읽을 때): 화면에 들어오면 돌고, 벗어나면 멈춘다 ──
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (onSpread) return;
+      const v = items.find(x => x.fig === e.target);
+      (e.intersectionRatio > .55 ? start : stop)(v);
+    }), { threshold: [0, .55, 1] });
+    items.forEach(v => io.observe(v.fig));
+  }
 })();
 </script>
