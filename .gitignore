@@ -26,3 +26,6 @@ magazine/sellerkim_issue*.html
 magazine/img/nv_*.jpg
 
 *.xlsx
+
+# 원고 추출물 (build_doc.py 로 언제든 다시 만듦)
+magazine/out_doc/
