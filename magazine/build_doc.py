@@ -101,6 +101,14 @@ def block(el) -> list[str]:
             desc = ink(spans[-1]) if spans else ""
             out.append(p(f'<span style="{GRAY}">{w}</span> <b>{name}</b>'
                          + (f"<br>{desc}" if desc and desc != w else "")))
+    elif "row" in cls:                             # 기사에 바로 놓인 항목(팔로업 등)
+        h4 = el.find("h4"); n = el.select_one(".n")
+        head = f"<b>{ink(h4)}</b>" if h4 else ""
+        if n:
+            head += f'<br><span style="{GRAY}">{ink(n)}</span>'
+        out.append(p(head))
+        for q in el.find_all("p", recursive=False):
+            out.append(p(ink(q)))
     elif "box" in cls:
         k = el.select_one(".k"); h3 = el.find("h3")
         if k: out.append(p("▸ " + ink(k), "p", NOTE))
