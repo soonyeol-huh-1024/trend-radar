@@ -1,0 +1,1043 @@
+<title>셀러KIM 9월 5주</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--paper:#F4F6F5;--paper2:#E9EEEC;--ink:#15242B;--muted:#5B6B72;--rule:#CFD8D5;
+ --brand:#0E8AA6;--hi:#C2452D;--good:#3A8F3F;--pen:rgba(255,212,77,.62);--pen-r:rgba(224,120,90,.38);
+ --t-past:#EAEEEE;--t-next:#EBF3F5;--t-note:#EFEFEB;
+ --t-past2:#E2E8E8;--t-next2:#E1EEF1;--t-note2:#E8E8E1;
+ --fold-a:rgba(0,0,0,.055);--fold-b:rgba(0,0,0,.115);
+ --serif:'Hahmlet','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR','Apple SD Gothic Neo',sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}}
+:root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:30px 22px 70px}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0;text-wrap:balance;line-height:1.3}
+p{margin:0 0 1.3em}
+img{max-width:100%;display:block}
+strong,b{font-weight:600}
+.mono{font-family:var(--mono)}
+/* 제호 */
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+/* 제호 — 한글은 자모를, 라틴은 획을 기하 도형으로 그린 레터링.
+   'KIM'의 I 는 본문에서 쓰는 '검색 대비 상품' 게이지 네 칸과 같은 형태다. */
+.mast h1.logo{margin:0;line-height:0;color:var(--ink)}
+.mast h1.logo svg{width:177px;height:auto;display:block}
+@media (max-width:420px){.mast h1.logo svg{width:144px}}
+.mast{padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.mast .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+/* 표지 */
+.cover{position:relative;margin:18px 0 0}
+.cover img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.cover .line{position:absolute;left:0;right:0;bottom:0;padding:70px 24px 22px;color:#fff;
+  background:linear-gradient(transparent,rgba(10,20,25,.8));border-radius:0 0 3px 3px}
+.cover .line .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;opacity:.85;margin-bottom:6px}
+.cover .line h2{color:#fff;font-size:30px;line-height:1.25}
+.cover .line p{margin:8px 0 0;font-size:14.5px;line-height:1.6;opacity:.92;max-width:520px}
+/* 목차 */
+.toc{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.toc .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:5px}
+.toc .t{font-weight:500}
+.toc .t small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.5}
+/* 편집자의 말 */
+.note{padding:26px 0;border-bottom:1px solid var(--rule);font-size:16.5px}
+.note .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+/* 기사 */
+article{padding:42px 22px;margin:0 -22px;border-bottom:1px solid var(--rule)}
+article:last-of-type{border-bottom:0}
+/* 코너 배경 = 시점 마크와 같은 체계. 색만 봐도 어느 시간 얘기인지 안다 */
+article.t-past{background:var(--t-past)}
+article.t-next{background:var(--t-next)}
+article.t-note{background:var(--t-note)}
+/* 같은 시점이 연달아 오면 한 단계 깊게 — 경계가 사라지지 않도록 */
+article.t-past + article.t-past{background:var(--t-past2)}
+article.t-next + article.t-next{background:var(--t-next2)}
+article.t-note + article.t-note{background:var(--t-note2)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+article h2{font-size:30px;margin-bottom:12px}
+article.short h2{font-size:24px}
+.deck{font-size:17.5px;line-height:1.7;color:var(--muted);margin:0 0 22px;text-wrap:pretty}
+h3.sub{font-family:var(--serif);font-size:20px;font-weight:700;margin:34px 0 10px;line-height:1.45}
+.lead:first-letter{font-family:var(--serif);font-size:3.1em;font-weight:700;float:left;line-height:.85;margin:6px 8px 0 0}
+/* 사진 */
+figure{margin:24px 0}
+figure img{width:100%;object-fit:cover;border-radius:3px}
+figure.ph img{filter:saturate(.88) contrast(1.03)}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
+/* 영상 — 종이로는 안 되는 것만. 누르기 전에는 검은 판 하나이고, 누르면 그 자리에서 재생된다 */
+figure.vid .screen{position:relative;aspect-ratio:16/9;background:#12161a;border-radius:3px;overflow:hidden}
+figure.vid .screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figure.vid .play{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;padding:20px;text-align:center;
+  background:none;border:0;cursor:pointer;color:#fff;font-family:var(--sans)}
+figure.vid .tri{width:56px;height:56px;border-radius:50%;flex:none;
+  border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;
+  transition:transform .18s,border-color .18s,background .18s}
+figure.vid .tri::after{content:'';margin-left:4px;
+  border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+figure.vid .play:hover .tri,figure.vid .play:focus-visible .tri{transform:scale(1.08);
+  border-color:#fff;background:rgba(255,255,255,.1)}
+figure.vid .play b{display:block;font-size:15px;font-weight:600;line-height:1.5;color:#fff}
+figure.vid .play .by{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  color:rgba(255,255,255,.6);margin-top:6px}
+figure.vid .out{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:15px;padding:20px;text-align:center}
+figure.vid .out p{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72)}
+figure.vid .out a{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
+  border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:10px 18px}
+figure.vid .out a:hover{background:rgba(255,255,255,.1)}
+figure.vid .play.away .by::after{content:' ↗'}
+figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule);
+  white-space:nowrap}
+figcaption a:hover{color:var(--brand);border-color:var(--brand)}
+.w32 img{aspect-ratio:3/2}
+.w43 img{aspect-ratio:4/3}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.pair figure{margin:0}
+.pair img{aspect-ratio:1/1}
+.pair figcaption{font-size:12.5px}
+@media (max-width:520px){.pair{grid-template-columns:1fr}}
+/* 인용 */
+.pull{font-family:var(--serif);font-size:23px;line-height:1.5;font-weight:500;margin:30px 0;padding:6px 0 6px 20px;border-left:3px solid var(--brand);text-wrap:balance}
+/* 순위표 */
+.rank{margin:26px 0;border-top:1px solid var(--rule)}
+.rank>.r{display:grid;grid-template-columns:30px 1fr auto;gap:0 14px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--rule)}
+.rank .n{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank .b{min-width:0}
+.rank .b b{font-weight:600;font-size:16.5px}
+.rank .b>span{display:block;font-size:14px;color:var(--muted);line-height:1.6;margin-top:2px}
+.rank .v{font-family:var(--mono);font-size:13.5px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rank .v b{display:block;color:var(--ink);font-size:15px;font-weight:500}
+@media (max-width:520px){.rank>.r{grid-template-columns:26px 1fr;gap:0 10px}
+  .rank .v{grid-column:2;text-align:left;margin-top:5px}
+  .rank .v b{display:inline;margin-right:8px}}
+/* 예보 카드 */
+.fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
+.fc>div{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
+.fc .w{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--brand);margin-bottom:5px}
+.fc b{display:block;font-size:16.5px;margin-bottom:3px}
+.fc span{font-size:14px;color:var(--muted);line-height:1.6}
+/* 목록 항목 */
+.row{padding:16px 0;border-top:1px solid var(--rule)}
+.row h4{font-family:var(--sans);font-size:16.5px;font-weight:600;margin:0 0 2px}
+.row .n{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:6px}
+.row p{margin:0;font-size:15.5px}
+/* 박스 */
+.box{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:22px 24px 10px;margin:30px 0}
+.box .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:4px}
+.box h3{font-family:var(--serif);font-size:20px;margin:0 0 6px}
+.box .lede{font-size:14.5px;color:var(--muted);margin:0 0 6px}
+.box .row:first-of-type{border-top:0}
+/* 형광펜 */
+.hl{background-image:linear-gradient(transparent 52%,var(--pen) 52%,var(--pen) 93%,transparent 93%);
+    padding:0 2px;margin:0 -1px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl.r{--pen:var(--pen-r)}
+/* ── 셀러KIM 기호 ──────────────────────────────
+   ① '검색 대비 상품' 게이지 .gap[data-l] — 검색÷등록상품. 칸이 많을수록 올라와 있는 상품이 적다
+   ② 시점 마크 .m-past/.m-now/.m-next/.m-note — 코너가 어느 시간을 다루는지
+   매주 같은 자리에 같은 기호가 오면 독자가 숫자를 안 읽고도 읽게 된다 */
+.gap{display:inline-flex;gap:2px;vertical-align:-1px;margin:0 1px}
+.gap i{width:4px;height:12px;border-radius:1px;background:var(--rule);display:block}
+.gap[data-l="1"] i:nth-child(-n+1){background:var(--hi)}
+.gap[data-l="2"] i:nth-child(-n+2){background:var(--muted)}
+.gap[data-l="3"] i:nth-child(-n+3){background:var(--brand)}
+.gap[data-l="4"] i{background:var(--good)}
+.gapx{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap}
+.gapx .gap{margin-right:5px}
+/* 시점 마크 — 왼쪽 채움=지나간 것, 꽉 참=지금, 오른쪽 채움=올 것, 빈 원=풀이 */
+.m{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px;
+   border:1.5px solid var(--brand);box-sizing:border-box}
+.m-past{background:linear-gradient(90deg,var(--brand) 50%,transparent 50%)}
+.m-now{background:var(--brand)}
+.m-next{background:linear-gradient(270deg,var(--brand) 50%,transparent 50%)}
+.m-note{border-color:var(--muted)}
+/* 기호 범례 */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 18px;margin:20px 0}
+.legend div{display:flex;gap:9px;align-items:baseline;font-size:14px;color:var(--muted)}
+.legend b{color:var(--ink);font-weight:500}
+
+/* ── 펼침(spread) 모드 ─────────────────────────────────────────
+   넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
+   가로 1100px 이상이면 두 쪽 펼침 + 책넘김, 그 아래(480px 이상)는 한 쪽씩 넘긴다(body.single, 넘김 효과 없음).
+   더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
+@media (min-width:480px) and (min-height:560px){
+  body.spread{overflow:hidden;height:100vh}
+  body.spread .wrap{
+    max-width:none;width:100%;height:100vh;padding:0;
+    display:flex;flex-direction:column}
+  body.spread .book{
+    flex:1;min-height:0;position:relative;overflow:hidden;
+    perspective:6500px;perspective-origin:50% 50%}
+  body.spread .pages{
+    height:100%;padding:44px clamp(28px,4vw,72px) 56px;
+    column-count:2;column-gap:clamp(64px,7.5vw,120px);column-fill:auto;
+    transition:transform .62s cubic-bezier(.33,.9,.28,1);
+    will-change:transform}
+  /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
+  body.spread .pages>*{break-inside:avoid-column}
+  body.spread article,body.spread .toc,body.spread .note{break-before:column;break-inside:auto}
+  body.spread article{margin:0;padding:0;border-bottom:0}
+  body.spread article.t-past,body.spread article.t-next,
+  body.spread article.t-note{background:none}          /* 단 배경은 지면 전체로 못 깔린다 */
+  body.spread figure,body.spread .rank .r,body.spread .box .k,body.spread .box h3,
+  body.spread .fc>*,body.spread .pair{break-inside:avoid-column}
+  body.spread .row h4,body.spread .row .n{break-after:avoid-column}
+  /* 순위표·상자·예보 카드는 쪽을 건너 이어질 수 있다. 상자는 조각마다 테두리를 다시 두른다 */
+  body.spread .rank,body.spread .box,body.spread .fc{break-inside:avoid-column}   /* 표는 한 쪽에. 쪽보다 길면 어쩔 수 없이 나뉜다 */
+  body.spread .box,body.spread .fc>div{box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  /* 제목은 뒤따르는 내용과 떨어지지 않게, 문단은 한 줄만 남더라도 빈칸보다는 낫다 */
+  body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
+  body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
+  /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
+  body.spread figure.ph img{max-height:min(46vh,340px)}
+  body.spread figure.vid .screen{max-width:min(100%,604px,81vh)}
+  body.spread .cover{break-after:column}
+  body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
+  /* 책등 그림자 */
+  body.spread .gutter{
+    display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
+    pointer-events:none;z-index:2;
+    background:linear-gradient(90deg,transparent,var(--fold-a) 42%,var(--fold-b) 50%,
+      var(--fold-a) 58%,transparent)}
+  /* 책넘김 — 낱장(.leaf)은 세로 띠(.strip) 열 개를 경첩으로 이어 붙인 것.
+     각 띠가 앞 띠 끝에서 조금씩 더 꺾여 종이가 휘어 보인다(다각형으로 원호를 근사).
+     앞면엔 떠나는 쪽, 뒷면엔 도착하는 쪽 지면을 실제로 그린다. 프레임마다 JS 가 각도를 준다. */
+  body.spread .leaf{display:block;position:absolute;top:0;z-index:4;opacity:0;pointer-events:none;
+    transform-style:preserve-3d}   /* visibility 대신 opacity: 상속되지 않아 복제본 전체를 다시 계산하지 않는다 */
+  body.spread .leaf.on{opacity:1}
+  body.spread .strip{position:absolute;top:0;transform-style:preserve-3d}
+  body.spread .strip>.face{position:absolute;top:0;bottom:0;left:0;right:-1px;overflow:hidden;
+    background:var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  body.spread .strip>.face.back{transform:rotateY(180deg)}
+  body.spread .face .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .face .shade{position:absolute;inset:0;pointer-events:none}
+  /* 도착 면 — 낱장이 들리는 동안 그 밑에 이미 놓여 있어야 하는 쪽.
+     떠나는 쪽 지면은 그대로 두고, 이 층이 새 면을 보여준다. 실제 지면 교체는
+     낱장이 완전히 내려앉은 뒤에 하므로 눈에 띄지 않는다. */
+  body.spread .under{display:block;position:absolute;top:0;z-index:3;overflow:hidden;
+    background:var(--paper);opacity:0;pointer-events:none}
+  body.spread .under.on{opacity:1}
+  body.spread .under .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .under::after{content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,.04) 12%,transparent 34%)}
+  body.spread .under.prev::after{transform:scaleX(-1)}
+  /* 종이 아래 드리우는 그림자 */
+  body.spread .cast{display:block;position:absolute;top:0;z-index:2;pointer-events:none;visibility:hidden;
+    background:radial-gradient(ellipse at 0 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  body.spread .cast.on{visibility:visible}
+  body.spread .cast.prev{background:radial-gradient(ellipse at 100% 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
+  /* 한 쪽씩 — 단 하나, 책등·낱장 없음, 넘김은 짧게 미끄러지기만 */
+  body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
+  body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
+  /* 조작부 */
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;
+    padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
+  body.spread .nav button{
+    font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
+    border:1px solid var(--rule);border-radius:3px;padding:7px 15px;cursor:pointer;
+    transition:border-color .15s,color .15s}
+  body.spread .nav button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+  body.spread .nav button:disabled{opacity:.3;cursor:default}
+  body.spread .nav .pos{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0 8px;
+    min-width:94px;text-align:center;font-variant-numeric:tabular-nums}
+  body.spread .modeswap{position:fixed;right:18px;top:16px;z-index:5}
+}
+/* 좁은 화면·인쇄에서는 펼침을 쓰지 않는다 */
+.book,.nav,.gutter,.modeswap{}
+.nav,.gutter,.leaf,.under,.cast{display:none}
+.modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
+  color:var(--paper);background:var(--brand);border:0;border-radius:3px;
+  padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+@media (min-width:480px) and (min-height:560px){.modeswap{display:block}}
+@media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
+@media print{body.spread{overflow:visible;height:auto}
+  body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
+  .nav,.gutter,.modeswap{display:none!important}}
+/* 상태줄 — 펼침이 왜 켜졌는지/안 켜졌는지 페이지가 스스로 말한다 */
+.stat{position:fixed;left:14px;bottom:10px;z-index:6;font-family:var(--mono);font-size:11px;
+  color:var(--muted);background:var(--paper2);border:1px solid var(--rule);border-radius:3px;
+  padding:4px 9px;pointer-events:none;max-width:calc(100vw - 28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.spread .stat{bottom:auto;top:14px;left:14px}
+/* 메모 */
+.memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
+.memo b{color:var(--ink)}
+footer{padding-top:24px;font-size:13px;color:var(--muted);line-height:1.75}
+footer b{color:var(--ink)}
+footer .notice{border-left:3px solid var(--rule);padding:2px 0 2px 14px;margin:0 0 14px}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<div class="book"><div class="gutter"></div><div class="cast" aria-hidden="true"></div><div class="under" aria-hidden="true"></div><div class="leaf" aria-hidden="true"></div><div class="pages">
+<header class="mast">
+  <h1 class="logo">
+    <svg viewBox="4 4 760 192" role="img" aria-label="셀러KIM">
+      <title>셀러KIM</title>
+      <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt" stroke-linejoin="miter">
+        <path d="M14,96 L48,20 L82,96"/>
+        <path d="M152,16 V96"/><path d="M126,58 H152"/><path d="M200,16 V96"/>
+        <path d="M14,112 H200 V148 H14 V184 H200"/>
+        <g transform="translate(224,0)">
+          <path d="M16,28 H126 V92 H16 V156 H126"/>
+          <path d="M192,16 V184"/><path d="M148,100 H192"/>
+        </g>
+        <path d="M490,16 V184"/><path d="M496,100 L562,16"/><path d="M496,100 L566,184"/>
+        <path d="M652,184 V16 L700,112 L748,16 V184"/>
+      </g>
+      <g fill="currentColor">
+        <rect x="606" y="16" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="60" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="104" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="148" width="13" height="36" rx="1.5"/>
+      </g>
+    </svg>
+  </h1>
+  <div class="meta">제4호 · 2026년 9월 5주</div>
+</header>
+
+<div class="cover">
+  <img src="{{IMG_KIDWIND}}" alt="현관 옷걸이에 걸린 아이용 바람막이와 작은 운동화">
+  <div class="line">
+    <div class="k">커버스토리</div>
+    <h2>아이 옷이 먼저 바뀝니다</h2>
+    <p>계절이 바뀔 때 옷장은 한꺼번에 바뀌지 않습니다. 순서가 있고, 그 순서의 맨 앞은 어른이 아니었습니다. <span class="mono" style="opacity:.7;font-size:11px">AI로 생성한 연출 이미지</span></p>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="k">커버스토리</div><div class="t">아이 옷이 먼저 바뀝니다 <small>아동 바람막이 — 옷장이 바뀌는 순서</small></div>
+  <div class="k">기사</div><div class="t">이번 주 사람들이 찾은 것 <small>미리캔버스가 200만, 아이폰18이 122만</small></div>
+  <div class="k">브랜드</div><div class="t">스물한 해 된 회사의 일곱 해 된 서비스 <small>미리캔버스 — 포토북에서 시작했습니다</small></div>
+  <div class="k">기사</div><div class="t">2주 만에 열아홉 배 <small>지난 호에 마흔여덟 개라고 적었던 그 자리</small></div>
+  <div class="k">기사</div><div class="t">미국의 10월, 한국의 10월 <small>할로윈 — 검색은 74배 차이, 상품은 아닙니다</small></div>
+  <div class="k">말뜻</div><div class="t">이 단어, 무슨 뜻일까 <small>괄사 — 긁을 괄에 홍역 사</small></div>
+  <div class="k">예보</div><div class="t">앞으로의 트렌드 <small>9년치 데이터가 가리키는 다음 계절</small></div>
+  <div class="k">기록</div><div class="t">이미 지나간 것들 <small>정점에서 얼마나 내려왔나</small></div>
+  <div class="k">팔로업</div><div class="t">그 후 <small>지난 호 키워드 세 개</small></div>
+</div>
+
+<div class="note">
+  <div class="k">편집자의 말</div>
+  <p>지난 호의 주제가 <b>늦게 오는 것</b>이었다면, 이번 호는 <b>먼저 오는 것</b>입니다. 같은 계절이 와도 옷장은 한꺼번에 바뀌지 않고 순서가 있습니다. 비어 있던 자리도 한꺼번에 채워지지 않고, 채워지는 속도가 따로 있습니다. 이번 주 데이터에서 눈에 띈 건 그 순서와 속도였습니다.</p>
+</div>
+
+<!-- ───────────── 커버스토리 ───────────── -->
+<article>
+  <p class="kicker"><span class="m m-now" aria-hidden="true"></span>커버스토리 · 옷장이 바뀌는 순서</p>
+  <h2>아이 옷이 먼저 바뀝니다</h2>
+  <p class="deck">이번 주 국내 검색에서 가장 가파르게 오른 것들을 모아 보니 여섯 개가 바람막이였습니다. 그리고 여섯 개 모두 아동용이었습니다.</p>
+
+  <figure class="ph w43"><img src="{{IMG_COATRACK}}" alt="옷걸이에 걸린 가을·겨울 겉옷들"><figcaption>어른 옷장은 아직 지난 계절 그대로인 집이 많습니다. 먼저 바뀐 건 옆 칸이었습니다.</figcaption></figure>
+
+  <p class="lead">매주 급등 목록을 훑다 보면 비슷한 말이 몇 개씩 몰려 오는 주가 있습니다. 이번 주가 그랬습니다. <span class="mono hl">바람막이</span>가 붙은 검색어가 열두 개나 위로 올라왔습니다.</p>
+
+  <p>그런데 목록을 다시 보다가 이상한 걸 알았습니다. 가장 많이 오른 여섯 개가 전부 <b>아이 옷</b>이었습니다. 아기바람막이·여아바람막이·주니어바람막이·키즈바람막이, 그리고 브랜드가 붙은 탑텐키즈바람막이·베베드피노바람막이입니다. 어른 것으로는 바람막이여성이 한참 아래에 있었습니다.</p>
+
+  <p>숫자로 보면 차이가 더 큽니다. 주니어바람막이는 한 달 전보다 <b><span class="hl">열 배</span></b>, 여아바람막이는 아홉 배로 올랐습니다. 같은 기간 바람막이여성은 두 배가 조금 넘습니다.</p>
+
+  <p class="pull">아이 옷장은 부모가 바꿉니다. 그리고 부모는 자기 옷보다 아이 옷을 먼저 바꿉니다.</p>
+
+  <p>이유를 짐작하기는 어렵지 않습니다. 어른은 아침에 추우면 참고 나갑니다. 아이는 참게 두지 않습니다. 그리고 아이 옷은 작년 것이 이미 작습니다. 어른 옷장에는 작년 바람막이가 그대로 있지만 아이 옷장에는 없습니다. <b>계절이 오는 시점은 같은데 교체가 강제되는 쪽이 아이입니다.</b></p>
+
+  <h3 class="sub">그다음은 패딩입니다</h3>
+
+  <figure class="ph w32"><img src="{{IMG_KNIT}}" alt="개어 쌓아 놓은 니트 세 장"><figcaption>바람막이 다음은 니트와 경량패딩입니다. 옷장은 얇은 것부터 두꺼운 것 순으로 바뀝니다.</figcaption></figure>
+
+  <p>같은 주 데이터에서 바람막이 바로 뒤를 따라오는 게 보입니다. <span class="mono">경량패딩</span>이 한 달 전 대비 세 배(월 6만 5,200번), 노스페이스경량패딩이 다섯 배, 살로몬경량패딩이 여덟 배 반으로 올랐습니다. 네파키즈패딩도 함께 올라왔는데, 여기서도 키즈가 먼저입니다.</p>
+
+  <p>정리하면 순서가 이렇습니다. <b>아동 바람막이 → 성인 바람막이 → 경량패딩 → 두꺼운 패딩.</b> 지금은 두 번째와 세 번째 사이입니다. 뒤에 실은 예보 코너에 스파오경량패딩이 <span class="hl">6주 뒤</span>로 잡혀 있는 것도 같은 순서 위에 있습니다.</p>
+
+  <p>일반 독자에게 재미있는 지점도 있습니다. 옷장이 바뀌는 순서는 날씨보다 <b>생활의 순서</b>를 따릅니다. 기온이 몇 도 떨어졌는지가 아니라, 누가 누구 옷을 챙기는지가 먼저 나타납니다. 검색 데이터는 날씨가 아니라 그 집의 사정을 보여 줍니다.</p>
+
+  <div class="memo">
+    <b>숫자를 볼 때 같이 볼 것</b> 아동 바람막이는 오르는 속도가 가파른 대신 검색량 자체는 작습니다. 가장 큰 탑텐키즈바람막이도 한 달 3,550번이고, 등록 상품은 5,518개입니다. 찾는 사람보다 파는 곳이 더 많다는 뜻이라, '급등'만 보고 판단하기 어려운 구간입니다.
+  </div>
+</article>
+
+<!-- ───────────── 기사 1 ───────────── -->
+<article>
+  <p class="kicker"><span class="m m-now" aria-hidden="true"></span>기사 · 이번 주 많이 찾은 것</p>
+  <h2>이번 주 사람들이 찾은 것</h2>
+  <p class="deck">9월 셋째 주 국내 검색량 상위입니다. 처음 보는 이름이 하나 3위로 들어왔고, 새 휴대폰과 작년 휴대폰이 정반대로 움직였습니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_PHONE}}" alt="상자에서 꺼낸 새 스마트폰"><figcaption>'아이폰18' 한 달 검색 130만 번. 한 달 전보다 2.4배입니다.</figcaption></figure>
+
+  <div class="rank">
+    <div class="r"><div class="n">1</div><div class="b"><b>cgv</b><span>극장 체인. 검색량 1위지만 한 달 전보다 <span class="hl r">27.5% 줄었습니다</span></span></div><div class="v"><b>254만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">2</div><div class="b"><b>롯데시네마</b><span>역시 33% 감소. 극장 두 곳이 나란히 빠졌습니다</span></div><div class="v"><b>227만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">3</div><div class="b"><b>미리캔버스</b><span>이번 주 처음 목록에 들어와 곧장 3위. 뒤에 따로 다룹니다</span></div><div class="v"><b>201만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">4</div><div class="b"><b>유니클로</b><span>가을 상품이 함께 올라왔습니다. 후리스블루종이 한 달 전 대비 3.5배</span></div><div class="v"><b>161만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">5</div><div class="b"><b>무신사</b><span>29cm(89만)까지 합치면 실제로는 더 큽니다</span></div><div class="v"><b>140만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">6</div><div class="b"><b>스파이더맨</b><span>한 달 전보다 68% 감소. 여름 개봉작이 끝나가는 모양입니다</span></div><div class="v"><b>136만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">7</div><div class="b"><b>아이폰18</b><span>9월 9일 발표 직후. 등록 상품 <span class="hl r">114,951개</span>는 대부분 케이스·필름입니다</span></div><div class="v"><b>122만</b>한 달 검색<br><span class="gapx"><span class="gap" data-l="2" role="img" aria-label="검색 대비 상품 많음"><i></i><i></i><i></i><i></i></span>상품 많음</span></div></div>
+    <div class="r"><div class="n">8</div><div class="b"><b>29cm</b><span>무신사가 운영하는 편집숍</span></div><div class="v"><b>89만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">9</div><div class="b"><b>클로드</b><span>AI 서비스 이름이 쇼핑 검색에 올라와 있습니다</span></div><div class="v"><b>89만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">10</div><div class="b"><b>갤럭시폴드8</b><span>한 달 전 대비 <span class="hl r">62% 감소</span>. 아이폰18과 정확히 반대 방향</span></div><div class="v"><b>87만</b>한 달 검색</div></div>
+  </div>
+
+  <p><b>한 쌍만 짚고 갑니다.</b> 아이폰18은 한 달 전보다 2.4배로 올랐고, 갤럭시폴드8은 같은 기간 62% 줄었습니다. 갤럭시z플립8도 44% 줄었습니다. 새 모델이 나오면 이전 세대가 빠지는 건 당연해 보이지만, 여기서 빠진 쪽은 <b>한 달 전에 나온 다른 회사 신제품</b>입니다. 발표 한 번이 경쟁사 신제품의 검색을 절반 아래로 끌어내렸습니다.</p>
+
+  <p>극장도 눈에 띕니다. 검색량 1·2위가 cgv와 롯데시네마인데 둘 다 큰 폭으로 빠졌습니다. 다만 <span class="mono">cgv콤보</span>는 반대로 2.8배 올랐습니다. 극장에 가는 횟수는 줄어도, 가는 사람은 매점에 들른다는 뜻으로 읽힙니다.</p>
+</article>
+
+<!-- ───────────── 브랜드 ───────────── -->
+<article class="t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>브랜드 · 이 이름의 뒷이야기</p>
+  <h2>스물한 해 된 회사의 일곱 해 된 서비스</h2>
+  <p class="deck">이번 주 검색 3위로 처음 들어온 <b>미리캔버스</b>는 한 달에 206만 번 검색됩니다. 그런데 이 서비스를 만든 회사는 2004년에 사진 인화로 시작했습니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_DESIGNDESK}}" alt="화면에 색면 레이아웃이 떠 있는 노트북과 찻잔"><figcaption>포스터·썸네일·발표자료를 브라우저에서 만듭니다. <span class="mono">AI로 생성한 연출 이미지</span></figcaption></figure>
+
+  <h3 class="sub">포토북에서 시작했습니다</h3>
+
+  <p class="lead">시작은 2004년 '스마일캣'이라는 포토북·사진 인화 서비스였습니다. 2008년에 법인이 됐고, 2012년에는 소상공인용 인쇄 커머스 '비즈하우스'를 열었습니다. 여기까지는 <b>인쇄하는 회사</b>입니다.</p>
+
+  <p>미리캔버스가 나온 건 <b>2019년 7월</b>입니다. 명함이나 전단을 주문하려면 디자인 파일이 있어야 하는데, 그 파일을 만들 방법이 없는 손님이 많았습니다. 인쇄를 팔려면 디자인 도구가 필요했던 셈입니다.</p>
+
+  <p class="pull">인쇄를 팔기 위해 만든 도구가, 인쇄보다 커졌습니다.</p>
+
+  <p>2024년 12월 기준 국내 누적 가입자는 <span class="hl">1,600만 명</span>입니다. 같은 해 7월에는 200억 원을 투자받으며 기업가치 2,800억 원을 인정받았습니다.</p>
+
+  <h3 class="sub">왜 하필 이번 주인가</h3>
+
+  <p>검색이 이번 주에 처음 목록에 들어온 건 서비스가 새로워서가 아닙니다. <b>9월 개학과 과제 시즌</b>입니다. 발표자료·포스터·동아리 홍보물을 만들 일이 한꺼번에 몰리는 때입니다. 한 달 전보다 17% 올랐습니다.</p>
+
+  <p>이 이름이 쇼핑 검색 데이터에 잡힌다는 것 자체도 조금 특이합니다. 물건이 아니라 <b>웹 서비스</b>인데 네이버쇼핑 카테고리로는 '캔버스/판넬'에 분류돼 있습니다. 같은 목록에 올라온 '클로드'(89만)도 마찬가지입니다. 쇼핑 검색창이 점점 <span class="hl">검색창 전반</span>처럼 쓰이고 있다는 신호로 보입니다.</p>
+
+  <div class="memo">
+    <b>이 코너는</b> 매주 한 브랜드를 골라 어디서 시작했고 무엇을 팔며 사람들이 왜 찾는지를 정리합니다. 급등 목록에 오른 이름 중에서 고르기 때문에, 그 주에 실제로 사람들이 찾고 있는 브랜드만 다룹니다. 광고가 아니며 해당 회사와 아무 관계가 없습니다.
+  </div>
+</article>
+
+<!-- ───────────── 기사 2 · 치이카와 후속 ───────────── -->
+<article class="t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기사 · 자리는 얼마나 빨리 채워지나</p>
+  <h2>2주 만에 열아홉 배</h2>
+  <p class="deck">지난 호에 '등록 상품이 마흔여덟 개뿐'이라고 적은 키워드가 있었습니다. 2주 뒤에 다시 세어 봤더니 908개였습니다.</p>
+
+  <figure class="ph w43"><img src="{{IMG_SITPLUSH}}" alt="소파 위에 앉아 있는 작은 봉제 인형"><figcaption>'치이카와 앉은누이' — 2주 전 상품 48개, 지금 908개.</figcaption></figure>
+
+  <p class="lead">지난 호 말뜻 코너에서 <span class="mono hl">치이카와 앉은누이</span>를 다뤘습니다. 한 달에 6,450번 검색되는데 국내 등록 상품은 48개뿐이라고 적었습니다. 그리고 다음 호에서 이 숫자가 어떻게 되는지 보겠다고 썼습니다.</p>
+
+  <p>2주가 지났습니다. 검색은 <b>6,730번</b>으로 거의 그대로입니다. 4% 남짓 올랐을 뿐입니다. 그런데 등록 상품은 <b><span class="hl r">908개</span></b>가 됐습니다.</p>
+
+  <div class="rank">
+    <div class="r"><div class="n">2주 전</div><div class="b"><b>치이카와 앉은누이</b><span>한 달 검색 6,450번 · 등록 상품 48개</span></div><div class="v"><b>134배</b>검색÷상품<br><span class="gapx"><span class="gap" data-l="4" role="img" aria-label="검색 대비 상품 아주 적음"><i></i><i></i><i></i><i></i></span>상품 아주 적음</span></div></div>
+    <div class="r"><div class="n">지금</div><div class="b"><b>치이카와 앉은누이</b><span>한 달 검색 6,730번 · 등록 상품 908개</span></div><div class="v"><b>7.4배</b>검색÷상품<br><span class="gapx"><span class="gap" data-l="2" role="img" aria-label="검색 대비 상품 많음"><i></i><i></i><i></i><i></i></span>상품 많음</span></div></div>
+  </div>
+
+  <p class="pull">수요는 그대로인데 공급만 열아홉 배가 됐습니다.</p>
+
+  <p>이 숫자가 말해 주는 건 두 가지입니다. 첫째, <b>검색 대비 상품이 적은 자리는 오래 가지 않습니다.</b> 이 경우는 2주였습니다. 둘째, 그 자리를 채운 건 새로운 수요가 아니라 <b>같은 수요를 나눠 갖는 판매자</b>입니다. 찾는 사람은 늘지 않았는데 파는 곳만 늘었습니다.</p>
+
+  <p>'검색 대비 상품이 적다'는 신호를 볼 때 같이 봐야 하는 게 이겁니다. 그 숫자는 <span class="hl">지금 이 순간의 사진</span>이지 앞으로도 그럴 것이라는 뜻이 아닙니다. 2주면 바뀝니다.</p>
+
+  <p>덧붙이면, 이 키워드가 올라온 배경 자체는 그대로입니다. 치이카와는 일본에서 여전히 최상위 캐릭터이고, 같은 주 일본 아마존 검색 1위도 치이카와였습니다. 수요가 꺼진 게 아니라 공급이 따라붙은 것입니다.</p>
+</article>
+
+<!-- ───────────── 기사 3 · 바다 건너 ───────────── -->
+<article class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>기사 · 바다 건너</p>
+  <h2>미국의 10월, 한국의 10월</h2>
+  <p class="deck">9월이 되면 미국 아마존 검색 상위에 호박과 장식이 올라옵니다. 한국에도 같은 말이 있지만 크기가 다릅니다. 그런데 상품 수는 이야기가 다릅니다.</p>
+
+  <div class="pair">
+    <figure class="ph"><img src="{{IMG_FALLDECOR1}}" alt="바구니에 담긴 작은 호박들과 펼쳐 놓은 책"><figcaption>미국 — 'fall decor' 한 달 100만 번</figcaption></figure>
+    <figure class="ph"><img src="{{IMG_FALLDECOR2}}" alt="창가에 놓인 호박과 초"><figcaption>9월 첫 주부터 집 안이 바뀝니다</figcaption></figure>
+  </div>
+
+  <p class="lead">미국 아마존에서 <span class="mono">halloween decorations</span>를 한 달에 <b>127만 번</b> 찾습니다. <span class="mono">fall decor</span>는 100만 번입니다. 9월 초부터 현관과 거실을 바꾸는 습관이 있어서, 10월 31일이 아니라 <b>9월 1일부터</b> 오릅니다.</p>
+
+  <p>한국에서 같은 말을 찾아보면 <span class="mono">할로윈소품</span>이 한 달 3,310번, <span class="mono">가을소품</span>이 1,920번입니다. 미국의 <span class="hl">380분의 1</span> 수준입니다. 집을 계절에 맞춰 꾸미는 습관 자체가 다릅니다.</p>
+
+  <p class="pull">한국의 할로윈은 집이 아니라 몸에 옵니다.</p>
+
+  <p>그런데 한국 데이터를 더 보면 다른 말이 올라와 있습니다. <span class="mono hl">할로윈코스튬</span>이 한 달 1만 7,400번으로 한 달 전보다 <b>4.4배</b> 올랐고, 할로윈의상도 4.6배입니다. 장식은 안 사지만 <b>입을 것은 삽니다.</b> 미국이 현관을 꾸밀 때 한국은 옷을 삽니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_HALLOWEENKIDS}}" alt="할로윈 의상을 입고 모여 선 아이들"><figcaption>한국에서 오르는 쪽은 소품이 아니라 코스튬입니다.</figcaption></figure>
+
+  <p>여기서 한 가지 조심할 게 있습니다. 할로윈코스튬의 국내 등록 상품은 <b class="hl r">55만 개</b>입니다. 검색 1만 7,400번에 상품 55만 개이니, 이미 들어갈 만큼 들어가 있는 자리입니다. <span class="gapx"><span class="gap" data-l="1" role="img" aria-label="검색 대비 상품 아주 많음"><i></i><i></i><i></i><i></i></span>상품 아주 많음</span> 4.4배라는 상승률만 보면 비어 있는 것처럼 보이지만, 절대 수를 같이 보면 그렇지 않습니다.</p>
+
+  <p>이 대비가 이번 호 주제와 이어집니다. 같은 계절이 와도 나라마다 <b>먼저 바뀌는 것이 다릅니다.</b> 미국은 집이 먼저고 한국은 옷이 먼저입니다.</p>
+</article>
+
+<!-- ───────────── 말뜻 ───────────── -->
+<article class="t-note">
+  <p class="kicker"><span class="m m-note" aria-hidden="true"></span>말뜻 · 이 단어, 무슨 뜻일까</p>
+  <h2>괄사</h2>
+  <p class="deck">이번 주 새로 올라온 검색어 중에 한자어인데 뜻이 잡히지 않는 말이 있었습니다. 한 달에 4만 5,580번 찾습니다.</p>
+
+  <figure class="ph w43"><img src="{{IMG_GUASHA}}" alt="세면대 위 리넨 천에 놓인 옥 괄사와 오일 병"><figcaption>납작한 돌을 피부에 대고 밀어 올리는 도구입니다. <span class="mono">AI로 생성한 연출 이미지</span></figcaption></figure>
+
+  <h3 class="sub">글자부터 풀면</h3>
+
+  <p class="lead">한자로는 <b>刮痧</b>라고 씁니다. 앞 글자 刮(괄)은 <b>긁다</b>라는 뜻이고, 뒤 글자 痧(사)는 <b>긁은 뒤 피부에 돋는 붉은 반점</b>을 가리킵니다. 그러니까 글자 그대로 '긁어서 반점을 내는 것'입니다.</p>
+
+  <p>중국 민간의학에서 2,000년 넘게 써 온 방법입니다. 납작한 돌이나 뿔로 피부를 문질러 혈액순환을 돕는다고 보는 요법이고, 중국뿐 아니라 베트남·인도네시아에도 비슷한 것이 있습니다.</p>
+
+  <p class="pull">2,000년 된 중국 민간요법이 서양 뷰티를 거쳐 한국 검색창으로 돌아왔습니다.</p>
+
+  <p>한국에서 지금 팔리는 괄사는 그 요법 자체보다 <b>얼굴용 마사지 도구</b>에 가깝습니다. 옥이나 스테인리스로 만든 납작한 판을 턱선과 광대에 대고 밀어 올리는 용도입니다. 부기를 빼는 데 쓴다고 알려져 있습니다.</p>
+
+  <h3 class="sub">'문어괄사'는 또 뭔가</h3>
+
+  <p>이번 주 목록에는 <span class="mono">문어괄사</span>도 함께 올라왔습니다. 한 달 4만 1,670번으로 괄사 본체와 거의 같은 크기입니다. 문어 다리처럼 여러 갈래로 갈라진 모양의 제품을 가리키는 말입니다. 원래 있던 말이 아니라 <b>생김새를 보고 붙인 상품명</b>이 검색어가 된 경우입니다.</p>
+
+  <p>이 코너를 매주 두는 이유가 이겁니다. 뜻을 모르는 말은 검색해 볼 생각조차 하지 않게 됩니다. 그런데 이런 말은 대개 <span class="hl">어딘가에서 이미 한참 팔리고 있습니다.</span> 괄사만 해도 국내 등록 상품이 26만 개가 넘습니다 — 몰랐던 건 이 단어이지 시장이 아닙니다.</p>
+</article>
+
+<!-- ───────────── 예보 ───────────── -->
+<article class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>예보 · 곧 옵니다</p>
+  <h2>앞으로의 트렌드</h2>
+  <p class="deck">최대 9년치 주간 검색 기록을 훑어, 지금이 아니라 <b>몇 주 뒤</b>에 오르는 것만 골랐습니다. 매년 같은 주에 반복되는 것들입니다.</p>
+
+  <figure class="ph w32"><img src="{{IMG_FORESTWALK}}" alt="낙엽이 깔린 가을 숲길"><figcaption>10월 말, 이런 길을 찾는 검색이 한 해 중 가장 높아집니다.</figcaption></figure>
+
+  <h3 class="sub">물건 쪽</h3>
+
+  <div class="rank">
+    <div class="r"><div class="n">+6주</div><div class="b"><b>스파오경량패딩</b><span>5년 평균 <span class="hl">9.4배</span>. 커버스토리에서 말한 순서의 다음 칸입니다</span></div><div class="v"><b>15,710</b>상품 221개<br><span class="gapx"><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span>상품 적음</span></div></div>
+    <div class="r"><div class="n">+6주</div><div class="b"><b>베라왕로퍼</b><span>5년 평균 10.2배로 이 목록에서 가장 가파릅니다</span></div><div class="v"><b>4,230</b>상품 68개<br><span class="gapx"><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span>상품 적음</span></div></div>
+    <div class="r"><div class="n">+6주</div><div class="b"><b>정관장홍삼활력보</b><span>선물 시즌 전에 먼저 오릅니다</span></div><div class="v"><b>5,960</b>상품 116개<br><span class="gapx"><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span>상품 적음</span></div></div>
+    <div class="r"><div class="n">+7주</div><div class="b"><b>유리아크림</b><span>건조해지면서 오르는 보습 성분. 3.2배</span></div><div class="v"><b>20,540</b>상품 704개<br><span class="gapx"><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span>상품 적음</span></div></div>
+    <div class="r"><div class="n">+6주</div><div class="b"><b>다이소슬리퍼</b><span>실내 슬리퍼. 5년 평균 6.3배</span></div><div class="v"><b>6,980</b>상품 134개<br><span class="gapx"><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span>상품 적음</span></div></div>
+  </div>
+
+  <h3 class="sub">사람들이 어디로 가는가</h3>
+
+  <div class="fc">
+    <div><div class="w">+8주 · 11월 중순</div><b>무주리조트</b><span>3.2배. 스키 시즌 예약이 이때 열립니다</span></div>
+    <div><div class="w">+8주 · 11월 중순</div><b>덕구온천리조트</b><span>2.5배. 추워지면서 본격적으로 오릅니다</span></div>
+    <div><div class="w">+8주 · 11월 중순</div><b>르므통신발</b><span>3년 평균 10.5배. 등록 상품 스무 개</span></div>
+    <div><div class="w">+2주 · 10월 초</div><b>민둥산등산코스</b><span>억새 시즌. 한 해 중 이때가 정점입니다</span></div>
+  </div>
+
+  <div class="memo">
+    <b>이 예보에서 일부러 뺀 것</b> 배수만 보면 상위는 패딩과 코트가 차지합니다. 그런데 '경량패딩'은 등록 상품이 152만 개, '할로윈코스튬'은 55만 개입니다. 10월에 패딩이 팔린다는 건 누구나 알고 있고, 그래서 상품도 이미 그만큼 올라와 있습니다. <span class="hl r">아는 사람이 많은 정보는 정보가 아닙니다.</span> 그래서 이 표에서는 등록 상품이 많은 것을 전부 뺐습니다.
+  </div>
+</article>
+
+<!-- ───────────── 기록 ───────────── -->
+<article class="short t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기록 · 이미 지나간 것</p>
+  <h2>이미 지나간 것들</h2>
+  <p class="deck">정점을 찍고 내려온 지 오래된 것들입니다. 얼마나 내려왔는지, 그리고 얼마나 걸렸는지를 같이 봅니다.</p>
+
+  <div class="rank">
+    <div class="r"><div class="n">26주</div><div class="b"><b>갤럭시s26</b><span>정점 164만 → 지금 26만</span></div><div class="v"><b>16%</b>정점 대비</div></div>
+    <div class="r"><div class="n">23주</div><div class="b"><b>포코피아</b><span>정점 50만 → 지금 5만</span></div><div class="v"><b>10%</b>정점 대비</div></div>
+    <div class="r"><div class="n">22주</div><div class="b"><b>아이폰17e</b><span>정점 42만 → 지금 6만 3천</span></div><div class="v"><b>15%</b>정점 대비</div></div>
+    <div class="r"><div class="n">22주</div><div class="b"><b>촉촉한황치즈칩</b><span>정점 43만 → 지금 4만 8천</span></div><div class="v"><b>11%</b>정점 대비</div></div>
+    <div class="r"><div class="n">6주</div><div class="b"><b>여성장화</b><span>정점 3만 → 지금 2,410. 장마가 끝나면 6주면 끝납니다</span></div><div class="v"><b>8%</b>정점 대비</div></div>
+  </div>
+
+  <p>여기서 볼 건 <b class="hl">속도</b>입니다. 여성장화는 6주 만에 8%로 내려앉았고, 갤럭시s26은 26주에 걸쳐 16%까지 내려왔습니다. 계절 상품은 빠르게 끝나고, 전자제품은 다음 모델이 나올 때까지 천천히 빠집니다. 같은 하락이라도 성격이 다릅니다.</p>
+</article>
+
+<!-- ───────────── 팔로업 ───────────── -->
+<article class="short t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>팔로업 · 지난 호 그 후</p>
+  <h2>그 후</h2>
+  <p class="deck">지난 호에서 다룬 키워드 셋이 2주 사이 어떻게 됐는지 확인했습니다. 하나는 예상대로였고, 하나는 반대였고, 하나는 제자리입니다.</p>
+
+  <div class="row">
+    <h4>오디세이책 — 검색은 줄고 상품은 늘었습니다</h4>
+    <div class="n">한 달 38,150번 / 상품 68개 → 30,720번 / 91개</div>
+    <p>커버스토리로 다뤘던 그 책입니다. 2주 사이 검색은 19% 줄었고 상품은 68개에서 91개가 됐습니다. 개봉 한 달 반 뒤에 오른 수요라 오래 가지는 않는 모양입니다. 다만 상품이 아직 아흔 개 남짓이라 여전히 검색 대비로는 적습니다.</p>
+  </div>
+
+  <div class="row">
+    <h4>코르티솔 — 정말 안 늘었습니다</h4>
+    <div class="n">한 달 20,290번 / 상품 806개 → 19,980번 / 783개</div>
+    <p>지난 호에 '검색은 있는데 상품이 안 붙는 상태'라고 적고, 늘어나는지 보겠다고 했습니다. 2주 뒤 상품은 806개에서 <b>783개로 오히려 줄었습니다.</b> 건강기능식품 표시·광고 규정 때문에 이름을 붙이기 어렵다는 해석이 맞았던 것으로 보입니다. 치이카와와 정반대입니다.</p>
+  </div>
+
+  <div class="row">
+    <h4>대맛조개 — 예보보다 빨리 왔습니다</h4>
+    <div class="n">한 달 9,980번 / 상품 230개 → 9,590번 / 230개</div>
+    <p>지난 호 예보에 5주 뒤로 실었는데, 같은 주 국내 주간 데이터에서는 벌써 한 달 전 대비 <b>3배</b>로 올라왔습니다. 상품은 230개 그대로입니다. 제철이 예보보다 이르게 시작된 경우입니다.</p>
+  </div>
+</article>
+
+<!-- ───────────── 다음 호 ───────────── -->
+<article class="short t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>다음 호에 확인할 것</p>
+  <h2>계속 보고 있는 것</h2>
+  <p>다음 호에서 이 셋이 어떻게 됐는지 다시 적겠습니다.</p>
+
+  <div class="row">
+    <h4>스파오경량패딩 · 경량패딩</h4>
+    <p>커버스토리에서 말한 순서대로라면 다음은 패딩 차례입니다. 예보가 6주 뒤라고 했는데 실제로 언제 오는지.</p>
+  </div>
+  <div class="row">
+    <h4>치이카와 앉은누이</h4>
+    <p>상품 908개가 더 늘어나는지, 아니면 여기서 멈추는지. 늘어난 만큼 검색도 따라 오르는지.</p>
+  </div>
+  <div class="row">
+    <h4>할로윈코스튬</h4>
+    <p>10월 31일까지 5주 남았습니다. 상품이 55만 개인 자리에서 검색이 어디까지 오르는지.</p>
+  </div>
+</article>
+
+<!-- ───────────── 숫자 보는 법 ───────────── -->
+<article class="short t-note">
+  <p class="kicker"><span class="m m-note" aria-hidden="true"></span>숫자 보는 법</p>
+  <h2>이 호에 나온 숫자 세 가지</h2>
+
+  <h3 class="sub">칸으로 표시한 기호</h3>
+
+  <p><b>검색 대비 상품</b>은 한 달 검색을 등록 상품 수로 나눈 값입니다. 칸이 많이 찰수록 찾는 사람에 비해 올라와 있는 상품이 적다는 뜻입니다. 숫자를 하나하나 읽지 않아도 이 칸만 보면 됩니다.</p>
+
+  <div class="legend">
+    <div><span class="gap" data-l="4" role="img" aria-label="검색 대비 상품 아주 적음"><i></i><i></i><i></i><i></i></span><span><b>상품 아주 적음</b> 검색이 상품의 100배 이상</span></div>
+    <div><span class="gap" data-l="3" role="img" aria-label="검색 대비 상품 적음"><i></i><i></i><i></i><i></i></span><span><b>상품 적음</b> 20~100배</span></div>
+    <div><span class="gap" data-l="2" role="img" aria-label="검색 대비 상품 많음"><i></i><i></i><i></i><i></i></span><span><b>상품 많음</b> 3~20배</span></div>
+    <div><span class="gap" data-l="1" role="img" aria-label="검색 대비 상품 아주 많음"><i></i><i></i><i></i><i></i></span><span><b>상품 아주 많음</b> 3배 미만</span></div>
+  </div>
+
+  <p>다만 <b>이 칸은 지금 이 순간의 사진입니다.</b> 이번 호 세 번째 기사에서 본 것처럼 2주 만에 네 칸이 두 칸이 되기도 합니다. 그리고 브랜드나 캐릭터처럼 아무나 만들어 팔 수 없는 물건은 찾는 사람이 많아도 상품 수가 적게 유지됩니다.</p>
+
+  <h3 class="sub">코너 앞의 동그라미</h3>
+
+  <p>각 코너 제목 앞에 작은 동그라미가 있습니다. 그 코너가 <b>어느 시간</b>을 다루는지 표시합니다.</p>
+
+  <div class="legend">
+    <div><span class="m m-past" aria-hidden="true"></span><span><b>지나간 것</b> 브랜드의 역사, 하락, 지난 호 추적</span></div>
+    <div><span class="m m-now" aria-hidden="true"></span><span><b>지금</b> 이번 주 실제로 일어난 일</span></div>
+    <div><span class="m m-next" aria-hidden="true"></span><span><b>올 것</b> 막 오르는 것, 계절 예보, 다음 호 확인 목록</span></div>
+    <div><span class="m m-note" aria-hidden="true"></span><span><b>풀이</b> 말뜻, 숫자 보는 법, 안내</span></div>
+  </div>
+
+  <h3 class="sub">숫자 셋</h3>
+
+  <p><b>한 달 검색</b>은 네이버에서 그 단어를 한 달 동안 검색한 횟수입니다. <b>등록 상품</b>은 같은 단어로 네이버쇼핑에 올라와 있는 상품 개수입니다. 이 둘을 같이 봐야 합니다. 검색이 아무리 많아도 상품이 그보다 더 많다면, 그건 이미 다들 아는 말이라는 뜻입니다.</p>
+  <p><b>'몇 배'</b>는 주의가 필요합니다. 원래 작던 숫자는 조금만 올라도 몇 배가 됩니다. 이번 호 커버스토리의 아동 바람막이가 그렇습니다 — 열 배로 올랐지만 절대 수는 몇 천 번입니다.</p>
+  <p><b>'+N주'</b>는 지금부터 몇 주 뒤에 정점이 온다는 뜻입니다. 최근 3~5년의 같은 주차 평균으로 계산했고, 3년치 이상 기록이 있는 키워드만 넣었습니다.</p>
+</article>
+
+<footer>
+  <p class="notice"><b>내년부터 조금 달라집니다</b> 읽는 것은 계속 무료입니다.
+    2027년부터는 기사 뒤에 있는 원본 데이터만 따로 내놓을 계획입니다. 시기와 가격은 정해지면 이 자리에 적겠습니다.</p>
+  <p>특정 상품을 사거나 팔라고 권하는 글이 아닙니다. 숫자는 조회한 때의 기록이고, 해석은 편집자의 것입니다.</p>
+</footer>
+</div></div>
+<div class="nav">
+  <button type="button" data-goto="first" aria-label="처음으로">&#8676; 처음</button>
+  <button type="button" data-turn="-1" aria-label="이전 펼침">&larr; 이전</button>
+  <span class="pos" role="status" aria-live="polite"></span>
+  <button type="button" data-turn="1" aria-label="다음 펼침">다음 &rarr;</button>
+  <button type="button" data-goto="last" aria-label="마지막으로">마지막 &#8677;</button>
+</div>
+</div>
+<button type="button" class="modeswap" aria-pressed="false">펼쳐 보기</button>
+<div class="stat" aria-live="polite"></div>
+
+<script>
+/* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
+(function () {
+  const mode = () => matchMedia('(min-width:1100px) and (min-height:600px)').matches ? 'two'
+    : matchMedia('(min-width:480px) and (min-height:560px)').matches ? 'one' : '';
+  const wide = () => !!mode();
+  const single = () => document.body.classList.contains('single');
+  const pages = document.querySelector('.pages');
+  const book = document.querySelector('.book');
+  const nav = document.querySelector('.nav');
+  const swap = document.querySelector('.modeswap');
+  const leaf = document.querySelector('.leaf');
+  const under = document.querySelector('.under');
+  const pos = nav && nav.querySelector('.pos');
+  const btns = nav ? [...nav.querySelectorAll('button')] : [];
+  if (!pages || !book || !swap) return;
+
+  let spread = 0, step = 0, last = 0;
+  const stat = document.querySelector('.stat');
+  function report(extra) {
+    if (!stat) return;
+    const on = document.body.classList.contains('spread');
+    const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const why = on ? (single() ? '한 쪽씩(가로 1100px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 480px 이상이면 쪽 단위로 넘깁니다');
+    stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
+  }
+
+  // ── 지면 편집: 코너 안에서 쪽 아래가 비지 않게 사진·상자를 문단 뒤로 옮긴다 ──
+  // 사진처럼 쪼갤 수 없는 조각이 남은 자리에 못 들어가 다음 쪽으로 밀리면 그 앞 쪽이 빈다.
+  // 그럴 때 그 조각을 다음 문단 뒤로 보내 글이 빈자리를 채우게 한다. 원래 순서는 기억해 두었다가
+  // 창 크기가 바뀌거나 '이어서 읽기'로 돌아갈 때 되돌린다.
+  const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box, article > .rank, article > .fc';
+  const FRAG = '.mast, .cover, .toc > *, .note > *, article > *, .rank .r, .box > *, .fc > *, li, figcaption, .pair figure';
+  const origin = [...pages.querySelectorAll(MOVABLE)].map(el => ({ el, parent: el.parentNode, next: el.nextElementSibling }));
+  let fitted = '';
+  function restoreOrder() {
+    for (let i = origin.length - 1; i >= 0; i--) origin[i].parent.insertBefore(origin[i].el, origin[i].next);
+    origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; o.el.style.breakInside = ''; });
+    fitted = '';
+  }
+  function fit() {
+    const key = pages.clientWidth + 'x' + pages.clientHeight;
+    if (fitted === key) return false;
+    restoreOrder();
+    const cs = getComputedStyle(pages);
+    const padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop), padB = parseFloat(cs.paddingBottom);
+    const gap = parseFloat(cs.columnGap), inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
+    const cols = single() ? 1 : 2;
+    const colW = (inner - gap * (cols - 1)) / cols, colH = pages.clientHeight - padT - padB;
+    const frags = [...pages.querySelectorAll(FRAG)];
+    const stuck = new Set(), moves = new Map();
+    const log = (window.__fit = []);   // 편집 기록(진단용): 무엇을 왜 옮겼나
+    for (let round = 0; round < 60; round++) {
+      const pr = pages.getBoundingClientRect(), colTop = pr.top + padT, colBottom = colTop + colH;
+      const col = x => Math.round((x - pr.left - padL) / (colW + gap));
+      const low = {};                                           // 쪽별 마지막 조각의 아랫선과 그 코너
+      frags.forEach(el => { for (const rc of el.getClientRects()) { if (rc.height < 2) continue;
+        const k = col(rc.left); if (!low[k] || rc.bottom > low[k].bottom) low[k] = { bottom: rc.bottom, art: el.closest('article') }; } });
+      let moved = false;
+      for (const { el } of origin) {
+        if (stuck.has(el)) continue;
+        const rc = el.getBoundingClientRect(); if (!rc.height) continue;
+        const k = col(rc.left), prev = low[k - 1];
+        const pe = el.previousElementSibling;                   // 소제목이 붙어 함께 밀려온 경우도 포함
+        const atTop = rc.top - colTop < 40 || (pe && /^H[23]$/.test(pe.tagName) && pe.getBoundingClientRect().top - colTop < 40);
+        if (!atTop || !prev || prev.art !== el.closest('article') || colBottom - prev.bottom < 60) continue;
+        // 쪽보다 긴 표는 어차피 한 쪽에 못 들어간다 — 옮기지 말고 제자리에서 나눈다
+        const tall = [...el.getClientRects()].reduce((a, r) => a + r.height, 0) > colH;
+        if (tall && el.matches('.rank, .fc, .box') && !el.style.breakInside) { el.style.breakInside = 'auto'; stuck.add(el); log.push(['나눔', el.className, k]); moved = true; break; }   // 나눴으면 더 옮기지 않는다
+        const next = el.nextElementSibling, n = moves.get(el) || 0;
+        // 옮길 수 있는 것끼리 자리를 바꾸는 건 한 번만 (서로 밀어내며 왔다갔다 하지 않게)
+        if (next && n < 3 && !(next.matches(MOVABLE) && moves.has(next))) { next.after(el); moves.set(el, n + 1); log.push(['뒤로', el.tagName + '.' + el.className, k, Math.round(colBottom - prev.bottom)]); moved = true; break; }   // 한 조각 뒤로
+        stuck.add(el);
+        // 뒤로 보낼 문단이 없으면 사진을 남은 자리에 맞게 자른다 (사진 하나짜리 figure 만)
+        const im = el.matches('figure') ? el.querySelector('img') : null;
+        const room = colBottom - prev.bottom - parseFloat(getComputedStyle(el).marginTop) - (rc.height - (im ? im.getBoundingClientRect().height : 0)) - 4;
+        if (im && room >= 150 && !im.style.height) { im.style.height = room + 'px'; log.push(['자름', el.className, k, room]); moved = true; break; }
+        // 표는 한 쪽에 두는 게 원칙이지만, 옮겨도 앞 쪽이 크게 비면 그때만 나눈다
+        if (el.matches('.rank, .fc, .box') && colBottom - prev.bottom >= 200 && !el.style.breakInside) { el.style.breakInside = 'auto'; log.push(['나눔(빈칸)', el.className, k]); moved = true; break; }
+      }
+      if (!moved) break;
+    }
+    fitted = key;
+    return true;
+  }
+  function measure() {
+    if (!document.body.classList.contains('spread')) return;
+    if (fit()) { built.w = 0; warmSoon(); }                    // 순서가 바뀌었으면 복제본도 다시
+    const cs = getComputedStyle(pages);
+    const gap = parseFloat(cs.columnGap) || 120;
+    // 단이 놓이는 폭은 clientWidth 에서 좌우 패딩을 뺀 값이다.
+    // clientWidth 를 그대로 쓰면 패딩만큼 매번 어긋난다.
+    const inner = pages.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    step = inner + gap;                            // 두 단 + 그 사이 간격 = 한 펼침
+    const total = pages.scrollWidth - pages.clientWidth + inner + gap;
+    last = Math.max(0, Math.ceil(total / step) - 1);
+    spread = Math.min(spread, last);
+    apply();
+  }
+
+  // 지금 어느 펼침을 보고 있는지 알린다 — 영상 쪽이 이걸 듣고 틀거나 멈춘다
+  function tell() {
+    dispatchEvent(new CustomEvent('sk-page', { detail: {
+      spread, step, on: document.body.classList.contains('spread') } }));
+  }
+  function apply() {
+    pages.style.transform = `translateX(${-spread * step}px)`;
+    if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
+    report();
+    btns.forEach(b => { const back = b.dataset.turn ? +b.dataset.turn < 0 : b.dataset.goto === 'first';
+      b.disabled = back ? spread === 0 : spread >= last; });
+    tell();
+  }
+
+  let turning = false;
+  const N = 10;                                  // 띠 개수 — 많을수록 매끈, 무거움
+  const BEND = 42;                               // 최대 휨(도): 자유변이 책등보다 이만큼 앞선다
+  const DUR = 900;
+  const cast = document.querySelector('.cast');
+  const strips = [];
+  const built = { w: 0, h: 0 };
+  const faces = { under: null };            // 밑층 복제본
+
+  // 재생 전 영상 칸의 모습. 복제본에는 재생기 대신 이걸 넣는다 — 한 번 넘길 때마다
+  // 유튜브가 스물한 개 뜨는 일을 막고, 넘어가는 중에는 어차피 검은 판으로 보인다.
+  const facades = [...pages.querySelectorAll('figure.vid .screen')].map(el => el.innerHTML);
+  function makeClone(w, h) {
+    const c = pages.cloneNode(true); c.removeAttribute('id');
+    c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
+    c.querySelectorAll('figure.vid .screen').forEach((el, i) => (el.innerHTML = facades[i] || ''));
+    return c;
+  }
+  // 띠 체인: strip[i] 는 strip[i-1] 안에서 그 끝에 매달린다. 각 띠는 앞·뒷면 + 명암막을 가진다.
+  function ensureFaces() {
+    const w = pages.clientWidth, h = pages.clientHeight;
+    if (built.w === w && built.h === h) return;
+    leaf.innerHTML = ''; strips.length = 0;
+    under.innerHTML = ''; faces.under = makeClone(w, h); under.appendChild(faces.under);
+    let parent = leaf;
+    for (let i = 0; i < N; i++) {
+      const st = document.createElement('div'); st.className = 'strip';
+      const F = document.createElement('div'); F.className = 'face front';
+      const B = document.createElement('div'); B.className = 'face back';
+      const fc = makeClone(w, h), bc = makeClone(w, h);
+      const fs = document.createElement('div'), bs = document.createElement('div');
+      fs.className = bs.className = 'shade';
+      F.appendChild(fc); F.appendChild(fs); B.appendChild(bc); B.appendChild(bs);
+      st.appendChild(F); st.appendChild(B); parent.appendChild(st); parent = st;
+      strips.push({ el: st, fc, bc, fs, bs });
+    }
+    built.w = w; built.h = h;
+  }
+
+  const ease = p => (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+  let sign = -1;
+  // 낱장·밑층·그림자 배치와 복제본 위치 — 한 번의 넘김 시작 시
+  function setup(dir, next) {
+    const W = pages.clientWidth, H = pages.clientHeight, half = W / 2, sw = half / N;
+    ensureFaces();
+    leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
+    leaf.style.left = (dir > 0 ? half : 0) + 'px';
+    under.style.width = half + 'px'; under.style.height = H + 'px';
+    under.style.left = (dir > 0 ? half : 0) + 'px';
+    cast.style.width = half + 'px'; cast.style.height = H + 'px';
+    cast.style.left = (dir > 0 ? 0 : half) + 'px';
+    const leave = dir > 0 ? half : 0, arrive = dir > 0 ? 0 : half;   // 떠나는/도착하는 쪽의 x
+    const shift = (c, x, k) => (c.style.transform = `translate(${-(x + k * step)}px,0)`);
+    shift(faces.under, leave, next);   // 낱장이 떠난 자리에 드러나는 새 지면(같은 쪽)
+    strips.forEach((st, i) => {
+      st.el.style.width = sw + 'px'; st.el.style.height = H + 'px';
+      st.el.style.left = st.el.style.right = '';
+      if (dir > 0) { st.el.style.left = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '0 50%'; }
+      else         { st.el.style.right = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '100% 50%'; }
+      // 띠 i 가 덮는 지면 x: 떠나는 쪽은 책등에서 i번째, 도착하는 쪽은 그 거울 위치
+      const fx = dir > 0 ? leave + i * sw : leave + half - (i + 1) * sw;
+      const bx = dir > 0 ? arrive + half - (i + 1) * sw : arrive + i * sw;
+      shift(st.fc, fx, spread); shift(st.bc, bx, next);
+    });
+    sign = dir > 0 ? -1 : 1;
+    under.className = 'under on ' + (dir > 0 ? 'next' : 'prev');
+    cast.className = 'cast on ' + (dir > 0 ? 'next' : 'prev');
+    leaf.className = 'leaf on';
+  }
+  // 진행률 p(0~1)에서의 자세 — 자유변이 앞서고 종이가 휜다
+  function pose(p) {
+    const free = 180 * ease(p);                  // 자유변(바깥 가장자리)의 각도
+    const bend = BEND * Math.sin(Math.PI * p);   // 시작·끝에서 0 → 평평하게 뜨고 평평하게 앉는다
+    const spine = free - bend, d = bend / (N - 1);
+    strips.forEach((st, i) => {
+      st.el.style.transform = `rotateY(${sign * (i ? d : spine)}deg)`;   // 첫 띠는 책등 각도, 나머지는 경첩 증분
+      const a0 = (spine + i * d) * Math.PI / 180, a1 = a0 + d * Math.PI / 180;   // 이 띠 양끝의 절대 각도
+      const dark = a => (0.42 * (1 - Math.cos(a)) / 2).toFixed(3);                 // 세울수록 어둡게
+      const lo = sign < 0 ? 0 : 1, hi = 1 - lo;                                    // 앞으로 넘길 땐 경첩이 왼쪽
+      st.fs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark([a0,a1][lo])}),rgba(0,0,0,${dark([a0,a1][hi])}))`;
+      st.bs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark(Math.PI-[a0,a1][hi])}),rgba(0,0,0,${dark(Math.PI-[a0,a1][lo])}))`;
+    });
+    cast.style.opacity = Math.sin(Math.PI * p).toFixed(3);
+  }
+  function turn(dir) {
+    if (turning) return;
+    const next = Math.min(last, Math.max(0, spread + dir));
+    if (next === spread) return;
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !leaf || single()) { spread = next; apply(); return; }   // 한 쪽씩 모드는 넘김 효과 없이
+    turning = true;
+    setup(dir, next); pose(0); report('넘기는 중');
+    const t0 = performance.now();
+    (function frame(now) {
+      const p = Math.min(1, (now - t0) / DUR);
+      pose(p);
+      if (p < 1) requestAnimationFrame(frame);
+      else {
+        spread = next; apply();                    // 이 순간 지면 = 낱장 뒷면 + 밑층 → 이음새 없음
+        leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast'; turning = false;
+      }
+    })(t0);
+  }
+  // 정지 프레임 검사용 — 실제 코드 경로(setup/pose)를 그대로 쓴다
+  // 첫 넘김이 멈칫하지 않도록 복제본을 만들고 한 프레임 미리 그려 둔다.
+  // 각도 0 의 낱장은 밑에 깔린 지면과 같은 그림이라 눈에 띄지 않는다.
+  let warmT = 0;
+  const warmSoon = () => { clearTimeout(warmT); warmT = setTimeout(warm, 300); };
+  function warm() {
+    if (turning || !wide() || single() || !document.body.classList.contains('spread')) return;
+    setup(1, spread); pose(0);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (turning) return;
+      leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast';
+    }));
+  }
+  window.__turnAt = (dir, p) => { setup(dir, Math.min(last, Math.max(0, spread + dir))); pose(p); };
+
+  function setMode(on) {
+    document.body.classList.toggle('spread', on);
+    document.body.classList.toggle('single', on && mode() === 'one');
+    swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
+    swap.setAttribute('aria-pressed', String(on));
+    if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
+    else { pages.style.transform = ''; restoreOrder(); }
+    try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
+    report(); tell();
+  }
+
+  swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
+  // 처음·마지막은 넘김 효과 없이 바로 간다 — 스무 장을 넘기는 연출은 기다리게만 한다
+  function jump(to) { if (turning) return; const n = to === 'last' ? last : 0; if (n !== spread) { spread = n; apply(); } }
+  btns.forEach(b => b.addEventListener('click', () => b.dataset.turn ? turn(+b.dataset.turn) : jump(b.dataset.goto)));
+  addEventListener('keydown', e => {
+    if (!document.body.classList.contains('spread')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); turn(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); turn(-1); }
+    if (e.key === 'Home') { e.preventDefault(); jump('first'); }
+    if (e.key === 'End') { e.preventDefault(); jump('last'); }
+  });
+  // 휠·트랙패드로도 넘긴다
+  let lock = 0;
+  book.addEventListener('wheel', e => {
+    if (!document.body.classList.contains('spread')) return;
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lock < 520) return;
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(d) < 12) return;
+    lock = now; turn(d > 0 ? 1 : -1);
+  }, { passive: false });
+
+  addEventListener('resize', () => {
+    const m = mode();
+    if (!m) setMode(false);
+    else if (document.body.classList.contains('spread')) { document.body.classList.toggle('single', m === 'one'); measure(); warmSoon(); }
+    report();
+  });
+  report();
+
+  let saved = null;
+  try { saved = localStorage.getItem('sk-spread'); } catch (e) {}
+  // 화면이 맞으면 기본으로 펼쳐서 연다. '이어서 읽기'를 고른 적이 있으면 그걸 따른다.
+  if (wide() && saved !== '0') setMode(true);
+  // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
+  addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
+})();
+
+/* 영상 — 그 지면이 펼쳐지면 소리 없이 저절로 돌고, 넘기면 멈춘다.
+   소리까지 저절로 나게 할 수는 없다(브라우저가 막는다). 소리는 플레이어에서 켜면 된다.
+   출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
+   '동영상 플레이어 구성 오류(153)'만 내므로, 그런 화면은 미리 알아보고 새 탭으로 보낸다. */
+(function () {
+  const pages = document.querySelector('.pages');
+  const figs = [...document.querySelectorAll('figure.vid')];
+  if (!figs.length) return;
+
+  let canEmbed = location.protocol !== 'file:' && location.origin && location.origin !== 'null';
+  if (canEmbed) { try { localStorage.getItem('sk-yt'); } catch (e) { canEmbed = false; } }  // 출처가 지워진 틀
+  const still = matchMedia('(prefers-reduced-motion:reduce)').matches;   // 움직임을 줄여 달라는 설정
+
+  let blocked = false;
+  addEventListener('securitypolicyviolation', e => {
+    if (/frame/.test(e.violatedDirective) || /youtube/.test(e.blockedURI || '')) blocked = true;
+  });
+
+  const alive = new Set();
+  addEventListener('message', e => {
+    try { if (/\.youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) alive.add(e.source); }
+    catch (_) {}
+  });
+  const cmd = (f, func) => { try { f.contentWindow.postMessage(
+    JSON.stringify({ event: 'command', func, args: [] }), '*'); } catch (_) {} };
+
+  const items = figs.map(fig => ({
+    fig, id: fig.dataset.yt,
+    screen: fig.querySelector('.screen'),
+    play: fig.querySelector('.play'),
+    watch: 'https://www.youtube.com/watch?v=' + fig.dataset.yt,
+    frame: null,
+  }));
+
+  function card(v, msg) {
+    v.frame = null;
+    v.screen.innerHTML = '';
+    const d = document.createElement('div');
+    d.className = 'out';
+    d.innerHTML = (msg ? '<p>' + msg + '</p>' : '') +
+      '<a href="' + v.watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>';
+    v.screen.appendChild(d);
+    return d.querySelector('a');
+  }
+
+  // 지면에 재생기를 끼운다. byUser = 눌러서 튼 것(소리 있음), 아니면 저절로(소리 없음)
+  function mount(v, byUser) {
+    if (blocked) { if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus(); return; }
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&playsinline=1&enablejsapi=1'
+      + '&autoplay=1' + (byUser ? '' : '&mute=1')
+      + '&origin=' + encodeURIComponent(location.origin);
+    f.title = v.play.querySelector('b').textContent;
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    v.screen.innerHTML = ''; v.screen.appendChild(f); v.frame = f;
+
+    // 살아 있는 재생기만 이 인사에 답한다. 답이 없으면 못 트는 화면이다.
+    const hi = () => { try { f.contentWindow.postMessage(
+      JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (_) {} };
+    const t = setInterval(hi, 500);
+    let done = false;
+    const verdict = () => {                     // 내려받는 시간은 빼고, 뜬 뒤로 2.5초만 기다린다
+      if (done) return;
+      done = true; clearInterval(t);
+      if (alive.has(f.contentWindow)) return;
+      if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus();
+      else { v.frame = null; v.screen.innerHTML = facade(v); wire(v); }   // 조용히 검은 판으로
+    };
+    f.addEventListener('load', () => { hi(); setTimeout(verdict, 2500); });
+    setTimeout(verdict, 12000);
+  }
+
+  // 검은 판(재생 전 모습)을 다시 만들기 위해 처음 모습을 적어 둔다
+  const kept = items.map(v => v.screen.innerHTML);
+  const facade = v => kept[items.indexOf(v)];
+  function wire(v) {
+    v.play = v.screen.querySelector('.play');
+    if (!v.play) return;
+    if (!canEmbed) v.play.classList.add('away');
+    v.play.addEventListener('click', () => {
+      if (!canEmbed) { if (!open(v.watch, '_blank', 'noopener')) card(v, ''); return; }
+      mount(v, true);
+    });
+  }
+  items.forEach(wire);
+
+  function start(v) {
+    if (!canEmbed || still) return;             // 못 틀거나, 저절로 움직이지 말라고 했거나
+    if (v.frame) cmd(v.frame, 'playVideo');
+    else if (v.screen.querySelector('.play')) mount(v, false);
+  }
+  const stop = v => { if (v.frame) cmd(v.frame, 'pauseVideo'); };
+
+  // ── 펼침 모드: 지금 펼친 자리에 있는 영상만 돈다 ──
+  let onSpread = false;
+  addEventListener('sk-page', e => {
+    const { spread, step, on } = e.detail;
+    onSpread = on;
+    if (!on) return;                            // 이어서 읽기 — 아래 관찰자가 맡는다
+    const pr = pages.getBoundingClientRect();
+    const padL = parseFloat(getComputedStyle(pages).paddingLeft);
+    items.forEach(v => {
+      // .pages 가 통째로 움직이므로 둘의 차이는 항상 같다 = 이동과 무관한 자리
+      const rel = v.fig.getBoundingClientRect().left - pr.left - padL;
+      (Math.floor((rel + 2) / step) === spread ? start : stop)(v);
+    });
+  });
+
+  // ── 이어서 읽기(세로로 읽을 때): 화면에 들어오면 돌고, 벗어나면 멈춘다 ──
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (onSpread) return;
+      const v = items.find(x => x.fig === e.target);
+      (e.intersectionRatio > .55 ? start : stop)(v);
+    }), { threshold: [0, .55, 1] });
+    items.forEach(v => io.observe(v.fig));
+  }
+})();
+</script>

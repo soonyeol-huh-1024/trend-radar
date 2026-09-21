@@ -18,6 +18,10 @@ BASE = "/trend-radar"                       # GitHub Pages 하위 경로
 
 # 공개 가능한 호만. (1·2호는 img/nv_*.jpg 를 써서 제외 — 판매자 저작물)
 ISSUES = [
+    {"n": 4, "slug": "issue-04", "tpl": "issue04_template.html", "mod": "build_issue04",
+     "title": "아이 옷이 먼저 바뀝니다", "date": "2026년 9월 5주",
+     "lede": "계절이 바뀔 때 옷장은 한꺼번에 바뀌지 않습니다. 순서가 있고, 그 순서의 맨 앞은 어른이 아니었습니다.",
+     "cover": "gen_kid_windbreaker.jpg"},
     {"n": 3, "slug": "issue-03", "tpl": "issue03_template.html", "mod": "build_issue03",
      "title": "영화가 끝나고 한 달 반 뒤", "date": "2026년 9월 4주",
      "lede": "8월 5일에 개봉한 영화의 원작 책이 지금 팔리기 시작했습니다. 늦게 오는 수요에는 나름의 시간표가 있습니다.",
