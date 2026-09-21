@@ -15,7 +15,7 @@ IMAGES = {
     "PAMPAS": "un_pampas.jpg",
     "BIRCH": "un_birch.jpg",
     "ONSEN": "un_onsen.jpg",
-    "SITPLUSH": "un_sitting_plush.jpg",
+    "SITPLUSH": "gen_sitting_plush.jpg",
     "COFFEESACK": "un_coffee_sack.jpg",
 }
 
