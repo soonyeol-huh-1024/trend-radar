@@ -25,10 +25,13 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}}
 :root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  /* 한국어는 어절 단위로만 줄을 바꾼다. 안 넣으면 '비/어 있습니다' 처럼 낱말 가운데가 잘린다.
+     단 한 어절이 단 폭보다 길면 넘치므로 overflow-wrap 을 비상구로 둔다. */
+  word-break:keep-all;overflow-wrap:anywhere}
 .wrap{max-width:680px;margin:0 auto;padding:30px 22px 70px}
 h1,h2{font-family:var(--serif);font-weight:700;margin:0;text-wrap:balance;line-height:1.3}
-p{margin:0 0 1.3em}
+p{margin:0 0 1.3em;text-wrap:pretty}   /* 마지막 줄에 한 낱말만 남는 것을 줄인다 */
 img{max-width:100%;display:block}
 strong,b{font-weight:600}
 .mono{font-family:var(--mono)}
