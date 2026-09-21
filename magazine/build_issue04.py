@@ -11,6 +11,7 @@ IMAGES = {
     "PHONE": "un_phone_box.jpg",
     "DESIGNDESK": "gen_design_desk.jpg",
     "PLUSHSHELF": "un_plush_shelf.jpg",
+    "SITPLUSH": "un_sitting_plush.jpg",
     "FALLDECOR1": "un_fall_decor1.jpg",
     "FALLDECOR2": "un_fall_decor2.jpg",
     "HALLOWEENKIDS": "un_halloween_kids.jpg",
