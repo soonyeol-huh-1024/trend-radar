@@ -4,7 +4,8 @@
 파일로 두고 URL 로 참조하면 되므로 HTML 이 50KB 로 줄고 브라우저가 캐시한다.
 메일에서도 같은 URL 을 쓸 수 있어 CID 첨부가 필요 없어진다.
 
-공개 호스팅이라 네이버쇼핑 상품 이미지(판매자 저작물)를 쓰는 호는 올리지 않는다.
+네이버쇼핑 상품 이미지(판매자 저작물)는 발행인 판단으로 싣는다(2026-09-22).
+꼬리말에 출처를 적고, 권리자가 요청하면 즉시 내린다.
 
 사용: python build_site.py   →  ../docs/
 """
@@ -16,7 +17,7 @@ HERE = Path(__file__).parent
 DOCS = HERE.parent / "docs"
 BASE = "/trend-radar"                       # GitHub Pages 하위 경로
 
-# 공개 가능한 호만. (1·2호는 img/nv_*.jpg 를 써서 제외 — 판매자 저작물)
+# 발행한 전체 호. 새 호는 맨 앞에 넣는다.
 ISSUES = [
     {"n": 4, "slug": "issue-04", "tpl": "issue04_template.html", "mod": "build_issue04",
      "title": "아이 옷이 먼저 바뀝니다", "date": "2026년 9월 5주",
@@ -26,7 +27,15 @@ ISSUES = [
      "title": "영화가 끝나고 한 달 반 뒤", "date": "2026년 9월 4주",
      "lede": "8월 5일에 개봉한 영화의 원작 책이 지금 팔리기 시작했습니다. 늦게 오는 수요에는 나름의 시간표가 있습니다.",
      "cover": "un_cinema.jpg"},
-]
+
+    {"n": 2, "slug": "issue-02", "tpl": "issue02_template.html", "mod": "build_issue02",
+     "title": "바다 건너 9월", "date": "2026년 9월 3주",
+     "lede": "미국에서는 한 달에 100만 번 검색되는 상품이 한국에서는 2천 번에 그칩니다. 왜 이런 차이가 나는지 살펴봤습니다.",
+     "cover": "un_fall_decor2.jpg"},
+    {"n": 1, "slug": "issue-01", "tpl": "issue01_template.html", "mod": "build_issue01",
+     "title": "치이카와, 굿즈가 먼저 오는 캐릭터", "date": "창간호 · 2026년 9월 2주",
+     "lede": "일본 아마존 검색 1위 캐릭터가 한국에서 이번 주 3년 최고점을 찍었습니다. 라부부가 지나간 길을 1년 늦게 지나가는 중입니다.",
+     "cover": "un_popmart_store.jpg"},]
 
 DOC = """<!doctype html>
 <html lang="ko">
@@ -50,7 +59,8 @@ DOC = """<!doctype html>
 def build_issue(it: dict, assets: set[str]) -> None:
     mod = __import__(it["mod"])
     html = (HERE / it["tpl"]).read_text()
-    for key, fname in mod.IMAGES.items():
+    for key, val in mod.IMAGES.items():
+        fname = val[0] if isinstance(val, tuple) else val
         html = html.replace("{{IMG_" + key + "}}", f"{BASE}/assets/img/{fname}")
         assets.add(fname)
     html = re.sub(r"<title>.*?</title>\s*", "", html, count=1)
@@ -122,7 +132,7 @@ a{{color:var(--brand)}}
 셀러와 트렌드를 보는 사람 모두를 위한 읽을거리입니다.</p>
 {cards}
 <footer>
-<p>제1·2호는 상품 이미지 권리 확인이 끝나면 올립니다.</p>
+<p>일부 상품 사진은 네이버쇼핑 판매자 저작물입니다. 권리자가 요청하면 즉시 내립니다.</p>
 <p>코드 · 데이터 파이프라인 <a href="https://github.com/soonyeol-huh-1024/trend-radar">github.com/soonyeol-huh-1024/trend-radar</a></p>
 </footer>
 </div>'''))

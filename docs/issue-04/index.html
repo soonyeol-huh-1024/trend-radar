@@ -80,6 +80,8 @@ h3.sub{font-family:var(--serif);font-size:20px;font-weight:700;margin:34px 0 10p
 figure{margin:24px 0}
 figure img{width:100%;object-fit:cover;border-radius:3px}
 figure.ph img{filter:saturate(.88) contrast(1.03)}
+/* 흰 배경 상품 사진에는 생활 사진용 보정을 넣지 않는다 (GUIDE §2-⑤) */
+figure.ph.prd img{filter:none;object-fit:contain;background:#fff}
 figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
 /* 영상 — 종이로는 안 되는 것만. 누르기 전에는 검은 판 하나이고, 누르면 그 자리에서 재생된다 */
 figure.vid .screen{position:relative;aspect-ratio:16/9;background:#12161a;border-radius:3px;overflow:hidden}
@@ -269,6 +271,13 @@ body.spread .stat{bottom:auto;top:14px;left:14px}
 /* 메모 */
 .memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
 .memo b{color:var(--ink)}
+/* 과월호 — 맨 아래 이전·다음 호 링크 */
+.issuenav{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
+  margin:26px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-size:14px}
+.issuenav a{color:var(--brand);text-decoration:none;border-bottom:1px solid transparent}
+.issuenav a:hover{border-bottom-color:var(--brand)}
+.issuenav .none{color:var(--muted)}
+.issuenav .all{margin-left:auto}
 footer{padding-top:24px;font-size:13px;color:var(--muted);line-height:1.75}
 footer b{color:var(--ink)}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -428,7 +437,10 @@ footer b{color:var(--ink)}
   <h2>2주 만에 열아홉 배</h2>
   <p class="deck">지난 호에 '등록 상품이 마흔여덟 개뿐'이라고 적은 키워드가 있었습니다. 2주 뒤에 다시 세어 봤더니 908개였습니다.</p>
 
-  <figure class="ph w43"><img src="/trend-radar/assets/img/un_plush_shelf.jpg" alt="가격표가 달린 봉제 인형이 선반마다 빼곡히 놓인 매대"><figcaption>한 검색어에 상품이 쌓이는 속도. 2주 전 48개였던 것이 908개가 됐습니다. 사진은 이해를 돕기 위한 것으로, 해당 상품은 아닙니다.</figcaption></figure>
+  <div class="pair">
+    <figure class="ph prd"><img src="/trend-radar/assets/img/nv_chiikawa.jpg" alt="앉은 자세로 만든 흰 봉제 인형"><figcaption>네이버쇼핑에 '치이카와'로 올라와 있는 상품 사진입니다. 앉은 자세로 만든 것이 따로 팔립니다. 사진 네이버쇼핑 판매자 저작물</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/un_plush_shelf.jpg" alt="가격표가 달린 봉제 인형이 선반마다 빼곡히 놓인 매대"><figcaption>2주 전 48개였던 것이 908개가 됐습니다. 상품이 쌓이는 속도를 보여 주는 사진으로, 해당 상품은 아닙니다.</figcaption></figure>
+  </div>
 
   <p class="lead">지난 호 말뜻 코너에서 <span class="mono hl">치이카와 앉은누이</span>를 다뤘습니다. 한 달에 6,450번 검색되는데 국내 등록 상품은 48개뿐이라고 적었고, 다음 호에서 이 숫자가 어떻게 되는지 보겠다고 덧붙였습니다.</p>
 
@@ -543,6 +555,8 @@ footer b{color:var(--ink)}
   <h3 class="sub">틱톡에서 시작해 어디까지 왔나</h3>
 
   <p><span class="mono hl">squishy</span>(스퀴시 · 말랑이)가 붙은 영상을 미국 틱톡에서 다 합쳐 <b>648억 회</b> 봤습니다. 지구에 사는 사람이 한 명당 여덟 번씩 본 셈이에요. 그런데도 최근 30일에 더 늘었습니다. 같은 주 독일 아마존에서는 <b>검색 1위</b>, 미국 아마존에서는 5위였고요.</p>
+
+  <figure class="ph w43 prd"><img src="/trend-radar/assets/img/nv_squishy.jpg" alt="네 가지 색의 말랑한 스트레스 볼"><figcaption>한국에서 '말랑이'로 팔리는 상품 가운데 하나입니다. 사진 네이버쇼핑 판매자 저작물</figcaption></figure>
 
   <p>한국에서는 '말랑이'라고 부릅니다. 한 달 <b>93,700번</b>이면 적은 숫자가 아니에요. 그런데 그 이름으로 올라와 있는 상품이 <b class="hl r">25만 개</b>가 넘습니다. 찾는 사람보다 상품이 두 배 반 많은 셈입니다.</p>
 
@@ -777,6 +791,11 @@ footer b{color:var(--ink)}
 <footer>
   <p>특정 상품을 사거나 팔라고 권하는 글이 아닙니다. 숫자는 제가 조회한 시점의 기록이고, 해석은 제 것입니다.</p>
 </footer>
+<nav class="issuenav">
+  <a href="https://soonyeol-huh-1024.github.io/trend-radar/issue-03/">← 제3호 · 영화가 끝나고 한 달 반 뒤</a>
+  <span class="none">다음 호는 아직입니다</span>
+  <a class="all" href="https://soonyeol-huh-1024.github.io/trend-radar/">지난 호 전체 보기</a>
+</nav>
 </div></div>
 <div class="nav">
   <button type="button" data-goto="first" aria-label="처음으로">&#8676; 처음</button>
