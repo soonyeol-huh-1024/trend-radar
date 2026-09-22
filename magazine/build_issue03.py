@@ -5,6 +5,9 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 IMAGES = {
+    "PASTSEASON": "gen_past_season.jpg",
+    "FOLLOWUP": "gen_followup.jpg",
+    "WATCHING": "gen_watching.jpg",
     "CHIIKAWA": "nv_chiikawa.jpg",
     "CINEMA": "un_cinema.jpg",
     "BOOKSHELF": "un_bookshelf.jpg",
