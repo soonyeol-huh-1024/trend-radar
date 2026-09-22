@@ -23,7 +23,6 @@ IMAGES = {
     "OKTOBER": "gen_oktoberfest.jpg",
     "CHIIKAWA": "nv_chiikawa.jpg",
     "SQUISHY": "nv_squishy.jpg",
-    "SUNKISS": "gen_sunkiss.jpg",
     "HYPEBEAST": "gen_hypebeast.jpg",
     "LIGHTPUFFER": "gen_light_puffer.jpg",
     "HANDCREAM": "gen_hand_cream.jpg",
