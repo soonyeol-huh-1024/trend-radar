@@ -17,7 +17,6 @@ IMAGES = {  # 템플릿 플레이스홀더 → 파일, 출처 (크레딧 섹션�
     "EYELASH": ("un_eyelashes.jpg", "Unsplash · 속눈썹 클로즈업"),
     "HALLOWEEN": ("un_halloween_table.jpg", "Unsplash · 할로윈 테이블"),
     "HANBOK": ("un_hanbok.jpg", "Unsplash · 한복"),
-    "STREETFOOD": ("un_korean_street_food.jpg", "Unsplash · 한국 길거리 음식"),
     "NV_PIZZA": ("nv_pizza_seolgi.jpg", "네이버쇼핑 상품 이미지 (아이템스카우트 API)"),
     "NV_GRAIN": ("nv_paradise_grain.jpg", "네이버쇼핑 상품 이미지 (아이템스카우트 API)"),
     "NV_MAG": ("nv_magnesium_lactate.jpg", "네이버쇼핑 상품 이미지 (아이템스카우트 API)"),

@@ -1,4 +1,4 @@
-// 셀러KIM 창간호 차트 (Chart.js 4, canvas). 색은 CSS 토큰에서 읽어 테마 변경 시 재생성.
+// 셀러킴 창간호 차트 (Chart.js 4, canvas). 색은 CSS 토큰에서 읽어 테마 변경 시 재생성.
 (function () {
   const D = window.SELLERKIM_DATA;
   const charts = [];
