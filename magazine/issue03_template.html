@@ -186,7 +186,10 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
   body.spread figure.ph img{max-height:min(46vh,340px)}
-  body.spread figure.vid .screen{max-width:min(100%,604px,81vh)}
+  /* 펼침(두 쪽)에서는 단 너비에 맞춰 604px 로 묶는다. 한 쪽 모드는 단이 넓으므로
+     사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
+  body.spread:not(.single) figure.vid .screen{max-width:min(100%,81vh)}
+  body.spread.single figure.vid .screen{max-width:min(100%,150vh)}
   body.spread .cover{break-after:column}
   body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
   /* 책등 그림자 */
