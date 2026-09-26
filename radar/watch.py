@@ -10,6 +10,10 @@
   python3 -m radar.watch snapshot          이번 주 스냅샷 (등록된 키워드 전체)
   python3 -m radar.watch signals           지난주 대비 신호 출력
   python3 -m radar.watch add <uid> <키워드…>
+
+신호 이름은 전략 문서 v1(2026-09-27)의 한국어 상태와 타이밍으로 보여 준다.
+규칙 네 개는 그대로 두고 표시만 바꿨다. '빠르게 커지는 중'·'많이 퍼짐'은
+여러 주 가속도와 절대 규모가 필요해 아직 판정하지 않는다.
 """
 from __future__ import annotations
 
@@ -33,6 +37,15 @@ OPENING_SEARCH = 0.30   # 검색이 이만큼 늘고
 OPENING_PRD = 0.15      # 상품은 이보다 덜 늘면 → 수요가 먼저 온 것
 SQUEEZE_PRD = 0.20      # 상품은 이만큼 느는데
 SQUEEZE_SEARCH = -0.10  # 검색은 이만큼 빠지면 → 양쪽이 나빠진다 (가장 나쁜 조합)
+
+
+# 내부 규칙 → (사용자에게 보이는 상태, 타이밍). 전략 문서 §03 표기.
+LIFECYCLE = {
+    "SQUEEZE": ("식는 중",   "늦을 수 있음"),   # 공급은 늘고 수요는 빠진다 — 가장 나쁜 조합
+    "FILLING": ("경쟁 심함", "늦을 수 있음"),   # 수요는 그대로인데 공급이 몰린다 (치이카와 48 → 908)
+    "COOLING": ("식는 중",   "조금 더 보기"),   # 수요가 빠진다
+    "OPENING": ("막 뜨는 중", "지금 볼만함"),   # 수요가 공급보다 먼저 왔다. 신호가 하나뿐이라 '진입 타이밍'까지는 아니다
+}
 
 
 def db() -> firestore.Client:
@@ -96,7 +109,7 @@ def _change(now: float | None, before: float | None) -> float | None:
 
 
 def judge(cur: dict, prev: dict) -> tuple[str, str] | None:
-    """두 주를 비교해 (신호, 설명) 을 낸다. 걸리는 게 없으면 None."""
+    """두 주를 비교해 (규칙 ID, 설명) 을 낸다. 걸리는 게 없으면 None. 표시는 LIFECYCLE 로."""
     ds = _change(cur.get("monthly"), prev.get("monthly"))
     dp = _change(cur.get("prd_cnt"), prev.get("prd_cnt"))
     pct = lambda v: f"{v * 100:+.0f}%"
@@ -104,19 +117,19 @@ def judge(cur: dict, prev: dict) -> tuple[str, str] | None:
     # 순서가 중요하다. '상품 늘고 검색 빠짐'은 둘 중 아무 규칙에도 안 걸려 조용히 넘어갔었다
     # (오디세이책: 상품 +34%, 검색 -19%). 가장 나쁜 조합이므로 맨 앞에서 잡는다.
     if (dp is not None and dp >= SQUEEZE_PRD) and (ds is not None and ds <= SQUEEZE_SEARCH):
-        return ("밀려난다",
+        return ("SQUEEZE",
                 f"등록 상품은 {prev['prd_cnt']:,} → {cur['prd_cnt']:,}개({pct(dp)})로 느는데 "
                 f"검색은 {prev['monthly']:,} → {cur['monthly']:,}번({pct(ds)})으로 빠집니다. "
                 f"공급은 늘고 수요는 식는 구간입니다.")
     if dp is not None and dp >= FILLING_PRD and (ds is None or abs(ds) < FILLING_SEARCH):
-        return ("자리가 채워지는 중",
+        return ("FILLING",
                 f"등록 상품 {prev['prd_cnt']:,} → {cur['prd_cnt']:,}개({pct(dp)})인데 "
                 f"검색은 {pct(ds) if ds is not None else '변화 없음'}입니다. 경쟁자가 들어오고 있습니다.")
     if ds is not None and ds <= COOLING_SEARCH:
-        return ("검색이 빠진다",
+        return ("COOLING",
                 f"한 달 검색 {prev['monthly']:,} → {cur['monthly']:,}번({pct(ds)}).")
     if ds is not None and ds >= OPENING_SEARCH and (dp is None or dp < OPENING_PRD):
-        return ("자리가 열린다",
+        return ("OPENING",
                 f"검색이 {pct(ds)} 올랐는데 상품은 {pct(dp) if dp is not None else '그대로'}입니다. "
                 f"수요가 공급보다 먼저 왔습니다.")
     return None
@@ -137,8 +150,9 @@ def signals(week: str | None = None) -> list[dict]:
             continue
         hit = judge(docs[wk], docs[prev_key[0]])
         if hit:
+            state, timing = LIFECYCLE[hit[0]]
             out.append({"keyword": kw, "uids": uids, "week": wk, "prevWeek": prev_key[0],
-                        "signal": hit[0], "detail": hit[1]})
+                        "rule": hit[0], "state": state, "timing": timing, "detail": hit[1]})
     return out
 
 
@@ -162,7 +176,7 @@ def main() -> None:
         if not rows:
             print("걸린 신호가 없습니다.")
         for r in rows:
-            print(f"[{r['signal']}] {r['keyword']}\n    {r['detail']}")
+            print(f"[{r['state']} · {r['timing']}] {r['keyword']}\n    {r['detail']}")
 
 
 if __name__ == "__main__":
