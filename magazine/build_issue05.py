@@ -12,7 +12,6 @@ IMAGES = {
     "BOTTLES": "un5_water_bottles.jpg",
     "LIGHTSTICK": "un5_lightsticks.jpg",
     "ALBUMS": "un5_albums.jpg",
-    "TVNIGHT": "un5_tv_night.jpg",
     "TOKYO": "un5_tokyo_dome.jpg",
     "SYRUP": "un5_syrup.jpg",
     "BEERTENT": "un5_beer_tent.jpg",

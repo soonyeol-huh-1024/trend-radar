@@ -154,23 +154,32 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 /* ── 펼침(spread) 모드 ─────────────────────────────────────────
    넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
-   가로 1100px 이상이면 두 쪽 펼침 + 책넘김, 그 아래(480px 이상)는 한 쪽씩 넘긴다(body.single, 넘김 효과 없음).
+   지면 크기는 고정이다(두 쪽 1160×680, 한 쪽 588×680). 화면이 1220×742 이상이면 두 쪽 펼침 + 책넘김,
+   640×742 이상이면 한 쪽씩 넘긴다(body.single, 넘김 효과 없음). 창 크기가 바뀌어도 쪽 나눔은 그대로다.
    더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
-@media (min-width:480px) and (min-height:560px){
+@media (min-width:640px) and (min-height:742px){
+  /* 지면 크기 고정 — 창 크기가 바뀌어도 쪽 나눔이 그대로다. 단 폭(--pw)은 두 모드가 같다 */
+  :root{--pw:476px;--ph:680px;--pad:56px;--cg:96px}
   body.spread{overflow:hidden;height:100vh}
   body.spread .wrap{
     max-width:none;width:100%;height:100vh;padding:0;
-    display:flex;flex-direction:column}
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad))}
+  body.spread.single .wrap{--bw:calc(var(--pw) + 2 * var(--pad))}
   body.spread .book{
-    flex:1;min-height:0;position:relative;overflow:hidden;
+    flex:none;width:var(--bw);height:var(--ph);position:relative;overflow:hidden;
+    box-shadow:0 1px 0 var(--rule),0 0 0 1px var(--rule);
     perspective:6500px;perspective-origin:50% 50%}
   body.spread .pages{
-    height:100%;padding:44px clamp(28px,4vw,72px) 56px;
-    column-count:2;column-gap:clamp(64px,7.5vw,120px);column-fill:auto;
+    height:100%;padding:44px var(--pad) 56px;
+    column-count:2;column-gap:var(--cg);column-fill:auto;
     transition:transform .62s cubic-bezier(.33,.9,.28,1);
     will-change:transform}
   /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
   body.spread .pages>*{break-inside:avoid-column}
+  body.spread .toc{gap:2px 18px;padding:10px 0}          /* 목차가 한 쪽(680)에 다 들어가게 */
+  body.spread .toc .t{line-height:1.4}
+  body.spread .toc .t small{line-height:1.35}
   body.spread article,body.spread .toc,body.spread .note{break-before:column;break-inside:auto}
   body.spread article{margin:0;padding:0;border-bottom:0}
   body.spread article.t-past,body.spread article.t-next,
@@ -185,13 +194,12 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
   body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
-  body.spread figure.ph img{max-height:min(46vh,340px)}
+  body.spread figure.ph img{max-height:300px}
   /* 펼침(두 쪽)에서는 단 너비에 맞춰 604px 로 묶는다. 한 쪽 모드는 단이 넓으므로
      사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
-  body.spread:not(.single) figure.vid .screen{max-width:min(100%,81vh)}
-  body.spread.single figure.vid .screen{max-width:min(100%,150vh)}
+
   body.spread .cover{break-after:column}
-  body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
+  body.spread .cover img{max-height:400px}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
   /* 책등 그림자 */
   body.spread .gutter{
     display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
@@ -230,7 +238,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
   body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
   /* 조작부 */
-  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;width:var(--bw);
     padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
   body.spread .nav button{
     font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
@@ -248,7 +256,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-@media (min-width:480px) and (min-height:560px){.modeswap{display:block}}
+@media (min-width:640px) and (min-height:742px){.modeswap{display:block}}
 @media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
@@ -334,7 +342,7 @@ footer b{color:var(--ink)}
 </div>
 
 <!-- ───────────── 커버스토리 ───────────── -->
-<article>
+<article id="cover">
   <p class="kicker"><span class="m m-now" aria-hidden="true"></span>커버스토리 · 옷장이 바뀌는 순서</p>
   <h2>아이 옷이 먼저 바뀝니다</h2>
   <p class="deck">이번 주 국내 검색에서 가장 가파르게 오른 여섯 개가 모두 바람막이였습니다. 그것도 전부 아이 옷이었습니다.</p>
@@ -367,7 +375,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 기사 1 ───────────── -->
-<article>
+<article id="this-week">
   <p class="kicker"><span class="m m-now" aria-hidden="true"></span>기사 · 이번 주 많이 찾은 것</p>
   <h2>이번 주 사람들이 찾은 것</h2>
   <p class="deck">9월 셋째 주 국내 검색량 순위입니다. 처음 보는 이름이 3위로 올라왔고, 새 휴대폰과 작년 휴대폰이 정반대로 움직였습니다.</p>
@@ -393,7 +401,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 브랜드 ───────────── -->
-<article class="t-past">
+<article id="brand" class="t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>브랜드 · 이 이름의 뒷이야기</p>
   <h2>스물두 해 된 회사의 일곱 해 된 서비스</h2>
   <p class="deck">이번 주 검색 3위로 처음 들어온 <b>미리캔버스</b>를 한 달에 201만 번 검색합니다. 그런데 이 서비스를 만든 회사는 2004년에 사진 인화로 시작했습니다.</p>
@@ -422,7 +430,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 기사 2 · 치이카와 후속 ───────────── -->
-<article class="t-past">
+<article id="chiikawa" class="t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기사 · 상품은 얼마나 빨리 따라붙나</p>
   <h2>2주 만에 열아홉 배</h2>
   <p class="deck">지난 호에 '등록 상품이 마흔여덟 개뿐'이라고 적은 키워드가 있었습니다. 2주 뒤에 다시 세어 봤더니 908개였습니다.</p>
@@ -451,7 +459,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 기사 3 · 바다 건너 ───────────── -->
-<article class="t-next">
+<article id="halloween" class="t-next">
   <p class="kicker"><span class="m m-next" aria-hidden="true"></span>기사 · 바다 건너</p>
   <h2>미국의 10월, 한국의 10월</h2>
   <p class="deck">9월이 되면 미국 아마존 검색 상위에 호박과 장식이 올라옵니다. 한국에서도 같은 말을 찾기는 합니다. 다만 규모를 견줄 수가 없고, 대신 다른 말이 올라와 있습니다.</p>
@@ -477,7 +485,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 기사 4 · 구글트렌드 ───────────── -->
-<article class="t-past">
+<article id="labubu" class="t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기사 · 유행이 끝난 뒤</p>
   <h2>라부부는 꺼졌고, 팝마트는 남았습니다</h2>
   <p class="deck">작년 여름 네 나라에서 한꺼번에 정점을 찍은 인형이 있습니다. 1년이 지난 지금 그 이름은 정점의 <b>3~6%</b>까지 내려왔습니다. 그런데 그 인형을 만든 회사 이름은 아직 절반 가까이 검색됩니다.</p>
@@ -513,7 +521,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 통신 ───────────── -->
-<article class="t-next">
+<article id="dispatch" class="t-next">
   <p class="kicker"><span class="m m-next" aria-hidden="true"></span>통신 · 해외 시장 쪽지</p>
   <h2>세 도시에서 온 소식</h2>
   <p class="deck">같은 주 미국·일본·독일 아마존에서 무엇이 올랐는지 추렸습니다. 셋 중 둘 이상에서 동시에 오른 것이 이번 주에만 셋입니다.</p>
@@ -563,7 +571,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 신조어 ───────────── -->
-<article class="t-now">
+<article id="new-word" class="t-now">
   <p class="kicker"><span class="m m-now" aria-hidden="true"></span>신조어 · 틱톡에서 먼저 생긴 말</p>
   <h2>이번 주에 새로 생긴 말</h2>
   <p class="deck">새로 생긴 말은 대개 틱톡에서 먼저 돕니다. 검색창에 올라오는 건 그다음이고요. 그래서 여기서는 틱톡에서 막 커진 말만 골라 뜻을 풀어 둡니다. 이번 주에는 하나뿐이었습니다. 왜 하나뿐인지도 같이 적었어요.</p>
@@ -607,7 +615,7 @@ footer b{color:var(--ink)}
 
 
 <!-- ───────────── 말뜻 ───────────── -->
-<article class="t-note">
+<article id="word" class="t-note">
   <p class="kicker"><span class="m m-note" aria-hidden="true"></span>말뜻 · 이 단어, 무슨 뜻일까</p>
   <h2>괄사</h2>
   <p class="deck">이번 주 새로 올라온 검색어 중에 한자어인데 뜻이 안 잡히는 말이 하나 있었어요. 한 달에 4만 5,580번, 하루 천오백 번쯤 검색되는 말입니다.</p>
@@ -634,7 +642,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 예보 ───────────── -->
-<article class="t-next">
+<article id="forecast" class="t-next">
   <p class="kicker"><span class="m m-next" aria-hidden="true"></span>예보 · 곧 옵니다</p>
   <h2>앞으로의 트렌드</h2>
   <p class="deck">최대 9년치 주간 검색 기록을 훑어서, 지금이 아니라 <b>몇 주 뒤</b>에 오르는 것만 골랐습니다. 이번 호에는 물건 둘과 갈 곳 둘을 골라 왜 하필 그 주인지까지 적었습니다.</p>
@@ -681,7 +689,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 셀러킴의 미리 추천 ───────────── -->
-<article class="t-next">
+<article id="picks" class="t-next">
   <p class="kicker"><span class="m m-next" aria-hidden="true"></span>추천 · 한 달 뒤부터 오르는 것</p>
   <h2>셀러킴의 미리 추천</h2>
   <p class="deck">지금 찾으면 좀 이릅니다. 그런데 한 달쯤 뒤부터 사람들이 한꺼번에 찾기 시작하는 것들이 있어요. 해마다 같은 주에 같은 모양으로 반복되기 때문에 미리 알 수 있습니다. 다섯 개를 골랐습니다.</p>
@@ -722,7 +730,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 구매 타이밍 ───────────── -->
-<article class="t-past">
+<article id="timing" class="t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>구매 타이밍 · 지금이 가장 조용한 것</p>
   <h2>지금 사두면 좋은 것</h2>
   <p class="deck">앞 코너가 한 달 뒤에 오를 것이었다면, 이건 반대입니다. 해마다 오르내리는 물건인데 지금이 한 해 중 <b>가장 안 팔리는 때</b>인 것들이에요. 파는 쪽에서 자리를 비우려고 값을 눅여 내놓는 시기이기도 합니다.</p>
@@ -756,7 +764,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 기록 ───────────── -->
-<article class="short t-past">
+<article id="past" class="short t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기록 · 이미 지나간 것</p>
   <h2>이미 지나간 것들</h2>
   <p class="deck">정점을 찍고 내려온 지 오래된 것들입니다. 얼마나 내려왔는지, 그리고 내려오는 데 얼마나 걸렸는지를 같이 보겠습니다.</p>
@@ -775,7 +783,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 팔로업 ───────────── -->
-<article class="short t-past">
+<article id="followup" class="short t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>팔로업 · 지난 호 그 후</p>
   <h2>그 후</h2>
   <p class="deck">지난 호에서 다룬 키워드 셋이 2주 사이 어떻게 됐는지 확인했습니다. 하나는 예상대로였고, 하나는 반대였고, 하나는 제자리입니다.</p>
@@ -802,7 +810,7 @@ footer b{color:var(--ink)}
 </article>
 
 <!-- ───────────── 다음 호 ───────────── -->
-<article class="short t-next">
+<article id="watching" class="short t-next">
   <p class="kicker"><span class="m m-next" aria-hidden="true"></span>다음 호에 확인할 것</p>
   <h2>계속 보고 있는 것</h2>
   <p>다음 호에서 이 셋이 어떻게 됐는지 다시 적겠습니다.</p>
@@ -848,8 +856,9 @@ footer b{color:var(--ink)}
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
 (function () {
-  const mode = () => matchMedia('(min-width:1100px) and (min-height:600px)').matches ? 'two'
-    : matchMedia('(min-width:480px) and (min-height:560px)').matches ? 'one' : '';
+  // 고정 지면(두 쪽 1160×680, 한 쪽 588×680)이 들어가는지로만 고른다
+  const mode = () => matchMedia('(min-width:1220px) and (min-height:742px)').matches ? 'two'
+    : matchMedia('(min-width:640px) and (min-height:742px)').matches ? 'one' : '';
   const wide = () => !!mode();
   const single = () => document.body.classList.contains('single');
   const pages = document.querySelector('.pages');
@@ -868,7 +877,7 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? (single() ? '한 쪽씩(가로 1100px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 480px 이상이면 쪽 단위로 넘깁니다');
+    const why = on ? (single() ? '한 쪽씩(가로 1220px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 640px·세로 742px 이상이면 쪽 단위로 넘깁니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
@@ -1124,7 +1133,21 @@ footer b{color:var(--ink)}
   // 화면이 맞으면 기본으로 펼쳐서 연다. '이어서 읽기'를 고른 적이 있으면 그걸 따른다.
   if (wide() && saved !== '0') setMode(true);
   // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
-  addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
+  addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } seek(); });
+  // 주소 끝 #기사이름 으로 들어오면 그 기사가 놓인 펼침으로 바로 간다 (과월호 링크용)
+  function seek() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    if (!document.body.classList.contains('spread')) { el.scrollIntoView(); return; }
+    // 브라우저가 #앵커로 넘기느라 지면 상자를 옆으로 스크롤해 둔다 — 되돌리고 쪽 단위로 다시 간다
+    for (let n = pages.parentElement; n; n = n.parentElement) { n.scrollLeft = 0; }
+    const first = (el.firstElementChild || el).getClientRects()[0] || el.getBoundingClientRect();   // 여러 쪽에 걸친 기사는 첫 조각 기준
+    const off = first.left - pages.getBoundingClientRect().left - parseFloat(getComputedStyle(pages).paddingLeft);
+    const n = Math.max(0, Math.min(last, Math.floor((off + 2) / step)));
+    if (n !== spread) { spread = n; apply(); }
+  }
+  addEventListener('hashchange', seek);
 })();
 
 /* 영상 — 그 지면이 펼쳐지면 소리 없이 저절로 돌고, 넘기면 멈춘다.

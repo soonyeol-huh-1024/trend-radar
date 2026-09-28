@@ -154,23 +154,32 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 /* ── 펼침(spread) 모드 ─────────────────────────────────────────
    넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
-   가로 1100px 이상이면 두 쪽 펼침 + 책넘김, 그 아래(480px 이상)는 한 쪽씩 넘긴다(body.single, 넘김 효과 없음).
+   지면 크기는 고정이다(두 쪽 1160×680, 한 쪽 588×680). 화면이 1220×742 이상이면 두 쪽 펼침 + 책넘김,
+   640×742 이상이면 한 쪽씩 넘긴다(body.single, 넘김 효과 없음). 창 크기가 바뀌어도 쪽 나눔은 그대로다.
    더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
-@media (min-width:480px) and (min-height:560px){
+@media (min-width:640px) and (min-height:742px){
+  /* 지면 크기 고정 — 창 크기가 바뀌어도 쪽 나눔이 그대로다. 단 폭(--pw)은 두 모드가 같다 */
+  :root{--pw:476px;--ph:680px;--pad:56px;--cg:96px}
   body.spread{overflow:hidden;height:100vh}
   body.spread .wrap{
     max-width:none;width:100%;height:100vh;padding:0;
-    display:flex;flex-direction:column}
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad))}
+  body.spread.single .wrap{--bw:calc(var(--pw) + 2 * var(--pad))}
   body.spread .book{
-    flex:1;min-height:0;position:relative;overflow:hidden;
+    flex:none;width:var(--bw);height:var(--ph);position:relative;overflow:hidden;
+    box-shadow:0 1px 0 var(--rule),0 0 0 1px var(--rule);
     perspective:6500px;perspective-origin:50% 50%}
   body.spread .pages{
-    height:100%;padding:44px clamp(28px,4vw,72px) 56px;
-    column-count:2;column-gap:clamp(64px,7.5vw,120px);column-fill:auto;
+    height:100%;padding:44px var(--pad) 56px;
+    column-count:2;column-gap:var(--cg);column-fill:auto;
     transition:transform .62s cubic-bezier(.33,.9,.28,1);
     will-change:transform}
   /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
   body.spread .pages>*{break-inside:avoid-column}
+  body.spread .toc{gap:2px 18px;padding:10px 0}          /* 목차가 한 쪽(680)에 다 들어가게 */
+  body.spread .toc .t{line-height:1.4}
+  body.spread .toc .t small{line-height:1.35}
   body.spread article,body.spread .toc,body.spread .note{break-before:column;break-inside:auto}
   body.spread article{margin:0;padding:0;border-bottom:0}
   body.spread article.t-past,body.spread article.t-next,
@@ -185,13 +194,12 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
   body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
-  body.spread figure.ph img{max-height:min(46vh,340px)}
+  body.spread figure.ph img{max-height:300px}
   /* 펼침(두 쪽)에서는 단 너비에 맞춰 604px 로 묶는다. 한 쪽 모드는 단이 넓으므로
      사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
-  body.spread:not(.single) figure.vid .screen{max-width:min(100%,81vh)}
-  body.spread.single figure.vid .screen{max-width:min(100%,150vh)}
+
   body.spread .cover{break-after:column}
-  body.spread .cover img{max-height:calc(100vh - 320px)}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
+  body.spread .cover img{max-height:400px}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
   /* 책등 그림자 */
   body.spread .gutter{
     display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
@@ -230,7 +238,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
   body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
   /* 조작부 */
-  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;width:var(--bw);
     padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
   body.spread .nav button{
     font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
@@ -248,7 +256,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-@media (min-width:480px) and (min-height:560px){.modeswap{display:block}}
+@media (min-width:640px) and (min-height:742px){.modeswap{display:block}}
 @media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
@@ -709,8 +717,9 @@ footer b{color:var(--ink)}
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
 (function () {
-  const mode = () => matchMedia('(min-width:1100px) and (min-height:600px)').matches ? 'two'
-    : matchMedia('(min-width:480px) and (min-height:560px)').matches ? 'one' : '';
+  // 고정 지면(두 쪽 1160×680, 한 쪽 588×680)이 들어가는지로만 고른다
+  const mode = () => matchMedia('(min-width:1220px) and (min-height:742px)').matches ? 'two'
+    : matchMedia('(min-width:640px) and (min-height:742px)').matches ? 'one' : '';
   const wide = () => !!mode();
   const single = () => document.body.classList.contains('single');
   const pages = document.querySelector('.pages');
@@ -729,7 +738,7 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? (single() ? '한 쪽씩(가로 1100px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 480px 이상이면 쪽 단위로 넘깁니다');
+    const why = on ? (single() ? '한 쪽씩(가로 1220px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 640px·세로 742px 이상이면 쪽 단위로 넘깁니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
