@@ -19,6 +19,10 @@ BASE = "/trend-radar"                       # GitHub Pages 하위 경로
 
 # 발행한 전체 호. 새 호는 맨 앞에 넣는다.
 ISSUES = [
+    {"n": 5, "slug": "issue-05", "tpl": "issue05_template.html", "mod": "build_issue05",
+     "title": "뜯지 않는 상자", "date": "2026년 10월 1주",
+     "lede": "포켓몬 카드 30주년 팩이 네 나라에서 같은 날 나왔습니다. 그다음 주 일본에서 가장 가파르게 오른 검색어는 카드가 아니라 상자를 넣어 두는 케이스였습니다.",
+     "cover": "un5_shop_queue.jpg"},
     {"n": 4, "slug": "issue-04", "tpl": "issue04_template.html", "mod": "build_issue04",
      "title": "아이 옷이 먼저 바뀝니다", "date": "2026년 9월 5주",
      "lede": "계절이 바뀔 때 옷장은 한꺼번에 바뀌지 않습니다. 순서가 있고, 그 순서의 맨 앞은 어른이 아니었습니다.",

@@ -1,0 +1,643 @@
+{
+ "fetchedAt": "2026-09-27T20:43",
+ "itemscout": {
+  "포켓몬카드": {
+   "monthly": 239100,
+   "prd_cnt": 281539,
+   "nv_cat": 324
+  },
+  "포켓몬카드30주년": {
+   "monthly": 72520,
+   "prd_cnt": 3450,
+   "nv_cat": 324
+  },
+  "포켓몬30주년": {
+   "monthly": 100200,
+   "prd_cnt": 15198,
+   "nv_cat": 4927
+  },
+  "포켓몬카드박스": {
+   "monthly": 15180,
+   "prd_cnt": 18719,
+   "nv_cat": 324
+  },
+  "오왈라": {
+   "monthly": 12530,
+   "prd_cnt": 28276,
+   "nv_cat": 4369
+  },
+  "오왈라텀블러": {
+   "monthly": 28680,
+   "prd_cnt": 17722,
+   "nv_cat": 4369
+  },
+  "스탠리텀블러": {
+   "monthly": 119100,
+   "prd_cnt": 70224,
+   "nv_cat": 4369
+  },
+  "텀블러": {
+   "monthly": 122200,
+   "prd_cnt": 2288037,
+   "nv_cat": 4369
+  },
+  "제로시럽": {
+   "monthly": 230,
+   "prd_cnt": 7579,
+   "nv_cat": 46644
+  },
+  "모어뉴트리션": {
+   "monthly": null,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "아이폰18": {
+   "monthly": 1266100,
+   "prd_cnt": 133109,
+   "nv_cat": 1362
+  },
+  "아이폰18케이스": {
+   "monthly": 6090,
+   "prd_cnt": 81192,
+   "nv_cat": 46814
+  },
+  "아이폰18프로케이스": {
+   "monthly": 74800,
+   "prd_cnt": 84143,
+   "nv_cat": 46814
+  },
+  "아이폰18프로맥스케이스": {
+   "monthly": 19470,
+   "prd_cnt": 30241,
+   "nv_cat": 46814
+  },
+  "아이폰17케이스": {
+   "monthly": 37490,
+   "prd_cnt": 565268,
+   "nv_cat": 46814
+  },
+  "아라시": {
+   "monthly": 12200,
+   "prd_cnt": 8309,
+   "nv_cat": 4927
+  },
+  "체인소맨": {
+   "monthly": 24920,
+   "prd_cnt": 74673,
+   "nv_cat": 4927
+  },
+  "체인소맨레제편": {
+   "monthly": 4140,
+   "prd_cnt": 1748,
+   "nv_cat": 4927
+  },
+  "레제": {
+   "monthly": 17760,
+   "prd_cnt": 38484,
+   "nv_cat": 4927
+  },
+  "말랑이": {
+   "monthly": 91100,
+   "prd_cnt": 245438,
+   "nv_cat": 4116
+  },
+  "니도": {
+   "monthly": 3860,
+   "prd_cnt": 9099,
+   "nv_cat": 4116
+  },
+  "스퀴시": {
+   "monthly": 24580,
+   "prd_cnt": 181143,
+   "nv_cat": 4116
+  },
+  "할로윈소품": {
+   "monthly": 3970,
+   "prd_cnt": 537596,
+   "nv_cat": 3667
+  },
+  "할로윈코스튬": {
+   "monthly": 20860,
+   "prd_cnt": 563197,
+   "nv_cat": 4165
+  },
+  "할로윈장식": {
+   "monthly": 1100,
+   "prd_cnt": 443484,
+   "nv_cat": 3667
+  },
+  "할로윈": {
+   "monthly": 56000,
+   "prd_cnt": 1724540,
+   "nv_cat": 4165
+  },
+  "어드벤트캘린더": {
+   "monthly": 2310,
+   "prd_cnt": 20621,
+   "nv_cat": 3467
+  },
+  "크리스마스캘린더": {
+   "monthly": 300,
+   "prd_cnt": 24230,
+   "nv_cat": 3467
+  },
+  "디른들": {
+   "monthly": 370,
+   "prd_cnt": 332,
+   "nv_cat": 4165
+  },
+  "옥토버페스트": {
+   "monthly": 2190,
+   "prd_cnt": 9053,
+   "nv_cat": 4165
+  },
+  "우마무스메": {
+   "monthly": 6940,
+   "prd_cnt": 15951,
+   "nv_cat": 4927
+  },
+  "코르티스": {
+   "monthly": 253100,
+   "prd_cnt": 1878,
+   "nv_cat": 230
+  },
+  "튜이드": {
+   "monthly": 180000,
+   "prd_cnt": 354,
+   "nv_cat": 230
+  },
+  "르세라핌": {
+   "monthly": 88800,
+   "prd_cnt": 6028,
+   "nv_cat": 230
+  },
+  "에반": {
+   "monthly": 41360,
+   "prd_cnt": 22604,
+   "nv_cat": 46695
+  },
+  "하츠투하츠": {
+   "monthly": 130200,
+   "prd_cnt": 4628,
+   "nv_cat": 230
+  },
+  "논알콜음료": {
+   "monthly": 60,
+   "prd_cnt": 6704,
+   "nv_cat": 2248
+  },
+  "무알콜맥주": {
+   "monthly": 30250,
+   "prd_cnt": 5620,
+   "nv_cat": 2248
+  },
+  "스파오경량패딩": {
+   "monthly": 16830,
+   "prd_cnt": 300,
+   "nv_cat": 694
+  },
+  "경량패딩": {
+   "monthly": 71300,
+   "prd_cnt": 1556000,
+   "nv_cat": 2608
+  },
+  "치이카와앉은누이": {
+   "monthly": 7660,
+   "prd_cnt": 908,
+   "nv_cat": 4927
+  },
+  "치이카와": {
+   "monthly": 263300,
+   "prd_cnt": 192396,
+   "nv_cat": 4927
+  },
+  "오디세이책": {
+   "monthly": 22140,
+   "prd_cnt": 91,
+   "nv_cat": 236
+  },
+  "인조속눈썹": {
+   "monthly": 730,
+   "prd_cnt": 50624,
+   "nv_cat": 4240
+  },
+  "코르티솔": {
+   "monthly": 19980,
+   "prd_cnt": 703,
+   "nv_cat": 2601
+  },
+  "치이카와인형": {
+   "monthly": 11040,
+   "prd_cnt": 23262,
+   "nv_cat": 935
+  },
+  "보조배터리": {
+   "monthly": 145800,
+   "prd_cnt": 474695,
+   "nv_cat": 4432
+  },
+  "생수": {
+   "monthly": 63100,
+   "prd_cnt": 256301,
+   "nv_cat": 1848
+  },
+  "리처": {
+   "monthly": 13350,
+   "prd_cnt": 5248,
+   "nv_cat": 3145
+  },
+  "잭리처": {
+   "monthly": 9680,
+   "prd_cnt": 84,
+   "nv_cat": 4927
+  },
+  "포켓몬카드30주년박스": {
+   "monthly": 4780,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "포켓몬카드박스로더": {
+   "monthly": null,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "박스로더": {
+   "monthly": null,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "탑로더": {
+   "monthly": 7080,
+   "prd_cnt": 46512,
+   "nv_cat": 47017
+  },
+  "카드바인더": {
+   "monthly": 1080,
+   "prd_cnt": 123115,
+   "nv_cat": 324
+  },
+  "포켓몬카드바인더": {
+   "monthly": 2710,
+   "prd_cnt": 2760,
+   "nv_cat": 3498
+  },
+  "포켓몬카드보관함": {
+   "monthly": 2910,
+   "prd_cnt": 7364,
+   "nv_cat": 3498
+  },
+  "포켓몬카드케이스": {
+   "monthly": 4710,
+   "prd_cnt": 9613,
+   "nv_cat": 324
+  },
+  "카드슬리브": {
+   "monthly": 2860,
+   "prd_cnt": 143371,
+   "nv_cat": 47017
+  },
+  "포켓몬카드슬리브": {
+   "monthly": 4430,
+   "prd_cnt": 4359,
+   "nv_cat": 324
+  },
+  "포켓몬30주년피카츄": {
+   "monthly": 630,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "포켓몬카드게임": {
+   "monthly": 13470,
+   "prd_cnt": 140317,
+   "nv_cat": 324
+  },
+  "포켓몬카드팩": {
+   "monthly": 6020,
+   "prd_cnt": 33402,
+   "nv_cat": 324
+  },
+  "포켓몬카드30주년팩": {
+   "monthly": 680,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "포켓몬카드시세": {
+   "monthly": 33460,
+   "prd_cnt": 215135,
+   "nv_cat": 324
+  },
+  "PSA": {
+   "monthly": 8400,
+   "prd_cnt": 75534,
+   "nv_cat": 351
+  },
+  "카드그레이딩": {
+   "monthly": 290,
+   "prd_cnt": 131,
+   "nv_cat": 324
+  },
+  "메가드림ex": {
+   "monthly": 4080,
+   "prd_cnt": 5755,
+   "nv_cat": 324
+  },
+  "포켓몬스토어": {
+   "monthly": 178100,
+   "prd_cnt": 46187,
+   "nv_cat": 513
+  },
+  "튜이드앨범": {
+   "monthly": 1140,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "코르티스앨범": {
+   "monthly": 2560,
+   "prd_cnt": 698,
+   "nv_cat": 230
+  },
+  "르세라핌앨범": {
+   "monthly": 1210,
+   "prd_cnt": 4182,
+   "nv_cat": 230
+  },
+  "하츠투하츠앨범": {
+   "monthly": 1980,
+   "prd_cnt": 781,
+   "nv_cat": 230
+  },
+  "위버스샵": {
+   "monthly": 18980,
+   "prd_cnt": 870,
+   "nv_cat": 4947
+  },
+  "남이섬": {
+   "monthly": 93900,
+   "prd_cnt": 1891,
+   "nv_cat": 11999
+  },
+  "덕구온천": {
+   "monthly": 50590,
+   "prd_cnt": 290,
+   "nv_cat": 12000
+  },
+  "르므통신발": {
+   "monthly": 7250,
+   "prd_cnt": 78,
+   "nv_cat": 3730
+  }
+ },
+ "season": {
+  "삼성창문형에어컨": {
+   "yrs": 5,
+   "weeks": 388,
+   "cur_pct": 3,
+   "peak_w": 26,
+   "peak_date": "07월 02일",
+   "weeks_to_peak": 40,
+   "lift": 29.9,
+   "monthly": 6850,
+   "prd_cnt": 4494,
+   "nv_cat": 2514
+  },
+  "냉감이불": {
+   "yrs": 5,
+   "weeks": 397,
+   "cur_pct": 2,
+   "peak_w": 24,
+   "peak_date": "06월 18일",
+   "weeks_to_peak": 38,
+   "lift": 62.4,
+   "monthly": 7500,
+   "prd_cnt": 222349,
+   "nv_cat": 845
+  },
+  "휴대용선풍기": {
+   "yrs": 5,
+   "weeks": 470,
+   "cur_pct": 4,
+   "peak_w": 26,
+   "peak_date": "07월 02일",
+   "weeks_to_peak": 40,
+   "lift": 25.5,
+   "monthly": 7670,
+   "prd_cnt": 651728,
+   "nv_cat": 2509
+  },
+  "여성장화": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 7,
+   "peak_w": 25,
+   "peak_date": "06월 25일",
+   "weeks_to_peak": 39,
+   "lift": 13.9,
+   "monthly": 3300,
+   "prd_cnt": 678357,
+   "nv_cat": 47270
+  },
+  "bldc선풍기": {
+   "yrs": 5,
+   "weeks": 437,
+   "cur_pct": 4,
+   "peak_w": 24,
+   "peak_date": "06월 18일",
+   "weeks_to_peak": 38,
+   "lift": 24.0,
+   "monthly": 3350,
+   "prd_cnt": 106959,
+   "nv_cat": 2504
+  },
+  "전기요": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 37,
+   "peak_w": 44,
+   "peak_date": "11월 05일",
+   "weeks_to_peak": 6,
+   "lift": 2.7,
+   "monthly": 11020,
+   "prd_cnt": 201824,
+   "nv_cat": 45789
+  },
+  "뚜껑형김치냉장고": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 42,
+   "peak_w": 46,
+   "peak_date": "11월 19일",
+   "weeks_to_peak": 8,
+   "lift": 2.4,
+   "monthly": 8640,
+   "prd_cnt": 37246,
+   "nv_cat": 2552
+  },
+  "안경김서림방지": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 15,
+   "peak_w": 50,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 12,
+   "lift": 6.9,
+   "monthly": 1350,
+   "prd_cnt": 132570,
+   "nv_cat": 501
+  },
+  "생강": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 39,
+   "peak_w": 43,
+   "peak_date": "10월 29일",
+   "weeks_to_peak": 5,
+   "lift": 2.6,
+   "monthly": 16300,
+   "prd_cnt": 287455,
+   "nv_cat": 2208
+  },
+  "방한화": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 4,
+   "peak_w": 50,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 12,
+   "lift": 26.8,
+   "monthly": 5990,
+   "prd_cnt": 618858,
+   "nv_cat": 1596
+  },
+  "털크록스": {
+   "yrs": 5,
+   "weeks": 470,
+   "cur_pct": 14,
+   "peak_w": 47,
+   "peak_date": "11월 26일",
+   "weeks_to_peak": 9,
+   "lift": 7.3,
+   "monthly": 3390,
+   "prd_cnt": 15764,
+   "nv_cat": 47337
+  },
+  "수능시계": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 21,
+   "peak_w": 45,
+   "peak_date": "11월 12일",
+   "weeks_to_peak": 7,
+   "lift": 4.8,
+   "monthly": 14890,
+   "prd_cnt": 65913,
+   "nv_cat": 4023
+  },
+  "남이섬입장권": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 43,
+   "peak_w": 43,
+   "peak_date": "10월 29일",
+   "weeks_to_peak": 5,
+   "lift": 2.3,
+   "monthly": 20840,
+   "prd_cnt": 21,
+   "nv_cat": 11999
+  },
+  "덕구온천리조트": {
+   "yrs": 5,
+   "weeks": 469,
+   "cur_pct": 30,
+   "peak_w": 51,
+   "peak_date": "12월 24일",
+   "weeks_to_peak": 13,
+   "lift": 3.4,
+   "monthly": 17660,
+   "prd_cnt": 217,
+   "nv_cat": 12000
+  },
+  "덕구온천호텔": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 30,
+   "peak_w": 50,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 12,
+   "lift": 3.4,
+   "monthly": 11440,
+   "prd_cnt": 196,
+   "nv_cat": 12000
+  },
+  "레고랜드": {
+   "yrs": 5,
+   "weeks": 469,
+   "cur_pct": 40,
+   "peak_w": 42,
+   "peak_date": "10월 22일",
+   "weeks_to_peak": 4,
+   "lift": 2.5,
+   "monthly": 125300,
+   "prd_cnt": 3998,
+   "nv_cat": 12022
+  }
+ },
+ "naver_0928": {
+  "source": "weekly_keywords/2026-09-28 (sourceDate 2026-09-23)",
+  "top10": {
+   "챗지피티": 16531000,
+   "챗gpt": 4934000,
+   "올리브영": 2675000,
+   "미리캔버스": 2056300,
+   "cgv": 1748100,
+   "유니클로": 1697100,
+   "롯데시네마": 1475400,
+   "무신사": 1456600,
+   "아이폰18": 1301400,
+   "계산기": 1127500
+  },
+  "extra": {
+   "아이폰18프로": [
+    1066800,
+    "mom 695.6"
+   ],
+   "갤럭시폴드8": [
+    777300,
+    "prev 868500"
+   ],
+   "cgv_prev": 2540100,
+   "롯데시네마_prev": 2269400,
+   "미리캔버스_prev": 2007700,
+   "무신사_prev": 1401100,
+   "추석선물세트": 358700,
+   "유니클로해링턴자켓_growth1m": 1.5,
+   "올리브영_mom": 37.9
+  },
+  "falling": {
+   "붉은사막": [
+    943100,
+    51200,
+    13
+   ],
+   "선풍기조끼": [
+    204200,
+    15230,
+    6
+   ],
+   "아디다스삼바뮬": [
+    50090,
+    5660,
+    14
+   ],
+   "크록스발레": [
+    81520,
+    10410,
+    10
+   ],
+   "우포스쪼리": [
+    87120,
+    19720,
+    7
+   ]
+  }
+ }
+}
