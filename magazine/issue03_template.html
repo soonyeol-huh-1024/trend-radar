@@ -157,15 +157,16 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
    지면 크기는 고정이다(두 쪽 1160×680, 한 쪽 588×680). 화면이 1220×742 이상이면 두 쪽 펼침 + 책넘김,
    640×742 이상이면 한 쪽씩 넘긴다(body.single, 넘김 효과 없음). 창 크기가 바뀌어도 쪽 나눔은 그대로다.
    더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
-@media (min-width:640px) and (min-height:742px){
-  /* 지면 크기 고정 — 창 크기가 바뀌어도 쪽 나눔이 그대로다. 단 폭(--pw)은 두 모드가 같다 */
-  :root{--pw:476px;--ph:680px;--pad:56px;--cg:96px}
+@media (min-width:782px) and (min-height:1450px){
+  /* 지면 크기 고정(1160×1450) — 창 크기가 바뀌어도 쪽 나눔이 그대로다.
+     화면이 남으면 책 전체를 같은 비율로 키운다(--s, 스크립트가 정함) */
+  :root{--pw:476px;--ph:1450px;--pad:56px;--cg:96px;--navh:62px}
   body.spread{overflow:hidden;height:100vh}
   body.spread .wrap{
-    max-width:none;width:100%;height:100vh;padding:0;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad))}
-  body.spread.single .wrap{--bw:calc(var(--pw) + 2 * var(--pad))}
+    --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad));
+    max-width:none;width:var(--bw);height:calc(var(--ph) + var(--navh));padding:0;
+    display:flex;flex-direction:column;
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--s,1));transform-origin:50% 50%}
   body.spread .book{
     flex:none;width:var(--bw);height:var(--ph);position:relative;overflow:hidden;
     box-shadow:0 1px 0 var(--rule),0 0 0 1px var(--rule);
@@ -194,7 +195,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
   body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
   /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
-  body.spread figure.ph img{max-height:300px}
+  body.spread figure.ph img{max-height:520px}
   /* 펼침(두 쪽)에서는 단 너비에 맞춰 604px 로 묶는다. 한 쪽 모드는 단이 넓으므로
      사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
 
@@ -238,7 +239,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
   body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
   /* 조작부 */
-  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;width:var(--bw);
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;width:var(--bw);height:var(--navh);box-sizing:border-box;
     padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
   body.spread .nav button{
     font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
@@ -256,7 +257,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-@media (min-width:640px) and (min-height:742px){.modeswap{display:block}}
+@media (min-width:782px) and (min-height:1450px){.modeswap{display:block}}
 @media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
@@ -717,9 +718,8 @@ footer b{color:var(--ink)}
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
 (function () {
-  // 고정 지면(두 쪽 1160×680, 한 쪽 588×680)이 들어가는지로만 고른다
-  const mode = () => matchMedia('(min-width:1220px) and (min-height:742px)').matches ? 'two'
-    : matchMedia('(min-width:640px) and (min-height:742px)').matches ? 'one' : '';
+  // 책은 가로 782·세로 1450 이상 화면에서만. 그 밖에는 세로로 읽는다(한 쪽 모드 없음)
+  const mode = () => matchMedia('(min-width:782px) and (min-height:1450px)').matches ? 'two' : '';
   const wide = () => !!mode();
   const single = () => document.body.classList.contains('single');
   const pages = document.querySelector('.pages');
@@ -738,7 +738,7 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? (single() ? '한 쪽씩(가로 1220px 이상이면 두 쪽 펼침)' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 640px·세로 742px 이상이면 쪽 단위로 넘깁니다');
+    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 782px·세로 1450px 이상이면 책으로 펼칩니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
@@ -755,7 +755,18 @@ footer b{color:var(--ink)}
     origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; o.el.style.breakInside = ''; });
     fitted = '';
   }
-  function fit() {
+  // 책 전체를 화면에 맞춰 같은 비율로 키운다(레이아웃은 1160×1450 그대로라 쪽 나눔이 안 바뀐다)
+  const wrapEl = document.querySelector('.wrap');
+  function rescale() {
+    if (!document.body.classList.contains('spread')) { document.documentElement.style.removeProperty('--s'); return; }
+    const s = Math.min(innerWidth / wrapEl.offsetWidth, innerHeight / wrapEl.offsetHeight) * 0.98;
+    document.documentElement.style.setProperty('--s', s.toFixed(4));
+  }
+  // 화면상 위치(getBoundingClientRect)는 확대가 걸린 값이라, 잴 때만 잠시 1배로 되돌린다
+  function flat(fn) { const t = wrapEl.style.transform; wrapEl.style.transform = 'translate(-50%,-50%)';
+    try { return fn(); } finally { wrapEl.style.transform = t; } }
+  function fit() { return flat(fitRaw); }
+  function fitRaw() {
     const key = pages.clientWidth + 'x' + pages.clientHeight;
     if (fitted === key) return false;
     restoreOrder();
@@ -952,6 +963,7 @@ footer b{color:var(--ink)}
     document.body.classList.toggle('single', on && mode() === 'one');
     swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
     swap.setAttribute('aria-pressed', String(on));
+    rescale();
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
     else { pages.style.transform = ''; restoreOrder(); }
     try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
@@ -984,7 +996,7 @@ footer b{color:var(--ink)}
   addEventListener('resize', () => {
     const m = mode();
     if (!m) setMode(false);
-    else if (document.body.classList.contains('spread')) { document.body.classList.toggle('single', m === 'one'); measure(); warmSoon(); }
+    else if (document.body.classList.contains('spread')) { rescale(); measure(); warmSoon(); }
     report();
   });
   report();
@@ -997,8 +1009,8 @@ footer b{color:var(--ink)}
   addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } });
 })();
 
-/* 영상 — 그 지면이 펼쳐지면 소리 없이 저절로 돌고, 넘기면 멈춘다.
-   소리까지 저절로 나게 할 수는 없다(브라우저가 막는다). 소리는 플레이어에서 켜면 된다.
+/* 영상 — 그 지면이 펼쳐지면(세로로 읽을 때는 화면에 들어오면) 재생기를 끼워 대표 장면이 보이게
+   멈춰 둔다. 저절로 돌리지 않는다(2026-09-28). 누르면 재생하고, 넘기거나 벗어나면 멈춘다.
    출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
    '동영상 플레이어 구성 오류(153)'만 내므로, 그런 화면은 미리 알아보고 새 탭으로 보낸다. */
 (function () {
@@ -1008,7 +1020,6 @@ footer b{color:var(--ink)}
 
   let canEmbed = location.protocol !== 'file:' && location.origin && location.origin !== 'null';
   if (canEmbed) { try { localStorage.getItem('sk-yt'); } catch (e) { canEmbed = false; } }  // 출처가 지워진 틀
-  const still = matchMedia('(prefers-reduced-motion:reduce)').matches;   // 움직임을 줄여 달라는 설정
 
   let blocked = false;
   addEventListener('securitypolicyviolation', e => {
@@ -1042,12 +1053,12 @@ footer b{color:var(--ink)}
     return d.querySelector('a');
   }
 
-  // 지면에 재생기를 끼운다. byUser = 눌러서 튼 것(소리 있음), 아니면 저절로(소리 없음)
+  // 지면에 재생기를 끼운다. byUser = 눌러서 튼 것(바로 재생), 아니면 멈춘 채로 대표 장면만 보인다
   function mount(v, byUser) {
     if (blocked) { if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus(); return; }
     const f = document.createElement('iframe');
     f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&playsinline=1&enablejsapi=1'
-      + '&autoplay=1' + (byUser ? '' : '&mute=1')
+      + (byUser ? '&autoplay=1' : '')
       + '&origin=' + encodeURIComponent(location.origin);
     f.title = v.play.querySelector('b').textContent;
     f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
@@ -1085,9 +1096,8 @@ footer b{color:var(--ink)}
   items.forEach(wire);
 
   function start(v) {
-    if (!canEmbed || still) return;             // 못 틀거나, 저절로 움직이지 말라고 했거나
-    if (v.frame) cmd(v.frame, 'playVideo');
-    else if (v.screen.querySelector('.play')) mount(v, false);
+    if (!canEmbed) return;                      // 못 끼우는 화면은 검은 판 그대로(누르면 새 탭)
+    if (!v.frame && v.screen.querySelector('.play')) mount(v, false);   // 재생은 하지 않는다
   }
   const stop = v => { if (v.frame) cmd(v.frame, 'pauseVideo'); };
 
@@ -1101,7 +1111,8 @@ footer b{color:var(--ink)}
     const padL = parseFloat(getComputedStyle(pages).paddingLeft);
     items.forEach(v => {
       // .pages 가 통째로 움직이므로 둘의 차이는 항상 같다 = 이동과 무관한 자리
-      const rel = v.fig.getBoundingClientRect().left - pr.left - padL;
+      const k = pr.width / pages.offsetWidth || 1;   // 책 확대 비율을 걷어 낸다
+      const rel = (v.fig.getBoundingClientRect().left - pr.left) / k - padL;
       (Math.floor((rel + 2) / step) === spread ? start : stop)(v);
     });
   });
