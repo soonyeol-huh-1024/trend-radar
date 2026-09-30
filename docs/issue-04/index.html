@@ -56,6 +56,9 @@ strong,b{font-weight:600}
 .toc .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:5px}
 .toc .t{font-weight:500}
 .toc .t small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.5}
+.toc a.t{color:inherit;text-decoration:none;display:block}
+.toc a.t:hover{color:var(--brand)}
+.toc a.t:hover small{color:inherit}
 /* 편집자의 말 */
 .note{padding:26px 0;border-bottom:1px solid var(--rule);font-size:16.5px}
 .note .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
@@ -191,9 +194,9 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
     will-change:transform}
   /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
   body.spread .pages>*{break-inside:avoid-column}
-  body.spread .toc{gap:2px 18px;padding:10px 0}          /* 목차가 한 쪽(680)에 다 들어가게 */
-  body.spread .toc .t{line-height:1.4}
-  body.spread .toc .t small{line-height:1.35}
+  body.spread .toc{gap:16px 20px;padding:14px 0 26px}   /* 쪽 높이 1200 — 항목 사이를 넉넉히 */
+  body.spread .toc .t{line-height:1.5}
+  body.spread .toc .t small{line-height:1.55;margin-top:3px}
   /* 코너는 앞 코너 바로 아래에 이어 붙인다(빈 쪽을 줄인다). 제목이 쪽 아래 30% 에 걸리면 fit() 이 다음 쪽으로 넘긴다 */
   body.spread .toc{break-before:column;break-inside:auto}
   body.spread .pages>article,body.spread .pages>.note{break-inside:auto}   /* .pages>* 의 avoid-column 보다 우선 */
@@ -339,20 +342,20 @@ footer b{color:var(--ink)}
 </div>
 
 <div class="toc">
-  <div class="k">커버스토리</div><div class="t">아이 옷이 먼저 바뀝니다 <small>아동 바람막이 — 옷장이 바뀌는 순서</small></div>
-  <div class="k">기사</div><div class="t">이번 주 사람들이 찾은 것 <small>미리캔버스가 201만, 아이폰18이 122만</small></div>
-  <div class="k">브랜드</div><div class="t">스물두 해 된 회사의 일곱 해 된 서비스 <small>미리캔버스 — 포토북에서 시작했습니다</small></div>
-  <div class="k">기사</div><div class="t">2주 만에 열아홉 배 <small>지난 호에 마흔여덟 개라고 적었던 그 검색어</small></div>
-  <div class="k">기사</div><div class="t">미국의 10월, 한국의 10월 <small>할로윈 — 검색은 74배 차이, 상품은 아닙니다</small></div>
-  <div class="k">기사</div><div class="t">라부부는 꺼졌고, 팝마트는 남았습니다 <small>구글 트렌드 5년 — 캐릭터보다 브랜드가 늦게 끝납니다</small></div>
-  <div class="k">통신</div><div class="t">세 도시에서 온 소식 <small>뉴욕·도쿄·베를린 — 그리고 틱톡 648억 회</small></div>
-  <div class="k">신조어</div><div class="t">이번 주에 새로 생긴 말 <small>구찌모티 — 그리고 한국 목록에 새 말이 없던 이유</small></div>
-  <div class="k">말뜻</div><div class="t">이 단어, 무슨 뜻일까 <small>괄사 — 긁을 괄에 홍역 사</small></div>
-  <div class="k">예보</div><div class="t">앞으로의 트렌드 <small>9년치 데이터가 가리키는 다음 계절</small></div>
-  <div class="k">추천</div><div class="t">셀러킴의 미리 추천 <small>한 달 뒤부터 오르는 것 다섯 개</small></div>
-  <div class="k">타이밍</div><div class="t">지금 사두면 좋은 것 <small>한 해 중 가장 안 팔리는 때인 네 가지</small></div>
-  <div class="k">기록</div><div class="t">이미 지나간 것들 <small>정점에서 얼마나 내려왔나</small></div>
-  <div class="k">팔로업</div><div class="t">그 후 <small>지난 호 키워드 세 개</small></div>
+  <div class="k">커버스토리</div><a class="t" href="#cover">아이 옷이 먼저 바뀝니다 <small>아동 바람막이 — 옷장이 바뀌는 순서</small></a>
+  <div class="k">기사</div><a class="t" href="#this-week">이번 주 사람들이 찾은 것 <small>미리캔버스가 201만, 아이폰18이 122만</small></a>
+  <div class="k">브랜드</div><a class="t" href="#brand">스물두 해 된 회사의 일곱 해 된 서비스 <small>미리캔버스 — 포토북에서 시작했습니다</small></a>
+  <div class="k">기사</div><a class="t" href="#chiikawa">2주 만에 열아홉 배 <small>지난 호에 마흔여덟 개라고 적었던 그 검색어</small></a>
+  <div class="k">기사</div><a class="t" href="#halloween">미국의 10월, 한국의 10월 <small>할로윈 — 검색은 74배 차이, 상품은 아닙니다</small></a>
+  <div class="k">기사</div><a class="t" href="#labubu">라부부는 꺼졌고, 팝마트는 남았습니다 <small>구글 트렌드 5년 — 캐릭터보다 브랜드가 늦게 끝납니다</small></a>
+  <div class="k">통신</div><a class="t" href="#dispatch">세 도시에서 온 소식 <small>뉴욕·도쿄·베를린 — 그리고 틱톡 648억 회</small></a>
+  <div class="k">신조어</div><a class="t" href="#new-word">이번 주에 새로 생긴 말 <small>구찌모티 — 그리고 한국 목록에 새 말이 없던 이유</small></a>
+  <div class="k">말뜻</div><a class="t" href="#word">이 단어, 무슨 뜻일까 <small>괄사 — 긁을 괄에 홍역 사</small></a>
+  <div class="k">예보</div><a class="t" href="#forecast">앞으로의 트렌드 <small>9년치 데이터가 가리키는 다음 계절</small></a>
+  <div class="k">추천</div><a class="t" href="#picks">셀러킴의 미리 추천 <small>한 달 뒤부터 오르는 것 다섯 개</small></a>
+  <div class="k">타이밍</div><a class="t" href="#timing">지금 사두면 좋은 것 <small>한 해 중 가장 안 팔리는 때인 네 가지</small></a>
+  <div class="k">기록</div><a class="t" href="#past">이미 지나간 것들 <small>정점에서 얼마나 내려왔나</small></a>
+  <div class="k">팔로업</div><a class="t" href="#followup">그 후 <small>지난 호 키워드 세 개</small></a>
 </div>
 
 <div class="note">
@@ -968,7 +971,8 @@ footer b{color:var(--ink)}
         if (tall && el.matches('.rank, .fc, .box') && !el.style.breakInside) { el.style.breakInside = 'auto'; stuck.add(el); log.push(['나눔', el.className, k]); moved = true; break; }   // 나눴으면 더 옮기지 않는다
         const next = el.nextElementSibling, n = moves.get(el) || 0;
         // 옮길 수 있는 것끼리 자리를 바꾸는 건 한 번만 (서로 밀어내며 왔다갔다 하지 않게)
-        if (next && n < 3 && !(next.matches(MOVABLE) && moves.has(next))) { next.after(el); moves.set(el, n + 1); log.push(['뒤로', el.tagName + '.' + el.className, k, Math.round(colBottom - prev.bottom)]); moved = true; break; }   // 한 조각 뒤로
+        // 소제목(h2·h3) 너머로는 옮기지 않는다 — 사진이 다른 절 제목 밑으로 가 버린다(5호 김장 사진 → '안경 김서림 방지' 밑)
+        if (next && !/^H[23]$/.test(next.tagName) && n < 3 && !(next.matches(MOVABLE) && moves.has(next))) { next.after(el); moves.set(el, n + 1); log.push(['뒤로', el.tagName + '.' + el.className, k, Math.round(colBottom - prev.bottom)]); moved = true; break; }   // 한 조각 뒤로
         stuck.add(el);
         // 뒤로 보낼 문단이 없으면 사진을 남은 자리에 맞게 자른다 (사진 하나짜리 figure 만)
         const im = el.matches('figure') ? el.querySelector('img') : null;
@@ -1067,6 +1071,7 @@ footer b{color:var(--ink)}
   const facades = [...pages.querySelectorAll('figure.vid .screen')].map(el => el.innerHTML);
   function makeClone(w, h) {
     const c = pages.cloneNode(true); c.removeAttribute('id');
+    c.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));   // 기사 id 가 겹치면 #앵커가 사본을 먼저 잡는다
     c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
     c.querySelectorAll('figure.vid .screen').forEach((el, i) => (el.innerHTML = facades[i] || ''));
     return c;
@@ -1227,7 +1232,7 @@ footer b{color:var(--ink)}
   // 주소 끝 #기사이름 으로 들어오면 그 기사가 놓인 펼침으로 바로 간다 (과월호 링크용)
   function seek() {
     const id = decodeURIComponent(location.hash.slice(1));
-    const el = id && document.getElementById(id);
+    const el = id && pages.querySelector('#' + CSS.escape(id));   // 넘김용 사본이 아니라 실제 지면에서
     if (!el) return;
     if (!document.body.classList.contains('spread')) { el.scrollIntoView(); return; }
     // 브라우저가 #앵커로 넘기느라 지면 상자를 옆으로 스크롤해 둔다 — 되돌리고 쪽 단위로 다시 간다
@@ -1239,6 +1244,12 @@ footer b{color:var(--ink)}
     if (n !== spread) { spread = n; apply(); }
   }
   addEventListener('hashchange', seek);
+  // 목차를 누르면 그 기사로 — 책이면 그 쪽으로 넘기고, 세로로 읽으면 스크롤한다
+  const toc = pages.querySelector('.toc');
+  if (toc) toc.addEventListener('click', e => {
+    const a = e.target.closest('a.t'); if (!a) return;
+    e.preventDefault(); history.replaceState(null, '', a.getAttribute('href')); seek();
+  });
 })();
 
 /* 영상 — 그 지면이 펼쳐지면(세로로 읽을 때는 화면에 들어오면) 재생기를 끼워 대표 장면이 보이게
