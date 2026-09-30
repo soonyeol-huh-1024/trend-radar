@@ -170,10 +170,10 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
    지면 크기는 고정이다(두 쪽 1160×680, 한 쪽 588×680). 화면이 1220×742 이상이면 두 쪽 펼침 + 책넘김,
    640×742 이상이면 한 쪽씩 넘긴다(body.single, 넘김 효과 없음). 창 크기가 바뀌어도 쪽 나눔은 그대로다.
    더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
-@media (min-width:782px) and (min-height:1450px){
-  /* 지면 크기 고정(1160×1450) — 창 크기가 바뀌어도 쪽 나눔이 그대로다.
+@media (min-width:782px){
+  /* 지면 크기 고정(1400×1200) — 창 크기가 바뀌어도 쪽 나눔이 그대로다.
      화면이 남으면 책 전체를 같은 비율로 키운다(--s, 스크립트가 정함) */
-  :root{--pw:476px;--ph:1450px;--pad:56px;--cg:96px;--navh:62px}
+  :root{--pw:596px;--ph:1200px;--pad:56px;--cg:96px;--navh:62px}
   body.spread{overflow:hidden;height:100vh}
   body.spread .wrap{
     --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad));
@@ -194,8 +194,13 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
   body.spread .toc{gap:2px 18px;padding:10px 0}          /* 목차가 한 쪽(680)에 다 들어가게 */
   body.spread .toc .t{line-height:1.4}
   body.spread .toc .t small{line-height:1.35}
-  body.spread article,body.spread .toc,body.spread .note{break-before:column;break-inside:auto}
-  body.spread article{margin:0;padding:0;border-bottom:0}
+  /* 코너는 앞 코너 바로 아래에 이어 붙인다(빈 쪽을 줄인다). 제목이 쪽 아래 30% 에 걸리면 fit() 이 다음 쪽으로 넘긴다 */
+  body.spread .toc{break-before:column;break-inside:auto}
+  body.spread .pages>article,body.spread .pages>.note{break-inside:auto}   /* .pages>* 의 avoid-column 보다 우선 */
+  body.spread article{margin:0;padding:34px 0 0;border-bottom:0;border-top:1px solid var(--rule);margin-top:30px}
+  body.spread article.at-top{border-top:0;padding-top:0;margin-top:0}
+  body.spread .pages>footer,body.spread .issuenav{break-before:avoid-column}   /* 맺음말·호 이동 줄이 마지막 쪽에 혼자 남지 않게 */
+  body.spread .note{margin-top:26px}
   body.spread article.t-past,body.spread article.t-next,
   body.spread article.t-note{background:none}          /* 단 배경은 지면 전체로 못 깔린다 */
   body.spread figure,body.spread .rank .r,body.spread .box .k,body.spread .box h3,
@@ -213,7 +218,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
      사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
 
   body.spread .cover{break-after:column}
-  body.spread .cover img{max-height:400px}   /* 제호와 한 쪽에 들어가게 (한 쪽씩 모드의 넓은 단에서 특히) */
+  body.spread .cover img{aspect-ratio:auto;height:calc(var(--ph) - 100px - var(--masth, 96px) - 18px);max-height:none}   /* 표지는 왼쪽 쪽을 다 채운다 */
   /* 책등 그림자 */
   body.spread .gutter{
     display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
@@ -247,6 +252,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
     background:radial-gradient(ellipse at 0 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
   body.spread .cast.on{visibility:visible}
   body.spread .cast.prev{background:radial-gradient(ellipse at 100% 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  /* 넘김은 옆으로 밀려 들어오는 전환(2026-09-29). 3D 책장 넘김은 확대·축소된 책 안에서 조각 경계와 흐린 글자가 보여 뺐다 */
   body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
   /* 한 쪽씩 — 단 하나, 책등·낱장 없음, 넘김은 짧게 미끄러지기만 */
   body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
@@ -270,7 +276,7 @@ figcaption a:hover{color:var(--brand);border-color:var(--brand)}
 .modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
   color:var(--paper);background:var(--brand);border:0;border-radius:3px;
   padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
-@media (min-width:782px) and (min-height:1450px){.modeswap{display:block}}
+@media (min-width:782px){.modeswap{display:block}}
 @media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
 @media print{body.spread{overflow:visible;height:auto}
   body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
@@ -284,11 +290,12 @@ body.spread .stat{bottom:auto;top:14px;left:14px}
 .memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
 .memo b{color:var(--ink)}
 /* 과월호 — 맨 아래 이전·다음 호 링크 */
-/* 과월호 기사로 가는 표시 — 본문 구절은 그대로 두고 뒤에 작게 붙인다 */
-.back{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--brand);
+/* 과월호 기사로 가는 표시 — 본문 구절은 그대로 두고 뒤에 작게 붙인다.
+   이름을 .back 으로 하면 책넘김 낱장의 뒷면(.face.back)과 겹쳐 넘길 때 지면이 깨진다 */
+.backissue{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--brand);
   border:1px solid currentColor;border-radius:3px;padding:0 5px;margin:0 2px 0 5px;text-decoration:none;
   white-space:nowrap;vertical-align:2px;line-height:1.6}
-.back:hover{background:var(--brand);color:var(--paper)}
+.backissue:hover{background:var(--brand);color:var(--paper)}
 .issuenav{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
   margin:26px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-size:14px}
 .issuenav a{color:var(--brand);text-decoration:none;border-bottom:1px solid transparent}
@@ -365,7 +372,7 @@ footer b{color:var(--ink)}
 
   <figure class="ph w43 prd"><img src="/trend-radar/assets/img/nv5_poke30b.jpg" alt="30th CELEBRATION 확장팩 포장과 카드 세트"><figcaption>「30th CELEBRATION」 확장팩. 사진은 중국어판 구성입니다. 사진 네이버쇼핑 판매자 저작물</figcaption></figure>
 
-  <p class="lead">지난 호 통신 코너 끝에 한 줄 적어 둔 게 있었어요. 포켓몬 30주년이 일본과 독일에서 같이 오르고 있다고요. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#dispatch" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 그 이유가 이번 주에 나왔습니다. 포켓몬 카드 게임 30주년 확장팩 <span class="mono hl">30th CELEBRATION</span>(서티스 셀러브레이션 · 30주년 기념)이 <b>9월 16일</b> 열두 개 언어로 동시에 나왔거든요.</p>
+  <p class="lead">지난 호 통신 코너 끝에 한 줄 적어 둔 게 있었어요. 포켓몬 30주년이 일본과 독일에서 같이 오르고 있다고요. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#dispatch" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 그 이유가 이번 주에 나왔습니다. 포켓몬 카드 게임 30주년 확장팩 <span class="mono hl">30th CELEBRATION</span>(서티스 셀러브레이션 · 30주년 기념)이 <b>9월 16일</b> 열두 개 언어로 동시에 나왔거든요.</p>
 
   <p>포켓몬 카드는 원래 일본에서 먼저 나오고, 영어판은 몇 달 뒤에 따라 나옵니다. 그런데 이번에는 처음으로 날짜를 하나로 맞췄습니다. 덕분에 한 가지 물건을 두고 여러 나라가 <b>같은 주에 어떻게 반응하는지</b>를 나란히 볼 수 있게 됐어요. 이런 기회는 흔치 않습니다.</p>
 
@@ -421,7 +428,7 @@ footer b{color:var(--ink)}
     <div class="r"><div class="n">1</div><div class="b"><b>챗지피티</b><span>이번 주 처음 목록에 들어와 곧장 1위. 물건이 아니라 AI 서비스 이름입니다</span></div><div class="v"><b>1,653만</b>한 달 검색</div></div>
     <div class="r"><div class="n">2</div><div class="b"><b>챗gpt</b><span>같은 이름을 영어로 친 것. 둘을 합치면 2천만이 넘습니다</span></div><div class="v"><b>493만</b>한 달 검색</div></div>
     <div class="r"><div class="n">3</div><div class="b"><b>올리브영</b><span>한 달 전보다 38% 늘었습니다</span></div><div class="v"><b>268만</b>한 달 검색</div></div>
-    <div class="r"><div class="n">4</div><div class="b"><b>미리캔버스</b><span>지난주 201만에서 조금 더 올라 2주째 상위권. 지난 호 브랜드 코너에서 다뤘습니다 <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a></span></div><div class="v"><b>206만</b>한 달 검색</div></div>
+    <div class="r"><div class="n">4</div><div class="b"><b>미리캔버스</b><span>지난주 201만에서 조금 더 올라 2주째 상위권. 지난 호 브랜드 코너에서 다뤘습니다 <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a></span></div><div class="v"><b>206만</b>한 달 검색</div></div>
     <div class="r"><div class="n">5</div><div class="b"><b>cgv</b><span>지난주 1위. 한 달 전보다 <span class="hl r">절반</span>으로 줄었습니다</span></div><div class="v"><b>175만</b>한 달 검색</div></div>
     <div class="r"><div class="n">6</div><div class="b"><b>유니클로</b><span>가을 상품이 이어집니다. 해링턴 재킷이 한 달 전보다 3.7배</span></div><div class="v"><b>170만</b>한 달 검색</div></div>
     <div class="r"><div class="n">7</div><div class="b"><b>롯데시네마</b><span>지난주 2위. 역시 한 달 전보다 53% 줄었습니다</span></div><div class="v"><b>148만</b>한 달 검색</div></div>
@@ -430,7 +437,7 @@ footer b{color:var(--ink)}
     <div class="r"><div class="n">10</div><div class="b"><b>계산기</b><span>이번 주 목록에 새로 들어왔습니다</span></div><div class="v"><b>113만</b>한 달 검색</div></div>
   </div>
 
-  <p><b>1위부터 보겠습니다.</b> 쇼핑 검색창에 <span class="mono hl">챗지피티</span>를 한 달에 1,653만 번 쳤습니다. 2위도 같은 이름을 영어로 친 것이고요. 지난 호에 클로드와 미리캔버스를 두고 '쇼핑 검색창을 그냥 검색창처럼 쓴다'고 적었는데, 이번에는 아예 <b>1위와 2위</b>가 그렇게 됐습니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 네이버쇼핑은 이 이름을 보드게임 카테고리에 넣어 두었더라고요. 물건을 사려고 친 게 아니라는 건 분명합니다.</p>
+  <p><b>1위부터 보겠습니다.</b> 쇼핑 검색창에 <span class="mono hl">챗지피티</span>를 한 달에 1,653만 번 쳤습니다. 2위도 같은 이름을 영어로 친 것이고요. 지난 호에 클로드와 미리캔버스를 두고 '쇼핑 검색창을 그냥 검색창처럼 쓴다'고 적었는데, 이번에는 아예 <b>1위와 2위</b>가 그렇게 됐습니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 네이버쇼핑은 이 이름을 보드게임 카테고리에 넣어 두었더라고요. 물건을 사려고 친 게 아니라는 건 분명합니다.</p>
 
   <p><b>휴대폰은 발표 3주째입니다.</b> 아이폰18이 130만에서 자리를 지키는 사이, 이번 주에는 <span class="mono">아이폰18프로</span>가 107만으로 따로 올라왔습니다. 한 달 전의 <b>여덟 배 가까이</b>예요. 처음엔 새 휴대폰 자체를 찾다가, 몇 주 지나면 어떤 모델을 살지 고르는 쪽으로 넘어가는 모양입니다. 갤럭시폴드8은 지난주 87만에서 78만으로 더 내려왔습니다.</p>
 
@@ -447,7 +454,7 @@ footer b{color:var(--ink)}
 
   <figure class="ph w32"><img src="/trend-radar/assets/img/un5_water_bottles.jpg" alt="색깔이 제각각인 보온 물병들"><figcaption>색깔마다 이름이 붙고, 그 이름이 그대로 검색어가 됩니다. 사진은 이해를 돕기 위한 것으로, 해당 상품은 아닙니다.</figcaption></figure>
 
-  <p class="lead">지난 호 뉴욕 소식에서 '물병 한 브랜드가 판매 상위를 통째로 덮었다'고 짧게 적었습니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#dispatch" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 이번 주에도 그대로였어요. 그 브랜드가 <span class="mono hl">Owala</span>(오왈라)입니다.</p>
+  <p class="lead">지난 호 뉴욕 소식에서 '물병 한 브랜드가 판매 상위를 통째로 덮었다'고 짧게 적었습니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#dispatch" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 이번 주에도 그대로였어요. 그 브랜드가 <span class="mono hl">Owala</span>(오왈라)입니다.</p>
 
   <h3 class="sub">셰이커 병을 만든 집</h3>
 
@@ -513,7 +520,7 @@ footer b{color:var(--ink)}
   <p>살 사람이 있어도 파는 곳은 따로 있습니다. 아이돌 굿즈는 대부분 <b>소속사가 운영하는 공식 판매처</b>에서 풉니다. 사진이나 이름을 붙여 다른 곳에서 팔면 초상권·상표 문제가 걸립니다. 상품이 354개뿐인 건 <span class="hl">팔 수 있는 곳이 정해져 있어서</span>입니다. 굿즈를 찾는다면 쇼핑 검색보다 공식 판매처를 먼저 보시는 게 빠릅니다.</p>
 
 
-  <p>지난 호 코르티솔이 생각났어요. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#followup" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 건강기능식품 표시 규정 때문에 그 이름을 붙이기 어려워서, 2주가 지나도 상품이 오히려 줄었죠. 튜이드도 같은 쪽입니다. 반대로 치이카와 앉은누이는 2주 만에 상품이 열아홉 배가 됐고요. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#chiikawa" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 숫자 모양은 같아도 <b>막힌 곳이 있느냐</b>에 따라 이야기가 전혀 달라집니다.</p>
+  <p>지난 호 코르티솔이 생각났어요. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#followup" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 건강기능식품 표시 규정 때문에 그 이름을 붙이기 어려워서, 2주가 지나도 상품이 오히려 줄었죠. 튜이드도 같은 쪽입니다. 반대로 치이카와 앉은누이는 2주 만에 상품이 열아홉 배가 됐고요. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#chiikawa" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 숫자 모양은 같아도 <b>막힌 곳이 있느냐</b>에 따라 이야기가 전혀 달라집니다.</p>
 </article>
 
 <!-- ───────────── 통신 ───────────── -->
@@ -531,7 +538,7 @@ footer b{color:var(--ink)}
 
   <p class="lead">미국 아마존 검색 2위는 <span class="mono">reacher</span>(리처)였습니다. 한 달 367만 번이에요. 아마존이 직접 만드는 드라마인데, 시즌 4 마지막 회가 <b>9월 16일</b>에 나왔고 같은 날 주인공 동료를 따로 다룬 스핀오프까지 한꺼번에 올라왔습니다. 7위 <span class="mono">lioness</span>(라이어니스 · 암사자)도 드라마입니다. 9월 20일에 시즌이 끝났어요. 한 달 197만 번 찾는데 판매는 206건이었습니다.</p>
 
-  <p>물건을 사러 온 사람이 아니라 <b>볼 것을 찾으러 온</b> 사람들입니다. 지난 호에 적은 미리캔버스·클로드처럼, 쇼핑몰 검색창을 그냥 검색창처럼 쓰는 모습이 미국에서도 보입니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a></p>
+  <p>물건을 사러 온 사람이 아니라 <b>볼 것을 찾으러 온</b> 사람들입니다. 지난 호에 적은 미리캔버스·클로드처럼, 쇼핑몰 검색창을 그냥 검색창처럼 쓰는 모습이 미국에서도 보입니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#brand" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a></p>
 
   <h3 class="sub">도쿄 — 1위인데 살 수 없는 것</h3>
 
@@ -721,29 +728,29 @@ footer b{color:var(--ink)}
     <div class="r"><div class="n">7주</div><div class="b"><b>우포스쪼리</b><span>회복용 슬리퍼. 정점 8만 7,120 → 지금 1만 9,720</span></div><div class="v"><b>23%</b>정점 대비</div></div>
   </div>
 
-  <p>여름 신발 셋을 나란히 놓으면 <b class="hl">속도</b>가 보입니다. 우포스쪼리는 7주가 지났는데 아직 정점의 23%가 남아 있고, 크록스발레는 10주에 13%, 아디다스삼바뮬은 14주에 11%까지 왔습니다. 발이 편한 회복용 슬리퍼는 날이 선선해져도 집 안에서 계속 신으니 천천히 빠지고, 모양이 예뻐서 샀던 신발은 계절과 함께 빠집니다.</p>
+  <p>여름 신발 셋은 내려오는 <b class="hl">속도</b>가 다릅니다. 우포스쪼리는 7주가 지났는데 아직 정점의 23%가 남아 있고, 크록스발레는 10주에 13%, 아디다스삼바뮬은 14주에 11%까지 왔습니다. 발이 편한 회복용 슬리퍼는 날이 선선해져도 집 안에서 계속 신으니 천천히 빠지고, 모양이 예뻐서 샀던 신발은 계절과 함께 빠집니다.</p>
 
-  <p>선풍기조끼는 6주 만에 7%로 내려앉았습니다. 무더위가 끝나면 바로 쓸 일이 없어지는 물건이라 가장 빠릅니다. 앞의 '지금 사두면 좋은 것'에 여름 물건을 모은 것도 이 때문이에요. 이렇게 빨리 빠지는 물건일수록 지금은 찾는 사람이 없습니다.</p>
+  <p>선풍기조끼는 6주 만에 7%로, 가장 빨리 내려앉았습니다. 앞의 '지금 사두면 좋은 것'에 여름 물건을 모은 것도 그래서예요.</p>
 </article>
 
 <!-- ───────────── 팔로업 ───────────── -->
 <article id="followup" class="short t-past">
   <p class="kicker"><span class="m m-past" aria-hidden="true"></span>팔로업 · 지난 호 그 후</p>
   <h2>그 후</h2>
-  <p class="deck">지난 호 '계속 보고 있는 것'에 적은 셋을 다시 세어 봤습니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#watching" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 하나는 멈췄고, 둘은 조금씩 움직였습니다.</p>
+  <p class="deck">지난 호 '계속 보고 있는 것'에 적은 셋을 다시 세어 봤습니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#watching" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 하나는 멈췄고, 둘은 조금씩 움직였습니다.</p>
 
   <figure class="ph w32"><img src="/trend-radar/assets/img/gen_followup.jpg" alt="두 날짜에 동그라미가 쳐진 탁상 달력과 공책"><figcaption>지난 호에 적어 둔 것을 다시 세어 봅니다. AI로 생성한 연출 이미지</figcaption></figure>
 
   <div class="row">
     <h4>치이카와 앉은누이 — 상품이 멈췄습니다</h4>
     <div class="n">한 달 6,730번 / 상품 908개 → 7,660번 / 908개</div>
-    <p>2주 만에 48개에서 908개가 됐던 그 검색어입니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#chiikawa" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 이번에는 상품이 <b>한 개도 늘지 않았습니다.</b> 검색은 14% 올랐고요. 2주 전엔 찾기도 어려웠던 물건이 이제는 고를 만큼 나와 있다는 뜻입니다. 사려는 분에게는 오히려 지금이 편한 때예요.</p>
+    <p>2주 만에 48개에서 908개가 됐던 그 검색어입니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#chiikawa" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 이번에는 상품이 <b>한 개도 늘지 않았습니다.</b> 검색은 14% 올랐고요. 2주 전엔 찾기도 어려웠던 물건이 이제는 고를 만큼 나와 있다는 뜻입니다. 사려는 분에게는 오히려 지금이 편한 때예요.</p>
   </div>
 
   <div class="row">
     <h4>스파오경량패딩 — 상품이 먼저 움직였습니다</h4>
     <div class="n">한 달 16,090번 / 상품 221개 → 16,830번 / 300개</div>
-    <p>지난 호 예보에서 6주 뒤라고 적었던 것이 이제 5주 남았습니다. <a class="back" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#forecast" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 검색은 5% 오르는 데 그쳤는데 상품은 221개에서 300개로 <b>3분의 1 넘게</b> 늘었어요. 사람들이 본격적으로 찾기 전에 물건이 먼저 깔리고 있어요. 사실 분이라면 종류가 가장 많을 때가 곧 옵니다.</p>
+    <p>지난 호 예보에서 6주 뒤라고 적었던 것이 이제 5주 남았습니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#forecast" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 검색은 5% 오르는 데 그쳤는데 상품은 221개에서 300개로 <b>3분의 1 넘게</b> 늘었어요. 사람들이 본격적으로 찾기 전에 물건이 먼저 깔리고 있어요. 사실 분이라면 종류가 가장 많을 때가 곧 옵니다.</p>
   </div>
 
   <div class="row">
@@ -793,15 +800,15 @@ footer b{color:var(--ink)}
   <button type="button" data-goto="last" aria-label="마지막으로">마지막 &#8677;</button>
 </div>
 </div>
-<button type="button" class="modeswap" aria-pressed="false">펼쳐 보기</button>
+<button type="button" class="modeswap" aria-pressed="false">책으로 보기</button>
 <div class="stat" aria-live="polite"></div>
 
 <script>
 /* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
    다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
 (function () {
-  // 책은 가로 782·세로 1450 이상 화면에서만. 그 밖에는 세로로 읽는다(한 쪽 모드 없음)
-  const mode = () => matchMedia('(min-width:782px) and (min-height:1450px)').matches ? 'two' : '';
+  // 가로 782 이상이면 '책으로 보기'를 고를 수 있다(세로 길이 무관 — 창에 맞춰 줄이고 키운다). 한 쪽 모드 없음
+  const mode = () => matchMedia('(min-width:782px)').matches ? 'two' : '';
   const wide = () => !!mode();
   const single = () => document.body.classList.contains('single');
   const pages = document.querySelector('.pages');
@@ -820,7 +827,7 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 782px·세로 1450px 이상이면 책으로 펼칩니다');
+    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 782px 이상이면 책으로 볼 수 있습니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
@@ -835,9 +842,11 @@ footer b{color:var(--ink)}
   function restoreOrder() {
     for (let i = origin.length - 1; i >= 0; i--) origin[i].parent.insertBefore(origin[i].el, origin[i].next);
     origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; o.el.style.breakInside = ''; });
+    pages.querySelectorAll('figure.ph img[data-h0]').forEach(im => { im.style.height = im.style.width = im.style.maxWidth = im.style.margin = ''; delete im.dataset.h0; });
+    pages.querySelectorAll('article').forEach(a => { a.style.breakBefore = ''; a.classList.remove('at-top'); });
     fitted = '';
   }
-  // 책 전체를 화면에 맞춰 같은 비율로 키운다(레이아웃은 1160×1450 그대로라 쪽 나눔이 안 바뀐다)
+  // 책 전체를 화면에 맞춰 같은 비율로 키운다(레이아웃은 1400×1200 그대로라 쪽 나눔이 안 바뀐다)
   const wrapEl = document.querySelector('.wrap');
   function rescale() {
     if (!document.body.classList.contains('spread')) { document.documentElement.style.removeProperty('--s'); return; }
@@ -857,6 +866,17 @@ footer b{color:var(--ink)}
     const gap = parseFloat(cs.columnGap), inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
     const cols = single() ? 1 : 2;
     const colW = (inner - gap * (cols - 1)) / cols, colH = pages.clientHeight - padT - padB;
+    // 표지 높이를 제호 높이에 맞춘다(왼쪽 쪽을 딱 채우게)
+    const mast = pages.querySelector('.mast');
+    if (mast) document.documentElement.style.setProperty('--masth', Math.ceil(mast.getBoundingClientRect().height) + 'px');
+    // 코너는 이어 붙이되, 시작(머리글)이 쪽 아래 30% 안이면 다음 쪽에서 시작한다. 앞에서부터 차례로 — 하나를 넘기면 뒤가 따라 움직인다
+    for (const art of pages.querySelectorAll('article')) {
+      const pr0 = pages.getBoundingClientRect(), head = art.firstElementChild || art;
+      const r = head.getClientRects()[0]; if (!r) continue;
+      const topIn = r.top - (pr0.top + padT);
+      if (topIn < 40) { art.classList.add('at-top'); continue; }
+      if (colH - topIn < colH * 0.3) { art.style.breakBefore = 'column'; art.classList.add('at-top'); }
+    }
     const frags = [...pages.querySelectorAll(FRAG)];
     const stuck = new Set(), moves = new Map();
     const log = (window.__fit = []);   // 편집 기록(진단용): 무엇을 왜 옮겼나
@@ -890,6 +910,48 @@ footer b{color:var(--ink)}
       }
       if (!moved) break;
     }
+    // 기사 끝이 다음 쪽으로 조금만(쪽의 4분의 1 미만) 넘쳤으면 — 그 기사의 가장 큰 사진을 줄여 꼬리를 끌어당긴다.
+    // 문장을 손으로 줄이지 않아도 되게. 사진은 비율을 지킨 채 원래 크기의 절반까지만 줄인다(자르지 않음).
+    const lastCol = art => { const pr = pages.getBoundingClientRect(); let m = -1;
+      for (const el of art.children) for (const rc of el.getClientRects()) if (rc.height >= 2)
+        m = Math.max(m, Math.round((rc.left - pr.left - padL) / (colW + gap)));
+      return m; };
+    const tried = new Map();   // 줄여 본 기사 → 줄이기 전 마지막 쪽
+    for (let round = 0; round < 24; round++) {
+      const pr = pages.getBoundingClientRect(), colTop = pr.top + padT;
+      const col = x => Math.round((x - pr.left - padL) / (colW + gap));
+      let changed = false;
+      for (const art of pages.querySelectorAll('article')) {
+        const per = {};
+        for (const el of art.children) for (const rc of el.getClientRects()) {
+          if (rc.height < 2) continue; const k = col(rc.left); per[k] = Math.max(per[k] || 0, rc.bottom - colTop); }
+        const ks = Object.keys(per).map(Number).sort((a, b) => a - b);
+        if (ks.length < 2) continue;
+        const lastK = ks[ks.length - 1], tail = per[lastK];
+        if (tail > colH * 0.25) continue;
+        const nx = art.nextElementSibling;                 // 다음 코너가 같은 쪽에 이어 붙어 있으면 빈 쪽이 아니다
+        if (nx && nx.tagName === 'ARTICLE' && !nx.classList.contains('at-top')) continue;
+        const imgs = [...art.querySelectorAll('figure.ph img')]
+          .filter(im => { const r = im.getBoundingClientRect(); return r.height > 150 && col(r.left) < lastK && !im.dataset.h0 ? true : (r.height > 150 && col(r.left) < lastK && r.height > +im.dataset.h0 * 0.5 + 8); })
+          .sort((a, b) => b.getBoundingClientRect().height - a.getBoundingClientRect().height);
+        if (!imgs.length) continue;
+        if (!tried.has(art)) tried.set(art, lastK);
+        const im = imgs[0], h = im.getBoundingClientRect().height;
+        if (!im.dataset.h0) im.dataset.h0 = String(h);
+        const nh = Math.max(h - (tail + 24), +im.dataset.h0 * 0.5);
+        if (h - nh < 8) continue;
+        // 자르지 않는다 — 비율을 지킨 채 작게 줄여 가운데에 둔다
+        im.style.height = nh + 'px'; im.style.width = 'auto'; im.style.maxWidth = '100%'; im.style.margin = '0 auto';
+        log.push(['꼬리당김', art.id || art.className, lastK, Math.round(h - nh)]); changed = true; break;
+      }
+      if (!changed) break;
+    }
+    // 줄였는데도 기사 끝이 당겨지지 않았으면 그 기사의 사진은 원래대로 둔다(사진만 작아지고 얻는 게 없다)
+    tried.forEach((before, art) => {
+      if (lastCol(art) < before) return;
+      art.querySelectorAll('figure.ph img[data-h0]').forEach(im => { im.style.height = im.style.width = im.style.maxWidth = im.style.margin = ''; delete im.dataset.h0; });
+      log.push(['꼬리당김 취소', art.id || art.className]);
+    });
     fitted = key;
     return true;
   }
@@ -1006,12 +1068,15 @@ footer b{color:var(--ink)}
     });
     cast.style.opacity = Math.sin(Math.PI * p).toFixed(3);
   }
+  // 3D 책장 넘김(띠 열 개로 휘는 종이). 확대·축소된 책 안에서 실제 크롬이 조각 경계와 흐린 글자를 그려서 끈다(2026-09-29).
+  // 끄면 지면이 옆으로 밀려 들어온다(CSS transition). 다시 켜려면 true.
+  const CURL = true;
   function turn(dir) {
     if (turning) return;
     const next = Math.min(last, Math.max(0, spread + dir));
     if (next === spread) return;
     const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if (reduce || !leaf || single()) { spread = next; apply(); return; }   // 한 쪽씩 모드는 넘김 효과 없이
+    if (!CURL || reduce || !leaf || single()) { spread = next; apply(); return; }
     turning = true;
     setup(dir, next); pose(0); report('넘기는 중');
     const t0 = performance.now();
@@ -1031,6 +1096,7 @@ footer b{color:var(--ink)}
   let warmT = 0;
   const warmSoon = () => { clearTimeout(warmT); warmT = setTimeout(warm, 300); };
   function warm() {
+    if (!CURL) return;                             // 3D 넘김을 쓰지 않으면 복제본도 만들지 않는다
     if (turning || !wide() || single() || !document.body.classList.contains('spread')) return;
     setup(1, spread); pose(0);
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -1043,12 +1109,12 @@ footer b{color:var(--ink)}
   function setMode(on) {
     document.body.classList.toggle('spread', on);
     document.body.classList.toggle('single', on && mode() === 'one');
-    swap.textContent = on ? '이어서 읽기' : '펼쳐 보기';
+    swap.textContent = on ? '이어서 읽기' : '책으로 보기';
     swap.setAttribute('aria-pressed', String(on));
     rescale();
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
     else { pages.style.transform = ''; restoreOrder(); }
-    try { localStorage.setItem('sk-spread', on ? '1' : '0'); } catch (e) {}
+    try { localStorage.setItem('sk-book', on ? '1' : '0'); } catch (e) {}
     report(); tell();
   }
 
@@ -1084,9 +1150,9 @@ footer b{color:var(--ink)}
   report();
 
   let saved = null;
-  try { saved = localStorage.getItem('sk-spread'); } catch (e) {}
-  // 화면이 맞으면 기본으로 펼쳐서 연다. '이어서 읽기'를 고른 적이 있으면 그걸 따른다.
-  if (wide() && saved !== '0') setMode(true);
+  try { saved = localStorage.getItem('sk-book'); } catch (e) {}
+  // 처음엔 세로로 읽는다. '책으로 보기'를 고른 적이 있으면 그걸 따른다(2026-09-29부터 기본값 변경 — 저장 이름도 새로)
+  if (wide() && saved === '1') setMode(true);
   // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
   addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } seek(); });
   // 주소 끝 #기사이름 으로 들어오면 그 기사가 놓인 펼침으로 바로 간다 (과월호 링크용)
@@ -1225,5 +1291,50 @@ footer b{color:var(--ink)}
   }
 })();
 </script>
+<!-- 확대·축소 — 세로로 읽을 때(책 모드가 아닐 때) 본문 옆 빈 자리에 둔다. 가로 782px 미만은 손가락 확대를 쓴다 -->
+<style>
+.zoomer{display:none;position:fixed;right:18px;top:50%;transform:translateY(-50%);flex-direction:column;gap:6px;z-index:6}
+@media (min-width:782px){body:not(.spread) .zoomer{display:flex}}
+.zoomer button{width:42px;height:40px;border:1px solid var(--rule);border-radius:4px;background:var(--paper);
+  color:var(--ink);font:600 19px/1 var(--mono);cursor:pointer;transition:border-color .15s,color .15s}
+.zoomer button.pct{height:30px;font-size:11px;font-weight:500;color:var(--muted,var(--ink))}
+.zoomer button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.zoomer button:disabled{opacity:.3;cursor:default}
+body:not(.spread) .wrap{zoom:var(--rz,1)}
+</style>
+<div class="zoomer" role="group" aria-label="확대·축소">
+  <button type="button" data-z="1" aria-label="확대" title="확대">+</button>
+  <button type="button" class="pct" data-z="0" aria-label="원래 크기로" title="원래 크기로">100%</button>
+  <button type="button" data-z="-1" aria-label="축소" title="축소">−</button>
+</div>
+<script>
+(function () {
+  const steps = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6];
+  const box = document.querySelector('.zoomer'), wrap = document.querySelector('.wrap');
+  if (!box || !wrap) return;
+  const pct = box.querySelector('.pct'), up = box.querySelector('[data-z="1"]'), down = box.querySelector('[data-z="-1"]');
+  let i = 2;
+  try { const j = steps.indexOf(parseFloat(localStorage.getItem('sk-zoom'))); if (j >= 0) i = j; } catch (e) {}
+  // 본문이 화면 밖으로 넘치지 않는 배율까지만 (오른쪽 버튼 자리 120px 남김)
+  const base = () => Math.min(parseFloat(getComputedStyle(wrap).maxWidth) || 680, innerWidth);
+  const top = () => { let k = 0; steps.forEach((s, n) => { if (base() * s <= innerWidth - 120) k = n; }); return Math.max(k, 2); };
+  function apply(keep) {
+    i = Math.min(i, top());
+    const doc = document.documentElement, at = keep ? scrollY / Math.max(1, doc.scrollHeight) : null;
+    doc.style.setProperty('--rz', steps[i]);
+    if (at !== null) scrollTo(0, at * doc.scrollHeight);      // 읽던 자리를 지킨다
+    pct.textContent = Math.round(steps[i] * 100) + '%';
+    up.disabled = i >= top(); down.disabled = i === 0;
+    try { localStorage.setItem('sk-zoom', String(steps[i])); } catch (e) {}
+  }
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const d = +b.dataset.z; i = d === 0 ? 2 : Math.max(0, Math.min(steps.length - 1, i + d)); apply(true);
+  });
+  addEventListener('resize', () => apply(false));
+  apply(false);
+})();
+</script>
+
 </body>
 </html>

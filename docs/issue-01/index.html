@@ -246,5 +246,50 @@ footer h3{font-size:14px;font-family:var(--sans);font-weight:600;color:var(--ink
 <script>window.SELLERKIM_DATA = {{DATA_JSON}};</script>
 <script>{{CHART_JS}}</script>
 
+<!-- 확대·축소 — 세로로 읽을 때(책 모드가 아닐 때) 본문 옆 빈 자리에 둔다. 가로 782px 미만은 손가락 확대를 쓴다 -->
+<style>
+.zoomer{display:none;position:fixed;right:18px;top:50%;transform:translateY(-50%);flex-direction:column;gap:6px;z-index:6}
+@media (min-width:782px){body:not(.spread) .zoomer{display:flex}}
+.zoomer button{width:42px;height:40px;border:1px solid var(--rule);border-radius:4px;background:var(--paper);
+  color:var(--ink);font:600 19px/1 var(--mono);cursor:pointer;transition:border-color .15s,color .15s}
+.zoomer button.pct{height:30px;font-size:11px;font-weight:500;color:var(--muted,var(--ink))}
+.zoomer button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.zoomer button:disabled{opacity:.3;cursor:default}
+body:not(.spread) .wrap{zoom:var(--rz,1)}
+</style>
+<div class="zoomer" role="group" aria-label="확대·축소">
+  <button type="button" data-z="1" aria-label="확대" title="확대">+</button>
+  <button type="button" class="pct" data-z="0" aria-label="원래 크기로" title="원래 크기로">100%</button>
+  <button type="button" data-z="-1" aria-label="축소" title="축소">−</button>
+</div>
+<script>
+(function () {
+  const steps = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6];
+  const box = document.querySelector('.zoomer'), wrap = document.querySelector('.wrap');
+  if (!box || !wrap) return;
+  const pct = box.querySelector('.pct'), up = box.querySelector('[data-z="1"]'), down = box.querySelector('[data-z="-1"]');
+  let i = 2;
+  try { const j = steps.indexOf(parseFloat(localStorage.getItem('sk-zoom'))); if (j >= 0) i = j; } catch (e) {}
+  // 본문이 화면 밖으로 넘치지 않는 배율까지만 (오른쪽 버튼 자리 120px 남김)
+  const base = () => Math.min(parseFloat(getComputedStyle(wrap).maxWidth) || 680, innerWidth);
+  const top = () => { let k = 0; steps.forEach((s, n) => { if (base() * s <= innerWidth - 120) k = n; }); return Math.max(k, 2); };
+  function apply(keep) {
+    i = Math.min(i, top());
+    const doc = document.documentElement, at = keep ? scrollY / Math.max(1, doc.scrollHeight) : null;
+    doc.style.setProperty('--rz', steps[i]);
+    if (at !== null) scrollTo(0, at * doc.scrollHeight);      // 읽던 자리를 지킨다
+    pct.textContent = Math.round(steps[i] * 100) + '%';
+    up.disabled = i >= top(); down.disabled = i === 0;
+    try { localStorage.setItem('sk-zoom', String(steps[i])); } catch (e) {}
+  }
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const d = +b.dataset.z; i = d === 0 ? 2 : Math.max(0, Math.min(steps.length - 1, i + d)); apply(true);
+  });
+  addEventListener('resize', () => apply(false));
+  apply(false);
+})();
+</script>
+
 </body>
 </html>
