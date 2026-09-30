@@ -830,14 +830,14 @@ footer b{color:var(--ink)}
     if (!stat) return;
     const on = document.body.classList.contains('spread');
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(이어서 읽기)' : '가로 782px 이상이면 책으로 볼 수 있습니다');
+    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(세로로 보기)' : '가로 782px 이상이면 책으로 볼 수 있습니다');
     stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
   }
 
   // ── 지면 편집: 코너 안에서 쪽 아래가 비지 않게 사진·상자를 문단 뒤로 옮긴다 ──
   // 사진처럼 쪼갤 수 없는 조각이 남은 자리에 못 들어가 다음 쪽으로 밀리면 그 앞 쪽이 빈다.
   // 그럴 때 그 조각을 다음 문단 뒤로 보내 글이 빈자리를 채우게 한다. 원래 순서는 기억해 두었다가
-  // 창 크기가 바뀌거나 '이어서 읽기'로 돌아갈 때 되돌린다.
+  // 창 크기가 바뀌거나 '세로로 보기'로 돌아갈 때 되돌린다.
   const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box, article > .rank, article > .fc';
   const FRAG = '.mast, .cover, .toc > *, .note > *, article > *, .rank .r, .box > *, .fc > *, li, figcaption, .pair figure';
   const origin = [...pages.querySelectorAll(MOVABLE)].map(el => ({ el, parent: el.parentNode, next: el.nextElementSibling }));
@@ -1114,7 +1114,7 @@ footer b{color:var(--ink)}
   function setMode(on) {
     document.body.classList.toggle('spread', on);
     document.body.classList.toggle('single', on && mode() === 'one');
-    swap.textContent = on ? '이어서 읽기' : '책으로 보기';
+    swap.textContent = on ? '세로로 보기' : '책으로 보기';
     swap.setAttribute('aria-pressed', String(on));
     rescale();
     if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
@@ -1280,7 +1280,7 @@ footer b{color:var(--ink)}
   addEventListener('sk-page', e => {
     const { spread, step, on } = e.detail;
     onSpread = on;
-    if (!on) return;                            // 이어서 읽기 — 아래 관찰자가 맡는다
+    if (!on) return;                            // 세로로 보기 — 아래 관찰자가 맡는다
     const pr = pages.getBoundingClientRect();
     const padL = parseFloat(getComputedStyle(pages).paddingLeft);
     items.forEach(v => {
@@ -1291,7 +1291,7 @@ footer b{color:var(--ink)}
     });
   });
 
-  // ── 이어서 읽기(세로로 읽을 때): 화면에 들어오면 돌고, 벗어나면 멈춘다 ──
+  // ── 세로로 보기(세로로 읽을 때): 화면에 들어오면 돌고, 벗어나면 멈춘다 ──
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (onSpread) return;
