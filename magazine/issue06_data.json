@@ -1,0 +1,792 @@
+{
+ "itemscout": {
+  "어드벤트캘린더": {
+   "monthly": 2970,
+   "prd_cnt": 21994,
+   "nv_cat": 3467,
+   "image": "https://shopping-phinf.pstatic.net/main_5665434/56654340625.20251115153229.jpg"
+  },
+  "어드벤트캘린더2026": {
+   "monthly": 1150,
+   "prd_cnt": 1259,
+   "nv_cat": 3467
+  },
+  "크리스마스캘린더": {
+   "monthly": 500,
+   "prd_cnt": 24230,
+   "nv_cat": 3467
+  },
+  "강림절달력": {
+   "monthly": 40,
+   "prd_cnt": 11274,
+   "nv_cat": 3467
+  },
+  "대림절달력": {
+   "monthly": 320,
+   "prd_cnt": 225,
+   "nv_cat": 3467
+  },
+  "크리스마스달력": {
+   "monthly": 130,
+   "prd_cnt": 49218,
+   "nv_cat": 3467
+  },
+  "말랑이캘린더": {
+   "monthly": 20,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "니도캘린더": {
+   "monthly": 40,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "뷰티어드벤트캘린더": {
+   "monthly": 20,
+   "prd_cnt": 1083,
+   "nv_cat": 407
+  },
+  "레고어드벤트캘린더": {
+   "monthly": 120,
+   "prd_cnt": 1217,
+   "nv_cat": 4127
+  },
+  "어드벤트": {
+   "monthly": 90,
+   "prd_cnt": 25643,
+   "nv_cat": 3467
+  },
+  "메디큐브": {
+   "monthly": 141800,
+   "prd_cnt": 22283,
+   "nv_cat": 1811,
+   "image": "https://shopping-phinf.pstatic.net/main_5937354/59373543980.20260324100632.jpg"
+  },
+  "메디큐브에이지알": {
+   "monthly": 3680,
+   "prd_cnt": 3542,
+   "nv_cat": 1811
+  },
+  "에이지알": {
+   "monthly": 2750,
+   "prd_cnt": 5339,
+   "nv_cat": 1811
+  },
+  "아누아": {
+   "monthly": 41300,
+   "prd_cnt": 6047,
+   "nv_cat": 402,
+   "image": null
+  },
+  "포켓몬카드30주년": {
+   "monthly": 88700,
+   "prd_cnt": 5195,
+   "nv_cat": 324
+  },
+  "포켓몬30주년": {
+   "monthly": 113300,
+   "prd_cnt": 15729,
+   "nv_cat": 4927
+  },
+  "튜이드": {
+   "monthly": 125800,
+   "prd_cnt": 384,
+   "nv_cat": 230
+  },
+  "튜이드앨범": {
+   "monthly": 780,
+   "prd_cnt": null,
+   "nv_cat": null
+  },
+  "오왈라텀블러": {
+   "monthly": 25670,
+   "prd_cnt": 18063,
+   "nv_cat": 4369
+  },
+  "오왈라": {
+   "monthly": 11660,
+   "prd_cnt": 27029,
+   "nv_cat": 4369
+  },
+  "스탠리텀블러": {
+   "monthly": 108500,
+   "prd_cnt": 68947,
+   "nv_cat": 4369
+  },
+  "전기요": {
+   "monthly": 16250,
+   "prd_cnt": 190544,
+   "nv_cat": 45789,
+   "image": null
+  },
+  "전기매트": {
+   "monthly": 52890,
+   "prd_cnt": 573117,
+   "nv_cat": 45789
+  },
+  "탄소매트": {
+   "monthly": 54700,
+   "prd_cnt": 186993,
+   "nv_cat": 45789
+  },
+  "온수매트": {
+   "monthly": 42200,
+   "prd_cnt": 96580,
+   "nv_cat": 45791
+  },
+  "털크록스": {
+   "monthly": 4750,
+   "prd_cnt": 16700,
+   "nv_cat": 47337,
+   "image": null
+  },
+  "수능시계": {
+   "monthly": 12090,
+   "prd_cnt": 61892,
+   "nv_cat": 4023,
+   "image": null
+  },
+  "남이섬입장권": {
+   "monthly": 28290,
+   "prd_cnt": 21,
+   "nv_cat": 11999,
+   "image": null
+  },
+  "덕구온천리조트": {
+   "monthly": 19740,
+   "prd_cnt": 217,
+   "nv_cat": 12000
+  },
+  "생강": {
+   "monthly": 20250,
+   "prd_cnt": 294211,
+   "nv_cat": 2208
+  },
+  "방한화": {
+   "monthly": 7980,
+   "prd_cnt": 649787,
+   "nv_cat": 1596
+  },
+  "뚜껑형김치냉장고": {
+   "monthly": 8980,
+   "prd_cnt": 37246,
+   "nv_cat": 2552
+  },
+  "안경김서림방지": {
+   "monthly": 1320,
+   "prd_cnt": 133726,
+   "nv_cat": 501
+  },
+  "제미나이": {
+   "monthly": 6593200,
+   "prd_cnt": 10510,
+   "nv_cat": 14996
+  },
+  "361도": {
+   "monthly": 66580,
+   "prd_cnt": 7810,
+   "nv_cat": 3744
+  },
+  "할로윈코스튬": {
+   "monthly": 30930,
+   "prd_cnt": 598503,
+   "nv_cat": 4165,
+   "image": null
+  },
+  "핫팩": {
+   "monthly": 15740,
+   "prd_cnt": 411908,
+   "nv_cat": 2627
+  },
+  "보온물주머니": {
+   "monthly": 2820,
+   "prd_cnt": 67611,
+   "nv_cat": 1749
+  },
+  "전기담요": {
+   "monthly": 8290,
+   "prd_cnt": 89416,
+   "nv_cat": 2546
+  },
+  "온풍기": {
+   "monthly": 15860,
+   "prd_cnt": 716640,
+   "nv_cat": 2518
+  },
+  "휘닉스파크": {
+   "monthly": 17790,
+   "prd_cnt": 1527,
+   "nv_cat": 12000,
+   "image": null
+  },
+  "무주덕유산리조트": {
+   "monthly": 6660,
+   "prd_cnt": 1389,
+   "nv_cat": 12000,
+   "image": null
+  },
+  "메디큐브제로모공패드": {
+   "monthly": 1760,
+   "prd_cnt": 1008,
+   "nv_cat": 420,
+   "image": null
+  },
+  "에이피알": {
+   "monthly": 157200,
+   "prd_cnt": 17135,
+   "nv_cat": 1811,
+   "image": null
+  },
+  "니도": {
+   "monthly": 3720,
+   "prd_cnt": 9099,
+   "nv_cat": 4116,
+   "image": null
+  },
+  "말랑이": {
+   "monthly": 77200,
+   "prd_cnt": 244816,
+   "nv_cat": 4116,
+   "image": "https://shopping-phinf.pstatic.net/main_6135968/61359680179.20260820235102.jpg"
+  },
+  "스퀴시": {
+   "monthly": 22990,
+   "prd_cnt": 178931,
+   "nv_cat": 4116,
+   "image": null
+  },
+  "박사퍼티": {
+   "monthly": 9870,
+   "prd_cnt": 4872,
+   "nv_cat": 4116,
+   "image": null
+  },
+  "크런치슬랑이": {
+   "monthly": 24190,
+   "prd_cnt": 32758,
+   "nv_cat": 4116,
+   "image": null
+  },
+  "닌자스피너": {
+   "monthly": 6130,
+   "prd_cnt": 4463,
+   "nv_cat": 4011,
+   "image": null
+  },
+  "그로구": {
+   "monthly": 8140,
+   "prd_cnt": 5331,
+   "nv_cat": 4927,
+   "image": null
+  },
+  "여성장화": {
+   "monthly": 1920,
+   "prd_cnt": 682006,
+   "nv_cat": 47270,
+   "image": null
+  },
+  "오렌지자스민": {
+   "monthly": 19130,
+   "prd_cnt": 7129,
+   "nv_cat": 1609,
+   "image": null
+  },
+  "할로윈": {
+   "monthly": 77300,
+   "prd_cnt": 1858687,
+   "nv_cat": 4165,
+   "image": null
+  }
+ },
+ "season": {
+  "롱패딩": {
+   "yrs": 5,
+   "weeks": 469,
+   "cur_pct": 10,
+   "peak_date": "11월 26일",
+   "weeks_to_peak": 8,
+   "lift": 9.8,
+   "monthly_shape": [
+    23,
+    9,
+    2,
+    1,
+    1,
+    1,
+    1,
+    3,
+    5,
+    21,
+    45,
+    67
+   ],
+   "image": null,
+   "monthly": 15240,
+   "prd_cnt": 612574,
+   "nv_cat": 2608
+  },
+  "어그": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 18,
+   "peak_date": "11월 26일",
+   "weeks_to_peak": 8,
+   "lift": 5.7,
+   "monthly_shape": [
+    28,
+    9,
+    3,
+    2,
+    3,
+    3,
+    2,
+    4,
+    10,
+    29,
+    67,
+    83
+   ],
+   "image": null,
+   "monthly": 90510,
+   "prd_cnt": 447619,
+   "nv_cat": 47337
+  },
+  "무주리조트": {
+   "yrs": 5,
+   "weeks": 471,
+   "cur_pct": 8,
+   "peak_date": "12월 24일",
+   "weeks_to_peak": 12,
+   "lift": 11.9,
+   "monthly_shape": [
+    86,
+    56,
+    13,
+    3,
+    4,
+    4,
+    6,
+    7,
+    6,
+    8,
+    19,
+    80
+   ],
+   "image": null,
+   "monthly": 21640,
+   "prd_cnt": 1756,
+   "nv_cat": 12000
+  },
+  "휘닉스파크패키지": {
+   "yrs": 5,
+   "weeks": 414,
+   "cur_pct": 18,
+   "peak_date": "01월 08일",
+   "weeks_to_peak": 14,
+   "lift": 5.5,
+   "monthly_shape": [
+    86,
+    51,
+    12,
+    16,
+    18,
+    32,
+    39,
+    35,
+    19,
+    17,
+    41,
+    90
+   ],
+   "image": null,
+   "monthly": 230,
+   "prd_cnt": 67,
+   "nv_cat": 12017
+  },
+  "절임배추": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 19,
+   "peak_date": "11월 05일",
+   "weeks_to_peak": 5,
+   "lift": 5.3,
+   "monthly_shape": [
+    5,
+    5,
+    5,
+    3,
+    3,
+    3,
+    4,
+    6,
+    10,
+    39,
+    81,
+    26
+   ],
+   "image": null,
+   "monthly": 24580,
+   "prd_cnt": 20434,
+   "nv_cat": 1847
+  },
+  "패딩조끼": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 23,
+   "peak_date": "11월 05일",
+   "weeks_to_peak": 5,
+   "lift": 4.3,
+   "monthly_shape": [
+    25,
+    21,
+    17,
+    3,
+    1,
+    1,
+    1,
+    2,
+    6,
+    56,
+    88,
+    48
+   ],
+   "image": null,
+   "monthly": 11260,
+   "prd_cnt": 1220301,
+   "nv_cat": 47147
+  },
+  "대용량가습기": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 26,
+   "peak_date": "11월 05일",
+   "weeks_to_peak": 5,
+   "lift": 3.9,
+   "monthly_shape": [
+    56,
+    39,
+    19,
+    9,
+    6,
+    4,
+    4,
+    4,
+    11,
+    41,
+    75,
+    84
+   ],
+   "image": "https://shopping-phinf.pstatic.net/main_8475965/84759655602.10.jpg",
+   "monthly": 21840,
+   "prd_cnt": 58986,
+   "nv_cat": 2529
+  },
+  "욕실온풍기": {
+   "yrs": 5,
+   "weeks": 471,
+   "cur_pct": 13,
+   "peak_date": "12월 03일",
+   "weeks_to_peak": 9,
+   "lift": 8.0,
+   "monthly_shape": [
+    42,
+    21,
+    7,
+    3,
+    2,
+    2,
+    2,
+    2,
+    6,
+    23,
+    69,
+    90
+   ],
+   "image": "https://shopping-phinf.pstatic.net/main_8504233/85042338951.7.jpg",
+   "monthly": 14620,
+   "prd_cnt": 53186,
+   "nv_cat": 2518
+  },
+  "해리포터레고": {
+   "yrs": 5,
+   "weeks": 469,
+   "cur_pct": 27,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 11,
+   "lift": 3.7,
+   "monthly_shape": [
+    45,
+    38,
+    31,
+    27,
+    30,
+    19,
+    20,
+    24,
+    27,
+    26,
+    31,
+    70
+   ],
+   "image": null,
+   "monthly": 3410,
+   "prd_cnt": 11463,
+   "nv_cat": 4127
+  },
+  "초등고학년책가방": {
+   "yrs": 5,
+   "weeks": 472,
+   "cur_pct": 7,
+   "peak_date": "02월 19일",
+   "weeks_to_peak": 20,
+   "lift": 13.4,
+   "monthly_shape": [
+    45,
+    71,
+    33,
+    9,
+    7,
+    6,
+    6,
+    10,
+    9,
+    7,
+    10,
+    26
+   ],
+   "image": null,
+   "monthly": 900,
+   "prd_cnt": 32786,
+   "nv_cat": 4082
+  },
+  "초등실내화": {
+   "yrs": 5,
+   "weeks": 470,
+   "cur_pct": 4,
+   "peak_date": "02월 19일",
+   "weeks_to_peak": 20,
+   "lift": 22.7,
+   "monthly_shape": [
+    17,
+    51,
+    30,
+    5,
+    5,
+    5,
+    4,
+    12,
+    7,
+    5,
+    5,
+    7
+   ],
+   "image": null,
+   "monthly": 1260,
+   "prd_cnt": 109309,
+   "nv_cat": 4078
+  },
+  "전기매트": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 60,
+   "peak_date": "10월 15일",
+   "weeks_to_peak": 2,
+   "lift": 1.7,
+   "monthly_shape": [
+    35,
+    24,
+    14,
+    9,
+    7,
+    4,
+    3,
+    7,
+    21,
+    88,
+    79,
+    62
+   ],
+   "image": null,
+   "monthly": 52890,
+   "prd_cnt": 573117,
+   "nv_cat": 45789
+  },
+  "탄소매트": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 47,
+   "peak_date": "10월 22일",
+   "weeks_to_peak": 3,
+   "lift": 2.1,
+   "monthly_shape": [
+    31,
+    16,
+    13,
+    6,
+    5,
+    3,
+    3,
+    4,
+    16,
+    75,
+    83,
+    57
+   ],
+   "image": null,
+   "monthly": 54700,
+   "prd_cnt": 186993,
+   "nv_cat": 45789
+  },
+  "온수매트": {
+   "yrs": 5,
+   "weeks": 473,
+   "cur_pct": 58,
+   "peak_date": "10월 15일",
+   "weeks_to_peak": 2,
+   "lift": 1.7,
+   "monthly_shape": [
+    23,
+    17,
+    10,
+    7,
+    5,
+    3,
+    3,
+    4,
+    16,
+    81,
+    56,
+    42
+   ],
+   "image": null,
+   "monthly": 42200,
+   "prd_cnt": 96580,
+   "nv_cat": 45791
+  },
+  "파티룸": {
+   "yrs": 5,
+   "cur_pct": 30,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 11,
+   "lift": 3.4,
+   "monthly_shape": [
+    46,
+    39,
+    27,
+    25,
+    27,
+    28,
+    33,
+    31,
+    26,
+    34,
+    56,
+    89
+   ],
+   "image": null,
+   "monthly": 22070,
+   "prd_cnt": 135315,
+   "nv_cat": 12000
+  },
+  "스초생": {
+   "yrs": 5,
+   "cur_pct": 4,
+   "peak_date": "12월 24일",
+   "weeks_to_peak": 12,
+   "lift": 24.6,
+   "monthly_shape": [
+    27,
+    17,
+    10,
+    8,
+    7,
+    5,
+    5,
+    5,
+    5,
+    4,
+    9,
+    50
+   ],
+   "image": null,
+   "monthly": 8590,
+   "prd_cnt": 271,
+   "nv_cat": 14965
+  },
+  "뽀로로코딩컴퓨터": {
+   "yrs": 5,
+   "cur_pct": 14,
+   "peak_date": "12월 17일",
+   "weeks_to_peak": 11,
+   "lift": 7.1,
+   "monthly_shape": [
+    23,
+    21,
+    16,
+    27,
+    25,
+    10,
+    11,
+    14,
+    13,
+    14,
+    22,
+    69
+   ],
+   "image": null,
+   "monthly": 3330,
+   "prd_cnt": 1502,
+   "nv_cat": 4292
+  },
+  "여름안전화": {
+   "yrs": 5,
+   "cur_pct": 3,
+   "peak_date": "05월 28일",
+   "weeks_to_peak": 34,
+   "lift": 31.8,
+   "monthly_shape": [
+    3,
+    8,
+    36,
+    76,
+    84,
+    88,
+    61,
+    29,
+    7,
+    2,
+    2,
+    2
+   ],
+   "image": null,
+   "monthly": 1060,
+   "prd_cnt": 284266,
+   "nv_cat": 3750
+  },
+  "여름작업조끼": {
+   "yrs": 5,
+   "cur_pct": 4,
+   "peak_date": "05월 21일",
+   "weeks_to_peak": 33,
+   "lift": 26.4,
+   "monthly_shape": [
+    3,
+    7,
+    30,
+    70,
+    81,
+    82,
+    63,
+    33,
+    10,
+    4,
+    4,
+    2
+   ],
+   "image": null,
+   "monthly": 1490,
+   "prd_cnt": 110807,
+   "nv_cat": 723
+  }
+ }
+}
