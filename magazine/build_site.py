@@ -19,6 +19,10 @@ BASE = "/trend-radar"                       # GitHub Pages 하위 경로
 
 # 발행한 전체 호. 새 호는 맨 앞에 넣는다.
 ISSUES = [
+    {"n": 8, "slug": "issue-08", "tpl": "issue08_template.html", "mod": "build_issue08",
+     "title": "영국 아마존 1위가 한국 화장품", "date": "2026년 10월 4주",
+     "lede": "아마존이 10월 6~7일 할인 행사를 열었습니다. 그 주 영국 아마존 검색 1위는 한국 화장품 브랜드 메디큐브였어요. 미국에서는 23위에서 3위로 올라왔습니다.",
+     "cover": "gen8_tonerpads.jpg"},
     {"n": 7, "slug": "issue-07", "tpl": "issue07_template.html", "mod": "build_issue07",
      "title": "영화가 끌어올린 인형", "date": "2026년 10월 3주",
      "lede": "한 애니메이션 극장판이 9월 30일 개봉했습니다. 그 뒤로 같은 캐릭터 검색량이 한국에서 2배로 늘었고, 일본 아마존에서는 모든 검색어를 제치고 1위를 기록했습니다.",
@@ -111,8 +115,8 @@ def build_index(assets: set[str]) -> None:
         assets.add(it["cover"])
 
     (DOCS / "index.html").write_text(DOC.format(
-        title="셀러KIM — 주간 트렌드 매거진", base=BASE,
-        desc="검색 데이터에서 아직 자리가 비어 있는 것을 찾아 매주 정리합니다.",
+        title="셀러KIM — 돈이 되는 트렌드", base=BASE,
+        desc="돈이 되는 트렌드를 검색 데이터에서 먼저 찾아 매주 정리합니다. TrendRadar 주간 매거진.",
         og_image=f'<meta property="og:image" content="{BASE}/assets/img/{ISSUES[0]["cover"]}">\n',
         body=f'''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
@@ -140,8 +144,8 @@ a{{color:var(--brand)}}
 </style>
 <div class="wrap">
 <header class="mast">{_logo()}</header>
-<p class="stand">검색 데이터에서 <b>아직 자리가 비어 있는 것</b>을 찾아 매주 정리합니다.<br>
-셀러와 트렌드를 보는 사람 모두를 위한 읽을거리입니다.</p>
+<p class="stand"><b>돈이 되는 트렌드</b>를 검색 데이터에서 먼저 찾아 매주 정리합니다.<br>
+TrendRadar가 펴내는 주간 매거진입니다.</p>
 {cards}
 <footer>
 <p>일부 상품 사진은 네이버쇼핑 판매자 저작물입니다. 권리자가 요청하면 즉시 내립니다.</p>

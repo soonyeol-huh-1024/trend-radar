@@ -123,6 +123,19 @@ def numbers(s: str) -> list[str]:
     return re.findall(r"[\d,]+(?:\.\d+)?%?", re.sub(r"<[^>]+>", "", s))
 
 
+SENT = re.compile(r".*?(?:[가-힣][.?!]+(?:</[a-z]+>)?\s*|$)", re.S)
+
+
+def soften(before: str, after: str) -> str:
+    """'~요/~죠'로 끝나던 문장이 '~습니다'로 굳어진 교체는 원래 문장으로 되돌린다 (GUIDE 어투)."""
+    a = after.replace("\u2018", "'").replace("\u2019", "'")
+    b_s, a_s = [x for x in SENT.findall(before) if x], [x for x in SENT.findall(a) if x]
+    if len(b_s) != len(a_s) or "".join(b_s) != before or "".join(a_s) != a:
+        return a
+    return "".join(b if re.search(r"[요죠][.?!]\s*$", b) and not re.search(r"[요죠][.?!]\s*$", x) else x
+                   for b, x in zip(b_s, a_s))
+
+
 def main() -> None:
     path = HERE / sys.argv[1]
     apply = "--apply" in sys.argv
@@ -146,7 +159,7 @@ def main() -> None:
             sysmsg = mode if not hint else (
                 mode + "\n\n■ 아래 낱말은 검색 키워드다. 띄어쓰기를 바꾸지 말고 글자 그대로 둬라.\n"
                 + ", ".join(hint[:15]))
-            after = ask(before, sysmsg)
+            after = soften(before, ask(before, sysmsg))
         except Exception as e:
             skipped.append((i, f"호출 실패: {e}")); continue
         if after == before:
