@@ -1,0 +1,311 @@
+{
+ "weekly_total": 4506,
+ "weekly_top": [
+  [
+   "챗지피티",
+   "생활/건강",
+   15849100
+  ],
+  [
+   "제미나이",
+   "여가/생활편의",
+   6449700
+  ],
+  [
+   "챗gpt",
+   "출산/육아",
+   4934000
+  ],
+  [
+   "유니클로",
+   "패션의류",
+   2184600
+  ],
+  [
+   "무신사",
+   "패션의류",
+   1705700
+  ],
+  [
+   "롯데시네마",
+   "여가/생활편의",
+   1482300
+  ],
+  [
+   "아이폰18프로",
+   "디지털/가전",
+   1257700
+  ],
+  [
+   "치이카와",
+   "생활/건강",
+   1047700
+  ],
+  [
+   "클로드",
+   "디지털/가전",
+   958900
+  ],
+  [
+   "29cm",
+   "패션잡화",
+   932600
+  ],
+  [
+   "뉴발란스",
+   "패션잡화",
+   871800
+  ],
+  [
+   "스파오",
+   "패션의류",
+   793400
+  ],
+  [
+   "안다르",
+   "패션의류",
+   533900
+  ],
+  [
+   "아이폰18",
+   "디지털/가전",
+   531700
+  ],
+  [
+   "탑텐",
+   "패션의류",
+   516500
+  ],
+  [
+   "갤럭시폴드8",
+   "디지털/가전",
+   515400
+  ],
+  [
+   "룰루레몬",
+   "패션의류",
+   481400
+  ],
+  [
+   "제주항공권",
+   "여가/생활편의",
+   469400
+  ],
+  [
+   "캐리비안베이",
+   "여가/생활편의",
+   427000
+  ],
+  [
+   "샤넬",
+   "화장품/미용",
+   421000
+  ]
+ ],
+ "amazon": {
+  "us": [
+   [
+    "needoh",
+    "Toys & Games",
+    7132541
+   ],
+   [
+    "carrie",
+    "Movies & TV",
+    5227482
+   ],
+   [
+    "medicube",
+    "Beauty & Personal Care",
+    4358640
+   ],
+   [
+    "kindle",
+    "Computers & Accessories",
+    3831254
+   ],
+   [
+    "toilet paper",
+    "Health & Household",
+    3466539
+   ],
+   [
+    "paper towels",
+    "Health & Household",
+    3194473
+   ],
+   [
+    "owala",
+    "Kitchen & Dining",
+    2981173
+   ],
+   [
+    "halloween decorations",
+    "Patio, Lawn & Garden",
+    2807948
+   ]
+  ],
+  "us_n": 100,
+  "us_medicube": [
+   [
+    3,
+    "medicube",
+    4358640
+   ]
+  ],
+  "uk": [
+   [
+    "medicube",
+    "Beauty",
+    1010163
+   ],
+   [
+    "lego",
+    "Toys & Games",
+    564981
+   ],
+   [
+    "kindle",
+    "Electronics & Photo",
+    555363
+   ],
+   [
+    "pokemon 30th anniversary",
+    "Toys & Games",
+    516930
+   ],
+   [
+    "air fryer",
+    "Home & Kitchen",
+    416109
+   ],
+   [
+    "halloween decorations",
+    "Home & Kitchen",
+    401880
+   ],
+   [
+    "toilet roll",
+    "Grocery",
+    393726
+   ],
+   [
+    "electric toothbrush",
+    "Health & Personal Care",
+    390763
+   ]
+  ],
+  "uk_n": 100,
+  "uk_medicube": [
+   [
+    1,
+    "medicube",
+    1010163
+   ],
+   [
+    30,
+    "medicube zero pore pad",
+    232521
+   ],
+   [
+    94,
+    "medicube face mask",
+    138634
+   ]
+  ],
+  "de": [
+   [
+    "lego",
+    "Spielzeug",
+    1513667
+   ],
+   [
+    "adventskalender 2026",
+    "Lebensmittel & Getränke",
+    921408
+   ],
+   [
+    "alexa",
+    "Elektronik & Foto",
+    810734
+   ],
+   [
+    "squishy",
+    "Spielzeug",
+    691502
+   ],
+   [
+    "kindle",
+    "Computer & Zubehör",
+    663632
+   ],
+   [
+    "pokemon 30th anniversary",
+    "Spielzeug",
+    587276
+   ],
+   [
+    "adventskalender",
+    "Lebensmittel & Getränke",
+    537486
+   ],
+   [
+    "ninja heißluftfritteuse",
+    "Küche, Haushalt & Wohnen",
+    535113
+   ]
+  ],
+  "de_n": 100,
+  "de_medicube": [
+   [
+    74,
+    "medicube",
+    211347
+   ]
+  ],
+  "jp": [
+   [
+    "ちいかわ",
+    "文房具・オフィス用品",
+    1104000
+   ],
+   [
+    "プロテイン",
+    "ドラッグストア",
+    1094411
+   ],
+   [
+    "薬屋のひとりごと",
+    "ホビー",
+    1084651
+   ],
+   [
+    "水",
+    "食品・飲料・お酒",
+    1074725
+   ],
+   [
+    "モバイルバッテリー",
+    "家電＆カメラ",
+    1064638
+   ],
+   [
+    "ハリーポッター",
+    "おもちゃ",
+    1054397
+   ],
+   [
+    "水 2リットル",
+    "食品・飲料・お酒",
+    1033470
+   ],
+   [
+    "ワンピース",
+    "ファッション",
+    1022796
+   ]
+  ],
+  "jp_n": 100,
+  "jp_medicube": []
+ }
+}

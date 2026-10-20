@@ -22,7 +22,7 @@ ISSUES = [
     {"n": 8, "slug": "issue-08", "tpl": "issue08_template.html", "mod": "build_issue08",
      "title": "영국 아마존 1위가 한국 화장품", "date": "2026년 10월 4주",
      "lede": "아마존이 10월 6~7일 할인 행사를 열었습니다. 그 주 영국 아마존 검색 1위는 한국 화장품 브랜드 메디큐브였어요. 미국에서는 23위에서 3위로 올라왔습니다.",
-     "cover": "gen8_tonerpads.jpg"},
+     "cover": "gen8_tonerpads.jpg", "tiers": "build_issue08_tiers"},
     {"n": 7, "slug": "issue-07", "tpl": "issue07_template.html", "mod": "build_issue07",
      "title": "영화가 끌어올린 인형", "date": "2026년 10월 3주",
      "lede": "한 애니메이션 극장판이 9월 30일 개봉했습니다. 그 뒤로 같은 캐릭터 검색량이 한국에서 2배로 늘었고, 일본 아마존에서는 모든 검색어를 제치고 1위를 기록했습니다.",
@@ -79,20 +79,25 @@ def build_issue(it: dict, assets: set[str]) -> None:
         fname = val[0] if isinstance(val, tuple) else val
         html = html.replace("{{IMG_" + key + "}}", f"{BASE}/assets/img/{fname}")
         assets.add(fname)
+    write_page(it, html, DOCS / it["slug"], f'셀러KIM 제{it["n"]}호 — {it["title"]}')
+    if it.get("tiers"):          # 무료/플러스/프로 전환 미리보기 (테스트용)
+        tiers = __import__(it["tiers"]).render(lambda f: f"{BASE}/assets/img/{f}")
+        write_page(it, tiers, DOCS / it["slug"] / "tiers", f'셀러KIM 제{it["n"]}호 등급 미리보기 — {it["title"]}')
+
+
+def write_page(it: dict, html: str, out: Path, title: str) -> None:
     html = re.sub(r"<title>.*?</title>\s*", "", html, count=1)
     # 폰트 링크는 head 로 올린다
     links = re.findall(r'<link rel="[^"]*"[^>]*>', html)
     html = re.sub(r'<link rel="[^"]*"[^>]*>\s*', "", html)
 
-    out = DOCS / it["slug"]
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(DOC.format(
-        title=f'셀러KIM 제{it["n"]}호 — {it["title"]}',
-        desc=it["lede"], base=BASE,
+        title=title, desc=it["lede"], base=BASE,
         og_image=f'<meta property="og:image" content="{BASE}/assets/img/{it["cover"]}">\n',
         body="\n".join(links) + "\n" + html))
     kb = (out / "index.html").stat().st_size / 1024
-    print(f"  {it['slug']}/index.html  {kb:.0f}KB")
+    print(f"  {out.relative_to(DOCS)}/index.html  {kb:.0f}KB")
 
 
 def _logo() -> str:
