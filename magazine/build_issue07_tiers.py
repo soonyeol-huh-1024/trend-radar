@@ -143,16 +143,19 @@ const set=t=>{document.body.dataset.tier=t;document.querySelectorAll('.tiers but
   try{localStorage.setItem('sk-tier',t)}catch(e){};dispatchEvent(new Event('resize'));};
 document.querySelectorAll('.tiers button').forEach(b=>b.addEventListener('click',()=>set(b.dataset.t)));
 const gate=document.createElement('div');gate.className='gate';gate.setAttribute('role','dialog');gate.setAttribute('aria-modal','true');
-gate.innerHTML='<div class="gate-box"><p>플러스 이상만 볼 수 있습니다</p><small>지난 호(과월호)는 플러스 구독부터 열립니다.</small><div><button type="button" class="x">닫기</button><button type="button" class="go">플러스 보기</button></div></div>';
+gate.innerHTML='<div class="gate-box"><p></p><small></small><div><button type="button" class="go x">확인</button></div></div>';
 document.body.appendChild(gate);
+const MSG={plus:['플러스 이상 멤버만 볼 수 있습니다','검색수·상품수 숫자는 플러스 구독부터 보입니다.'],
+  pro:['프로 멤버만 볼 수 있습니다','연관어 전체 데이터와 내려받기는 프로 구독에서 열립니다.'],
+  back:['플러스 이상 멤버만 볼 수 있습니다','지난 호(과월호)는 플러스 구독부터 열립니다.']};
+const warn=k=>{gate.querySelector('p').textContent=MSG[k][0];gate.querySelector('small').textContent=MSG[k][1];
+  gate.classList.add('on');gate.querySelector('.x').focus();};
 const close=()=>gate.classList.remove('on');
 gate.addEventListener('click',e=>{if(e.target===gate||e.target.classList.contains('x'))close();});
-gate.querySelector('.go').addEventListener('click',()=>{close();set('plus');});
 addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 document.addEventListener('click',e=>{const a=e.target.closest('a.backissue, .issuenav a');
-  if(a&&document.body.dataset.tier==='free'){e.preventDefault();gate.classList.add('on');gate.querySelector('.go').focus();}},true);
-document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{const art=b.closest('article');set(b.dataset.go);
-  if(art&&!document.body.classList.contains('spread'))requestAnimationFrame(()=>art.scrollIntoView({block:'start'}));}));
+  if(a&&document.body.dataset.tier==='free'){e.preventDefault();warn('back');}},true);
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>warn(b.dataset.go)));
 let t='free';try{t=localStorage.getItem('sk-tier')||'free'}catch(e){}
 set(t);})();</script>"""
 
