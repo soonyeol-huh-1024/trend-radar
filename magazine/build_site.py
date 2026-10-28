@@ -19,6 +19,10 @@ BASE = "/trend-radar"                       # GitHub Pages 하위 경로
 
 # 발행한 전체 호. 새 호는 맨 앞에 넣는다.
 ISSUES = [
+    {"n": 9, "slug": "issue-09", "tpl": "issue09_template.html", "mod": "build_issue09",
+     "title": "한국은 벌써 카본매트, 유럽은 이제 물주머니", "date": "2026년 10월 5주",
+     "lede": "같은 주에 네 나라에서 난방용품 검색이 올랐습니다. 한국은 바닥에 까는 매트를, 독일·영국은 끌어안는 물주머니와 작은 온풍기를 찾았어요.",
+     "cover": "un9_cover_hwb.jpg"},
     {"n": 8, "slug": "issue-08", "tpl": "issue08_template.html", "mod": "build_issue08",
      "title": "영국 아마존 1위가 한국 화장품", "date": "2026년 10월 4주",
      "lede": "아마존이 10월 6~7일 할인 행사를 열었습니다. 그 주 영국 아마존 검색 1위는 한국 화장품 브랜드 메디큐브였어요. 미국에서는 23위에서 3위로 올라왔습니다.",
