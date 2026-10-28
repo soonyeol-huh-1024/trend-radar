@@ -1,0 +1,366 @@
+{
+ "weekly_total": 4394,
+ "weekly_top": [
+  [
+   "챗지피티",
+   "생활/건강",
+   14715500
+  ],
+  [
+   "제미나이",
+   "여가/생활편의",
+   6514200
+  ],
+  [
+   "유니클로",
+   "패션의류",
+   2275400
+  ],
+  [
+   "무신사",
+   "패션의류",
+   1738900
+  ],
+  [
+   "롯데시네마",
+   "여가/생활편의",
+   1482300
+  ],
+  [
+   "치이카와",
+   "생활/건강",
+   1473200
+  ],
+  [
+   "클로드",
+   "디지털/가전",
+   1022600
+  ],
+  [
+   "스파오",
+   "패션의류",
+   844200
+  ],
+  [
+   "29cm",
+   "패션잡화",
+   824300
+  ],
+  [
+   "뉴발란스",
+   "패션잡화",
+   756200
+  ],
+  [
+   "아디다스",
+   "패션잡화",
+   670600
+  ],
+  [
+   "아이폰18프로",
+   "디지털/가전",
+   659900
+  ],
+  [
+   "탑텐",
+   "패션의류",
+   599700
+  ],
+  [
+   "먼작귀",
+   "생활/건강",
+   563300
+  ],
+  [
+   "안다르",
+   "패션의류",
+   547200
+  ],
+  [
+   "룰루레몬",
+   "패션의류",
+   494300
+  ],
+  [
+   "제주항공권",
+   "여가/생활편의",
+   469400
+  ],
+  [
+   "갤럭시폴드8",
+   "디지털/가전",
+   436500
+  ],
+  [
+   "캐리비안베이",
+   "여가/생활편의",
+   427000
+  ],
+  [
+   "샤넬",
+   "화장품/미용",
+   423100
+  ]
+ ],
+ "amazon": {
+  "us": [
+   [
+    "carrie",
+    "Movies & TV",
+    5443251
+   ],
+   [
+    "needoh",
+    "Toys & Games",
+    3989391
+   ],
+   [
+    "toilet paper",
+    "Health & Household",
+    3326328
+   ],
+   [
+    "paper towels",
+    "Health & Household",
+    2923849
+   ],
+   [
+    "squishy",
+    "Toys & Games",
+    2645514
+   ],
+   [
+    "halloween costumes for women",
+    "Clothing, Shoes & Jewelry",
+    2437885
+   ],
+   [
+    "iphone 18 pro max case",
+    "Cell Phones & Accessories",
+    2142906
+   ],
+   [
+    "halloween decorations",
+    "Patio, Lawn & Garden",
+    2032692
+   ],
+   [
+    "halloween candy",
+    "Grocery & Gourmet Food",
+    1938914
+   ],
+   [
+    "halloween",
+    "Grocery & Gourmet Food",
+    1786741
+   ]
+  ],
+  "us_n": 100,
+  "us_heat": [
+   [
+    78,
+    "heating pad",
+    772027
+   ],
+   [
+    97,
+    "heated blanket",
+    716956
+   ]
+  ],
+  "uk": [
+   [
+    "carrie",
+    "Toys & Games",
+    822711
+   ],
+   [
+    "halloween decorations",
+    "Home & Kitchen",
+    460140
+   ],
+   [
+    "pokemon 30th anniversary",
+    "Toys & Games",
+    452307
+   ],
+   [
+    "halloween costumes",
+    "Toys & Games",
+    348022
+   ],
+   [
+    "lego",
+    "Toys & Games",
+    338894
+   ],
+   [
+    "toilet roll",
+    "Grocery",
+    327305
+   ],
+   [
+    "aa batteries",
+    "Electronics & Photo",
+    320664
+   ],
+   [
+    "kindle",
+    "Electronics & Photo",
+    318251
+   ],
+   [
+    "halloween",
+    "Home & Kitchen",
+    304323
+   ],
+   [
+    "aaa batteries",
+    "Electronics & Photo",
+    296950
+   ]
+  ],
+  "uk_n": 100,
+  "uk_heat": [
+   [
+    44,
+    "heated blanket",
+    163772
+   ],
+   [
+    48,
+    "hot water bottle",
+    159997
+   ],
+   [
+    62,
+    "electric blanket",
+    144075
+   ]
+  ],
+  "de": [
+   [
+    "adventskalender 2026",
+    "Lebensmittel & Getränke",
+    1148300
+   ],
+   [
+    "halloween kostüm damen",
+    "Spielzeug",
+    699000
+   ],
+   [
+    "squishy",
+    "Spielzeug",
+    663632
+   ],
+   [
+    "pokemon 30 jahre",
+    "Spielzeug",
+    615040
+   ],
+   [
+    "harry potter",
+    "Spielzeug",
+    524588
+   ],
+   [
+    "ninja",
+    "Küche, Haushalt & Wohnen",
+    482117
+   ],
+   [
+    "adventskalender",
+    "Lebensmittel & Getränke",
+    445520
+   ],
+   [
+    "halloween kostüm kinder",
+    "Spielzeug",
+    407748
+   ],
+   [
+    "iphone 18 pro max",
+    "Elektronik & Foto",
+    405840
+   ],
+   [
+    "lego",
+    "Spielzeug",
+    400780
+   ]
+  ],
+  "de_n": 100,
+  "de_heat": [
+   [
+    28,
+    "heizlüfter",
+    249506
+   ],
+   [
+    46,
+    "wärmflasche",
+    203132
+   ],
+   [
+    49,
+    "heizdecke",
+    194010
+   ]
+  ],
+  "jp": [
+   [
+    "ちいかわ",
+    "文房具・オフィス用品",
+    1104000
+   ],
+   [
+    "プロテイン",
+    "ドラッグストア",
+    1104000
+   ],
+   [
+    "iphone",
+    "家電＆カメラ",
+    1084651
+   ],
+   [
+    "モバイルバッテリー",
+    "家電＆カメラ",
+    1074725
+   ],
+   [
+    "ドラゴンボール",
+    "文房具・オフィス用品",
+    1064638
+   ],
+   [
+    "炭酸水",
+    "食品・飲料・お酒",
+    1054397
+   ],
+   [
+    "水",
+    "食品・飲料・お酒",
+    1044005
+   ],
+   [
+    "水 2リットル",
+    "食品・飲料・お酒",
+    1033470
+   ],
+   [
+    "ipad",
+    "パソコン・周辺機器",
+    1022796
+   ],
+   [
+    "洗濯洗剤",
+    "ドラッグストア",
+    1011989
+   ]
+  ],
+  "jp_n": 100,
+  "jp_heat": []
+ }
+}
