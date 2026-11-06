@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>셀러KIM 제10호 등급 미리보기 — 손잡이를 돌려 충전하는 라디오</title>
+<meta name="description" content="영국은 손잡이를 돌려 켜는 라디오를, 일본은 간이 화장실을, 미국은 물을 거르는 빨대를 샀습니다. 정부와 방송이 "사흘은 버틸 준비를 하라"고 말한 주였어요.">
+<meta property="og:title" content="셀러KIM 제10호 등급 미리보기 — 손잡이를 돌려 충전하는 라디오">
+<meta property="og:description" content="영국은 손잡이를 돌려 켜는 라디오를, 일본은 간이 화장실을, 미국은 물을 거르는 빨대를 샀습니다. 정부와 방송이 "사흘은 버틸 준비를 하라"고 말한 주였어요.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/trend-radar/assets/img/un10_radio_sill.jpg">
+<link rel="icon" href="/trend-radar/assets/favicon.svg">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--paper:#F4F6F5;--paper2:#E9EEEC;--ink:#15242B;--muted:#5B6B72;--rule:#CFD8D5;
+ --brand:#0E8AA6;--hi:#C2452D;--good:#3A8F3F;--pen:rgba(255,212,77,.62);--pen-r:rgba(224,120,90,.38);
+ --t-past:#EAEEEE;--t-next:#EBF3F5;--t-note:#EFEFEB;
+ --t-past2:#E2E8E8;--t-next2:#E1EEF1;--t-note2:#E8E8E1;
+ --fold-a:rgba(0,0,0,.055);--fold-b:rgba(0,0,0,.115);
+ --serif:'Hahmlet','Nanum Myeongjo',serif;--sans:'IBM Plex Sans KR','Apple SD Gothic Neo',sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}}
+:root[data-theme="dark"]{--paper:#101A1F;--paper2:#18242A;--ink:#E6ECEA;--muted:#9AABB0;--rule:#2A3A41;--brand:#1F98B8;--hi:#E8654A;--good:#3E9E4A;--pen:rgba(255,206,74,.30);--pen-r:rgba(232,101,74,.32);--t-past:#161D22;--t-next:#0D1F26;--t-note:#191A18;--t-past2:#1B2329;--t-next2:#0A2530;--t-note2:#1F2019;--fold-a:rgba(0,0,0,.30);--fold-b:rgba(0,0,0,.55)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.9;-webkit-font-smoothing:antialiased;
+  /* 한국어는 어절 단위로만 줄을 바꾼다. 안 넣으면 '비/어 있습니다' 처럼 낱말 가운데가 잘린다.
+     단 한 어절이 단 폭보다 길면 넘치므로 overflow-wrap 을 비상구로 둔다. */
+  word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:680px;margin:0 auto;padding:30px 22px 70px}
+h1,h2{font-family:var(--serif);font-weight:700;margin:0;text-wrap:balance;line-height:1.3}
+p{margin:0 0 1.3em;text-wrap:pretty}   /* 마지막 줄에 한 낱말만 남는 것을 줄인다 */
+img{max-width:100%;display:block}
+strong,b{font-weight:600}
+.mono{font-family:var(--mono)}
+/* 제호 */
+.mast{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+/* 제호 — 한글은 자모를, 라틴은 획을 기하 도형으로 그린 레터링. */
+.mast h1.logo{margin:0;line-height:0;color:var(--ink)}
+.mast h1.logo svg{width:177px;height:auto;display:block}
+@media (max-width:420px){.mast h1.logo svg{width:144px}}
+.mast{padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.mast .meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+/* 표지 */
+.cover{position:relative;margin:18px 0 0}
+.cover img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
+.cover .line{position:absolute;left:0;right:0;bottom:0;padding:70px 24px 22px;color:#fff;
+  background:linear-gradient(transparent,rgba(10,20,25,.8));border-radius:0 0 3px 3px}
+.cover .line .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;opacity:.85;margin-bottom:6px}
+.cover .line h2{color:#fff;font-size:30px;line-height:1.25}
+.cover .line p{margin:8px 0 0;font-size:14.5px;line-height:1.6;opacity:.92;max-width:520px}
+/* 목차 */
+.toc{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.toc .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);padding-top:5px}
+.toc .t{font-weight:500}
+.toc .t small{display:block;font-weight:400;color:var(--muted);font-size:13px;line-height:1.5}
+.toc a.t{color:inherit;text-decoration:none;display:block}
+.toc a.t:hover{color:var(--brand)}
+.toc a.t:hover small{color:inherit}
+/* 편집자의 말 */
+.note{padding:26px 0;border-bottom:1px solid var(--rule);font-size:16.5px}
+.note .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+/* 기사 */
+article{padding:42px 22px;margin:0 -22px;border-bottom:1px solid var(--rule)}
+article:last-of-type{border-bottom:0}
+/* 코너 배경 = 시점 마크와 같은 체계. 색만 봐도 어느 시간 얘기인지 안다 */
+article.t-past{background:var(--t-past)}
+article.t-next{background:var(--t-next)}
+article.t-note{background:var(--t-note)}
+/* 같은 시점이 연달아 오면 한 단계 깊게 — 경계가 사라지지 않도록 */
+article.t-past + article.t-past{background:var(--t-past2)}
+article.t-next + article.t-next{background:var(--t-next2)}
+article.t-note + article.t-note{background:var(--t-note2)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+article h2{font-size:30px;margin-bottom:12px}
+article.short h2{font-size:24px}
+.deck{font-size:17.5px;line-height:1.7;color:var(--muted);margin:0 0 22px;text-wrap:pretty}
+h3.sub{font-family:var(--serif);font-size:20px;font-weight:700;margin:34px 0 10px;line-height:1.45}
+.lead:first-letter{font-family:var(--serif);font-size:3.1em;font-weight:700;float:left;line-height:.85;margin:6px 8px 0 0}
+/* 사진 */
+figure{margin:24px 0}
+figure img{width:100%;object-fit:cover;border-radius:3px}
+figure.ph img{filter:saturate(.88) contrast(1.03)}
+/* 흰 배경 상품 사진에는 생활 사진용 보정을 넣지 않는다 (GUIDE §2-⑤) */
+figure.ph.prd img{filter:none;object-fit:contain;background:#fff}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.65}
+/* 영상 — 종이로는 안 되는 것만. 누르기 전에는 검은 판 하나이고, 누르면 그 자리에서 재생된다 */
+figure.vid .screen{position:relative;aspect-ratio:16/9;background:#12161a;border-radius:3px;overflow:hidden}
+figure.vid .screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+figure.vid .play{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;padding:20px;text-align:center;
+  background:none;border:0;cursor:pointer;color:#fff;font-family:var(--sans)}
+figure.vid .tri{width:56px;height:56px;border-radius:50%;flex:none;
+  border:1.5px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;
+  transition:transform .18s,border-color .18s,background .18s}
+figure.vid .tri::after{content:'';margin-left:4px;
+  border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+figure.vid .play:hover .tri,figure.vid .play:focus-visible .tri{transform:scale(1.08);
+  border-color:#fff;background:rgba(255,255,255,.1)}
+figure.vid .play b{display:block;font-size:15px;font-weight:600;line-height:1.5;color:#fff}
+figure.vid .play .by{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  color:rgba(255,255,255,.6);margin-top:6px}
+figure.vid .out{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:15px;padding:20px;text-align:center}
+figure.vid .out p{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72)}
+figure.vid .out a{font-family:var(--mono);font-size:13px;color:#fff;text-decoration:none;
+  border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:10px 18px}
+figure.vid .out a:hover{background:rgba(255,255,255,.1)}
+figure.vid .play.away .by::after{content:' ↗'}
+figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule);
+  white-space:nowrap}
+figcaption a:hover{color:var(--brand);border-color:var(--brand)}
+.w32 img{aspect-ratio:3/2}
+.w43 img{aspect-ratio:4/3}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.pair figure{margin:0}
+.pair img{aspect-ratio:1/1}
+.pair figcaption{font-size:12.5px}
+@media (max-width:520px){.pair{grid-template-columns:1fr}}
+/* 인용 */
+.pull{font-family:var(--serif);font-size:23px;line-height:1.5;font-weight:500;margin:30px 0;padding:6px 0 6px 20px;border-left:3px solid var(--brand);text-wrap:balance}
+/* 순위표 */
+.rank{margin:26px 0;border-top:1px solid var(--rule)}
+.rank>.r{display:grid;grid-template-columns:30px 1fr auto;gap:0 14px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--rule)}
+.rank .n{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank .b{min-width:0}
+.rank .b b{font-weight:600;font-size:16.5px}
+.rank .b>span{display:block;font-size:14px;color:var(--muted);line-height:1.6;margin-top:2px}
+.rank .v{font-family:var(--mono);font-size:13.5px;color:var(--muted);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rank .v b{display:block;color:var(--ink);font-size:15px;font-weight:500}
+@media (max-width:520px){.rank>.r{grid-template-columns:26px 1fr;gap:0 10px}
+  .rank .v{grid-column:2;text-align:left;margin-top:5px}
+  .rank .v b{display:inline;margin-right:8px}}
+/* 예보 카드 */
+.fc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:26px 0}
+.fc>div{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:16px 18px}
+.fc .w{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--brand);margin-bottom:5px}
+.fc b{display:block;font-size:16.5px;margin-bottom:3px}
+.fc span{font-size:14px;color:var(--muted);line-height:1.6}
+/* 목록 항목 */
+.row{padding:16px 0;border-top:1px solid var(--rule)}
+.row h4{font-family:var(--sans);font-size:16.5px;font-weight:600;margin:0 0 2px}
+.row .n{font-family:var(--mono);font-size:13px;color:var(--muted);margin-bottom:6px}
+.row p{margin:0;font-size:15.5px}
+/* 박스 */
+.box{background:var(--paper2);border:1px solid var(--rule);border-radius:3px;padding:22px 24px 10px;margin:30px 0}
+.box .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-bottom:4px}
+.box h3{font-family:var(--serif);font-size:20px;margin:0 0 6px}
+.box .lede{font-size:14.5px;color:var(--muted);margin:0 0 6px}
+.box .row:first-of-type{border-top:0}
+/* 형광펜 */
+.hl{background-image:linear-gradient(transparent 52%,var(--pen) 52%,var(--pen) 93%,transparent 93%);
+    padding:0 2px;margin:0 -1px;border-radius:2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl.r{--pen:var(--pen-r)}
+/* ── 셀러KIM 기호 ──────────────────────────────
+   시점 마크 .m-past/.m-now/.m-next/.m-note — 코너가 어느 시간을 다루는지
+   매주 같은 자리에 같은 기호가 오면 독자가 숫자를 안 읽고도 읽게 된다 */
+/* 시점 마크 — 왼쪽 채움=지나간 것, 꽉 참=지금, 오른쪽 채움=올 것, 빈 원=풀이 */
+.m{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:1px;
+   border:1.5px solid var(--brand);box-sizing:border-box}
+.m-past{background:linear-gradient(90deg,var(--brand) 50%,transparent 50%)}
+.m-now{background:var(--brand)}
+.m-next{background:linear-gradient(270deg,var(--brand) 50%,transparent 50%)}
+.m-note{border-color:var(--muted)}
+/* 기호 범례 */
+
+/* ── 펼침(spread) 모드 ─────────────────────────────────────────
+   넓은 화면에서는 CSS 다단으로 내용을 페이지처럼 흘리고, 두 쪽씩 보여준다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉜다 — 매주 페이지를 손으로 끊을 필요가 없다.
+   지면 크기는 고정이다(두 쪽 1160×680, 한 쪽 588×680). 화면이 1220×742 이상이면 두 쪽 펼침 + 책넘김,
+   640×742 이상이면 한 쪽씩 넘긴다(body.single, 넘김 효과 없음). 창 크기가 바뀌어도 쪽 나눔은 그대로다.
+   더 좁은 화면·인쇄·모션 최소화 설정에서는 그냥 세로로 읽는다. */
+@media (min-width:782px){
+  /* 지면 크기 고정(1400×1200) — 창 크기가 바뀌어도 쪽 나눔이 그대로다.
+     화면이 남으면 책 전체를 같은 비율로 키운다(--s, 스크립트가 정함) */
+  :root{--pw:596px;--ph:1200px;--pad:56px;--cg:96px;--navh:62px}
+  body.spread{overflow:hidden;height:100vh}
+  body.spread .wrap{
+    --bw:calc(2 * var(--pw) + var(--cg) + 2 * var(--pad));
+    max-width:none;width:var(--bw);height:calc(var(--ph) + var(--navh));padding:0;
+    display:flex;flex-direction:column;
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--s,1));transform-origin:50% 50%}
+  body.spread .book{
+    flex:none;width:var(--bw);height:var(--ph);position:relative;overflow:hidden;
+    box-shadow:0 1px 0 var(--rule),0 0 0 1px var(--rule);
+    perspective:6500px;perspective-origin:50% 50%}
+  body.spread .pages{
+    height:100%;padding:44px var(--pad) 56px;
+    column-count:2;column-gap:var(--cg);column-fill:auto;
+    transition:transform .62s cubic-bezier(.33,.9,.28,1);
+    will-change:transform}
+  /* 코너(기사·목차·편집자의 말)는 새 쪽에서 시작하고, 코너 안에서는 자유롭게 이어진다 */
+  body.spread .pages>*{break-inside:avoid-column}
+  body.spread .toc{gap:16px 20px;padding:14px 0 26px}   /* 쪽 높이 1200 — 항목 사이를 넉넉히 */
+  body.spread .toc .t{line-height:1.5}
+  body.spread .toc .t small{line-height:1.55;margin-top:3px}
+  /* 코너(섹션)는 저마다 새 쪽에서 시작한다. 한 코너가 쪽보다 길면 다음 쪽으로 이어진다. */
+  body.spread .toc{break-before:column;break-inside:auto}
+  body.spread .pages>article,body.spread .pages>.note{break-inside:auto}   /* .pages>* 의 avoid-column 보다 우선 */
+  body.spread .pages>article{break-before:column}   /* 코너마다 새 쪽 */
+  body.spread article{margin:0;padding:0;border-bottom:0;border-top:0}   /* 새 쪽 시작이라 위 구분선·여백 없음 */
+  body.spread article.at-top{border-top:0;padding-top:0;margin-top:0}
+  body.spread .pages>footer,body.spread .issuenav{break-before:avoid-column}   /* 맺음말·호 이동 줄이 마지막 쪽에 혼자 남지 않게 */
+  body.spread .note{margin-top:26px}
+  body.spread article.t-past,body.spread article.t-next,
+  body.spread article.t-note{background:none}          /* 단 배경은 지면 전체로 못 깔린다 */
+  body.spread figure,body.spread .rank .r,body.spread .box .k,body.spread .box h3,
+  body.spread .fc>*,body.spread .pair{break-inside:avoid-column}
+  body.spread .row h4,body.spread .row .n{break-after:avoid-column}
+  /* 순위표·상자·예보 카드는 쪽을 건너 이어질 수 있다. 상자는 조각마다 테두리를 다시 두른다 */
+  body.spread .rank,body.spread .box,body.spread .fc{break-inside:avoid-column}   /* 표는 한 쪽에. 쪽보다 길면 어쩔 수 없이 나뉜다 */
+  body.spread .box,body.spread .fc>div{box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  /* 제목은 뒤따르는 내용과 떨어지지 않게, 문단은 한 줄만 남더라도 빈칸보다는 낫다 */
+  body.spread h2,body.spread h3,body.spread .kicker,body.spread .deck{break-after:avoid-column}
+  body.spread .pages{orphans:1;widows:1}          /* 상속됨 — 메모·상자 본문까지 */
+  /* 사진은 쪽 높이의 절반을 넘지 않게 — 남은 자리에 들어갈 확률을 높인다 */
+  body.spread figure.ph img{max-height:520px}
+  /* 펼침(두 쪽)에서는 단 너비에 맞춰 604px 로 묶는다. 한 쪽 모드는 단이 넓으므로
+     사진과 같은 폭을 쓰게 두되, 화면보다 길어지지 않도록 높이만 지킨다. */
+
+  body.spread .cover{break-after:column}
+  body.spread .cover img{aspect-ratio:auto;height:calc(var(--ph) - 100px - var(--masth, 96px) - 18px);max-height:none}   /* 표지는 왼쪽 쪽을 다 채운다 */
+  /* 책등 그림자 */
+  body.spread .gutter{
+    display:block;position:absolute;top:0;bottom:0;left:50%;width:132px;transform:translateX(-50%);
+    pointer-events:none;z-index:2;
+    background:linear-gradient(90deg,transparent,var(--fold-a) 42%,var(--fold-b) 50%,
+      var(--fold-a) 58%,transparent)}
+  /* 책넘김 — 낱장(.leaf)은 세로 띠(.strip) 열 개를 경첩으로 이어 붙인 것.
+     각 띠가 앞 띠 끝에서 조금씩 더 꺾여 종이가 휘어 보인다(다각형으로 원호를 근사).
+     앞면엔 떠나는 쪽, 뒷면엔 도착하는 쪽 지면을 실제로 그린다. 프레임마다 JS 가 각도를 준다. */
+  body.spread .leaf{display:block;position:absolute;top:0;z-index:4;opacity:0;pointer-events:none;
+    transform-style:preserve-3d}   /* visibility 대신 opacity: 상속되지 않아 복제본 전체를 다시 계산하지 않는다 */
+  body.spread .leaf.on{opacity:1}
+  body.spread .strip{position:absolute;top:0;transform-style:preserve-3d}
+  body.spread .strip>.face{position:absolute;top:0;bottom:0;left:0;right:-1px;overflow:hidden;
+    background:var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  body.spread .strip>.face.back{transform:rotateY(180deg)}
+  body.spread .face .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .face .shade{position:absolute;inset:0;pointer-events:none}
+  /* 도착 면 — 낱장이 들리는 동안 그 밑에 이미 놓여 있어야 하는 쪽.
+     떠나는 쪽 지면은 그대로 두고, 이 층이 새 면을 보여준다. 실제 지면 교체는
+     낱장이 완전히 내려앉은 뒤에 하므로 눈에 띄지 않는다. */
+  body.spread .under{display:block;position:absolute;top:0;z-index:3;overflow:hidden;
+    background:var(--paper);opacity:0;pointer-events:none}
+  body.spread .under.on{opacity:1}
+  body.spread .under .pages{position:absolute;left:0;top:0;transition:none!important;will-change:auto}
+  body.spread .under::after{content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,.04) 12%,transparent 34%)}
+  body.spread .under.prev::after{transform:scaleX(-1)}
+  /* 종이 아래 드리우는 그림자 */
+  body.spread .cast{display:block;position:absolute;top:0;z-index:2;pointer-events:none;visibility:hidden;
+    background:radial-gradient(ellipse at 0 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  body.spread .cast.on{visibility:visible}
+  body.spread .cast.prev{background:radial-gradient(ellipse at 100% 50%,rgba(0,0,0,.28),rgba(0,0,0,.10) 45%,transparent 75%)}
+  /* 넘김은 옆으로 밀려 들어오는 전환(2026-09-29). 3D 책장 넘김은 확대·축소된 책 안에서 조각 경계와 흐린 글자가 보여 뺐다 */
+  body.spread .pages{transition:none}            /* 이동은 넘김 중간에 즉시 */
+  /* 한 쪽씩 — 단 하나, 책등·낱장 없음, 넘김은 짧게 미끄러지기만 */
+  body.spread.single .pages{column-count:1;transition:transform .35s cubic-bezier(.33,.9,.28,1)}
+  body.spread.single .gutter,body.spread.single .leaf,body.spread.single .under,body.spread.single .cast{display:none}
+  /* 조작부 */
+  body.spread .nav{display:flex;align-items:center;justify-content:center;gap:14px;width:var(--bw);height:var(--navh);box-sizing:border-box;
+    padding:14px 0 18px;border-top:1px solid var(--rule);background:var(--paper);z-index:3}
+  body.spread .nav button{
+    font-family:var(--mono);font-size:13px;color:var(--ink);background:none;
+    border:1px solid var(--rule);border-radius:3px;padding:7px 15px;cursor:pointer;
+    transition:border-color .15s,color .15s}
+  body.spread .nav button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+  body.spread .nav button:disabled{opacity:.3;cursor:default}
+  body.spread .nav .pos{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin:0 8px;
+    min-width:94px;text-align:center;font-variant-numeric:tabular-nums}
+  body.spread .modeswap{position:fixed;right:18px;top:16px;z-index:5}
+}
+/* 좁은 화면·인쇄에서는 펼침을 쓰지 않는다 */
+.book,.nav,.gutter,.modeswap{}
+.nav,.gutter,.leaf,.under,.cast{display:none}
+.modeswap{position:fixed;right:14px;top:12px;z-index:5;font-family:var(--sans);font-size:13px;font-weight:600;
+  color:var(--paper);background:var(--brand);border:0;border-radius:3px;
+  padding:8px 14px;cursor:pointer;display:none;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+@media (min-width:782px){.modeswap{display:block}}
+@media (prefers-reduced-motion:reduce){body.spread .pages{transition:none}}
+@media print{body.spread{overflow:visible;height:auto}
+  body.spread .wrap,body.spread .book,body.spread .pages{height:auto;overflow:visible;columns:auto}
+  .nav,.gutter,.modeswap{display:none!important}}
+/* 상태줄 — 펼침이 왜 켜졌는지/안 켜졌는지 페이지가 스스로 말한다 */
+.stat{position:fixed;left:14px;bottom:10px;z-index:6;font-family:var(--mono);font-size:11px;
+  color:var(--muted);background:var(--paper2);border:1px solid var(--rule);border-radius:3px;
+  padding:4px 9px;pointer-events:none;max-width:calc(100vw - 28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.spread .stat{bottom:auto;top:14px;left:14px}
+/* 메모 */
+.memo{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:26px 0;font-size:15px;color:var(--muted)}
+.memo b{color:var(--ink)}
+/* 과월호 — 맨 아래 이전·다음 호 링크 */
+/* 과월호 기사로 가는 표시 — 본문 구절은 그대로 두고 뒤에 작게 붙인다.
+   이름을 .back 으로 하면 책넘김 낱장의 뒷면(.face.back)과 겹쳐 넘길 때 지면이 깨진다 */
+.backissue{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em;color:var(--brand);
+  border:1px solid currentColor;border-radius:3px;padding:0 5px;margin:0 2px 0 5px;text-decoration:none;
+  white-space:nowrap;vertical-align:2px;line-height:1.6}
+.backissue:hover{background:var(--brand);color:var(--paper)}
+.issuenav{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;
+  margin:26px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-size:14px}
+.issuenav a{color:var(--brand);text-decoration:none;border-bottom:1px solid transparent}
+.issuenav a:hover{border-bottom-color:var(--brand)}
+.issuenav .none{color:var(--muted)}
+.issuenav .all{margin-left:auto}
+footer{padding-top:24px;font-size:13px;color:var(--muted);line-height:1.75}
+footer b{color:var(--ink)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+.abs{transition:background .2s}
+body[data-tier="free"] .v-p{display:none}
+body:not([data-tier="free"]) .v-f{display:none}
+body[data-tier="free"] .abs{color:transparent;background:var(--rule);border-radius:3px;letter-spacing:-.04em;position:relative;white-space:nowrap}
+body[data-tier="free"] .abs::after{content:attr(data-m);position:absolute;inset:0;color:var(--muted);text-align:center;font-family:var(--mono);font-size:.82em;letter-spacing:0}
+.pro{display:none;margin:26px 0;border:1.5px solid var(--ink);border-radius:6px;padding:16px 18px;background:var(--paper2);break-inside:avoid}
+body[data-tier="pro"] .pro{display:block}
+.pro-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--hi);font-weight:600}
+.pro h4{font-family:var(--serif);font-size:17px;margin:4px 0 4px}
+.pro h5{font-size:12.5px;margin:12px 0 2px;color:var(--muted)}
+.pro-s{font-size:13px;color:var(--muted);margin:0 0 8px;line-height:1.6}
+.pro-t{overflow-x:auto}
+.pro table{width:100%;border-collapse:collapse;font-size:12.5px}
+.pro th{font-weight:500;color:var(--muted);text-align:left;border-bottom:1px solid var(--ink);padding:5px 6px;white-space:nowrap}
+.pro td{border-bottom:1px solid var(--rule);padding:5px 6px}
+.pro .r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pro-dl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;font-size:11.5px;color:var(--muted)}
+.pro-dl button{font:600 12px var(--mono);padding:5px 10px;border:1px solid var(--ink);border-radius:4px;background:var(--paper);color:var(--ink);opacity:.75;cursor:not-allowed}
+.spk{display:inline-flex;align-items:flex-end;gap:1px;height:18px}.spk i{display:block;width:4px;background:var(--brand);opacity:.8}
+.tiers{position:fixed;left:14px;top:12px;z-index:7;display:flex;gap:4px;padding:4px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.tiers button{font:600 12.5px var(--sans);border:0;background:none;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
+.tiers button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.only-free,.only-plus{display:none}
+body[data-tier="free"] .only-free,body[data-tier="plus"] .only-plus{display:flex}
+body[data-tier="free"] span.only-free{display:inline}
+.cta{align-items:center;gap:12px;flex-wrap:wrap;margin:22px 0 4px;padding:12px 14px;border:1px dashed var(--brand);border-radius:6px;break-inside:avoid}
+.cta button{font:700 13.5px var(--sans);padding:8px 16px;border:0;border-radius:999px;background:var(--brand);color:#fff;cursor:pointer}
+.cta.pro-up button{background:var(--ink);color:var(--paper)}
+.cta span{font-size:12.5px;color:var(--muted)}
+.cta-in{font:600 12.5px var(--sans);color:var(--brand);border:0;background:none;padding:0 0 0 6px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.gate{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(10,20,25,.45)}
+.gate.on{display:flex}
+.gate-box{width:min(340px,calc(100vw - 32px));background:var(--paper);color:var(--ink);border-radius:10px;padding:20px 20px 16px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.gate-box p{margin:0 0 4px;font:700 16px var(--sans)}.gate-box small{display:block;color:var(--muted);font-size:13px;margin-bottom:14px}
+.gate-box div{display:flex;gap:8px;justify-content:flex-end}
+.gate-box button{font:600 13.5px var(--sans);padding:8px 14px;border-radius:999px;border:1px solid var(--rule);background:none;color:var(--ink);cursor:pointer}
+.gate-box button.go{background:var(--brand);border-color:var(--brand);color:#fff}
+.ver{display:inline-block;font-family:var(--mono);font-size:11px;color:#fff;background:var(--hi);border-radius:3px;padding:1px 7px;margin-bottom:4px}
+.tierband{margin:14px 0 4px;padding:10px 14px;border-radius:6px;font-size:13.5px;line-height:1.6;background:var(--paper2);border-left:3px solid var(--brand)}
+.tierband>div{display:none}.tierband b{color:var(--ink)}
+body[data-tier="free"] .tierband .t-free,body[data-tier="plus"] .tierband .t-plus,body[data-tier="pro"] .tierband .t-pro{display:block}
+@media (max-width:520px){.tiers{top:auto;bottom:40px;left:50%;transform:translateX(-50%)}}
+</style>
+
+<div class="wrap">
+<div class="book"><div class="gutter"></div><div class="cast" aria-hidden="true"></div><div class="under" aria-hidden="true"></div><div class="leaf" aria-hidden="true"></div><div class="pages">
+<header class="mast">
+  <h1 class="logo">
+    <svg viewBox="4 4 760 192" role="img" aria-label="셀러KIM">
+      <title>셀러KIM</title>
+      <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt" stroke-linejoin="miter">
+        <path d="M14,96 L48,20 L82,96"/>
+        <path d="M152,16 V96"/><path d="M126,58 H152"/><path d="M200,16 V96"/>
+        <path d="M14,112 H200 V148 H14 V184 H200"/>
+        <g transform="translate(224,0)">
+          <path d="M16,28 H126 V92 H16 V156 H126"/>
+          <path d="M192,16 V184"/><path d="M148,100 H192"/>
+        </g>
+        <path d="M490,16 V184"/><path d="M496,100 L562,16"/><path d="M496,100 L566,184"/>
+        <path d="M652,184 V16 L700,112 L748,16 V184"/>
+      </g>
+      <g fill="currentColor">
+        <rect x="606" y="16" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="60" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="104" width="13" height="36" rx="1.5"/>
+        <rect x="606" y="148" width="13" height="36" rx="1.5"/>
+      </g>
+    </svg>
+  </h1>
+  <div class="meta"><span class="ver">등급 미리보기 v1.0 · 2026-11-06 13:43</span><br><span style="color:var(--ink);font-weight:600">돈이 되는 트렌드 · TrendRadar 주간 매거진</span><br>제10호 · 2026년 11월 1주 · 글 셀러킴</div>
+</header>
+<div class="tierband">
+<div class="t-free"><b>무료</b> · 0원 · 이메일 구독 — 이야기와 배수·증감률·순위는 그대로, 검색 횟수와 등록 상품 수는 몇 배·몇 %로만 보여 드립니다. 지난 호(과월호) 링크는 플러스부터 열립니다.</div>
+<div class="t-plus"><b>플러스</b> · 월 9,900원 — 본문의 모든 정확한 수치와 지난 호 전체를 엽니다.</div>
+<div class="t-pro"><b>프로</b> · 월 99,000~149,000원 — 플러스 전체에 더해, 기사마다 본문 밖의 원자료(전체 목록·시계열)를 표와 파일로 받습니다.</div>
+</div>
+
+<div class="cover">
+  <img src="/trend-radar/assets/img/un10_radio_sill.jpg" alt="안개 낀 창가에 놓인 검은 휴대용 라디오">
+  <div class="line">
+    <div class="k">커버스토리</div>
+    <h2>손잡이를 돌려 충전하는 라디오</h2>
+    <p>영국은 손잡이를 돌려 켜는 라디오를, 일본은 간이 화장실을, 미국은 물을 거르는 빨대를 샀습니다. 정부와 방송이 "사흘은 버틸 준비를 하라"고 말한 주였어요.</p>
+  </div>
+</div>
+
+<div class="toc">
+  <div class="k">커버스토리</div><a class="t" href="#cover">손잡이를 돌려 충전하는 라디오 <small>영국 라디오·일본 간이 화장실·미국 정수 빨대</small></a>
+  <div class="k">기사</div><a class="t" href="#this-week">경량패딩 앞에 브랜드 이름이 붙었습니다 <small>이번 주 사람들이 찾은 것</small></a>
+  <div class="k">브랜드</div><a class="t" href="#brand">우표 한 장을 사려고 밤을 샜습니다 <small>페이커 기념우표</small></a>
+  <div class="k">통신</div><a class="t" href="#dispatch">해외 트렌드 소식 <small>자석 속눈썹, 겨울 외투, 가습기</small></a>
+  <div class="k">해외 커뮤니티</div><a class="t" href="#community">해외 커뮤니티 일주일 <small>나라별로 본 11.11 쿠폰, 비상키트, 할로윈, 그리고 김</small></a>
+  <div class="k">말뜻</div><a class="t" href="#word">이 단어, 무슨 뜻일까 <small>설아복숭아 — 늦가을에 따는 복숭아</small></a>
+  <div class="k">예보</div><a class="t" href="#forecast">크리스마스트리는 11월에 고릅니다 <small>트리·넥워머, 그리고 과메기</small></a>
+  <div class="k">추천</div><a class="t" href="#picks">셀러킴의 미리 추천 <small>12월과 1월에 오르는 것 둘</small></a>
+  <div class="k">타이밍</div><a class="t" href="#timing">지금 사둬야 하는 것 <small>고학년책가방·초등실내화·낮잠이불·강아지한복</small></a>
+  <div class="k">기록</div><a class="t" href="#past">이미 지나간 것들 <small>할로윈이 끝났습니다</small></a>
+  <div class="k">팔로업</div><a class="t" href="#followup">그 후 <small>온풍기·너구링·쿠리만쥬, 그리고 빼빼로 예보</small></a>
+</div>
+
+<div class="note">
+  <div class="k">셀러킴의 편지</div>
+  <p>지난 호는 같은 추위에 나라마다 다른 난방용품을 찾은 이야기였습니다. 이번 주는 <b>준비</b>예요. 영국 정부가 "사흘은 혼자 버틸 수 있게 준비해 두자"는 캠페인을 열었고, 일본은 오늘 방재청을 출범시키며 같은 요청을 예고했습니다. 그사이 미국에서는 전직 FBI 부국장이 방송에서 비축을 권했고요. 세 나라 아마존 순위에 그 말이 그대로 찍혔습니다.</p>
+  <p>이번 호부터 <b>해외 커뮤니티 코너</b>를 새로 둡니다. 서른 개 가까운 나라의 온라인 게시판에서 한 주 동안 무엇이 이야기됐는지 추렸어요. 게시판에서 많이 이야기된다는 건 <b>사람들이 궁금해한다</b>는 뜻이지, 모두 사려고 한다는 뜻은 아닙니다.</p>
+</div>
+
+<!-- ───────────── 커버스토리 ───────────── -->
+<article id="cover">
+  <p class="kicker"><span class="m m-now" aria-hidden="true"></span>커버스토리 · 비상용품</p>
+  <h2>손잡이를 돌려 충전하는 라디오</h2>
+  <p class="deck">10월 30일 집계한 영국 아마존 검색 1위는 장난감도 할로윈 의상도 아니었습니다. 손잡이를 돌려 켜는 라디오였어요. 같은 주 일본과 미국 쇼핑몰 순위도 비상용품으로 채워졌습니다.</p>
+
+  <p class="lead">영국 아마존 검색 1위에 <span class="mono hl">wind up radio</span>(와인드 업 라디오 · 손잡이를 돌려 충전하는 라디오)가 올라왔습니다. 한 주 전에는 100위 안에 없던 말이에요. <span class="v-p">한 달 검색 횟수가 <b><span class="abs">88만</span> 번</b>을 넘어 할로윈 의상(2위)보다 많았습니다.</span><span class="v-f">2위 할로윈 의상보다도 많이 검색됐어요.</span> 그 아래로 <span class="mono">camping stove</span>(캠핑 스토브 · 휴대용 버너)가 13위, <span class="mono">candles</span>(캔들 · 양초)가 25위, <span class="mono">first aid kit</span>(퍼스트 에이드 킷 · 구급상자)가 41위로 한꺼번에 새로 들어왔어요. <span class="mono">water purification tablets</span>(물 정화 알약)도 94위로 순위표에 처음 올랐습니다.<span class="only-free"><button type="button" class="cta-in" data-go="plus">정수알약 상품수 →</button></span></p>
+
+  <p>계기는 영국 정부가 10월 22일 시작한 <b>Be Ready</b>(비 레디 · 대비하세요) 캠페인입니다. 폭풍이나 홍수, 정전, 사이버 공격으로 전기와 수도가 끊겨도 집에서 사흘은 버틸 수 있게 물과 먹을거리, 라디오와 손전등을 챙겨 두자는 내용이에요. 현지 보도에 따르면 캠페인 다음 주에 한 가전 체인의 라디오 판매가 전주보다 160% 늘었고, 몇몇 모델은 품절됐다고 합니다.</p>
+
+  <figure class="ph w43 prd"><img src="/trend-radar/assets/img/az10_amz_radio1.jpg" alt="안테나를 세운 빨간 손잡이 충전식 라디오. 앞면에 손전등이 달려 있다"><figcaption>영국 아마존에서 wind up radio로 검색하면 맨 위에 나오는 상품입니다. 뒤쪽 손잡이를 돌리거나 햇빛으로 충전하고, 손전등과 휴대폰 충전 기능이 함께 들어 있어요. 사진 아마존 판매자 저작물</figcaption></figure>
+
+  <h3 class="sub">일본은 화장실, 미국은 물</h3>
+
+  <p>일본은 오늘(11월 2일) 방재청이 문을 열었습니다. 정부는 출범과 함께 물과 먹을거리, 휴대용 화장실을 <b>최소 사흘치, 가능하면 일주일치</b> 준비해 달라고 요청하겠다고 미리 밝혔어요. 지난주 라쿠텐 종합 순위에는 그 말이 먼저 반영됐습니다. <span class="v-p">10월 30일 상위 <span class="abs">40</span>개 가운데 <b><span class="abs">10</span>개</b>가 간이 화장실, <span class="abs">7</span>개가 10년 보존수와 생수 묶음이었어요.</span><span class="v-f">10월 30일 상위 마흔 개 가운데 <b>열 개</b>가 간이 화장실, 일곱 개가 10년 보존수와 생수 묶음이었어요.</span> 10월 29일 아마존 일본 DIY 분야도 1위부터 4위까지가 간이 화장실과 보존 비스킷이었습니다.</p>
+
+  <p>왜 하필 화장실인가 싶었어요. 큰 지진으로 물이 끊기면 변기를 쓰기 어려워지기 때문입니다. 먹을 것은 며칠 버틸 수 있어도 화장실은 그날부터 필요하죠. 일본 정부의 요청 목록에도 물·먹을거리와 함께 화장실이 들어 있습니다.</p>
+
+  <p>미국은 물이었습니다. 아마존 미국 스포츠·아웃도어 <span class="v-p">판매 상위 <span class="abs">6</span>개 중 셋이</span><span class="v-f">판매 상위 여섯 개 중 셋이</span> 물을 거르는 빨대 <span class="mono">LifeStraw</span>(라이프스트로)와 정수 알약이었어요. 같은 주 전직 FBI 부국장 댄 본지노가 자기 방송에서 영국 캠페인을 언급하며 "물과 먹을거리, 비상 라디오와 정수 알약을 챙기라"고 말했다는 보도가 나왔습니다.</p>
+
+  <p class="pull">영국은 라디오, 일본은 화장실, 미국은 물이었습니다.</p>
+
+  <h3 class="sub">한국은 어떤가 싶어 찾아봤는데</h3>
+
+  <p>국내 검색은 조용했어요. <span class="v-p"><span class="mono">휴대용라디오</span>는 한 달 <span class="abs">6,230</span>번, <span class="mono">생존배낭</span>은 <span class="abs">3,110</span>번, <span class="mono">간이화장실</span>은 <span class="abs">2,860</span>번 검색됐습니다.</span><span class="v-f"><span class="mono">휴대용라디오</span>를 가장 많이 찾았고, <span class="mono">생존배낭</span>과 <span class="mono">간이화장실</span>은 그 절반쯤이었습니다.</span> 영국에서 손잡이 라디오 하나를 찾는 횟수가 한국의 휴대용 라디오 검색보다 140배쯤 많은 셈이에요. 한국에서 그나마 검색 횟수가 많은 말은 <span class="v-p"><span class="mono">비상식량</span>(한 달 <span class="abs">5만 1,520</span>번)인데</span><span class="v-f"><span class="mono">비상식량</span>(휴대용라디오의 여덟 배쯤)인데</span>, 등산이나 캠핑용 간편식을 찾는 사람이 섞여 있어 이번 흐름과 같다고 보긴 어렵습니다.</p>
+
+  <p>눈에 걸린 건 <span class="mono">정수알약</span>이었어요. <span class="v-p">한 달 <span class="abs">2,310</span>번 검색되는데 그 이름으로 올라온 상품은 <b><span class="abs">221</span>개</b>뿐입니다.</span><span class="v-f">그 이름으로 올라온 상품이 <b>아주 적어요</b>.</span> 검색 열 번에 상품 하나꼴이에요. 찾는 사람 자체가 적긴 하지만, 상품은 그보다 더 적습니다.</p>
+
+  <div class="memo">
+    <b>들여올 생각이라면</b> 라디오는 전파를 받는 기기라 국내에서 팔려면 <span class="hl r">전파인증(KC)</span>을 받아야 합니다. 손잡이 충전식 라디오를 해외에서 그대로 들여오기 어려운 이유예요. 정수 알약은 먹는 물에 넣는 약품이라, 수입하려면 <span class="hl r">별도 허가가 필요할 수 있어요</span>. 그리고 이번 검색은 정부 발표 하나에 몰린 것이라, 발표가 잊히면 함께 빠질 수 있습니다.
+  </div>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">비상용품 나라별 데이터 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>비상용품 — 아마존 순위와 국내 검색</h4><p class="pro-s">10월 30일 영국·독일 아마존 검색 순위표에 든 비상용품 전부와, 국내 쇼핑 검색의 비상용품입니다.</p><div class="pro-t"><table><thead><tr><th class="">나라</th><th class="r">순위</th><th class="">검색어</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="">영국</td><td class="r">1</td><td class="">wind up radio</td><td class="r">885,196</td></tr><tr><td class="">영국</td><td class="r">13</td><td class="">camping stove</td><td class="r">304,780</td></tr><tr><td class="">영국</td><td class="r">24</td><td class="">wind up radio solar, battery, torch</td><td class="r">207,931</td></tr><tr><td class="">영국</td><td class="r">25</td><td class="">candles</td><td class="r">203,756</td></tr><tr><td class="">영국</td><td class="r">38</td><td class="">camping stove gas portable</td><td class="r">183,060</td></tr><tr><td class="">영국</td><td class="r">41</td><td class="">first aid kit</td><td class="r">174,622</td></tr><tr><td class="">영국</td><td class="r">71</td><td class="">emergency survival kit</td><td class="r">135,998</td></tr><tr><td class="">영국</td><td class="r">78</td><td class="">battery radio</td><td class="r">129,734</td></tr><tr><td class="">영국</td><td class="r">89</td><td class="">head torch</td><td class="r">115,621</td></tr><tr><td class="">영국</td><td class="r">94</td><td class="">water purification tablets</td><td class="r">111,626</td></tr><tr><td class="">독일</td><td class="r">28</td><td class="">power bank</td><td class="r">262,744</td></tr><tr><td class="">독일</td><td class="r">81</td><td class="">powerbank</td><td class="r">147,550</td></tr></tbody></table></div><div class="pro-t"><table><thead><tr><th class="">국내 검색어</th><th class="r">월 검색</th><th class="r">등록 상품</th><th class="r">검색÷상품</th></tr></thead><tbody><tr><td class="">휴대용라디오</td><td class="r">6,230</td><td class="r">144,603</td><td class="r">0.04</td></tr><tr><td class="">생존배낭</td><td class="r">3,110</td><td class="r">18,327</td><td class="r">0.17</td></tr><tr><td class="">비상식량</td><td class="r">51,520</td><td class="r">18,832</td><td class="r">2.74</td></tr><tr><td class="">간이화장실</td><td class="r">2,860</td><td class="r">149,556</td><td class="r">0.02</td></tr><tr><td class="">휴대용화장실</td><td class="r">2,370</td><td class="r">151,593</td><td class="r">0.02</td></tr><tr><td class="">정수알약</td><td class="r">2,310</td><td class="r">221</td><td class="r">10.45</td></tr><tr><td class="">휴대용정수기</td><td class="r">1,650</td><td class="r">20,085</td><td class="r">0.08</td></tr><tr><td class="">캠핑스토브</td><td class="r">2,750</td><td class="r">280,636</td><td class="r">0.01</td></tr><tr><td class="">보조배터리</td><td class="r">170,900</td><td class="r">457,227</td><td class="r">0.37</td></tr><tr><td class="">구급함</td><td class="r">3,630</td><td class="r">143,700</td><td class="r">0.03</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>비상용품_아마존4개국_52주.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+<div class="cta only-free"><button type="button" data-go="plus">비상용품 검색수·상품수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+
+<!-- ───────────── 기사 · 이번 주 순위 ───────────── -->
+<article id="this-week">
+  <p class="kicker"><span class="m m-now" aria-hidden="true"></span>기사 · 이번 주 많이 찾은 것</p>
+  <h2>경량패딩 앞에 브랜드 이름이 붙었습니다</h2>
+  <p class="deck">11월 2일 집계한 국내 쇼핑 검색 순위입니다. 지난주까지 1·2위였던 AI 서비스 둘이 목록에서 빠지면서 유니클로가 처음 1위에 올랐고, 탑텐이 5위로 들어왔습니다.</p>
+
+  <div class="rank">
+    <div class="r"><div class="n">1</div><div class="b"><b>유니클로</b><span>3위에서 처음 1위로 올라섰습니다</span></div><div class="v"><span class="v-p"><b>237만</b>한 달 검색</span><span class="v-f"><b>기준</b>1위</span></div></div>
+    <div class="r"><div class="n">2</div><div class="b"><b>무신사</b><span>4위에서 두 칸 올라왔습니다</span></div><div class="v"><span class="v-p"><b>185만</b>한 달 검색</span><span class="v-f"><b>78%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">3</div><div class="b"><b>치이카와</b><span>6위에서 세 칸 올라왔습니다. 4주째 상승</span></div><div class="v"><span class="v-p"><b>175만</b>한 달 검색</span><span class="v-f"><b>74%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">4</div><div class="b"><b>롯데시네마</b><span>5위에서 한 칸 올라왔습니다</span></div><div class="v"><span class="v-p"><b>153만</b>한 달 검색</span><span class="v-f"><b>65%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">5</div><div class="b"><b>탑텐</b><span>13위에서 처음 10위 안으로 들어왔습니다</span></div><div class="v"><span class="v-p"><b>105만</b>한 달 검색</span><span class="v-f"><b>44%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">6</div><div class="b"><b>클로드</b><span>AI 서비스. 7위에서 한 칸 올라왔습니다</span></div><div class="v"><span class="v-p"><b>102만</b>한 달 검색</span><span class="v-f"><b>43%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">7</div><div class="b"><b>스파오</b><span>8위에서 한 칸 올라왔습니다</span></div><div class="v"><span class="v-p"><b>100만</b>한 달 검색</span><span class="v-f"><b>42%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">8</div><div class="b"><b>29cm</b><span>패션 쇼핑 앱입니다</span></div><div class="v"><span class="v-p"><b>88만</b>한 달 검색</span><span class="v-f"><b>37%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">9</div><div class="b"><b>뉴발란스</b><span>러닝화는 이번 주도 가장 큰 분야입니다</span></div><div class="v"><span class="v-p"><b>79만</b>한 달 검색</span><span class="v-f"><b>33%</b>1위 대비</span></div></div>
+    <div class="r"><div class="n">10</div><div class="b"><b>먼작귀</b><span>치이카와의 국내 이름입니다</span></div><div class="v"><span class="v-p"><b>66만</b>한 달 검색</span><span class="v-f"><b>28%</b>1위 대비</span></div></div>
+  </div>
+
+  <style>
+  .lead.dc2:first-letter{font:inherit;float:none;margin:0;line-height:inherit}
+  .lead.dc2 .dcn{font-family:var(--serif);font-size:3.1em;font-weight:700;float:left;line-height:.85;margin:6px 8px 0 0}
+  </style>
+  <p class="lead dc2"><span class="dcn">10</span>위 안에 옷 가게 이름이 다섯 개예요. 유니클로·무신사·탑텐·스파오·29cm입니다. 그런데 이번 주 정말 크게 움직인 건 그 이름 뒤에 붙은 말이었어요. <span class="mono hl">경량패딩</span>입니다.</p>
+
+  <p>브랜드 이름에 경량패딩을 붙인 검색이 한꺼번에 늘었습니다. <span class="v-p"><span class="mono">스파오경량패딩</span>은 한 달 <span class="abs">18만 6,900</span>번, <span class="mono">탑텐경량패딩</span>은 <span class="abs">13만 4,100</span>번, <span class="mono">유니클로경량패딩</span>은 <span class="abs">9만 7,600</span>번 검색돼요.</span><span class="v-f"><span class="mono">스파오경량패딩</span>을 가장 많이 찾고, <span class="mono">탑텐경량패딩</span>은 그 4분의 3쯤, <span class="mono">유니클로경량패딩</span>은 절반쯤 검색돼요.</span> 탑텐경량패딩은 이번 주 처음 목록에 들어왔고, 한 달 사이 열 배 넘게 뛰었습니다. <span class="v-p">그냥 <span class="mono">경량패딩</span>으로 검색하는 횟수도 한 달 <span class="abs">41만 1천</span> 번이에요.</span><span class="v-f">그냥 <span class="mono">경량패딩</span>으로 검색하는 횟수는 스파오경량패딩의 두 배가 넘어요.</span><span class="only-free"><button type="button" class="cta-in" data-go="plus">스파오경량패딩 검색수 →</button></span></p>
+
+  <figure class="ph w32"><img src="/trend-radar/assets/img/gen_light_puffer.jpg" alt="나무 벤치에 개어 둔 남색 경량 패딩과 니트"><figcaption>얇은 패딩을 고르는 사람들은 이번 주 브랜드 이름부터 넣고 검색했습니다. AI로 생성한 연출 이미지</figcaption></figure>
+
+  <h3 class="sub">정점은 이미 지났는데 브랜드 검색이 오릅니다</h3>
+
+  <p>재미있는 건 시점이에요. 지난 5년 치 기록을 겹쳐 보면 경량패딩 검색은 해마다 <b>10월 셋째 주</b>가 꼭대기입니다. 4호에서 "경량패딩은 한 달만 솟았다가 두꺼운 패딩에 자리를 내준다"고 적었던 그 모양이에요. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-04/#forecast" title="제4호의 해당 기사로 갑니다">4호에서 보기 ↗</a> 지금은 그 정점의 70% 수준까지 내려와 있습니다.</p>
+
+  <p>그런데 브랜드를 붙인 검색은 이제야 올라요. 살지 말지 고민하는 단계는 지났고, <b>어느 브랜드 걸 살지</b> 고르는 단계로 넘어온 것으로 보입니다. 가격대가 비슷한 SPA 브랜드 셋을 나란히 놓고 비교하는 거죠.</p>
+
+  <p>상품 수를 보면 차이가 더 커요. <span class="mono">스파오경량패딩</span>으로 <span class="v-p">올라온 상품은 <b><span class="abs">771</span>개</b>뿐이라 검색 <span class="abs">240</span>번에 상품 하나꼴입니다. 반면 그냥 <span class="mono">경량패딩</span>으로 올라온 상품은 <span class="abs">200만</span> 개가 넘어 검색 한 번에 상품 다섯 개꼴이에요.</span><span class="v-f">올라온 상품은 검색 <b>이백사십 번에 하나꼴</b>입니다. 반면 그냥 <span class="mono">경량패딩</span>으로 올라온 상품은 검색 한 번에 상품 다섯 개꼴이에요.</span></p>
+
+  <div class="memo">
+    <b>상품 수가 적은 이유</b> 스파오·탑텐·유니클로의 경량패딩은 모두 <span class="hl r">브랜드가 직접 만드는 상품</span>입니다. 이름이 붙은 검색에 상품이 적은 건 빈자리가 아니라, 그 브랜드 매장과 공식몰에서만 팔기 때문이에요. 같은 이름을 붙여 팔 수는 없고, <span class="v-p">일반 경량패딩은 이미 <span class="hl r"><span class="abs">200만</span> 개가 넘게</span> 올라와 있습니다.</span><span class="v-f">일반 경량패딩은 이미 <span class="hl r">검색 한 번에 다섯 개꼴로</span> 올라와 있습니다.</span>
+  </div>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">위클리 키워드 4,371개 전체 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>이번 주 위클리 키워드 4,371개 중 상위 15</h4><p class="pro-s">본문은 상위 10개와 브랜드 경량패딩만 다룹니다. 프로에서는 전체 목록과 각 키워드의 3년 주간 추이를 받습니다.</p><div class="pro-t"><table><thead><tr><th class="r">순위</th><th class="">키워드</th><th class="">분류</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="r">1</td><td class="">유니클로</td><td class="">패션의류</td><td class="r">2,368,700</td></tr><tr><td class="r">2</td><td class="">무신사</td><td class="">패션의류</td><td class="r">1,848,400</td></tr><tr><td class="r">3</td><td class="">치이카와</td><td class="">생활/건강</td><td class="r">1,751,600</td></tr><tr><td class="r">4</td><td class="">롯데시네마</td><td class="">여가/생활편의</td><td class="r">1,527,100</td></tr><tr><td class="r">5</td><td class="">탑텐</td><td class="">패션의류</td><td class="r">1,054,800</td></tr><tr><td class="r">6</td><td class="">클로드</td><td class="">디지털/가전</td><td class="r">1,022,600</td></tr><tr><td class="r">7</td><td class="">스파오</td><td class="">패션의류</td><td class="r">996,000</td></tr><tr><td class="r">8</td><td class="">29cm</td><td class="">패션잡화</td><td class="r">884,500</td></tr><tr><td class="r">9</td><td class="">뉴발란스</td><td class="">패션잡화</td><td class="r">786,000</td></tr><tr><td class="r">10</td><td class="">먼작귀</td><td class="">생활/건강</td><td class="r">662,000</td></tr><tr><td class="r">11</td><td class="">아이폰18프로</td><td class="">디지털/가전</td><td class="r">659,900</td></tr><tr><td class="r">12</td><td class="">안다르</td><td class="">패션의류</td><td class="r">598,000</td></tr><tr><td class="r">13</td><td class="">룰루레몬</td><td class="">패션의류</td><td class="r">526,600</td></tr><tr><td class="r">14</td><td class="">아이폰듀오</td><td class="">디지털/가전</td><td class="r">526,400</td></tr><tr><td class="r">15</td><td class="">제주항공권</td><td class="">여가/생활편의</td><td class="r">469,400</td></tr></tbody></table></div><div class="pro-t"><table><thead><tr><th class="">경량패딩·후리스</th><th class="r">월 검색</th><th class="r">등록 상품</th><th class="r">검색÷상품</th></tr></thead><tbody><tr><td class="">경량패딩</td><td class="r">411,000</td><td class="r">2,067,881</td><td class="r">0.20</td></tr><tr><td class="">스파오경량패딩</td><td class="r">186,900</td><td class="r">771</td><td class="r">242.41</td></tr><tr><td class="">탑텐경량패딩</td><td class="r">134,100</td><td class="r">1,534</td><td class="r">87.42</td></tr><tr><td class="">유니클로경량패딩</td><td class="r">97,600</td><td class="r">6,615</td><td class="r">14.75</td></tr><tr><td class="">아이더경량패딩</td><td class="r">57,700</td><td class="r">58,625</td><td class="r">0.98</td></tr><tr><td class="">휠라경량패딩</td><td class="r">47,520</td><td class="r">6,726</td><td class="r">7.07</td></tr><tr><td class="">후리스</td><td class="r">124,000</td><td class="r">3,139,434</td><td class="r">0.04</td></tr><tr><td class="">스파오후리스</td><td class="r">91,670</td><td class="r">2,367</td><td class="r">38.73</td></tr><tr><td class="">유니클로후리스</td><td class="r">76,440</td><td class="r">10,180</td><td class="r">7.51</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>위클리키워드_2026-11-02_4371개.csv</button><button type="button" disabled>주간추이_3년.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+<div class="cta only-free"><button type="button" data-go="plus">TOP 10·브랜드 경량패딩 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 브랜드 ───────────── -->
+<article id="brand" class="t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>브랜드 · 이 이름의 뒷이야기</p>
+  <h2>우표 한 장을 사려고 밤을 샜습니다</h2>
+  <p class="deck">이번 주 새로 들어온 말 중에 '페이커우표'가 있었습니다. 게임 선수의 얼굴이 들어간 기념우표예요.</p>
+
+  <p class="lead"><span class="mono hl">페이커우표</span>는 우정사업본부가 10월 23일 발행한 기념우표입니다. 리그 오브 레전드 프로게이머 페이커(이상혁)의 선수 생활을 두 시기로 나눠 전지 두 종에 담았어요. 검은색과 빨간색으로 우승 장면을 그렸고, 별명 '불사대마왕'을 뜻하는 뿔 모양도 넣었다고 합니다.</p>
+
+  <h3 class="sub">개인 선수가 혼자 주인공인 첫 우표</h3>
+
+  <p>기념우표는 보통 국가 행사나 인물, 문화재를 담습니다. 그런데 <b>개인 선수 한 명이 단독 주인공</b>이 된 건 이번이 처음이라고 해요. 그만큼 화제가 됐고, 발행일 아침 서울중앙우체국 앞에는 밤새 줄을 선 사람들이 있었다는 보도가 나왔습니다.</p>
+
+  <p>전지 두 종류는 7만 장씩, 모두 14만 장 찍었습니다. 기념우표카드 메탈판은 <span class="v-p"><b><span class="abs">507</span>개</b>만 한정으로</span><span class="v-f"><b>오백일곱 개</b>만 한정으로</span> 만들었어요. 서울중앙우체국 안 우표박물관에서는 내년 1월 31일까지 페이커 기획전시도 열립니다.<span class="only-free"><button type="button" class="cta-in" data-go="plus">페이커우표 검색수 →</button></span></p>
+
+  <p class="pull"><span class="v-p">검색은 한 달 <span class="abs">4만</span> 번, 상품은 일곱 개뿐이었습니다.</span><span class="v-f">검색은 넘치는데 상품은 손에 꼽았습니다.</span></p>
+
+  <p>이번 주 <span class="mono">페이커우표</span>는 <span class="v-p">한 달 <b><span class="abs">4만 2,220</span>번</b> 검색됐습니다. 그런데 그 이름으로 올라온 상품은 <span class="abs">7</span>개뿐이에요.</span><span class="v-f">검색이 많았습니다. 그런데 그 이름으로 올라온 상품은 검색 <b>육천 번에 하나꼴</b>이에요.</span> 우체국에서만 파는 데다 수량이 정해져 있어서 그렇습니다. 결국 이 검색은 대부분 우체국 판매 안내나 중고 거래로 이어질 거예요.</p>
+
+  <div class="memo">
+    <b>이 코너는</b> 매주 한 이름을 골라 어디서 시작했고 사람들이 왜 찾는지를 정리합니다. 기념우표는 <span class="hl r">우정사업본부만 발행·판매</span>하고, 선수 이름과 얼굴은 초상권이 있어 관련 상품을 따로 만들어 팔 수 없습니다. 광고가 아니며 관계 기관·선수와 아무 관계가 없습니다.
+  </div>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">페이커우표 연관어 데이터 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>페이커우표 검색·상품</h4><p class="pro-s">검색 횟수와 그 이름으로 올라온 상품 수입니다.</p><div class="pro-t"><table><thead><tr><th class="">검색어</th><th class="r">월 검색</th><th class="r">등록 상품</th><th class="r">검색÷상품</th></tr></thead><tbody><tr><td class="">페이커우표</td><td class="r">42,220</td><td class="r">7</td><td class="r">6031.43</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>페이커우표_연관어_52주.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+<div class="cta only-free"><button type="button" data-go="plus">페이커우표 검색수·상품수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 통신 ───────────── -->
+<article id="dispatch" class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>통신 · 해외 시장 쪽지</p>
+  <h2>해외 트렌드 소식</h2>
+  <p class="deck">10월 30일 미국·영국·독일·일본 아마존 검색 순위에서 추렸습니다. 커버스토리의 비상용품 말고도, 겨울 외투와 건조한 계절 용품이 순위에 올라왔어요.</p>
+
+  <h3 class="sub">미국 — 자석 속눈썹과 색이 바뀌는 파운데이션</h3>
+
+
+
+  <p class="lead">미국 뷰티 쪽에서는 <span class="mono">magnetic eyelashes</span>(마그네틱 아이래시스 · 자석 속눈썹)가 59위에서 20위로, <span class="mono">luxe color changing foundation</span>(바르면 색이 피부톤에 맞춰 바뀐다는 파운데이션)이 61위에서 21위로 올라왔습니다. 메디큐브도 21위에서 18위로 올라 다시 20위 안에 들었어요.</p>
+
+  <h3 class="sub">독일 — 겨울 외투를 찾기 시작했습니다</h3>
+
+  <p><span class="mono">winterjacke herren</span>(빈터야케 헤렌 · 남성 겨울 외투)이 88위에서 41위로, <span class="mono">winterjacke damen</span>(빈터야케 다멘 · 여성 겨울 외투)이 55위에서 31위로 올랐습니다. 지난 호에 다룬 크리스마스 달력은 여성용·남성용·어린이용으로 나뉘어 상위권을 지켰어요. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-09/#dispatch" title="제9호의 해당 기사로 갑니다">9호에서 보기 ↗</a></p>
+
+  <h3 class="sub">일본 — 가습기와 핸드크림</h3>
+
+  <p>일본은 공기가 건조해지는 철이라 그런지 <span class="mono">加湿器</span>(가시쓰키 · 가습기)가 48위에서 27위로, <span class="mono">ハンドクリーム</span>(한도쿠리무 · 핸드크림)이 88위에서 65위로 올라왔어요. 어린이 특촬물 <span class="mono">仮面ライダー</span>(가멘 라이다 · 가면라이더)도 78위에서 34위로 뛰었습니다.</p>
+
+  <div class="memo">
+    <b>세 나라를 묶으면</b> 이번 주는 '겨울 준비'가 시작된 주였습니다. 독일은 외투를, 일본은 가습기와 핸드크림을 찾기 시작했어요. 소제목의 나라 이름은 각 나라 아마존 순위를 가리킵니다.
+  </div>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">아마존 4개국 키워드 전체 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>네 나라 아마존 검색 상위 (10월 30일)</h4><p class="pro-s">본문은 나라별 두세 개만 고릅니다. 프로에서는 나라별 상위 100개 키워드 전체를 받습니다.</p><h5>미국</h5><div class="pro-t"><table><thead><tr><th class="">키워드</th><th class="">카테고리</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="">needoh</td><td class="">Toys &amp; Games</td><td class="r">5,693,525</td></tr><tr><td class="">halloween costumes for women</td><td class="">Clothing, Shoes &amp; Jewelry</td><td class="r">4,172,818</td></tr><tr><td class="">carrie</td><td class="">Movies &amp; TV</td><td class="r">3,479,268</td></tr><tr><td class="">toilet paper</td><td class="">Health &amp; Household</td><td class="r">3,058,284</td></tr><tr><td class="">halloween candy</td><td class="">Grocery &amp; Gourmet Food</td><td class="r">2,767,152</td></tr></tbody></table></div><h5>영국</h5><div class="pro-t"><table><thead><tr><th class="">키워드</th><th class="">카테고리</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="">wind up radio</td><td class="">Electronics &amp; Photo</td><td class="r">885,196</td></tr><tr><td class="">halloween costumes</td><td class="">Toys &amp; Games</td><td class="r">495,087</td></tr><tr><td class="">halloween decorations</td><td class="">Home &amp; Kitchen</td><td class="r">486,659</td></tr><tr><td class="">aa batteries</td><td class="">Electronics &amp; Photo</td><td class="r">452,981</td></tr><tr><td class="">halloween costumes for women</td><td class="">Toys &amp; Games</td><td class="r">364,633</td></tr></tbody></table></div><h5>독일</h5><div class="pro-t"><table><thead><tr><th class="">키워드</th><th class="">카테고리</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="">halloween kostüm damen</td><td class="">Spielzeug</td><td class="r">1,235,296</td></tr><tr><td class="">adventskalender 2026</td><td class="">Lebensmittel &amp; Getränke</td><td class="r">751,957</td></tr><tr><td class="">harry potter</td><td class="">Spielzeug</td><td class="r">713,909</td></tr><tr><td class="">adventskalender</td><td class="">Lebensmittel &amp; Getränke</td><td class="r">661,636</td></tr><tr><td class="">halloween kostüm kinder</td><td class="">Spielzeug</td><td class="r">564,331</td></tr></tbody></table></div><h5>일본</h5><div class="pro-t"><table><thead><tr><th class="">키워드</th><th class="">카테고리</th><th class="r">월 검색</th></tr></thead><tbody><tr><td class="">プロテイン</td><td class="">ドラッグストア</td><td class="r">1,104,000</td></tr><tr><td class="">ドラゴンボール</td><td class="">文房具・オフィス用品</td><td class="r">1,084,651</td></tr><tr><td class="">モバイルバッテリー</td><td class="">家電＆カメラ</td><td class="r">1,074,725</td></tr><tr><td class="">ハリーポッター</td><td class="">おもちゃ</td><td class="r">1,054,397</td></tr><tr><td class="">水</td><td class="">食品・飲料・お酒</td><td class="r">1,033,470</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>아마존_4개국_2026-10-30.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+</article>
+
+<!-- ───────────── 해외 커뮤니티 ───────────── -->
+<article id="community" class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>해외 커뮤니티 · 이번 주 게시판</p>
+  <h2>11월 1일, 세계 게시판이 쿠폰 이야기로 채워졌습니다</h2>
+  <p class="deck">10월 26일부터 11월 2일까지 스물아홉 나라의 온라인 커뮤니티를 나라별로 훑었습니다. 주 초반에는 할로윈 사진이 게시판을 채웠고, 11월 1일이 되자 그 자리를 할인 쿠폰이 채웠어요.</p>
+
+  <p class="lead">나라마다 게시판 분위기는 달랐지만 흐름은 비슷했습니다. 11월 1일부터는 11월 11일 할인 이야기가 게시판 상위에 올랐어요. 11월 11일은 1이 네 개 늘어선 날이라 중국에서 '혼자인 사람의 날'이라는 뜻의 광군제(光棍节 · 광군지에)로 불렸는데, 2009년 알리바바가 이날 할인 행사를 열면서 세계에서 가장 큰 온라인 할인 날 가운데 하나가 됐어요. 중국에서는 솽스이(双十一 · 11이 두 번), 영어권에서는 싱글스 데이(Singles Day)라고 부르고, 지금은 알리익스프레스·쇼피·징둥 같은 쇼핑몰이 여러 나라에서 같은 날 할인을 엽니다. 영국과 일본에서는 그 사이에 '사흘치 비상키트' 이야기가 끼어 있었습니다.</p>
+
+  <h3 class="sub">영국 — 비상키트, 그리고 물 걱정</h3>
+
+  <p>영국 육아 커뮤니티에는 정전·재난에 대비해 물과 식량을 미리 갖춰 두는 사람들이 모이는 <span class="mono">prepper</span>(프레퍼) 게시판이 따로 있습니다. 11월 2일에는 이 게시판의 글 두 개가 '활발한 글 목록'에 올라왔어요. 같은 날 '돈 관리 게시판'에는 "3일 비상키트에 어떤 음식을 넣고 있나요?"라는 글도 올라왔어요. 커버스토리의 정부 캠페인이 그대로 생활 질문이 된 거예요. 같은 주 영국의 다른 커뮤니티에서는 "크리스마스 전에 저수지가 바닥날 수 있다"는 정부 내부 경고 기사가 화제였습니다. 물을 사 두는 사람이 늘어난 배경 가운데 하나로 보여요.</p>
+
+  <div class="pair">
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_uk_reservoir.jpg" alt="물이 빠져 바닥이 드러난 영국의 저수지"><figcaption>"크리스마스 전에 저수지가 마를 수 있다"는 기사. 사진 커뮤니티 게시물에 첨부된 기사 사진</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_uk_pumpkin.jpg" alt="저울 위에 올린 큰 호박, 저울 눈금이 2.4kg대를 가리킨다"><figcaption>"1kg짜리라고 산 호박이 2.5kg 가까이 나왔다"며 올린 사진. 사진 영국 커뮤니티 이용자 게시물</figcaption></figure>
+  </div>
+
+  <p>가벼운 화제도 있었어요. 마트에서 1kg으로 표시해 판 호박을 저울에 올려 보니 2.5kg에 가까웠다며 올린 사진이 인기였습니다. 난방비 걱정도 이어져서 "이번 겨울 집을 싸게 따뜻하게 하는 방법" 같은 글이 계속 올라왔고요.</p>
+
+  <h3 class="sub">일본 — 비축 요청 전문, 그리고 건조한 피부</h3>
+
+  <p>일본 최대 익명 게시판에서는 11월 2일 방재대신의 비축 요청 전문을 옮긴 글이 '뉴스판' 4위에 올랐습니다. 다만 여성 커뮤니티나 질문 게시판에서는 비축 이야기가 거의 보이지 않았어요. 사람들은 게시판에서 이야기하기보다 쇼핑몰에서 <b>먼저 사 두는 쪽</b>을 고른 것 같습니다.</p>
+
+  <p>여성 커뮤니티 '화장품 게시판'은 건조한 계절 이야기로 채워졌어요. "시세이도의 앞날을 이야기하고 싶다"(<span class="mono">資生堂のこれからを語りたい</span> · 시세이도노 코레카라오 카타리타이)는 글이 화제였고, 드럭스토어 클렌징과 핸드크림 추천 글이 줄을 이었습니다. 화장품 리뷰 앱의 '최근 두 달 주목 신제품' 순위에서는 한국 제품이 나란히 올랐어요. 메디힐의 PDRN(연어 DNA 성분) 세럼이 2위, 웨이크메이크 스틱이 3위였습니다.</p>
+
+  <h3 class="sub">중국 — '11.11 인기 상품 목록'이 올라왔습니다</h3>
+
+  <figure class="ph w43"><img src="/trend-radar/assets/img/cm10_cn_1111.jpg" alt="중국 할인 커뮤니티의 상품 순위. 아이폰, 선물 세트, 맥 미니, 연고, 기저귀, 쌀이 1위부터 나란히 있다"><figcaption>중국 할인 커뮤니티의 상품 순위. 2위 선물 세트에는 '솽스이(11.11)' 표시가 붙어 있습니다. 사진 커뮤니티 화면</figcaption></figure>
+
+  <p>중국 최대 할인 정보 커뮤니티에는 징둥의 '11.11 인기 상품 목록'이 올라왔습니다. 정부 보조금이 붙은 프로젝터와 로봇청소기, 회원 전용 생필품 특가가 상위를 채웠어요. 순위 맨 앞은 아이폰이었고, 그 뒤로 어르신 선물 세트, 기저귀, 쌀이 이어졌어요. 큰 할인 날에 생활용품을 쟁여 두는 모습은 한국과 비슷하죠.</p>
+
+  <h3 class="sub">호주·뉴질랜드 — 할로윈 다음은 알리익스프레스</h3>
+
+  <div class="pair">
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_aus_halloween.jpg" alt="할로윈 분장을 한 아이들과 어른들이 주택가 도로를 걷는 모습"><figcaption>"우리 동네가 드디어 할로윈을 받아들였다"는 글에 올라온 주택가 사진. 사진 호주 커뮤니티 이용자 게시물</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_nz_halloween.jpg" alt="정육 진열대 안에 고기로 만든 해골 모양 장식"><figcaption>뉴질랜드 한 마트는 정육 코너에 고기로 만든 해골을 진열했습니다. 사진 뉴질랜드 커뮤니티 이용자 게시물</figcaption></figure>
+  </div>
+
+  <p>호주에서 할로윈은 원래 큰 명절이 아니지만, "우리 동네가 드디어 할로윈을 받아들였다"며 올린 주택가 사진이 큰 인기였습니다. 뉴질랜드에서는 마트 정육 코너에 고기로 해골을 만들어 놓은 사진이 화제였고요.</p>
+
+  <p>11월 1일부터는 할인 정보 게시판 상위가 바뀌었어요. 알리익스프레스 11.11 행사에 35% 캐시백을 더해 주는 혜택을 소개한 글이 '한 달 인기' 1위에 올랐습니다. 11월 26일부터 판매하는 닌텐도 스위치2 블랙프라이데이 묶음 상품을 소개한 글도 벌써 인기예요.</p>
+
+  <figure class="ph w32"><img src="/trend-radar/assets/img/cm10_au_sunscreen.jpg" alt="노란 배경 앞에 놓인 여러 브랜드의 선크림 튜브"><figcaption>호주에서 표시된 자외선 차단 성능에 못 미친 선크림이 또 확인됐다는 소식. 사진 커뮤니티 게시물에 첨부된 기사 사진</figcaption></figure>
+
+  <p>남반구는 여름을 앞두고 있어 선크림 이야기도 많이 나왔어요. 호주에서 표기된 자외선 차단 지수에 못 미친 선크림이 6종 더 확인됐다는 글이 화제였고, 뉴질랜드에서도 소비자단체 시험에서 <span class="v-p"><span class="abs">10</span>개 중 <span class="abs">7</span>개가 떨어졌다</span><span class="v-f">열 개 중 일곱 개가 떨어졌다</span>는 소식이 올라왔습니다. 어두운 피부에 맞는 <span class="mono">tinted</span>(틴티드 · 색이 들어간) 미네랄 선크림을 찾는 질문도 함께 보였어요.</p>
+
+  <h3 class="sub">미국·멕시코 — 코스트코 오락기와 32미터 해골</h3>
+
+  <div class="pair">
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_us_costco_game.jpg" alt="집 안 복도에 들여놓은 공 굴리기 오락기"><figcaption>"코스트코에서 산 것 중 가장 황당한 것"이라며 올린 공 굴리기 오락기 사진. 사진 미국 커뮤니티 이용자 게시물</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_mx_catrina.jpg" alt="멕시코시티 거리 끝에 선 거대한 해골 귀부인 인형"><figcaption>멕시코시티 중앙광장 근처에 세운 32미터짜리 해골 귀부인 인형. 사진 멕시코 커뮤니티 이용자 게시물</figcaption></figure>
+  </div>
+
+  <p>미국 코스트코 이용자 게시판에서는 "지금까지 코스트코에서 산 것 중 가장 황당한 것"이라며 집에 들여놓은 공 굴리기 오락기 사진이 큰 인기였습니다. 추수감사절부터 쓸 수 있는 연말 쿠폰북도 같은 주에 올라왔어요. 멕시코에서는 '죽은 자의 날'을 앞두고 멕시코시티 중앙광장 근처에 세운 32미터짜리 해골 귀부인 인형이 화제였고, 할인 커뮤니티는 상단 메뉴에 'Singles Day 2026'(싱글스 데이 · 11월 11일 할인 행사)을 띄웠습니다.</p>
+
+  <p class="pull">할로윈이 지나자, 게시판엔 쿠폰이 올라왔습니다.</p>
+
+  <h3 class="sub">동남아·인도 — 맑아진 하늘과 쇼피 쿠폰</h3>
+
+  <div class="pair">
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_my_clearsky.jpg" alt="고층 건물 창밖으로 보이는 파란 하늘과 쿠알라룸푸르 시내"><figcaption>"몇 달간의 연무 뒤라 이 사진이 진짜 같지 않다"는 글과 함께 올라온 말레이시아 하늘 사진. 사진 말레이시아 커뮤니티 이용자 게시물</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_sg_sunrise.jpg" alt="아파트 사이로 떠오르는 붉은 해"><figcaption>싱가포르에서 올라온 "연무 없는 일출" 사진. 사진 싱가포르 커뮤니티 이용자 게시물</figcaption></figure>
+  </div>
+
+  <p>동남아는 하늘 이야기로 한 주를 열었어요. 인도네시아 산불 연기로 몇 달 동안 뿌옜던 하늘이 맑아지자, 말레이시아에서는 하늘 사진을 올리며 "이 사진이 진짜 같지 않다"고 쓴 글이 인기였습니다. 싱가포르에서도 "연무 없는 일출" 사진이 올라왔고요. 마스크와 공기청정기에 대한 관심은 한동안 잦아들 것으로 보입니다.</p>
+
+  <p>그다음은 쇼피였어요. 싱가포르에서는 "350달러 이상 사면 111달러 할인" 쿠폰 글이 화제였고, 말레이시아에서는 쇼피 앱의 흔들기 게임 링크를 서로 나누는 글이 <b>큰 인기</b>였습니다. 인도는 디왈리 축제 할인이 한창이었고, 인도네시아에서는 한 생수 브랜드를 보이콧하자는 글이 화제였어요.</p>
+
+  <h3 class="sub">특집 — 해외 게시판의 '김', 좋다와 아쉽다</h3>
+
+  <p>이번 주 한국에서는 호주에서 한국 김이 아이 도시락 간식으로 잘 팔린다는 기사가 나왔어요(서울경제, 11월 2일, 「“역시 한국산 최고, 중국산은 못 믿어”…호주서 불티나게 팔리는 ‘이 간식’ 뭐길래」). <a class="backissue" href="https://n.news.naver.com/article/011/0004677953" title="서울경제 기사로 갑니다">기사 보기 ↗</a> 그래서 최근 1년 가까이(2025년 12월~2026년 10월) 해외 게시판에서 김 이야기를 따로 모아 봤습니다. 이야기가 가장 많은 곳은 미국 마트 이용자 게시판이었고, 호주·영국·뉴질랜드에서도 글이 보였어요.</p>
+
+  <div class="pair">
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_us_gim_bbq.jpg" alt="초록색 상자에 'Organic Spicy Korean BBQ Seaweed Snack'이라고 적힌 트레이더조 김 스낵. 잠수복 차림의 사람이 김 두 장을 줄에 널고 있는 그림"><figcaption>10월에 나온 트레이더조 '오가닉 스파이시 코리안 BBQ 김'. 가격은 6봉에 3.99달러이고, 제품 설명에는 "한국에서는 gim이라 부른다"고 적혀 있습니다. 사진 미국 커뮤니티 게시물에 첨부된 상품 사진</figcaption></figure>
+    <figure class="ph"><img src="/trend-radar/assets/img/cm10_us_gim_bugak.jpg" alt="손에 든 초록색 봉지. 'Korean Bugak Sticky Rice and Seaweed Crisps'라는 글씨와 그릇에 담긴 김 부각 사진"><figcaption>"새로운 집착 대상"이라는 글과 함께 올라온 김 부각 칩. 매장에서 몇 달씩 품절됐다는 글이 이어졌습니다. 사진 미국 커뮤니티 이용자 게시물</figcaption></figure>
+  </div>
+
+  <p><b>좋다는 반응</b>은 '멈출 수 없다'는 말로 요약됩니다. "한 봉지 열면 끝", "갈 때마다 세 봉지 사는데 사흘이면 없다"는 글이 많았고, 트레이더조의 <span class="mono">Bugak</span>(부각 · 찹쌀풀을 발라 튀긴 김) 칩은 몇 달씩 품절됐다는 글이 올라왔어요. 아이 간식으로 산다는 이야기도 많았습니다. 미국의 한 부모는 "딸아이가 코스트코 김을 카드 넘기듯 한 장 한 장 먹어 치운다"고 했어요. 뉴질랜드에서는 "아이 도시락에 김이 꽤 인기"라는 글이, 호주에서는 "아이들이 좋아해서 2주에 서너 팩 산다"는 글이 보였습니다. 한 봉에 30kcal 안팎이라 다이어트 게시판에서는 "10봉을 먹어도 300kcal"라며 추천됐고요.</p>
+
+  <p>맛을 입힌 제품은 김을 처음 접하는 데 도움이 됐어요. "원래 김을 싫어했는데 코리안 BBQ 맛으로 시작해서 1년 뒤엔 그냥 김도 먹는다"는 글이 있었고, 데리야키·와사비·매운맛, 불닭 김, 김 튀김 스낵도 좋은 반응이었습니다. 밥이나 참치마요를 싸 먹거나 라면 토핑, 맥주 안주로 즐기는 등 먹는 법을 나누는 글도 많았어요. 트레이더조 냉동 김밥은 "매일 점심으로 먹는다", "한 번에 여덟 개 산다"는 반응을 얻었습니다.</p>
+
+  <figure class="ph" style="max-width:380px;margin-inline:auto"><img src="/trend-radar/assets/img/cm10_us_gim_expire.jpg" alt="김 스낵 봉지 뒷면. 영양성분표 아래 'PRODUCT OF KOREA'와 'BEST BEFORE Nov.25.2526'이 찍혀 있고, 옆 봉지에는 'Gim means seaweed in Korean'이라는 말풍선이 있다"><figcaption>유통기한이 '2526년'으로 잘못 찍힌 한국산 김 스낵. "참기름은 1년이면 상한다"는 댓글이 달렸습니다. 사진 미국 커뮤니티 이용자 게시물</figcaption></figure>
+
+  <p><b>아쉽다는 반응</b>에서는 먼저 가격이 거론됐어요. "파운드당 60.80달러", "kg당 100달러"처럼 무게로 다시 계산한 글이 많았고, "봉지가 반만 차 있다", "5분이면 끝"이라는 불만이 이어졌습니다. 트레이더조 신제품이 낱개 포장으로만 나오자 "음식보다 포장이 많다", "플라스틱 쓰레기가 너무 많다"는 글도 올라왔어요. 대용량 제품이 그나마 낫다는 비교도 함께 나왔고요.</p>
+
+  <p>기름과 신선도 이야기도 있었어요. 호주에서는 성분의 34%가 기름이라는 데 놀랐다는 글과 기름 냄새가 나서 반품했다는 글이 올라왔습니다. 건강 게시판에서는 요오드와 중금속 걱정이 꾸준했어요. 갑상선 질환이 있는 사람들은 요오드 과다를 걱정했고, "10봉이면 요오드 하루 권장량의 두세 배"라는 계산 글도 있었습니다. 부모 게시판에는 "아이가 김 스낵을 좋아하는데 중금속이 걱정된다"는 글이 올라왔고요. 처음 먹는 사람들은 "생선 맛", "바다 냄새"를 부담스러워했어요. 부각 칩에는 "이건 부각이 아니다, 이상하게 달다"는 평도 나왔습니다.</p>
+
+  <style>
+  .gimtbl{overflow-x:auto;margin:14px 0 22px}
+  .gimtbl table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}
+  .gimtbl th{text-align:left;font-weight:500;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--rule);padding:6px 8px;width:50%}
+  .gimtbl td{border-bottom:1px solid var(--rule);padding:8px;vertical-align:top}
+  </style>
+  <div class="gimtbl">
+    <table>
+      <thead><tr><th>좋다</th><th>아쉽다</th></tr></thead>
+      <tbody>
+        <tr><td>멈출 수 없는 맛, 품절될 만큼 인기</td><td>무게당 값이 비싸고 양이 적음</td></tr>
+        <tr><td>아이 간식·도시락</td><td>낱개 포장 쓰레기</td></tr>
+        <tr><td>한 봉 30kcal 안팎의 가벼운 간식</td><td>기름이 많고 쉽게 눅눅해지거나 상함</td></tr>
+        <tr><td>BBQ·매운맛 등 다양한 맛으로 처음 접하기 쉬움</td><td>요오드·중금속 걱정</td></tr>
+        <tr><td>포장에 '한국산', '김(gim)'을 내세움</td><td>처음 먹는 사람에게는 바다 냄새가 부담</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>'한국산'과 '김(gim)'을 포장에 내세운 제품도 눈에 띄었습니다. 김 스낵을 해외에 판다면 대용량 구성, 포장 줄이기, 요오드 함량 표시가 눈에 띄는 차별점이 될 수 있겠어요.</p>
+
+  <h3 class="sub">언급된 브랜드</h3>
+
+  <style>
+  .brands{overflow-x:auto;margin:14px 0 22px}
+  .brands table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}
+  .brands th{text-align:left;font-weight:500;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--rule);padding:6px 8px}
+  .brands td{border-bottom:1px solid var(--rule);padding:8px;vertical-align:top}
+  .brands td:first-child{white-space:nowrap}
+  .brands td:nth-child(2){color:var(--muted);white-space:nowrap}
+  .brands .kr{font-family:var(--mono);font-size:11px;color:var(--brand);border:1px solid currentColor;border-radius:3px;padding:0 4px;margin-left:4px;vertical-align:1px}
+  .brands tr.g td{font-size:12.5px;color:var(--muted);padding-top:14px;border-bottom:0}
+  </style>
+  <div class="brands">
+    <table>
+      <thead><tr><th>브랜드</th><th>나라</th><th>어떤 이야기</th></tr></thead>
+      <tbody>
+        <tr class="g"><td colspan="3">한국 브랜드</td></tr>
+        <tr><td><b>메디힐</b> <span class="kr">한국</span></td><td>일본</td><td>PDRN(연어 DNA 성분) 세럼이 화장품 리뷰 앱에서 주목</td></tr><tr><td><b>웨이크메이크</b> <span class="kr">한국</span></td><td>일본</td><td>글로우 스틱이 주목</td></tr><tr><td><b>롬앤</b> <span class="kr">한국</span></td><td>일본</td><td>새 에디션 발매 소식</td></tr><tr><td><b>올리브영</b> <span class="kr">한국</span></td><td>대만</td><td>호빵맨 협업 거울을 두고 "구하기 너무 힘들다"는 글</td></tr><tr><td><b>삼성전자</b> <span class="kr">한국</span></td><td>호주·네덜란드·베트남</td><td>갤럭시 할인, OLED TV 특가, 폴드8 배터리 질문</td></tr><tr><td><b>LG전자</b> <span class="kr">한국</span></td><td>인도</td><td>디왈리 세탁기 할인</td></tr><tr><td><b>팔도</b> <span class="kr">한국</span></td><td>중국</td><td>페이커 얼굴을 넣은 큰사발 라면 특가</td></tr><tr><td><b>AHC</b> <span class="kr">한국</span></td><td>중국</td><td>클렌저 특가</td></tr><tr><td><b>비비고</b> <span class="kr">한국</span></td><td>호주</td><td>냉동 김밥을 두고 "한국 브랜드인데 일본 공장"이라고 쓴 글</td></tr>
+        <tr class="g"><td colspan="3">해외 브랜드</td></tr>
+        <tr><td><b>알리익스프레스</b></td><td>호주·뉴질랜드·멕시코</td><td>11.11 할인 코드와 캐시백</td></tr><tr><td><b>쇼피</b></td><td>싱가포르·말레이시아·필리핀</td><td>11.11 쿠폰, 앱 흔들기 게임</td></tr><tr><td><b>징둥</b></td><td>중국</td><td>'11.11 인기 상품 목록'</td></tr><tr><td><b>트레이더조</b></td><td>미국</td><td>한국산 김 스낵 신제품, 김 부각 칩 품절, 냉동 김밥</td></tr><tr><td><b>코스트코</b></td><td>미국</td><td>공 굴리기 오락기, 연말 쿠폰북, 대용량 김</td></tr><tr><td><b>닌텐도</b></td><td>호주</td><td>스위치2 블랙프라이데이 묶음</td></tr><tr><td><b>시세이도</b></td><td>일본</td><td>"시세이도의 앞날" 토론</td></tr><tr><td><b>무인양품</b></td><td>일본</td><td>앱 이용자 정보 유출 가능성</td></tr><tr><td><b>테무</b></td><td>네덜란드·스페인</td><td>EU 밖 소포 수수료 이야기와 함께 언급</td></tr><tr><td><b>오젬픽·마운자로</b></td><td>영국·네덜란드</td><td>비만 치료 주사 바꾸기·알약 이야기</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="memo">
+    <b>역직구 셀러라면</b> 살펴볼 소식도 있어요. 11월 2일 스페인 커뮤니티에 "EU 밖에서 오는 온라인 주문 소포에 2유로 수수료가 붙기 시작했다"는 기사가 올라왔습니다. 이탈리아에서는 자국 소포세가 폐지됐다는 글이 함께 올라와, 나라마다 내용이 엇갈려요. 유럽으로 보내는 저가 소포라면 <span class="hl r">배송비 계산이 달라질 수 있어요</span>. 게시판 글은 그 주의 화제일 뿐 <span class="hl r">수요의 크기를 보여 주지는 않아서</span>, 쇼핑몰 순위와 검색을 함께 봐야 수요를 가늠할 수 있어요.
+  </div>
+</article>
+
+
+<!-- ───────────── 말뜻 ───────────── -->
+<article id="word" class="t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>말뜻 · 이 단어, 무슨 뜻일까</p>
+  <h2>설아복숭아</h2>
+  <p class="deck">복숭아는 여름 과일인 줄만 알았어요. 그런데 11월을 앞두고 복숭아 이름 하나가 처음 목록에 들어왔습니다.</p>
+
+  <figure class="ph w43 prd"><img src="/trend-radar/assets/img/nv10_seolah_peach.jpg" alt="나무 접시에 담긴 하얀 복숭아와 반으로 자른 단면"><figcaption>설아복숭아는 겉이 하얗고 속 가운데가 붉습니다. 사진 네이버쇼핑 판매자 저작물</figcaption></figure>
+
+  <p class="lead"><span class="mono hl">설아복숭아</span>는 10월 하순부터 12월 초까지 따는 늦가을 복숭아 품종입니다. 이름의 '설'은 눈 설(雪) 자예요. 다른 복숭아의 수확이 다 끝난 뒤, 첫눈 무렵에 나온다는 뜻을 담았다고 합니다.</p>
+
+  <p>판매처들은 당도가 20브릭스를 넘는다고 소개해요. 여름 복숭아보다 훨씬 단 편입니다. 재배하는 농가가 아주 적어서 물량도 많지 않다고 하고요. 그래서 대부분 예약 판매로 팔리고, <span class="v-p"><span class="abs">2</span>개짜리 묶음</span><span class="v-f">두 개짜리 묶음</span>이 2만 원대에 나옵니다.<span class="only-free"><button type="button" class="cta-in" data-go="plus">설아복숭아 검색수 →</button></span></p>
+
+  <h3 class="sub">여름보다 겨울 문턱에 더 찾는 복숭아</h3>
+
+  <p>이번 주 <span class="mono">설아복숭아</span><span class="v-p">는 한 달 <b><span class="abs">6만 2,770</span>번</b> 검색됐어요. 그런데 그냥 <span class="mono">복숭아</span>는 지금 한 달 <span class="abs">2만 3,670</span>번입니다.</span><span class="v-f">가 그냥 <span class="mono">복숭아</span>보다 많이 검색됐어요.</span> 철 지난 지금은 특정 품종 이름이 과일 자체의 이름보다 두 배 반 넘게 더 검색되는 거예요. <span class="v-p">올라온 상품은 <span class="abs">3,075</span>개로, 검색 스무 번에 상품 하나꼴입니다.</span><span class="v-f">올라온 상품은 검색 스무 번에 하나꼴입니다.</span> 다만 재배 농가가 적은 과일이라 물건을 받아 오기가 쉽지 않을 거예요.</p>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">설아복숭아 연관어 데이터 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>설아복숭아 연관 검색어</h4><p class="pro-s">품종 이름과 과일 이름을 한 표에 놓았습니다.</p><div class="pro-t"><table><thead><tr><th class="">검색어</th><th class="r">월 검색</th><th class="r">등록 상품</th><th class="r">검색÷상품</th></tr></thead><tbody><tr><td class="">설아복숭아</td><td class="r">62,770</td><td class="r">3,075</td><td class="r">20.41</td></tr><tr><td class="">복숭아</td><td class="r">23,670</td><td class="r">488,938</td><td class="r">0.05</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>설아복숭아_연관어_52주.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+<div class="cta only-free"><button type="button" data-go="plus">설아복숭아 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 예보 ───────────── -->
+<article id="forecast" class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>예보 · 곧 옵니다</p>
+  <h2>크리스마스트리는 11월에 고릅니다</h2>
+  <p class="deck">지난 5년 치 주간 검색 기록을 겹쳐 보고, 지금이 아니라 <b>몇 주 뒤</b>에 오르는 상품 둘과 먹을 것 하나를 골랐습니다.</p>
+
+  <h3 class="sub">상품 하나 — 크리스마스트리</h3>
+
+  <figure class="ph w32"><img src="/trend-radar/assets/img/un8_xmas_tree.jpg" alt="불을 밝힌 크리스마스트리와 그 아래 놓인 선물 상자"><figcaption>트리 검색은 크리스마스가 아니라 11월 하순에 가장 높습니다. 사진은 이해를 돕기 위한 것입니다.</figcaption></figure>
+
+  <p class="lead"><span class="mono hl">크리스마스트리</span> 검색은 12월이 아니라 <b>11월 23일</b> 무렵이 정점입니다. 3주 뒤예요. 트리는 12월 첫날부터 세워 두려는 사람이 많아서, 그 전에 미리 골라 둡니다. 정점에는 검색이 지금의 <b>두 배</b>가 돼요.</p>
+
+  <p><span class="v-p">지금은 한 달 <span class="abs">6만 4,900</span>번 검색되는데, 올라온 상품은 <span class="hl r"><span class="abs">125만</span> 개</span>가 넘습니다. 검색 한 번에 상품 열아홉 개꼴이라</span><span class="v-f">올라온 상품은 검색 한 번에 <span class="hl r">열아홉 개꼴</span>이라</span> 경쟁이 아주 센 품목이에요. 함께 쓰는 크리스마스조명은 일주일 늦은 11월 30일 무렵이 정점입니다.<span class="only-free"><button type="button" class="cta-in" data-go="plus">과메기 검색수 →</button></span></p>
+
+  <h3 class="sub">상품 둘 — 넥워머</h3>
+
+  <p class="lead">목에 두르는 <span class="mono hl">넥워머</span> 검색도 <b>11월 23일</b> 무렵이 정점입니다. 검색량이 지금의 두 배 가까이 늘어나요.<span class="v-p"> 지금은 한 달 <span class="abs">2만 4,560</span>번 검색되고, 상품은 <span class="abs">160만</span> 개가 넘습니다.</span><span class="v-f"> 상품은 지금 찾는 사람의 예순 배가 넘습니다.</span> 목도리보다 가볍게 두를 수 있어 찬바람이 불기 시작하면 함께 찾는 품목이에요.</p>
+
+  <h3 class="sub">먹을 것 — 과메기</h3>
+
+  <figure class="ph w43 prd"><img src="/trend-radar/assets/img/nv7_gwamegi.jpg" alt="김과 쪽파를 곁들여 접시에 담은 과메기"><figcaption>과메기는 찬바람에 말려야 맛이 들어 겨울 초입에 나옵니다. 사진 네이버쇼핑 판매자 저작물</figcaption></figure>
+
+  <p class="lead">꽁치나 청어를 찬바람에 말린 <span class="mono hl">과메기</span> 검색은 <b>11월 23일</b> 무렵이 정점입니다. <span class="v-p">이번 주 이미 한 달 <span class="abs">18만 6,400</span>번 검색돼 크게 올랐는데</span><span class="v-f">이번 주 이미 검색이 크게 올랐는데</span>, 정점에는 지금보다 60%쯤 더 늘어요. <span class="v-p">올라온 상품은 <span class="abs">1만 7,224</span>개로 검색 열 번에 상품 하나꼴입니다.</span><span class="v-f">올라온 상품은 검색 열 번에 하나꼴입니다.</span> 산지 직송 셀러가 많고 날씨에 따라 말리는 시기가 달라져, 출고일을 미리 알려 주는 게 관건이에요.</p>
+
+  <div class="memo">
+    <b>이 예보를 어떻게 만드나</b> 해마다 같은 주에 같은 모양으로 오른 말만 남겼습니다. 여기 적은 배수는 <b>검색이 몇 배가 되는지를 나타내는 것</b>이지, 값이 오른다는 뜻이 아닙니다.
+  </div>
+<div class="cta pro-up only-plus"><button type="button" data-go="pro">계절성 DB 44개 전체 보기</button><span>프로 · 표와 파일 · 월 99,000원부터</span></div><aside class="pro"><div class="pro-k">PRO 데이터</div><h4>계절성 DB — 이번 호 후보 44개 전체</h4><p class="pro-s">5년 주간 기록으로 계산한 정점 시기와 지금 위치. 막대는 1~12월 평균 모양입니다.</p><div class="pro-t"><table><thead><tr><th class="">키워드</th><th class="">월별 모양</th><th class="r">지금(정점 대비)</th><th class="">정점</th><th class="r">배수</th><th class="r">월 검색</th><th class="r">등록 상품</th></tr></thead><tbody><tr><td class="">크리스마스트리</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:18px"></i><i style="height:16px"></i></span></td><td class="r">48%</td><td class="">11월 23일</td><td class="r">2.0배</td><td class="r">64,900</td><td class="r">1,257,116</td></tr><tr><td class="">크리스마스조명</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:18px"></i><i style="height:15px"></i></span></td><td class="r">41%</td><td class="">11월 30일</td><td class="r">2.2배</td><td class="r">9,080</td><td class="r">415,735</td></tr><tr><td class="">절임배추</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:5px"></i></span></td><td class="r">96%</td><td class="">11월 2일</td><td class="r">1.0배</td><td class="r">73,700</td><td class="r">37,672</td></tr><tr><td class="">과메기</td><td class=""><span class="spk"><i style="height:11px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:5px"></i><i style="height:17px"></i><i style="height:18px"></i></span></td><td class="r">48%</td><td class="">11월 23일</td><td class="r">1.6배</td><td class="r">186,400</td><td class="r">17,224</td></tr><tr><td class="">굴</td><td class=""><span class="spk"><i style="height:11px"></i><i style="height:8px"></i><i style="height:4px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:8px"></i><i style="height:18px"></i><i style="height:17px"></i></span></td><td class="r">63%</td><td class="">11월 30일</td><td class="r">1.3배</td><td class="r">58,660</td><td class="r">115,316</td></tr><tr><td class="">귤</td><td class=""><span class="spk"><i style="height:17px"></i><i style="height:9px"></i><i style="height:4px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:3px"></i><i style="height:4px"></i><i style="height:6px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:18px"></i></span></td><td class="r">70%</td><td class="">11월 30일</td><td class="r">1.2배</td><td class="r">71,000</td><td class="r">271,244</td></tr><tr><td class="">핫팩</td><td class=""><span class="spk"><i style="height:8px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:7px"></i><i style="height:17px"></i><i style="height:18px"></i></span></td><td class="r">51%</td><td class="">11월 23일</td><td class="r">1.5배</td><td class="r">67,900</td><td class="r">430,484</td></tr><tr><td class="">수능시계</td><td class=""><span class="spk"><i style="height:3px"></i><i style="height:3px"></i><i style="height:6px"></i><i style="height:6px"></i><i style="height:4px"></i><i style="height:5px"></i><i style="height:4px"></i><i style="height:6px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:18px"></i><i style="height:3px"></i></span></td><td class="r">89%</td><td class="">11월 9일</td><td class="r">1.1배</td><td class="r">19,160</td><td class="r">54,896</td></tr><tr><td class="">패딩부츠</td><td class=""><span class="spk"><i style="height:8px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:12px"></i><i style="height:18px"></i></span></td><td class="r">22%</td><td class="">12월 14일</td><td class="r">3.2배</td><td class="r">7,990</td><td class="r">248,410</td></tr><tr><td class="">롱패딩</td><td class=""><span class="spk"><i style="height:7px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:7px"></i><i style="height:18px"></i><i style="height:17px"></i></span></td><td class="r">46%</td><td class="">11월 23일</td><td class="r">1.8배</td><td class="r">–</td><td class="r">–</td></tr><tr><td class="">경량패딩</td><td class=""><span class="spk"><i style="height:4px"></i><i style="height:5px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:6px"></i></span></td><td class="r">70%</td><td class="">10월 18일</td><td class="r">1.1배</td><td class="r">411,000</td><td class="r">2,067,881</td></tr><tr><td class="">후리스</td><td class=""><span class="spk"><i style="height:5px"></i><i style="height:5px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:7px"></i></span></td><td class="r">70%</td><td class="">10월 18일</td><td class="r">1.0배</td><td class="r">124,000</td><td class="r">3,139,434</td></tr><tr><td class="">모기퇴치기</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:5px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:4px"></i><i style="height:4px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">10%</td><td class="">6월 7일</td><td class="r">9.9배</td><td class="r">30,580</td><td class="r">179,301</td></tr><tr><td class="">할로윈의상</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:5px"></i><i style="height:18px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">3%</td><td class="">10월 18일</td><td class="r">33.6배</td><td class="r">26,260</td><td class="r">629,421</td></tr><tr><td class="">빼빼로</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:6px"></i><i style="height:18px"></i><i style="height:2px"></i></span></td><td class="r">98%</td><td class="">11월 2일</td><td class="r">1.0배</td><td class="r">81,900</td><td class="r">90,038</td></tr><tr><td class="">캐리비안베이</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:4px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">3%</td><td class="">7월 26일</td><td class="r">39.3배</td><td class="r">24,770</td><td class="r">925</td></tr><tr><td class="">설아복숭아</td><td class=""><span class="spk"><i style="height:6px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:14px"></i><i style="height:18px"></i><i style="height:8px"></i></span></td><td class="r">50%</td><td class="">10월 18일</td><td class="r">1.2배</td><td class="r">62,770</td><td class="r">3,075</td></tr><tr><td class="">곶감</td><td class=""><span class="spk"><i style="height:18px"></i><i style="height:8px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:8px"></i><i style="height:4px"></i><i style="height:5px"></i><i style="height:7px"></i></span></td><td class="r">15%</td><td class="">1월 11일</td><td class="r">5.1배</td><td class="r">23,550</td><td class="r">103,342</td></tr><tr><td class="">방한화</td><td class=""><span class="spk"><i style="height:7px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:4px"></i><i style="height:13px"></i><i style="height:18px"></i></span></td><td class="r">30%</td><td class="">12월 14일</td><td class="r">2.4배</td><td class="r">22,600</td><td class="r">670,397</td></tr><tr><td class="">넥워머</td><td class=""><span class="spk"><i style="height:8px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:5px"></i><i style="height:16px"></i><i style="height:18px"></i></span></td><td class="r">48%</td><td class="">11월 23일</td><td class="r">1.8배</td><td class="r">24,560</td><td class="r">1,602,661</td></tr><tr><td class="">샌들</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:15px"></i><i style="height:5px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">3%</td><td class="">6월 14일</td><td class="r">33.2배</td><td class="r">13,310</td><td class="r">9,656,793</td></tr><tr><td class="">휴대용선풍기</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:5px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:18px"></i><i style="height:6px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">2%</td><td class="">6월 28일</td><td class="r">51.1배</td><td class="r">2,770</td><td class="r">585,508</td></tr><tr><td class="">비치타올</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:3px"></i><i style="height:3px"></i><i style="height:3px"></i><i style="height:5px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:11px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">11%</td><td class="">7월 19일</td><td class="r">9.2배</td><td class="r">3,250</td><td class="r">339,394</td></tr><tr><td class="">워터슈즈</td><td class=""><span class="spk"><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:5px"></i><i style="height:11px"></i><i style="height:18px"></i><i style="height:11px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i></span></td><td class="r">7%</td><td class="">7월 19일</td><td class="r">13.3배</td><td class="r">1,010</td><td class="r">271,719</td></tr><tr><td class="">수면양말</td><td class=""><span class="spk"><i style="height:8px"></i><i style="height:4px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:3px"></i><i style="height:12px"></i><i style="height:17px"></i><i style="height:18px"></i></span></td><td class="r">58%</td><td class="">11월 23일</td><td class="r">1.4배</td><td class="r">20,590</td><td class="r">470,307</td></tr><tr><td class="">온풍기</td><td class=""><span class="spk"><i style="height:8px"></i><i style="height:3px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:2px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:17px"></i></span></td><td class="r">53%</td><td class="">11월 23일</td><td class="r">1.4배</td><td class="r">61,800</td><td class="r">719,871</td></tr></tbody></table></div><div class="pro-dl"><button type="button" disabled>계절성DB_5년_전체.csv</button><span>미리보기 — 실제 서비스에서는 내려받기</span></div></aside>
+<div class="cta only-free"><button type="button" data-go="plus">트리·넥워머·과메기 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 셀러킴의 미리 추천 ───────────── -->
+<article id="picks" class="t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>추천 · 한 달 뒤부터 오르는 것</p>
+  <h2>셀러킴의 미리 추천</h2>
+  <p class="deck">지금 찾기엔 좀 이르지만, 12월과 1월에 한꺼번에 찾는 것들입니다. 이번 호는 둘을 골랐어요.</p>
+
+  <h3 class="sub">패딩부츠 — 12월 중순</h3>
+  <figure class="ph w32"><img src="/trend-radar/assets/img/un5_snow_boots.jpg" alt="눈 덮인 길 위에 놓인 두툼한 겨울 부츠"><figcaption>패딩부츠는 첫눈이 온 뒤에 찾습니다. 사진은 이해를 돕기 위한 것입니다.</figcaption></figure>
+
+  <p>안에 솜을 넣어 부풀린 <span class="mono hl">패딩부츠</span> 검색은 <b>12월 14일</b> 무렵이 정점입니다. 지금의 <b>세 배</b>가 넘어요. 옷은 추워지기 전에 사 두지만 신발은 실제로 눈이 오고 길이 얼어야 찾는 거예요.<span class="v-p"> 지금은 한 달 <span class="abs">7,990</span>번 검색되고, 상품은 <span class="abs">24만</span> 개가 넘습니다.</span><span class="v-f"> 상품은 지금 찾는 사람의 서른 배가 넘습니다.</span><span class="only-free"><button type="button" class="cta-in" data-go="plus">곶감 상품수 →</button></span></p>
+
+  <h3 class="sub">곶감 — 1월 둘째 주</h3>
+  <figure class="ph w43"><img src="/trend-radar/assets/img/un10_gotgam1.jpg" alt="창가에 줄줄이 매달아 말리는 주황색 감"><figcaption>곶감은 늦가을에 깎아 매달고, 설 선물로 팔립니다. 사진은 이해를 돕기 위한 것입니다.</figcaption></figure>
+
+  <p>껍질을 깎아 말린 <span class="mono hl">곶감</span> 검색은 <b>1월 11일</b> 무렵이 정점이고, 그때 검색량은 지금의 <b>다섯 배</b>가 됩니다. 10주 뒤예요. 설 선물 세트를 고르는 시기에 맞춰 오르는 거죠.<span class="v-p"> 지금은 한 달 <span class="abs">2만 3,550</span>번 검색되고, 상품은 <span class="abs">10만</span> 개가 넘어요.</span><span class="v-f"> 상품은 지금 찾는 사람의 네 배가 넘어요.</span> 지금 한창 감을 깎아 매다는 철이라, 산지에서는 이미 예약을 받기 시작합니다.</p>
+
+  <div class="memo">
+    <b>어떻게 미리 아나</b> 둘 모두 5년 넘는 주간 검색 기록이 있는 말입니다. 해마다 같은 주에 같은 모양으로 올랐다면 올해도 그 주일 가능성이 높다고 봤어요. 다만 설이 이른 해와 늦은 해가 있어서, 곶감 정점은 설 날짜에 따라 한두 주 움직입니다.
+  </div>
+<div class="cta only-free"><button type="button" data-go="plus">패딩부츠·곶감 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 구매 타이밍 ───────────── -->
+<article id="timing" class="t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>구매 타이밍 · 지금이 가장 조용한 것</p>
+  <h2>지금 사둬야 하는 것</h2>
+  <p class="deck">이번 호는 여름 용품 대신 조금 <b>의외의 것</b>을 골랐습니다. 학교와 명절 달력에 맞춰 해마다 같은 주에 오르는데, 지금은 한 해 중 가장 조용한 것들이에요.</p>
+
+  <h3 class="sub">초등고학년책가방 — 2월 중순, 지금은 열네 분의 일</h3>
+
+  <p>초등학교 4~6학년이 메는 <span class="mono hl">초등고학년책가방</span>은 새 학기를 앞둔 <b>2월 중순</b>에 검색이 꼭대기를 찍습니다. 지금은 그 열네 분의 일이에요. 5년 내내 같은 주에 정점이었습니다.<span class="v-p"> 지금은 한 달 <span class="abs">1,330</span>번 검색되고, 상품은 <span class="abs">1만 7천</span> 개 정도예요.</span><span class="v-f"> 상품은 지금 찾는 사람의 열세 배쯤이에요.</span><span class="only-free"><button type="button" class="cta-in" data-go="plus">낮잠이불 상품수 →</button></span></p>
+
+  <h3 class="sub">초등실내화 — 2월 중순, 지금은 스물두 분의 일</h3>
+
+  <p>학교 안에서 신는 <span class="mono hl">초등실내화</span>는 책가방과 같은 <b>2월 중순</b>이 정점입니다. 지금은 그 스물두 분의 일이에요. 아이 발이 한 해 사이 자라서 해마다 새로 사야 하는 상품입니다.<span class="v-p"> 지금은 한 달 <span class="abs">1,150</span>번 검색되고, 상품은 <span class="abs">9만 3천</span> 개가 넘어요.</span><span class="v-f"> 상품은 지금 찾는 사람의 여든 배가 넘어요.</span> 같은 시기에 함께 찾는 <span class="mono">네임스티커</span>도 2월 하순이 정점입니다.</p>
+
+  <h3 class="sub">어린이집낮잠이불 — 2월 중순, 지금은 다섯 분의 일</h3>
+
+  <p>어린이집에서 낮잠 시간에 덮는 <span class="mono hl">어린이집낮잠이불</span>도 3월 새 학기를 앞둔 <b>2월 중순</b>이 정점입니다. 지금은 그 다섯 분의 일로, 넷 가운데 가장 얕게 내려가 있어요. 5년 내내 같은 주에 올랐습니다.<span class="v-p"> 지금 한 달 <span class="abs">5,840</span>번 검색되고, 상품은 <span class="abs">1만 6천</span> 개 정도예요.</span><span class="v-f"> 상품은 지금 찾는 사람의 세 배가 채 안 돼요.</span> 넷 가운데 검색은 가장 많고 상품은 가장 적습니다.</p>
+
+  <h3 class="sub">강아지한복 — 1월 중순, 지금은 스물다섯 분의 일</h3>
+
+  <p>설날에 반려견에게 입히는 <span class="mono hl">강아지한복</span>도 있어요. 설을 앞둔 <b>1월 중순</b>이 정점이고, 지금은 그 스물다섯 분의 일입니다. 이번에 고른 넷 가운데 가장 깊이 내려가 있어요.<span class="v-p"> 지금 한 달 <span class="abs">1,100</span>번 검색되고, 상품은 <span class="abs">7만 7천</span> 개가 넘습니다.</span><span class="v-f"> 상품은 지금 찾는 사람의 일흔 배가 넘습니다.</span> 설 날짜가 해마다 달라서 정점도 그에 따라 한두 주씩 움직여요.</p>
+
+<div class="cta only-free"><button type="button" data-go="plus">책가방·실내화·낮잠이불·강아지한복 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 기록 ───────────── -->
+<article id="past" class="short t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>기록 · 이미 지나간 것</p>
+  <h2>이미 지나간 것들</h2>
+  <p class="deck">정점을 찍고 내려온 것들입니다. 이번 주에는 할로윈이 끝났어요.</p>
+
+  <div class="rank">
+    <div class="r"><div class="n">10월 중순</div><div class="b"><b>할로윈의상</b><span>해마다 할로윈 2주 전이 정점입니다</span></div><div class="v"><b>3%</b>정점 대비</div></div>
+    <div class="r"><div class="n">7월 말</div><div class="b"><b>캐리비안베이</b><span>석 달째 바닥에 있습니다</span></div><div class="v"><b>3%</b>정점 대비</div></div>
+    <div class="r"><div class="n">9월</div><div class="b"><b>아이폰18프로</b><span>발표 8주차, 한 달 새 검색이 절반 아래로 빠졌습니다</span></div><div class="v"><span class="v-p"><b>절반 아래</b>한 달 새</span><span class="v-f"><b>절반 아래</b>한 달 새</span></div></div>
+  </div>
+
+  <p>할로윈 의상 검색은 해마다 할로윈 당일이 아니라 <b>그 2주 전</b>에 정점을 찍습니다. 배송을 받으려면 미리 주문해야 하니까요. 지금은 정점의 3% 수준이에요. 해외 아마존 순위에서는 할로윈 마지막 주까지 의상 검색이 이어졌지만, 국내는 이미 한참 전에 빠졌습니다. 국내 검색창에서는 그 자리를 크리스마스트리와 경량패딩이 채우고 있어요.</p>
+</article>
+
+<!-- ───────────── 팔로업 ───────────── -->
+<article id="followup" class="short t-past">
+  <p class="kicker"><span class="m m-past" aria-hidden="true"></span>팔로업 · 지난 호 그 후</p>
+  <h2>그 후</h2>
+  <p class="deck">지난 호에 '계속 보고 있는 것'에 적어 둔 셋과, 예보 하나를 다시 세어 봤습니다. <a class="backissue" href="https://soonyeol-huh-1024.github.io/trend-radar/issue-09/#watching" title="제9호의 해당 기사로 갑니다">9호에서 보기 ↗</a></p>
+
+  <figure class="ph w32"><img src="/trend-radar/assets/img/gen_followup.jpg" alt="두 날짜에 동그라미가 쳐진 탁상 달력과 공책"><figcaption>지난 호에 적어 둔 것을 다시 살펴봤습니다. AI로 생성한 연출 이미지</figcaption></figure>
+
+  <div class="row">
+    <h4>독일 온풍기 — 내려왔고, 영국이 대신 올랐습니다</h4>
+    <div class="n">독일 아마존 검색 28위 → 33위 / 영국 전기담요 62위 → 17위</div>
+    <p>독일의 작은 온풍기는 더 오를지 지켜봤는데, 오히려 다섯 계단 내려왔습니다. 대신 영국이 크게 움직였습니다. <span class="mono">electric blanket</span>(전기담요)이 62위에서 17위로, <span class="mono">heated blanket</span>이 44위에서 15위로, 보온 물주머니가 48위에서 22위로 올랐어요. 커버스토리의 Be Ready 캠페인과 같은 주라, 추위 때문인지 정전 대비 때문인지는 가려내기 어렵습니다.</p>
+  </div>
+
+  <div class="row">
+    <h4>너구링 — 검색은 남았고 상품은 줄었습니다</h4>
+    <div class="n"><span class="v-p">한 달 <span class="abs">8만 7,600</span>번 → <span class="abs">9만 4,100</span>번 / 상품 <span class="abs">707</span>개 → <span class="abs">396</span>개</span><span class="v-f">검색 7% 증가 / 상품 44% 감소</span></div>
+    <p>출시 3주째에도 검색은 오히려 7% 늘었습니다. 처음 맛보려는 관심이 아직 이어지고 있어요. 그런데 상품은 절반 가까이 줄었습니다. 묶음으로 내놨던 판매자들이 물량을 정리한 것으로 보이는데, 이유는 제가 확인하지 못했어요.</p>
+  </div>
+
+  <div class="row">
+    <h4>쿠리만쥬(栗まんじゅう · 밤 모양 만주) — 상품이 빠르게 따라붙고 있습니다</h4>
+    <div class="n"><span class="v-p">한 달 <span class="abs">13만 300</span>번 → <span class="abs">14만 7,900</span>번 / 상품 <span class="abs">7,321</span>개 → <span class="abs">9,892</span>개</span><span class="v-f">검색 13% 증가 / 상품 35% 증가</span></div>
+    <p>검색은 13% 늘었고 <span class="v-p">상품은 <span class="abs">2,500</span>개 넘게 새로 올라왔습니다.</span><span class="v-f">상품은 35% 늘었습니다.</span> 검색 열여덟 번에 하나였던 상품이 열다섯 번에 하나꼴이 됐어요. 정품 계약이 필요한 캐릭터인데도 상품 수가 이렇게 빨리 느는 건, 확인해 볼 만한 일입니다.<span class="only-free"><button type="button" class="cta-in" data-go="plus">쿠리만쥬 상품수 →</button></span></p>
+  </div>
+
+  <div class="row">
+    <h4>빼빼로 예보 — 정점 주는 맞았고, 오른 폭은 조금 작았습니다</h4>
+    <div class="n"><span class="v-p">한 달 <span class="abs">4만 330</span>번 → <span class="abs">8만 1,900</span>번</span><span class="v-f">검색 두 배로 증가</span></div>
+    <p>지난 호에 빼빼로 검색이 11월 2일 무렵 정점을 찍고 그때 지난 호 집계 당시의 두 배 반이 된다고 적었습니다. 이번 주 검색은 정확히 두 배가 됐어요. 정점 주는 맞았고, 오른 폭은 예보보다 조금 작았습니다.</p>
+  </div>
+<div class="cta only-free"><button type="button" data-go="plus">너구링·쿠리만쥬 검색수 확인</button><span>플러스 · 월 9,900원</span></div></article>
+
+<!-- ───────────── 다음 호 ───────────── -->
+<article id="watching" class="short t-next">
+  <p class="kicker"><span class="m m-next" aria-hidden="true"></span>다음 호에 확인할 것</p>
+  <h2>계속 보고 있는 것</h2>
+  <p>다음 호에서 이 셋의 결과를 다시 적겠습니다.</p>
+
+  <figure class="ph w32"><img src="/trend-radar/assets/img/gen_watching.jpg" alt="창가에 놓인 찻잔과 덮어 둔 공책, 창밖의 마른 가지"><figcaption>다음 호까지 지켜볼 것들입니다. AI로 생성한 연출 이미지</figcaption></figure>
+
+  <div class="row">
+    <h4>영국 손잡이 라디오</h4>
+    <p>캠페인 2주째에도 1위를 지킬지 보겠습니다. 빨리 빠진다면 발표 한 번에 몰린 수요였다는 뜻이에요.</p>
+  </div>
+  <div class="row">
+    <h4>일본 간이 화장실</h4>
+    <p>오늘 방재청 출범과 함께 정부 요청이 나오면 라쿠텐 순위가 한 번 더 움직일지 지켜보겠습니다.</p>
+  </div>
+  <div class="row">
+    <h4>탑텐경량패딩</h4>
+    <p>경량패딩 전체는 정점을 지났는데 브랜드 검색만 오르는 중입니다. 다음 주에도 오를지 보려고요.</p>
+  </div>
+</article>
+
+<footer>
+  <p>특정 상품을 사거나 팔라고 권하는 글이 아닙니다. 숫자는 제가 조회한 시점의 기록이고, 해석은 제 것입니다. 해외 커뮤니티 글은 공개 게시판의 제목과 본문을 옮긴 것이며, 번역은 제가 했습니다. 커뮤니티 사진은 각 게시물 작성자의 저작물이고, 상품 사진은 판매자의 저작물입니다. 요청이 있으면 바로 내립니다.</p>
+</footer>
+<nav class="issuenav">
+  <a href="https://soonyeol-huh-1024.github.io/trend-radar/issue-09/">← 제9호 · 한국은 벌써 카본매트, 유럽은 이제 물주머니</a>
+  <span class="none">다음 호는 아직입니다</span>
+  <a class="all" href="https://soonyeol-huh-1024.github.io/trend-radar/">지난 호 전체 보기</a>
+</nav>
+
+
+
+</div></div>
+<div class="nav">
+  <button type="button" data-goto="first" aria-label="처음으로">&#8676; 처음</button>
+  <button type="button" data-turn="-1" aria-label="이전 펼침">&larr; 이전</button>
+  <span class="pos" role="status" aria-live="polite"></span>
+  <button type="button" data-turn="1" aria-label="다음 펼침">다음 &rarr;</button>
+  <button type="button" data-goto="last" aria-label="마지막으로">마지막 &#8677;</button>
+</div>
+</div>
+<button type="button" class="modeswap" aria-pressed="false">책으로 보기</button>
+<div class="stat" aria-live="polite"></div>
+
+<script>
+/* 펼침 모드 — CSS 다단이 나눈 지면을 두 쪽씩 옮긴다.
+   다단이라 내용이 바뀌어도 알아서 다시 나뉘므로 매주 페이지를 손으로 끊지 않아도 된다. */
+(function () {
+  // 가로 782 이상이면 '책으로 보기'를 고를 수 있다(세로 길이 무관 — 창에 맞춰 줄이고 키운다). 한 쪽 모드 없음
+  const mode = () => matchMedia('(min-width:782px)').matches ? 'two' : '';
+  const wide = () => !!mode();
+  const single = () => document.body.classList.contains('single');
+  const pages = document.querySelector('.pages');
+  const book = document.querySelector('.book');
+  const nav = document.querySelector('.nav');
+  const swap = document.querySelector('.modeswap');
+  const leaf = document.querySelector('.leaf');
+  const under = document.querySelector('.under');
+  const pos = nav && nav.querySelector('.pos');
+  const btns = nav ? [...nav.querySelectorAll('button')] : [];
+  if (!pages || !book || !swap) return;
+
+  let spread = 0, step = 0, last = 0;
+  const stat = document.querySelector('.stat');
+  function report(extra) {
+    if (!stat) return;
+    const on = document.body.classList.contains('spread');
+    const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const why = on ? (single() ? '한 쪽씩' : '펼침 켜짐') : (wide() ? '펼침 꺼짐(세로로 보기)' : '가로 782px 이상이면 책으로 볼 수 있습니다');
+    stat.textContent = `${innerWidth}×${innerHeight} · ${why}` + (rm ? ' · 모션 축소 설정 켜짐 → 넘김 효과 생략' : '') + (extra ? ' · ' + extra : '');
+  }
+
+  // ── 지면 편집: 코너 안에서 쪽 아래가 비지 않게 사진·상자를 문단 뒤로 옮긴다 ──
+  // 사진처럼 쪼갤 수 없는 조각이 남은 자리에 못 들어가 다음 쪽으로 밀리면 그 앞 쪽이 빈다.
+  // 그럴 때 그 조각을 다음 문단 뒤로 보내 글이 빈자리를 채우게 한다. 원래 순서는 기억해 두었다가
+  // 창 크기가 바뀌거나 '세로로 보기'로 돌아갈 때 되돌린다.
+  const MOVABLE = 'article > figure, article > .pair, article > .memo, article > .box, article > .rank, article > .fc';
+  const FRAG = '.mast, .cover, .toc > *, .note > *, article > *, .rank .r, .box > *, .fc > *, li, figcaption, .pair figure';
+  const origin = [...pages.querySelectorAll(MOVABLE)].map(el => ({ el, parent: el.parentNode, next: el.nextElementSibling }));
+  let fitted = '';
+  function restoreOrder() {
+    for (let i = origin.length - 1; i >= 0; i--) origin[i].parent.insertBefore(origin[i].el, origin[i].next);
+    origin.forEach(o => { const im = o.el.querySelector('img'); if (im) im.style.height = ''; o.el.style.breakInside = ''; });
+    pages.querySelectorAll('figure.ph img[data-h0]').forEach(im => { im.style.height = im.style.width = im.style.maxWidth = im.style.margin = ''; delete im.dataset.h0; });
+    pages.querySelectorAll('article').forEach(a => { a.style.breakBefore = ''; a.classList.remove('at-top'); });
+    fitted = '';
+  }
+  // 책 전체를 화면에 맞춰 같은 비율로 키운다(레이아웃은 1400×1200 그대로라 쪽 나눔이 안 바뀐다)
+  const wrapEl = document.querySelector('.wrap');
+  function rescale() {
+    if (!document.body.classList.contains('spread')) { document.documentElement.style.removeProperty('--s'); return; }
+    const s = Math.min(innerWidth / wrapEl.offsetWidth, innerHeight / wrapEl.offsetHeight) * 0.98;
+    document.documentElement.style.setProperty('--s', s.toFixed(4));
+  }
+  // 화면상 위치(getBoundingClientRect)는 확대가 걸린 값이라, 잴 때만 잠시 1배로 되돌린다
+  function flat(fn) { const t = wrapEl.style.transform; wrapEl.style.transform = 'translate(-50%,-50%)';
+    try { return fn(); } finally { wrapEl.style.transform = t; } }
+  function fit() { return flat(fitRaw); }
+  function fitRaw() {
+    const key = pages.clientWidth + 'x' + pages.clientHeight;
+    if (fitted === key) return false;
+    restoreOrder();
+    const cs = getComputedStyle(pages);
+    const padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop), padB = parseFloat(cs.paddingBottom);
+    const gap = parseFloat(cs.columnGap), inner = pages.clientWidth - padL - parseFloat(cs.paddingRight);
+    const cols = single() ? 1 : 2;
+    const colW = (inner - gap * (cols - 1)) / cols, colH = pages.clientHeight - padT - padB;
+    // 표지 높이를 제호 높이에 맞춘다(왼쪽 쪽을 딱 채우게)
+    const mast = pages.querySelector('.mast');
+    if (mast) document.documentElement.style.setProperty('--masth', Math.ceil(mast.getBoundingClientRect().height) + 'px');
+    // 코너(섹션)는 저마다 새 쪽에서 시작한다(CSS break-before:column). 모두 쪽 머리이므로 at-top 처리.
+    for (const art of pages.querySelectorAll('article')) art.classList.add('at-top');
+    const frags = [...pages.querySelectorAll(FRAG)];
+    const stuck = new Set(), moves = new Map();
+    const log = (window.__fit = []);   // 편집 기록(진단용): 무엇을 왜 옮겼나
+    for (let round = 0; round < 60; round++) {
+      const pr = pages.getBoundingClientRect(), colTop = pr.top + padT, colBottom = colTop + colH;
+      const col = x => Math.round((x - pr.left - padL) / (colW + gap));
+      const low = {};                                           // 쪽별 마지막 조각의 아랫선과 그 코너
+      frags.forEach(el => { for (const rc of el.getClientRects()) { if (rc.height < 2) continue;
+        const k = col(rc.left); if (!low[k] || rc.bottom > low[k].bottom) low[k] = { bottom: rc.bottom, art: el.closest('article') }; } });
+      let moved = false;
+      for (const { el } of origin) {
+        if (stuck.has(el)) continue;
+        const rc = el.getBoundingClientRect(); if (!rc.height) continue;
+        const k = col(rc.left), prev = low[k - 1];
+        const pe = el.previousElementSibling;                   // 소제목이 붙어 함께 밀려온 경우도 포함
+        const atTop = rc.top - colTop < 40 || (pe && /^H[23]$/.test(pe.tagName) && pe.getBoundingClientRect().top - colTop < 40);
+        if (!atTop || !prev || prev.art !== el.closest('article') || colBottom - prev.bottom < 60) continue;
+        // 쪽보다 긴 표는 어차피 한 쪽에 못 들어간다 — 옮기지 말고 제자리에서 나눈다
+        const tall = [...el.getClientRects()].reduce((a, r) => a + r.height, 0) > colH;
+        if (tall && el.matches('.rank, .fc, .box') && !el.style.breakInside) { el.style.breakInside = 'auto'; stuck.add(el); log.push(['나눔', el.className, k]); moved = true; break; }   // 나눴으면 더 옮기지 않는다
+        const next = el.nextElementSibling, n = moves.get(el) || 0;
+        // 옮길 수 있는 것끼리 자리를 바꾸는 건 한 번만 (서로 밀어내며 왔다갔다 하지 않게)
+        // 소제목(h2·h3) 너머로는 옮기지 않는다 — 사진이 다른 절 제목 밑으로 가 버린다(5호 김장 사진 → '안경 김서림 방지' 밑)
+        if (next && !/^H[23]$/.test(next.tagName) && n < 3 && !(next.matches(MOVABLE) && moves.has(next))) { next.after(el); moves.set(el, n + 1); log.push(['뒤로', el.tagName + '.' + el.className, k, Math.round(colBottom - prev.bottom)]); moved = true; break; }   // 한 조각 뒤로
+        stuck.add(el);
+        // 뒤로 보낼 문단이 없으면 사진을 남은 자리에 맞게 자른다 (사진 하나짜리 figure 만)
+        const im = el.matches('figure') ? el.querySelector('img') : null;
+        const room = colBottom - prev.bottom - parseFloat(getComputedStyle(el).marginTop) - (rc.height - (im ? im.getBoundingClientRect().height : 0)) - 4;
+        if (im && room >= 150 && !im.style.height) { im.style.height = room + 'px'; log.push(['자름', el.className, k, room]); moved = true; break; }
+        // 표는 한 쪽에 두는 게 원칙이지만, 옮겨도 앞 쪽이 크게 비면 그때만 나눈다
+        if (el.matches('.rank, .fc, .box') && colBottom - prev.bottom >= 200 && !el.style.breakInside) { el.style.breakInside = 'auto'; log.push(['나눔(빈칸)', el.className, k]); moved = true; break; }
+      }
+      if (!moved) break;
+    }
+    // 기사 끝이 다음 쪽으로 조금만(쪽의 4분의 1 미만) 넘쳤으면 — 그 기사의 가장 큰 사진을 줄여 꼬리를 끌어당긴다.
+    // 문장을 손으로 줄이지 않아도 되게. 사진은 비율을 지킨 채 원래 크기의 절반까지만 줄인다(자르지 않음).
+    const lastCol = art => { const pr = pages.getBoundingClientRect(); let m = -1;
+      for (const el of art.children) for (const rc of el.getClientRects()) if (rc.height >= 2)
+        m = Math.max(m, Math.round((rc.left - pr.left - padL) / (colW + gap)));
+      return m; };
+    const tried = new Map();   // 줄여 본 기사 → 줄이기 전 마지막 쪽
+    for (let round = 0; round < 24; round++) {
+      const pr = pages.getBoundingClientRect(), colTop = pr.top + padT;
+      const col = x => Math.round((x - pr.left - padL) / (colW + gap));
+      let changed = false;
+      for (const art of pages.querySelectorAll('article')) {
+        const per = {};
+        for (const el of art.children) for (const rc of el.getClientRects()) {
+          if (rc.height < 2) continue; const k = col(rc.left); per[k] = Math.max(per[k] || 0, rc.bottom - colTop); }
+        const ks = Object.keys(per).map(Number).sort((a, b) => a - b);
+        if (ks.length < 2) continue;
+        const lastK = ks[ks.length - 1], tail = per[lastK];
+        if (tail > colH * 0.25) continue;
+        const nx = art.nextElementSibling;                 // 다음 코너가 같은 쪽에 이어 붙어 있으면 빈 쪽이 아니다
+        if (nx && nx.tagName === 'ARTICLE' && !nx.classList.contains('at-top')) continue;
+        const imgs = [...art.querySelectorAll('figure.ph img')]
+          .filter(im => { const r = im.getBoundingClientRect(); return r.height > 150 && col(r.left) < lastK && !im.dataset.h0 ? true : (r.height > 150 && col(r.left) < lastK && r.height > +im.dataset.h0 * 0.5 + 8); })
+          .sort((a, b) => b.getBoundingClientRect().height - a.getBoundingClientRect().height);
+        if (!imgs.length) continue;
+        if (!tried.has(art)) tried.set(art, lastK);
+        const im = imgs[0], h = im.getBoundingClientRect().height;
+        if (!im.dataset.h0) im.dataset.h0 = String(h);
+        const nh = Math.max(h - (tail + 24), +im.dataset.h0 * 0.5);
+        if (h - nh < 8) continue;
+        // 자르지 않는다 — 비율을 지킨 채 작게 줄여 가운데에 둔다
+        im.style.height = nh + 'px'; im.style.width = 'auto'; im.style.maxWidth = '100%'; im.style.margin = '0 auto';
+        log.push(['꼬리당김', art.id || art.className, lastK, Math.round(h - nh)]); changed = true; break;
+      }
+      if (!changed) break;
+    }
+    // 줄였는데도 기사 끝이 당겨지지 않았으면 그 기사의 사진은 원래대로 둔다(사진만 작아지고 얻는 게 없다)
+    tried.forEach((before, art) => {
+      if (lastCol(art) < before) return;
+      art.querySelectorAll('figure.ph img[data-h0]').forEach(im => { im.style.height = im.style.width = im.style.maxWidth = im.style.margin = ''; delete im.dataset.h0; });
+      log.push(['꼬리당김 취소', art.id || art.className]);
+    });
+    fitted = key;
+    return true;
+  }
+  function measure() {
+    if (!document.body.classList.contains('spread')) return;
+    if (fit()) { built.w = 0; warmSoon(); }                    // 순서가 바뀌었으면 복제본도 다시
+    const cs = getComputedStyle(pages);
+    const gap = parseFloat(cs.columnGap) || 120;
+    // 단이 놓이는 폭은 clientWidth 에서 좌우 패딩을 뺀 값이다.
+    // clientWidth 를 그대로 쓰면 패딩만큼 매번 어긋난다.
+    const inner = pages.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    step = inner + gap;                            // 두 단 + 그 사이 간격 = 한 펼침
+    const total = pages.scrollWidth - pages.clientWidth + inner + gap;
+    last = Math.max(0, Math.ceil(total / step) - 1);
+    spread = Math.min(spread, last);
+    apply();
+  }
+
+  // 지금 어느 펼침을 보고 있는지 알린다 — 영상 쪽이 이걸 듣고 틀거나 멈춘다
+  function tell() {
+    dispatchEvent(new CustomEvent('sk-page', { detail: {
+      spread, step, on: document.body.classList.contains('spread') } }));
+  }
+  function apply() {
+    pages.style.transform = `translateX(${-spread * step}px)`;
+    if (pos) pos.textContent = `${spread + 1} / ${last + 1}`;
+    report();
+    btns.forEach(b => { const back = b.dataset.turn ? +b.dataset.turn < 0 : b.dataset.goto === 'first';
+      b.disabled = back ? spread === 0 : spread >= last; });
+    tell();
+  }
+
+  let turning = false;
+  const N = 10;                                  // 띠 개수 — 많을수록 매끈, 무거움
+  const BEND = 42;                               // 최대 휨(도): 자유변이 책등보다 이만큼 앞선다
+  const DUR = 900;
+  const cast = document.querySelector('.cast');
+  const strips = [];
+  const built = { w: 0, h: 0 };
+  const faces = { under: null };            // 밑층 복제본
+
+  // 재생 전 영상 칸의 모습. 복제본에는 재생기 대신 이걸 넣는다 — 한 번 넘길 때마다
+  // 유튜브가 스물한 개 뜨는 일을 막고, 넘어가는 중에는 어차피 검은 판으로 보인다.
+  const facades = [...pages.querySelectorAll('figure.vid .screen')].map(el => el.innerHTML);
+  function makeClone(w, h) {
+    const c = pages.cloneNode(true); c.removeAttribute('id');
+    c.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));   // 기사 id 가 겹치면 #앵커가 사본을 먼저 잡는다
+    c.style.width = w + 'px'; c.style.height = h + 'px';   // 원본과 같은 크기 → 같은 단 나눔
+    c.querySelectorAll('figure.vid .screen').forEach((el, i) => (el.innerHTML = facades[i] || ''));
+    return c;
+  }
+  // 띠 체인: strip[i] 는 strip[i-1] 안에서 그 끝에 매달린다. 각 띠는 앞·뒷면 + 명암막을 가진다.
+  function ensureFaces() {
+    const w = pages.clientWidth, h = pages.clientHeight;
+    if (built.w === w && built.h === h) return;
+    leaf.innerHTML = ''; strips.length = 0;
+    under.innerHTML = ''; faces.under = makeClone(w, h); under.appendChild(faces.under);
+    let parent = leaf;
+    for (let i = 0; i < N; i++) {
+      const st = document.createElement('div'); st.className = 'strip';
+      const F = document.createElement('div'); F.className = 'face front';
+      const B = document.createElement('div'); B.className = 'face back';
+      const fc = makeClone(w, h), bc = makeClone(w, h);
+      const fs = document.createElement('div'), bs = document.createElement('div');
+      fs.className = bs.className = 'shade';
+      F.appendChild(fc); F.appendChild(fs); B.appendChild(bc); B.appendChild(bs);
+      st.appendChild(F); st.appendChild(B); parent.appendChild(st); parent = st;
+      strips.push({ el: st, fc, bc, fs, bs });
+    }
+    built.w = w; built.h = h;
+  }
+
+  const ease = p => (p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+  let sign = -1;
+  // 낱장·밑층·그림자 배치와 복제본 위치 — 한 번의 넘김 시작 시
+  function setup(dir, next) {
+    const W = pages.clientWidth, H = pages.clientHeight, half = W / 2, sw = half / N;
+    ensureFaces();
+    leaf.style.width = half + 'px'; leaf.style.height = H + 'px';
+    leaf.style.left = (dir > 0 ? half : 0) + 'px';
+    under.style.width = half + 'px'; under.style.height = H + 'px';
+    under.style.left = (dir > 0 ? half : 0) + 'px';
+    cast.style.width = half + 'px'; cast.style.height = H + 'px';
+    cast.style.left = (dir > 0 ? 0 : half) + 'px';
+    const leave = dir > 0 ? half : 0, arrive = dir > 0 ? 0 : half;   // 떠나는/도착하는 쪽의 x
+    const shift = (c, x, k) => (c.style.transform = `translate(${-(x + k * step)}px,0)`);
+    shift(faces.under, leave, next);   // 낱장이 떠난 자리에 드러나는 새 지면(같은 쪽)
+    strips.forEach((st, i) => {
+      st.el.style.width = sw + 'px'; st.el.style.height = H + 'px';
+      st.el.style.left = st.el.style.right = '';
+      if (dir > 0) { st.el.style.left = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '0 50%'; }
+      else         { st.el.style.right = (i ? sw : 0) + 'px'; st.el.style.transformOrigin = '100% 50%'; }
+      // 띠 i 가 덮는 지면 x: 떠나는 쪽은 책등에서 i번째, 도착하는 쪽은 그 거울 위치
+      const fx = dir > 0 ? leave + i * sw : leave + half - (i + 1) * sw;
+      const bx = dir > 0 ? arrive + half - (i + 1) * sw : arrive + i * sw;
+      shift(st.fc, fx, spread); shift(st.bc, bx, next);
+    });
+    sign = dir > 0 ? -1 : 1;
+    under.className = 'under on ' + (dir > 0 ? 'next' : 'prev');
+    cast.className = 'cast on ' + (dir > 0 ? 'next' : 'prev');
+    leaf.className = 'leaf on';
+  }
+  // 진행률 p(0~1)에서의 자세 — 자유변이 앞서고 종이가 휜다
+  function pose(p) {
+    const free = 180 * ease(p);                  // 자유변(바깥 가장자리)의 각도
+    const bend = BEND * Math.sin(Math.PI * p);   // 시작·끝에서 0 → 평평하게 뜨고 평평하게 앉는다
+    const spine = free - bend, d = bend / (N - 1);
+    strips.forEach((st, i) => {
+      st.el.style.transform = `rotateY(${sign * (i ? d : spine)}deg)`;   // 첫 띠는 책등 각도, 나머지는 경첩 증분
+      const a0 = (spine + i * d) * Math.PI / 180, a1 = a0 + d * Math.PI / 180;   // 이 띠 양끝의 절대 각도
+      const dark = a => (0.42 * (1 - Math.cos(a)) / 2).toFixed(3);                 // 세울수록 어둡게
+      const lo = sign < 0 ? 0 : 1, hi = 1 - lo;                                    // 앞으로 넘길 땐 경첩이 왼쪽
+      st.fs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark([a0,a1][lo])}),rgba(0,0,0,${dark([a0,a1][hi])}))`;
+      st.bs.style.background = `linear-gradient(90deg,rgba(0,0,0,${dark(Math.PI-[a0,a1][hi])}),rgba(0,0,0,${dark(Math.PI-[a0,a1][lo])}))`;
+    });
+    cast.style.opacity = Math.sin(Math.PI * p).toFixed(3);
+  }
+  // 3D 책장 넘김(띠 열 개로 휘는 종이). 확대·축소된 책 안에서 실제 크롬이 조각 경계와 흐린 글자를 그려서 끈다(2026-09-29).
+  // 끄면 지면이 옆으로 밀려 들어온다(CSS transition). 다시 켜려면 true.
+  const CURL = true;
+  function turn(dir) {
+    if (turning) return;
+    const next = Math.min(last, Math.max(0, spread + dir));
+    if (next === spread) return;
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (!CURL || reduce || !leaf || single()) { spread = next; apply(); return; }
+    turning = true;
+    setup(dir, next); pose(0); report('넘기는 중');
+    const t0 = performance.now();
+    (function frame(now) {
+      const p = Math.min(1, (now - t0) / DUR);
+      pose(p);
+      if (p < 1) requestAnimationFrame(frame);
+      else {
+        spread = next; apply();                    // 이 순간 지면 = 낱장 뒷면 + 밑층 → 이음새 없음
+        leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast'; turning = false;
+      }
+    })(t0);
+  }
+  // 정지 프레임 검사용 — 실제 코드 경로(setup/pose)를 그대로 쓴다
+  // 첫 넘김이 멈칫하지 않도록 복제본을 만들고 한 프레임 미리 그려 둔다.
+  // 각도 0 의 낱장은 밑에 깔린 지면과 같은 그림이라 눈에 띄지 않는다.
+  let warmT = 0;
+  const warmSoon = () => { clearTimeout(warmT); warmT = setTimeout(warm, 300); };
+  function warm() {
+    if (!CURL) return;                             // 3D 넘김을 쓰지 않으면 복제본도 만들지 않는다
+    if (turning || !wide() || single() || !document.body.classList.contains('spread')) return;
+    setup(1, spread); pose(0);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (turning) return;
+      leaf.className = 'leaf'; under.className = 'under'; cast.className = 'cast';
+    }));
+  }
+  window.__turnAt = (dir, p) => { setup(dir, Math.min(last, Math.max(0, spread + dir))); pose(p); };
+
+  function setMode(on) {
+    document.body.classList.toggle('spread', on);
+    document.body.classList.toggle('single', on && mode() === 'one');
+    swap.textContent = on ? '세로로 보기' : '책으로 보기';
+    swap.setAttribute('aria-pressed', String(on));
+    rescale();
+    if (on) { spread = 0; requestAnimationFrame(measure); warmSoon(); }   // 복제본은 미리
+    else { pages.style.transform = ''; restoreOrder(); }
+    try { localStorage.setItem('sk-book', on ? '1' : '0'); } catch (e) {}
+    report(); tell();
+  }
+
+  swap.addEventListener('click', () => setMode(!document.body.classList.contains('spread')));
+  // 처음·마지막은 넘김 효과 없이 바로 간다 — 스무 장을 넘기는 연출은 기다리게만 한다
+  function jump(to) { if (turning) return; const n = to === 'last' ? last : 0; if (n !== spread) { spread = n; apply(); } }
+  btns.forEach(b => b.addEventListener('click', () => b.dataset.turn ? turn(+b.dataset.turn) : jump(b.dataset.goto)));
+  addEventListener('keydown', e => {
+    if (!document.body.classList.contains('spread')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); turn(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); turn(-1); }
+    if (e.key === 'Home') { e.preventDefault(); jump('first'); }
+    if (e.key === 'End') { e.preventDefault(); jump('last'); }
+  });
+  // 휠·트랙패드로도 넘긴다
+  let lock = 0;
+  book.addEventListener('wheel', e => {
+    if (!document.body.classList.contains('spread')) return;
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lock < 520) return;
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(d) < 12) return;
+    lock = now; turn(d > 0 ? 1 : -1);
+  }, { passive: false });
+
+  addEventListener('resize', () => {
+    const m = mode();
+    if (!m) setMode(false);
+    else if (document.body.classList.contains('spread')) { rescale(); measure(); warmSoon(); }
+    report();
+  });
+  report();
+
+  let saved = null;
+  try { saved = localStorage.getItem('sk-book'); } catch (e) {}
+  // 처음엔 세로로 읽는다. '책으로 보기'를 고른 적이 있으면 그걸 따른다(2026-09-29부터 기본값 변경 — 저장 이름도 새로)
+  if (wide() && saved === '1') setMode(true);
+  // 글꼴·사진이 다 온 뒤 지면 높이가 바뀔 수 있어 그때 복제본을 다시 맞춘다
+  addEventListener('load', () => { if (document.body.classList.contains('spread')) { measure(); warmSoon(); } seek(); });
+  // 주소 끝 #기사이름 으로 들어오면 그 기사가 놓인 펼침으로 바로 간다 (과월호 링크용)
+  function seek() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const el = id && pages.querySelector('#' + CSS.escape(id));   // 넘김용 사본이 아니라 실제 지면에서
+    if (!el) return;
+    if (!document.body.classList.contains('spread')) { el.scrollIntoView(); return; }
+    // 브라우저가 #앵커로 넘기느라 지면 상자를 옆으로 스크롤해 둔다 — 되돌리고 쪽 단위로 다시 간다
+    for (let n = pages.parentElement; n; n = n.parentElement) { n.scrollLeft = 0; }
+    const first = (el.firstElementChild || el).getClientRects()[0] || el.getBoundingClientRect();   // 여러 쪽에 걸친 기사는 첫 조각 기준
+    const k = pages.getBoundingClientRect().width / pages.offsetWidth || 1;   // 확대 비율
+    const off = (first.left - pages.getBoundingClientRect().left) / k - parseFloat(getComputedStyle(pages).paddingLeft);
+    const n = Math.max(0, Math.min(last, Math.floor((off + 2) / step)));
+    if (n !== spread) { spread = n; apply(); }
+  }
+  addEventListener('hashchange', seek);
+  // 목차를 누르면 그 기사로 — 책이면 그 쪽으로 넘기고, 세로로 읽으면 스크롤한다
+  const toc = pages.querySelector('.toc');
+  if (toc) toc.addEventListener('click', e => {
+    const a = e.target.closest('a.t'); if (!a) return;
+    e.preventDefault(); history.replaceState(null, '', a.getAttribute('href')); seek();
+  });
+})();
+
+/* 영상 — 그 지면이 펼쳐지면(세로로 읽을 때는 화면에 들어오면) 재생기를 끼워 대표 장면이 보이게
+   멈춰 둔다. 저절로 돌리지 않는다(2026-09-28). 누르면 재생하고, 넘기거나 벗어나면 멈춘다.
+   출처가 지워진 틀 안(아티팩트 미리보기)이나 file:// 로 연 파일에서는 유튜브가
+   '동영상 플레이어 구성 오류(153)'만 내므로, 그런 화면은 미리 알아보고 새 탭으로 보낸다. */
+(function () {
+  const pages = document.querySelector('.pages');
+  const figs = [...document.querySelectorAll('figure.vid')];
+  if (!figs.length) return;
+
+  let canEmbed = location.protocol !== 'file:' && location.origin && location.origin !== 'null';
+  if (canEmbed) { try { localStorage.getItem('sk-yt'); } catch (e) { canEmbed = false; } }  // 출처가 지워진 틀
+
+  let blocked = false;
+  addEventListener('securitypolicyviolation', e => {
+    if (/frame/.test(e.violatedDirective) || /youtube/.test(e.blockedURI || '')) blocked = true;
+  });
+
+  const alive = new Set();
+  addEventListener('message', e => {
+    try { if (/\.youtube(-nocookie)?\.com$/.test(new URL(e.origin).hostname)) alive.add(e.source); }
+    catch (_) {}
+  });
+  const cmd = (f, func) => { try { f.contentWindow.postMessage(
+    JSON.stringify({ event: 'command', func, args: [] }), '*'); } catch (_) {} };
+
+  const items = figs.map(fig => ({
+    fig, id: fig.dataset.yt,
+    screen: fig.querySelector('.screen'),
+    play: fig.querySelector('.play'),
+    watch: 'https://www.youtube.com/watch?v=' + fig.dataset.yt,
+    frame: null,
+  }));
+
+  function card(v, msg) {
+    v.frame = null;
+    v.screen.innerHTML = '';
+    const d = document.createElement('div');
+    d.className = 'out';
+    d.innerHTML = (msg ? '<p>' + msg + '</p>' : '') +
+      '<a href="' + v.watch + '" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>';
+    v.screen.appendChild(d);
+    return d.querySelector('a');
+  }
+
+  // 지면에 재생기를 끼운다. byUser = 눌러서 튼 것(바로 재생), 아니면 멈춘 채로 대표 장면만 보인다
+  function mount(v, byUser) {
+    if (blocked) { if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus(); return; }
+    const f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&playsinline=1&enablejsapi=1'
+      + (byUser ? '&autoplay=1' : '')
+      + '&origin=' + encodeURIComponent(location.origin);
+    f.title = v.play.querySelector('b').textContent;
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    v.screen.innerHTML = ''; v.screen.appendChild(f); v.frame = f;
+
+    // 살아 있는 재생기만 이 인사에 답한다. 답이 없으면 못 트는 화면이다.
+    const hi = () => { try { f.contentWindow.postMessage(
+      JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (_) {} };
+    const t = setInterval(hi, 500);
+    let done = false;
+    const verdict = () => {                     // 내려받는 시간은 빼고, 뜬 뒤로 2.5초만 기다린다
+      if (done) return;
+      done = true; clearInterval(t);
+      if (alive.has(f.contentWindow)) return;
+      if (byUser) card(v, '이 화면에서는 재생할 수 없습니다.').focus();
+      else { v.frame = null; v.screen.innerHTML = facade(v); wire(v); }   // 조용히 검은 판으로
+    };
+    f.addEventListener('load', () => { hi(); setTimeout(verdict, 2500); });
+    setTimeout(verdict, 12000);
+  }
+
+  // 검은 판(재생 전 모습)을 다시 만들기 위해 처음 모습을 적어 둔다
+  const kept = items.map(v => v.screen.innerHTML);
+  const facade = v => kept[items.indexOf(v)];
+  function wire(v) {
+    v.play = v.screen.querySelector('.play');
+    if (!v.play) return;
+    if (!canEmbed) v.play.classList.add('away');
+    v.play.addEventListener('click', () => {
+      if (!canEmbed) { if (!open(v.watch, '_blank', 'noopener')) card(v, ''); return; }
+      mount(v, true);
+    });
+  }
+  items.forEach(wire);
+
+  function start(v) {
+    if (!canEmbed) return;                      // 못 끼우는 화면은 검은 판 그대로(누르면 새 탭)
+    if (!v.frame && v.screen.querySelector('.play')) mount(v, false);   // 재생은 하지 않는다
+  }
+  const stop = v => { if (v.frame) cmd(v.frame, 'pauseVideo'); };
+
+  // ── 펼침 모드: 지금 펼친 자리에 있는 영상만 돈다 ──
+  let onSpread = false;
+  addEventListener('sk-page', e => {
+    const { spread, step, on } = e.detail;
+    onSpread = on;
+    if (!on) return;                            // 세로로 보기 — 아래 관찰자가 맡는다
+    const pr = pages.getBoundingClientRect();
+    const padL = parseFloat(getComputedStyle(pages).paddingLeft);
+    items.forEach(v => {
+      // .pages 가 통째로 움직이므로 둘의 차이는 항상 같다 = 이동과 무관한 자리
+      const k = pr.width / pages.offsetWidth || 1;   // 책 확대 비율을 걷어 낸다
+      const rel = (v.fig.getBoundingClientRect().left - pr.left) / k - padL;
+      (Math.floor((rel + 2) / step) === spread ? start : stop)(v);
+    });
+  });
+
+  // ── 세로로 보기(세로로 읽을 때): 화면에 들어오면 돌고, 벗어나면 멈춘다 ──
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (onSpread) return;
+      const v = items.find(x => x.fig === e.target);
+      (e.intersectionRatio > .55 ? start : stop)(v);
+    }), { threshold: [0, .55, 1] });
+    items.forEach(v => io.observe(v.fig));
+  }
+})();
+</script>
+<!-- 확대·축소 — 세로로 읽을 때(책 모드가 아닐 때) 본문 옆 빈 자리에 둔다. 가로 782px 미만은 손가락 확대를 쓴다 -->
+<style>
+.zoomer{display:none;position:fixed;right:18px;top:50%;transform:translateY(-50%);flex-direction:column;gap:6px;z-index:6}
+@media (min-width:782px){body:not(.spread) .zoomer{display:flex}}
+.zoomer button{width:42px;height:40px;border:1px solid var(--rule);border-radius:4px;background:var(--paper);
+  color:var(--ink);font:600 19px/1 var(--mono);cursor:pointer;transition:border-color .15s,color .15s}
+.zoomer button.pct{height:30px;font-size:11px;font-weight:500;color:var(--muted,var(--ink))}
+.zoomer button:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.zoomer button:disabled{opacity:.3;cursor:default}
+body:not(.spread) .wrap{zoom:var(--rz,1)}
+</style>
+<div class="zoomer" role="group" aria-label="확대·축소">
+  <button type="button" data-z="1" aria-label="확대" title="확대">+</button>
+  <button type="button" class="pct" data-z="0" aria-label="원래 크기로" title="원래 크기로">100%</button>
+  <button type="button" data-z="-1" aria-label="축소" title="축소">−</button>
+</div>
+<script>
+(function () {
+  const steps = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6];
+  const box = document.querySelector('.zoomer'), wrap = document.querySelector('.wrap');
+  if (!box || !wrap) return;
+  const pct = box.querySelector('.pct'), up = box.querySelector('[data-z="1"]'), down = box.querySelector('[data-z="-1"]');
+  let i = 2;
+  try { const j = steps.indexOf(parseFloat(localStorage.getItem('sk-zoom'))); if (j >= 0) i = j; } catch (e) {}
+  // 본문이 화면 밖으로 넘치지 않는 배율까지만 (오른쪽 버튼 자리 120px 남김)
+  const base = () => Math.min(parseFloat(getComputedStyle(wrap).maxWidth) || 680, innerWidth);
+  const top = () => { let k = 0; steps.forEach((s, n) => { if (base() * s <= innerWidth - 120) k = n; }); return Math.max(k, 2); };
+  function apply(keep) {
+    i = Math.min(i, top());
+    const doc = document.documentElement, at = keep ? scrollY / Math.max(1, doc.scrollHeight) : null;
+    doc.style.setProperty('--rz', steps[i]);
+    if (at !== null) scrollTo(0, at * doc.scrollHeight);      // 읽던 자리를 지킨다
+    pct.textContent = Math.round(steps[i] * 100) + '%';
+    up.disabled = i >= top(); down.disabled = i === 0;
+    try { localStorage.setItem('sk-zoom', String(steps[i])); } catch (e) {}
+  }
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const d = +b.dataset.z; i = d === 0 ? 2 : Math.max(0, Math.min(steps.length - 1, i + d)); apply(true);
+  });
+  addEventListener('resize', () => apply(false));
+  apply(false);
+})();
+</script>
+
+
+<div class="tiers" role="group" aria-label="구독 등급 미리보기">
+<button type="button" data-t="free">무료</button><button type="button" data-t="plus">플러스</button><button type="button" data-t="pro">프로</button></div>
+<script>(()=>{
+document.querySelectorAll('.abs').forEach(s=>s.setAttribute('data-m','██,███'));
+const set=t=>{document.body.dataset.tier=t;document.querySelectorAll('.tiers button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===t));
+  try{localStorage.setItem('sk-tier',t)}catch(e){};dispatchEvent(new Event('resize'));};
+document.querySelectorAll('.tiers button').forEach(b=>b.addEventListener('click',()=>set(b.dataset.t)));
+const gate=document.createElement('div');gate.className='gate';gate.setAttribute('role','dialog');gate.setAttribute('aria-modal','true');
+gate.innerHTML='<div class="gate-box"><p></p><small></small><div><button type="button" class="go x">확인</button></div></div>';
+document.body.appendChild(gate);
+const MSG={plus:['플러스 이상 멤버만 볼 수 있습니다','검색수·상품수 숫자는 플러스 구독부터 보입니다.'],
+  pro:['프로 멤버만 볼 수 있습니다','연관어 전체 데이터와 내려받기는 프로 구독에서 열립니다.'],
+  back:['플러스 이상 멤버만 볼 수 있습니다','지난 호(과월호)는 플러스 구독부터 열립니다.']};
+const warn=k=>{gate.querySelector('p').textContent=MSG[k][0];gate.querySelector('small').textContent=MSG[k][1];
+  gate.classList.add('on');gate.querySelector('.x').focus();};
+const close=()=>gate.classList.remove('on');
+gate.addEventListener('click',e=>{if(e.target===gate||e.target.classList.contains('x'))close();});
+addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+document.addEventListener('click',e=>{const a=e.target.closest('a.backissue, .issuenav a');
+  if(a&&document.body.dataset.tier==='free'){e.preventDefault();warn('back');}},true);
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>warn(b.dataset.go)));
+let t='free';try{t=localStorage.getItem('sk-tier')||'free'}catch(e){}
+set(t);})();</script>
+</body>
+</html>

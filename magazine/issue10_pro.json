@@ -1,0 +1,385 @@
+{
+ "weekly_total": 4371,
+ "weekly_top": [
+  [
+   "유니클로",
+   "패션의류",
+   2368700
+  ],
+  [
+   "무신사",
+   "패션의류",
+   1848400
+  ],
+  [
+   "치이카와",
+   "생활/건강",
+   1751600
+  ],
+  [
+   "롯데시네마",
+   "여가/생활편의",
+   1527100
+  ],
+  [
+   "탑텐",
+   "패션의류",
+   1054800
+  ],
+  [
+   "클로드",
+   "디지털/가전",
+   1022600
+  ],
+  [
+   "스파오",
+   "패션의류",
+   996000
+  ],
+  [
+   "29cm",
+   "패션잡화",
+   884500
+  ],
+  [
+   "뉴발란스",
+   "패션잡화",
+   786000
+  ],
+  [
+   "먼작귀",
+   "생활/건강",
+   662000
+  ],
+  [
+   "아이폰18프로",
+   "디지털/가전",
+   659900
+  ],
+  [
+   "안다르",
+   "패션의류",
+   598000
+  ],
+  [
+   "룰루레몬",
+   "패션의류",
+   526600
+  ],
+  [
+   "아이폰듀오",
+   "디지털/가전",
+   526400
+  ],
+  [
+   "제주항공권",
+   "여가/생활편의",
+   469400
+  ],
+  [
+   "오가닉포에버",
+   "화장품/미용",
+   430100
+  ],
+  [
+   "캐리비안베이",
+   "여가/생활편의",
+   427000
+  ],
+  [
+   "h&m",
+   "패션의류",
+   423300
+  ],
+  [
+   "샤넬",
+   "화장품/미용",
+   420400
+  ],
+  [
+   "교촌치킨",
+   "여가/생활편의",
+   418300
+  ]
+ ],
+ "amazon": {
+  "us": [
+   [
+    "needoh",
+    "Toys & Games",
+    5693525
+   ],
+   [
+    "halloween costumes for women",
+    "Clothing, Shoes & Jewelry",
+    4172818
+   ],
+   [
+    "carrie",
+    "Movies & TV",
+    3479268
+   ],
+   [
+    "toilet paper",
+    "Health & Household",
+    3058284
+   ],
+   [
+    "halloween candy",
+    "Grocery & Gourmet Food",
+    2767152
+   ],
+   [
+    "paper towels",
+    "Health & Household",
+    2549976
+   ],
+   [
+    "squishy",
+    "Toys & Games",
+    2379710
+   ],
+   [
+    "iphone 18 pro max case",
+    "Cell Phones & Accessories",
+    2126153
+   ],
+   [
+    "halloween",
+    "Grocery & Gourmet Food",
+    2028063
+   ],
+   [
+    "aa batteries",
+    "Health & Household",
+    1868893
+   ]
+  ],
+  "us_n": 100,
+  "us_emerg": [],
+  "uk": [
+   [
+    "wind up radio",
+    "Electronics & Photo",
+    885196
+   ],
+   [
+    "halloween costumes",
+    "Toys & Games",
+    495087
+   ],
+   [
+    "halloween decorations",
+    "Home & Kitchen",
+    486659
+   ],
+   [
+    "aa batteries",
+    "Electronics & Photo",
+    452981
+   ],
+   [
+    "halloween costumes for women",
+    "Toys & Games",
+    364633
+   ],
+   [
+    "carrie",
+    "Toys & Games",
+    352164
+   ],
+   [
+    "lego",
+    "Toys & Games",
+    345018
+   ],
+   [
+    "toilet roll",
+    "Grocery",
+    342422
+   ],
+   [
+    "water",
+    "Grocery",
+    327436
+   ],
+   [
+    "aaa batteries",
+    "Electronics & Photo",
+    319503
+   ]
+  ],
+  "uk_n": 100,
+  "uk_emerg": [
+   [
+    1,
+    "wind up radio",
+    885196
+   ],
+   [
+    13,
+    "camping stove",
+    304780
+   ],
+   [
+    24,
+    "wind up radio solar, battery, torch",
+    207931
+   ],
+   [
+    25,
+    "candles",
+    203756
+   ],
+   [
+    38,
+    "camping stove gas portable",
+    183060
+   ],
+   [
+    41,
+    "first aid kit",
+    174622
+   ],
+   [
+    71,
+    "emergency survival kit",
+    135998
+   ],
+   [
+    78,
+    "battery radio",
+    129734
+   ],
+   [
+    89,
+    "head torch",
+    115621
+   ],
+   [
+    94,
+    "water purification tablets",
+    111626
+   ]
+  ],
+  "de": [
+   [
+    "halloween kostüm damen",
+    "Spielzeug",
+    1235296
+   ],
+   [
+    "adventskalender 2026",
+    "Lebensmittel & Getränke",
+    751957
+   ],
+   [
+    "harry potter",
+    "Spielzeug",
+    713909
+   ],
+   [
+    "adventskalender",
+    "Lebensmittel & Getränke",
+    661636
+   ],
+   [
+    "halloween kostüm kinder",
+    "Spielzeug",
+    564331
+   ],
+   [
+    "halloween kostüm herren",
+    "Spielzeug",
+    479273
+   ],
+   [
+    "squishy",
+    "Spielzeug",
+    438639
+   ],
+   [
+    "pokemon 30 jahre",
+    "Spielzeug",
+    436703
+   ],
+   [
+    "halloween deko",
+    "Küche, Haushalt & Wohnen",
+    436587
+   ],
+   [
+    "lego",
+    "Spielzeug",
+    431144
+   ]
+  ],
+  "de_n": 100,
+  "de_emerg": [
+   [
+    28,
+    "power bank",
+    262744
+   ],
+   [
+    81,
+    "powerbank",
+    147550
+   ]
+  ],
+  "jp": [
+   [
+    "プロテイン",
+    "ドラッグストア",
+    1104000
+   ],
+   [
+    "ドラゴンボール",
+    "文房具・オフィス用品",
+    1084651
+   ],
+   [
+    "モバイルバッテリー",
+    "家電＆カメラ",
+    1074725
+   ],
+   [
+    "ハリーポッター",
+    "おもちゃ",
+    1054397
+   ],
+   [
+    "水",
+    "食品・飲料・お酒",
+    1033470
+   ],
+   [
+    "なにわ男子",
+    "ミュージック",
+    1022796
+   ],
+   [
+    "薬屋のひとりごと",
+    "ホビー",
+    1011989
+   ],
+   [
+    "ワンピース",
+    "ファッション",
+    1001054
+   ],
+   [
+    "炭酸水",
+    "食品・飲料・お酒",
+    989998
+   ],
+   [
+    "iphone",
+    "家電＆カメラ",
+    944660
+   ]
+  ],
+  "jp_n": 100,
+  "jp_emerg": []
+ }
+}

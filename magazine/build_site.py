@@ -22,7 +22,7 @@ ISSUES = [
     {"n": 10, "slug": "issue-10", "tpl": "issue10_template.html", "mod": "build_issue10",
      "title": "손잡이를 돌려 충전하는 라디오", "date": "2026년 11월 1주",
      "lede": "영국은 손잡이를 돌려 켜는 라디오를, 일본은 간이 화장실을, 미국은 물을 거르는 빨대를 샀습니다. 정부와 방송이 \"사흘은 버틸 준비를 하라\"고 말한 주였어요.",
-     "cover": "un10_radio_sill.jpg"},
+     "cover": "un10_radio_sill.jpg", "tiers": "build_issue10_tiers"},
     {"n": 9, "slug": "issue-09", "tpl": "issue09_template.html", "mod": "build_issue09",
      "title": "한국은 벌써 카본매트, 유럽은 이제 물주머니", "date": "2026년 10월 5주",
      "lede": "같은 주에 네 나라에서 난방용품 검색이 올랐습니다. 한국은 바닥에 까는 매트를, 독일·영국은 끌어안는 물주머니와 작은 온풍기를 찾았어요.",
